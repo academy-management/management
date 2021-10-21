@@ -13,12 +13,17 @@
 처음화면ad
 kyc branch commit22
 kyc branch rebase22
+
 kyc branch rebase 333
 kyc branch rebase 444
 <<<<<<< HEAD
 >>>>>>> refs/heads/kyc
 =======
 zxc basd tzxc5555555
+<<<<<<< HEAD
+>>>>>>> refs/remotes/origin/kyc
+=======
+merge tool 사용
 >>>>>>> refs/remotes/origin/kyc
 </body>
 </html>

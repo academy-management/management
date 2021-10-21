@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 처음화면main
-
-
 </body>
 </html>

@@ -1,4 +1,32 @@
 /* 관리자 */
+DROP TABLE manager 
+	CASCADE CONSTRAINTS;
+
+/* 교수 */
+DROP TABLE professor 
+	CASCADE CONSTRAINTS;
+
+/* 학생 */
+DROP TABLE student 
+	CASCADE CONSTRAINTS;
+
+/* 학과 */
+DROP TABLE department 
+	CASCADE CONSTRAINTS;
+
+/* 강의 */
+DROP TABLE subject 
+	CASCADE CONSTRAINTS;
+
+/* 수강 */
+DROP TABLE register 
+	CASCADE CONSTRAINTS;
+
+/* 공지사항 */
+DROP TABLE Notice 
+	CASCADE CONSTRAINTS;
+
+/* 관리자 */
 CREATE TABLE manager (
 	id NUMBER NOT NULL, /* 아이디 */
 	name VARCHAR(50), /* 이름 */
@@ -8,10 +36,12 @@ CREATE TABLE manager (
 	address VARCHAR(255) /* 주소 */
 );
 
-CREATE UNIQUE INDEX PK_manager
-	ON manager (
-		id ASC
-	);
+ALTER TABLE manager
+	ADD
+		CONSTRAINT PK_manager
+		PRIMARY KEY (
+			id
+		);
 
 /* 교수 */
 CREATE TABLE professor (
@@ -27,10 +57,12 @@ CREATE TABLE professor (
 	dno NUMBER /* 학과번호 */
 );
 
-CREATE UNIQUE INDEX PK_professor
-	ON professor (
-		pno ASC
-	);
+ALTER TABLE professor
+	ADD
+		CONSTRAINT PK_professor
+		PRIMARY KEY (
+			pno
+		);
 
 /* 학생 */
 CREATE TABLE student (
@@ -46,10 +78,12 @@ CREATE TABLE student (
 	dno NUMBER /* 학과번호 */
 );
 
-CREATE UNIQUE INDEX PK_student
-	ON student (
-		sno ASC
-	);
+ALTER TABLE student
+	ADD
+		CONSTRAINT PK_student
+		PRIMARY KEY (
+			sno
+		);
 
 /* 학과 */
 CREATE TABLE department (
@@ -58,10 +92,12 @@ CREATE TABLE department (
 	tel VARCHAR(30) /* 학과전화번호 */
 );
 
-CREATE UNIQUE INDEX PK_department
-	ON department (
-		dno ASC
-	);
+ALTER TABLE department
+	ADD
+		CONSTRAINT PK_department
+		PRIMARY KEY (
+			dno
+		);
 
 /* 강의 */
 CREATE TABLE subject (
@@ -73,17 +109,19 @@ CREATE TABLE subject (
 	room VARCHAR(255), /* 강의실 */
 	subtime DATE, /* 강의시간 */
 	state VARCHAR(50), /* 상태 */
-	startdate DATE, /* 개강날 */
-	enddate DATE, /* 종강날 */
+	startday DATE, /* 개강날 */
+	endday DATE, /* 종강날 */
 	division VARCHAR(50), /* 강의구분 */
 	dno NUMBER, /* 학과번호 */
 	pno NUMBER /* 교수아이디 */
 );
 
-CREATE UNIQUE INDEX PK_subject
-	ON subject (
-		subno ASC
-	);
+ALTER TABLE subject
+	ADD
+		CONSTRAINT PK_subject
+		PRIMARY KEY (
+			subno
+		);
 
 /* 수강 */
 CREATE TABLE register (
@@ -95,10 +133,12 @@ CREATE TABLE register (
 	subno NUMBER /* 강의코드 */
 );
 
-CREATE UNIQUE INDEX PK_register
-	ON register (
-		regno ASC
-	);
+ALTER TABLE register
+	ADD
+		CONSTRAINT PK_register
+		PRIMARY KEY (
+			regno
+		);
 
 /* 공지사항 */
 CREATE TABLE Notice (
@@ -111,10 +151,12 @@ CREATE TABLE Notice (
 	id NUMBER /* 아이디 */
 );
 
-CREATE UNIQUE INDEX PK_Notice
-	ON Notice (
-		Nno ASC
-	);
+ALTER TABLE Notice
+	ADD
+		CONSTRAINT PK_Notice
+		PRIMARY KEY (
+			Nno
+		);
 
 ALTER TABLE professor
 	ADD

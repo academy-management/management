@@ -7,7 +7,7 @@ CREATE TABLE manager (
 	email VARCHAR(40), /* 이메일 */
 	address VARCHAR(255) /* 주소 */
 );
-select * from professor;
+
 CREATE UNIQUE INDEX PK_manager
 	ON manager (
 		id ASC
@@ -45,7 +45,7 @@ CREATE TABLE student (
 	state VARCHAR(50), /* 재학상태 */
 	dno NUMBER /* 학과번호 */
 );
-select * from stu;
+
 CREATE UNIQUE INDEX PK_student
 	ON student (
 		sno ASC
@@ -71,10 +71,10 @@ CREATE TABLE subject (
 	score VARCHAR(255), /* 학점 */
 	people NUMBER, /* 인원수 */
 	room VARCHAR(255), /* 강의실 */
-	time DATE, /* 강의시간 */
+	subtime DATE, /* 강의시간 */
 	state VARCHAR(50), /* 상태 */
-	start DATE, /* 개강날 */
-	end DATE, /* 종강날 */
+	startdate DATE, /* 개강날 */
+	enddate DATE, /* 종강날 */
 	division VARCHAR(50), /* 강의구분 */
 	dno NUMBER, /* 학과번호 */
 	pno NUMBER /* 교수아이디 */
@@ -115,5 +115,73 @@ CREATE UNIQUE INDEX PK_Notice
 	ON Notice (
 		Nno ASC
 	);
-	
-	
+
+ALTER TABLE professor
+	ADD
+		CONSTRAINT FK_department_TO_professor
+		FOREIGN KEY (
+			dno
+		)
+		REFERENCES department (
+			dno
+		);
+
+ALTER TABLE student
+	ADD
+		CONSTRAINT FK_department_TO_student
+		FOREIGN KEY (
+			dno
+		)
+		REFERENCES department (
+			dno
+		);
+
+ALTER TABLE subject
+	ADD
+		CONSTRAINT FK_department_TO_subject
+		FOREIGN KEY (
+			dno
+		)
+		REFERENCES department (
+			dno
+		);
+
+ALTER TABLE subject
+	ADD
+		CONSTRAINT FK_professor_TO_subject
+		FOREIGN KEY (
+			pno
+		)
+		REFERENCES professor (
+			pno
+		);
+
+ALTER TABLE register
+	ADD
+		CONSTRAINT FK_student_TO_register
+		FOREIGN KEY (
+			sno
+		)
+		REFERENCES student (
+			sno
+		);
+
+ALTER TABLE register
+	ADD
+		CONSTRAINT FK_subject_TO_register
+		FOREIGN KEY (
+			subno
+		)
+		REFERENCES subject (
+			subno
+		);
+
+ALTER TABLE Notice
+	ADD
+		CONSTRAINT FK_manager_TO_Notice
+		FOREIGN KEY (
+			id
+		)
+		REFERENCES manager (
+			id
+		);

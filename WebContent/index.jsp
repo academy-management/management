@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-처음화면
+처음화면ad
 </body>
 </html>

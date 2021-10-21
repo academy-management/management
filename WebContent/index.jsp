@@ -7,6 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<<<<<<< HEAD
 처음화면main
+=======
+처음화면ad
+kyc branch commit22
+kyc branch rebase22
+kyc branch rebase 333
+kyc branch rebase 444
+>>>>>>> refs/heads/kyc
 </body>
 </html>

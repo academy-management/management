@@ -1,4 +1,4 @@
-package controller;
+package controller.Emp;
 
 import java.io.IOException;
 import java.util.List;
@@ -38,7 +38,7 @@ public class EmpController extends HttpServlet{
 	    	
 	    }else if(action.equals("emp_save")) {
 	    	
-		
+			
 
 	    }else if(action.equals("emp_list")) {
 	    	
@@ -46,6 +46,7 @@ public class EmpController extends HttpServlet{
 	    }else if(action.equals("emp_search")) {
 	    	
 	    	
+	    
 	    }  
 	    String dispatcherUrl= null;
 	    

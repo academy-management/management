@@ -45,7 +45,7 @@ CREATE TABLE student (
 	state VARCHAR(50), /* 재학상태 */
 	dno NUMBER /* 학과번호 */
 );
-select * from stu;
+select * from student;
 CREATE UNIQUE INDEX PK_student
 	ON student (
 		sno ASC
@@ -57,7 +57,7 @@ CREATE TABLE department (
 	name VARCHAR(50), /* 학과명 */
 	tel VARCHAR(30) /* 학과전화번호 */
 );
-
+select * from department
 CREATE UNIQUE INDEX PK_department
 	ON department (
 		dno ASC
@@ -79,6 +79,7 @@ CREATE TABLE subject (
 	dno NUMBER, /* 학과번호 */
 	pno NUMBER /* 교수아이디 */
 );
+select * from subject;
 
 CREATE UNIQUE INDEX PK_subject
 	ON subject (

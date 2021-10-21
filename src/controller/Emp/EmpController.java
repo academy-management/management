@@ -38,38 +38,13 @@ public class EmpController extends HttpServlet{
 	    	
 	    }else if(action.equals("emp_save")) {
 	    	
-			String ename = req.getParameter("ename");
-			String job = req.getParameter("job");		
-			int sal = Integer.parseInt(req.getParameter("sal"));		
-			int deptno = Integer.parseInt(req.getParameter("deptno"));
-
-			Emp emp = new Emp(ename,job,sal,deptno);
 			
-			EmpDao dao = new EmpDaoImpl();
-			dao.insert(emp);
-			
-			req.setAttribute("message", "잘 저장되었습니다.");
 
 	    }else if(action.equals("emp_list")) {
 	    	
 	    	
 	    }else if(action.equals("emp_search")) {
 	    	
-	    	String hiredate = req.getParameter("hiredate");
-	    	String hiredate2 = req.getParameter("hiredate2");
-	    
-	    	if(hiredate=="" && hiredate2 =="") {
-	    	EmpDao dao = new EmpDaoImpl();
-	    	List<Emp> emplist = dao.selectAll();
-	    	
-	    	req.setAttribute("empList", emplist);
-	    	}
-	    	
-	    	else {
-	    		EmpDao dao = new EmpDaoImpl();
-	    		List<Emp> emplist = dao.selectByHiredate(hiredate, hiredate2);
-	    		req.setAttribute("empList", emplist);
-	    	}
 	    	
 	    
 	    }  

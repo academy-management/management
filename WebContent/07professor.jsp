@@ -58,7 +58,7 @@
 			</section>
 			<section class="container_right cotainer_col">
 				<div class="main_title">
-					<img src="./img/title_img.png" alt="정보"/>
+					<img src="./img/title.png" alt="정보"/>
 					<h4>교수정보</h4>
 				</div>
 				<div class="search_box">

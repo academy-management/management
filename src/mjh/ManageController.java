@@ -34,6 +34,7 @@ public class ManageController extends HttpServlet{
 	    
 	    
 	    if(action.equals("student_search")) { 
+	    	
 	    	StudentDao dao = new StudentDaoImpl();
 			List<Student> studentList = dao.selectAll();
 

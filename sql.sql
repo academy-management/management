@@ -227,3 +227,21 @@ ALTER TABLE Notice
 		REFERENCES manager (
 			id
 		);
+		
+		
+		
+		
+		
+		
+		
+------------
+select * from department;
+insert into department values(1,'컴퓨터공학과','1234-5678');
+
+select * from student;
+insert into student values('20210101','1234','김학생',1,2021,'지구상 어딘가','010-1234-5678','kim@naver.com','재학',1);
+
+
+
+Select s.sno, s.name,  s.year , d.name, s.tel, s.state from student s ,department d where s.dno= d.dno;
+

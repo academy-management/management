@@ -12,9 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet(name = "EmpController", urlPatterns = { "/emp_input", "/emp_save","/emp_list" ,
-		"/emp_search"})
-public class EmpController extends HttpServlet{
+@WebServlet(name = "ManageController", urlPatterns = { "/student_search"})
+public class ManageController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
@@ -34,30 +33,17 @@ public class EmpController extends HttpServlet{
 		String action = uri.substring(lastIndex+1);
 	    
 	    
-	    if(action.equals("emp_input")) { 
-	    	
-	    }else if(action.equals("emp_save")) {
-	    	
-			
+	    if(action.equals("student_search")) { 
+	    	StudentDao dao = new StudentDaoImpl();
+			List<Student> studentList = dao.selectAll();
 
-	    }else if(action.equals("emp_list")) {
-	    	
-	    	
-	    }else if(action.equals("emp_search")) {
-	    	
-	    	
+			req.setAttribute("studentList", studentList);
+	    }
 	    
-	    }  
 	    String dispatcherUrl= null;
 	    
-	    if(action.equals("emp_input")) {
-	    	dispatcherUrl = "/empjsp/empsave.jsp";
-	    }else if(action.equals("emp_save")) {
-	    	dispatcherUrl = "/empjsp/empsave.jsp";
-	    }else if(action.equals("emp_list")) {
-	    	dispatcherUrl = "/empjsp/list.jsp";
-	    }else if(action.equals("emp_search")) {
-	    	dispatcherUrl = "/empjsp/list.jsp";
+	    if(action.equals("student_search")) {
+	    	dispatcherUrl = "/mjh/p26.jsp";
 	    }
 	    
 	    RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

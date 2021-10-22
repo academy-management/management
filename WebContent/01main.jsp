@@ -59,7 +59,7 @@
 			<section class="container_right">
 				<div class="right_l">
 					<div class="main_bnr">
-						<img src="./img/main.png" alt="메인 배너"/>
+						<img src="./img/main1.png" alt="메인 배너"/>
 					</div>
 					<div class="main_notice">
 					 	<table class="table table-hover">
@@ -127,7 +127,7 @@
 				<div class="slide_bnr">
 				  	<div id="slider-div">
 					    <div>
-					    	<img src="./img/s1.png" alt="성적확인 기간"/>
+					    	<img src="./img/s11.png" alt="성적확인 기간"/>
 					    </div>
 					   <!--  <div>
 					    	<img src="./img/s1.png" alt="성적확인 기간"/>2222

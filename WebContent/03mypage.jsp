@@ -79,7 +79,7 @@
 							<label>연락처</label><input type="text" class="login_text" name="phone" />
 						</div>
 						<div class="my_text_edit">
-							<label>이메일</label><input type="text" class="login_text2" name="email" />@
+							<label>이메일 </label><input type="text" class="login_text2" name="email" />@
 							<select class="login_select">
 								<option>선택해주세요</option>
 								<option value="naver.com">naver.com</option>

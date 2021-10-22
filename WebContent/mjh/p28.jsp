@@ -67,10 +67,10 @@
 			</section>
 			<section class="container_right container_center">
 				<div class="my_login">
-					<h3 class="title">학생 등록</h3>
+					<h3 class="title">교수 등록</h3>
 					<div class="my_center">
 						<div class="my_text_edit">
-							<label>학번</label><input type="text" class="login_text dis" name="sno"/>
+							<label>교수번호</label><input type="text" class="login_text dis" name="sno"/>
 						</div>
 						<div class="my_text_edit">
 							<label>비밀번호</label><input type="password" class="login_text" name="password"/>
@@ -82,7 +82,10 @@
 							<label>소속학과</label><input type="text" class="login_text" name="password" />
 						</div>
 						<div class="my_text_edit">
-							<label>입학년도</label><input type="text" class="login_text" name="password" />
+							<label>전공</label><input type="text" class="login_text" name="password" />
+						</div>
+						<div class="my_text_edit">
+							<label>연구실</label><input type="text" class="login_text" name="password" />
 						</div>
 						<div class="my_text_edit">
 							<label>연락처</label><input type="text" class="login_text" name="phone" />

@@ -1,0 +1,376 @@
+@charset "UTF-8";
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+ul li {
+    list-style: none;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+a, a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+    color: #222;
+}
+
+body {
+    color: #222;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
+    font-size:15px;
+    overflow-x: hidden;
+}
+
+/*로그인*/
+/* .login_wrap{
+	position:relative;	
+} */
+.login_wraping{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -74%);
+}
+.title {
+	text-align:center;
+	font-weight: 600;
+	margin-bottom:20px;
+}
+.login_text {
+	width:360px;
+	height:45px;
+	border:1px solid #ddd;
+	border-radius:3px;
+	padding-left:5px;
+	display:block;
+}
+.login_text2 {
+	width:157px;
+	height:45px;
+	border:1px solid #ddd;
+	border-radius:3px;
+	padding-left:5px;
+	display:block;
+}
+.login_text3{
+	width:256px;
+}
+.login_select {
+	width:130px;
+	height:45px;
+	border:1px solid #ddd;
+	border-radius:3px;
+	padding-left:5px;
+	display:block;
+}
+.btn_submit {
+	width: 360px;
+    height: 45px;
+    color: #fff;
+    background: #454baf;
+    border: none;
+    border-radius: 3px;
+    font-size:16px;
+}
+.login_wraping input{
+	display:block;
+	margin-top:10px;
+}
+/* 메인 */
+.header {
+	height: 60px;
+    background: #454baf;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+}
+.logo {
+	flex-grow:3;
+}
+.logo h1 {
+	margin:0;
+}
+.logo h1 a img {
+	width: 180px;
+    padding-left: 30px;
+}
+.user{
+	justify-content: flex-end;
+}
+.user > ul {
+ 	display:flex;
+ 	justify-content: space-around;
+    width: 360px;
+    align-items: center;
+ }
+.user ul > li.last >a:hover {
+	color:#fff;
+}
+.user p{
+	color:#fff;
+	font-size:15px;
+	padding:15px 0px; 
+	margin-bottom: 0.3rem;
+	cursor: pointer;
+}
+.user_choice {
+	width: 150px;
+    height: 125px;
+    background: #fff;
+    border: 1px solid #ddd;
+    position: absolute;
+    box-shadow: 5px 5px 10px #ddd;
+    display:none;
+    margin-top: 3px;
+}
+.user_choice li {
+	padding:10px;
+}
+
+.user_choice li:hover{
+	background:#f5f5f5;
+	color:#222;
+}
+
+.login_out{
+	color:#fff;
+	font-size:15px;
+	padding:15px 0px;
+}
+
+.containers {
+	position:relative;
+}
+.container_left {
+	background:#2c318c;
+	height:100%;
+	width:220px;
+	position:fixed;
+	top:6%;
+}
+.container_left nav {
+	padding-top:30px;
+}
+.container_left nav ul li {
+	padding:15px 0px;
+	height:56px;
+}
+.container_left nav ul li a {
+	font-size:16px;
+	color:#fff;
+	padding-left: 30px;
+}
+.container_left nav ul li:hover {
+	background:#1e2150;
+	width:100%;
+	height:56px;
+	cursor: pointer;
+}
+.container_right{
+	margin-left: 240px;
+    padding-top: 76px;
+    display:flex;
+    
+}
+.slide_bnr {
+	width:370px;
+	height:822px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+.right_l{
+	flex-direction: column;
+}
+.main_notice {
+	margin-top:20px;
+	width: 1260px;
+}
+table thead {
+	background:#f5f5f5;
+}
+table th,
+table td{
+	text-align:center;
+	height:49px;
+	vertical-align: middle;
+}
+/* 회원정보 변경 */
+.container_center {
+	justify-content: center;
+}
+.my_login,
+.my_center {
+	margin-top:50px;
+}
+
+.my_center input {
+	margin-bottom:20px;
+}
+.my_text_edit{
+	display: flex;
+    justify-content: space-between;
+}
+.my_text_edit label {
+	line-height: 45px;
+    padding-right: 65px;
+}
+.my_adr {
+	flex-direction: column;
+}
+.my_adr input {
+	margin-bottom:10px;
+}
+.my_adr_search {
+	display:flex;
+	justify-content: space-between;
+}
+.btn_adr{
+	width: 94px;
+    margin-left: 10px;
+    background:#3498db;
+    color:#fff;
+    border: none;
+    border-radius: 3px;
+}
+.my_right {
+	float: right;
+}
+.big{
+	margin-bottom:5px;
+}
+.my_btn {
+	clear:both;
+	text-align: center;
+}
+.btn_can {
+	border:1px solid #454baf;
+	background:#fff;
+	width:100px;
+	height:40px;
+	color:#454baf;
+	border-radius:3px;
+	margin-top:40px;
+}
+.btn_edit {
+	border:none;
+	background:#454baf;
+	width:100px;
+	height:40px;
+	color:#fff;
+	border-radius:3px;
+}
+
+/* 성적정보 */
+.cotainer_col {
+	flex-direction: column;
+}
+.main_title img{
+	display: inline-block;
+}
+.main_title h4 {
+	display: inline-block;
+    vertical-align: sub;
+}
+.search {
+	display: flex;
+    align-items: center;
+}
+.search_box {
+	display:flex;
+	background:#f5f5f5;
+	width:99%;
+	height:70px;
+	padding: 0px 15px;
+	justify-content: space-between;
+	align-items: center;
+	margin-top:20px;
+}
+.search_box label{
+	margin-right:30px;
+}
+.search_select {
+	width:115px;
+	height:35px;
+	border:1px solid #ddd;
+	border-radius:3px;
+	padding-left:5px;
+	margin-right:10px;
+}
+.container_score {
+	margin-top:40px;
+	width:99%;
+}
+/* 수강정보 */
+.btn_cancle {
+	width:65px;
+	margin:0px;
+}
+.paging ul{
+	display: flex;
+    justify-content: center;
+}
+.paging ul li {
+	padding:5px 12px;
+	cursor:pointer;
+}
+.active {
+	background:#454baf;
+	border-radius:3px;
+	border:1px solid #454baf;
+	color:#fff;
+}
+
+/* 교수정보 */
+.professor_box {
+	display: flex;
+    align-items: center;
+}
+.p_bg {
+	background: url(../img/pj.jpg);
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    border-radius: 100%;
+}
+.p_text {
+	margin-left:40px;
+}
+.p_text h5 {
+	margin-bottom:10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

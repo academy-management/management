@@ -9,6 +9,12 @@ import java.util.List;
 public class StudentDaoImpl implements StudentDao{
 
 	@Override
+	public void insert(Student student) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
 	public List<Student> selectAll() {
 		List<Student> studentList = new ArrayList<>();
 
@@ -42,6 +48,8 @@ public class StudentDaoImpl implements StudentDao{
 
 		return studentList;
 	}
+
+	
 	
 
 }

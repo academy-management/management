@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix = "c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>학생-공지사항</title>
+<title>교수-강의정보-수강현황</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -13,54 +13,58 @@
 </head>
 <body>
 <div>
-	<ul style="float:right">
-		<li style="float:left">
-			<p>${student.name}님 반갑습니다</p>
-		</li>
-		<li style="float:left">
-			<select name="menu_studentInfo">
-				<option value="#"></option>
-				<option value="#"></option>
-				<option value="#"></option>
-				<option value="#"></option>
-			</select>
-		</li>
-		<li style="float:left">
-			<a href="#">로그아웃</a>
-		</li>	
-	</ul>
 	<div>
-		공지사항
+		<ul style="float:right">
+			<li style="float:left">
+				<p>${professor.name}님 반갑습니다</p>
+			</li>
+			<li style="float:left">
+				<select name="menu_professorInfo">
+					<option value="#"></option>
+					<option value="#"></option>
+					<option value="#"></option>
+					<option value="#"></option>
+				</select>
+			</li>
+			<li style="float:left">
+				<a href="#">로그아웃</a>
+			</li>	
+		</ul>
 	</div>
+
 	<div>
-		<form method="post" action="#">
-			<input type="radio" name ="division" value="전체"/> 전체
-			<input type="radio" name ="division" value="notice.subject"/> 학과
-			<input type="text" name="searchSubject"/> 
-			<input type="submit" value="검색">
-		</form> 
+		<p>강의 수강 현황</p>
 	</div>
-	<table>
+	
+	<div>
+		<p>${subject.name}</p>
+	</div>
+	
+	<table border =1>
 		<thead>
 			<tr>
 				<th>No</th>
-				<th>제목</th>
-				<th>작성일</th>
-				<th>작성자</th>
-				<th>조회수</th>
+				<th>학번</th>
+				<th>이름</th>
+				<th>전공</th>
+				<th>학년</th>
+				<th>휴대폰</th>
+				<th>이메일</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="notice" items="${noticeList}">
+			<c:forEach var="student" items="studentList">
 			<tr>
-				<td>${notice.nno}</td>
-				<td>${notice.subject}</td>
-				<td>${notice.time}</td>
-				<td>관리자</td>
-				<td>${notice.view}</td>
+				<td><%-- ${student.no} --%></td>
+				<td><%-- ${student.sno} --%></td>
+				<td><%-- ${student.name} --%></td>
+				<td><%-- ${student.dname} --%></td>
+				<td><%-- ${student.grade} --%></td>
+				<td><%-- ${student.tel} --%></td>
+				<td><%-- ${student.email} --%></td>
 			</tr>
 			</c:forEach>
-		</tbody>
+		</tbody>	
 	</table>
 	
 	<!-- 페이징 -->
@@ -94,6 +98,6 @@
 			</c:if>
 		</ul>
 	</div>
-</div>		
+</div>
 </body>
 </html>

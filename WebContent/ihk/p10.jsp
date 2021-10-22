@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div>공지사항</div>
+<div>학생-공지사항-상세보기</div>
 <div>
 	<ul style="float:right">
 		<li style="float:left">

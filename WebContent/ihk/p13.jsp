@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>교수-회원정보변경</title>
 </head>
 <body>
 <div>

@@ -50,7 +50,7 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href="">수강신청</a></li>
+						<li class="menu_active"><a href="">수강신청</a></li>
 						<li><a href="">교수정보</a></li>
 						<li><a href="">공지사항</a></li>
 					</ul>

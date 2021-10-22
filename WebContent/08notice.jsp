@@ -16,7 +16,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="./js/script.js"></script>
 <script type="text/javascript" src="./js/slick.js"></script>
- 
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -56,13 +56,29 @@
 					</ul>
 				</nav>
 			</section>
-			<section class="container_right">
-				<div class="right_l">
-					<div class="main_bnr">
-						<img src="./img/main1.png" alt="메인 배너"/>
+			<section class="container_right cotainer_col">
+				<div class="main_title">
+					<img src="./img/title_img.png" alt="성적정보"/>
+					<h4>공지사항</h4>
+				</div>
+				<div class="search_box">
+					<div class="search">
+						<div style="margin-left:20px;">
+							<label for="major">
+								<input type="radio" id="major" checked/> 전체
+							</label>
+							<label for="subject">
+								<input type="radio" id="subject" /> 학과
+							</label>
+						</div>
 					</div>
-					<div class="main_notice">
-					 	<table class="table table-hover">
+					<div class="notice_btn">
+						<input type="text" class="login_text dis hei" name="search"/>
+						<input type="submit" class="btn_edit" value="조회"/>
+					</div>
+				</div>
+				<div class="container_score">
+					<table class="table table-hover">
 					 		<colgroup>
 					          <col style="width:10%">
 					          <col style="width:70%">
@@ -79,7 +95,55 @@
 					 		</thead>
 					 		<tbody>
 					 			<tr>
-					 				<td>1</td>
+					 				<td>10</td>
+					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
+					 				<td>2021.03.12</td>
+					 				<td>100</td>
+					 			</tr>
+					 			<tr>
+					 				<td>9</td>
+					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
+					 				<td>2021.03.12</td>
+					 				<td>100</td>
+					 			</tr>
+					 			<tr>
+					 				<td>8</td>
+					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
+					 				<td>2021.03.12</td>
+					 				<td>100</td>
+					 			</tr>
+					 			<tr>
+					 				<td>7</td>
+					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
+					 				<td>2021.03.12</td>
+					 				<td>100</td>
+					 			</tr>
+					 			<tr>
+					 				<td>6</td>
+					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
+					 				<td>2021.03.12</td>
+					 				<td>100</td>
+					 			</tr>
+					 			<tr>
+					 				<td>5</td>
+					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
+					 				<td>2021.03.12</td>
+					 				<td>100</td>
+					 			</tr>
+					 			<tr>
+					 				<td>4</td>
+					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
+					 				<td>2021.03.12</td>
+					 				<td>100</td>
+					 			</tr>
+					 			<tr>
+					 				<td>3</td>
+					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
+					 				<td>2021.03.12</td>
+					 				<td>100</td>
+					 			</tr>
+					 			<tr>
+					 				<td>2</td>
 					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
 					 				<td>2021.03.12</td>
 					 				<td>100</td>
@@ -90,58 +154,23 @@
 					 				<td>2021.03.12</td>
 					 				<td>100</td>
 					 			</tr>
-					 			<tr>
-					 				<td>1</td>
-					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
-					 				<td>2021.03.12</td>
-					 				<td>100</td>
-					 			</tr>
-					 			<tr>
-					 				<td>1</td>
-					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
-					 				<td>2021.03.12</td>
-					 				<td>100</td>
-					 			</tr>
-					 			<tr>
-					 				<td>1</td>
-					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
-					 				<td>2021.03.12</td>
-					 				<td>100</td>
-					 			</tr>
-					 			
 					 		</tbody>
-					 	</table>
-					 </div>
+					 </table>
 				</div>
-				<div class="slide_bnr">
-				  	<div id="slider-div">
-					    <div>
-					    	<img src="./img/s11.png" alt="성적확인 기간"/>
-					    </div>
-					   <!--  <div>
-					    	<img src="./img/s1.png" alt="성적확인 기간"/>2222
-					    </div> -->
-				  	</div>
+				<div class="paging">
+					<ul>
+						<li><</li>
+						<li class="active">1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>></li>
+					</ul>
 				</div>
 			</section>
-			
 		</div>
 	</div>
-	<!-- <script type="text/javascript">
-	$(function(){
-		$('#slider-div').slick({
-			slide: 'div',		
-			infinite : true, 	
-			slidesToShow : 1,		
-			slidesToScroll : 1,		
-			arrows : false, 		
-			dots : true, 		
-			autoplay : true,			
-			autoplaySpeed : 1000, 		
-			pauseOnHover : true,		
-			dotsClass : "slick-dots"	
-		});
-	})
-	</script> -->
+	
 </body>
 </html>

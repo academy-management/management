@@ -51,59 +51,50 @@
 				<nav>
 					<ul>
 						<li><a href="">수강신청</a></li>
-						<li class="menu_active"><a href="">교수정보</a></li>
-						<li><a href="">공지사항</a></li>
+						<li><a href="">교수정보</a></li>
+						<li class="menu_active"><a href="">공지사항</a></li>
 					</ul>
 				</nav>
 			</section>
 			<section class="container_right cotainer_col">
 				<div class="main_title">
-					<img src="./img/title.png" alt="정보"/>
-					<h4>교수정보</h4>
+					<img src="./img/title_img.png" alt="성적정보"/>
+					<h4>공지사항</h4>
 				</div>
-				<div class="search_box">
-					<div class="search">
-						<label>학과</label>
-						<select class="search_select">
-							<option value=11">컴퓨터공학과</option>
-							<option value="12">행정과</option>
-							<option value="22">법학과</option>
-							<option value="33">시각 디자인과</option>
-						</select>
-					</div>
-					<div>
-						<input type="submit" class="btn_edit" value="조회"/>
-					</div>
+				
+				<div class="container_score">
+					<table class="table table_bg">
+					 		<colgroup>
+					          <col style="width:15%">
+					          <col style="width:35%">
+					          <col style="width:15%">
+					          <col style="width:35%">
+					        </colgroup>
+					 		<tbody>
+					 			<tr>
+					 				<th>작성일</th>
+					 				<td>2021.10.23</td>
+					 				<th>조회수</th>
+					 				<td>100</td>
+					 			</tr>
+					 			<tr>
+					 				<th>작성일</th>
+					 				<td colspan="3">홈페이지 점검안내 드립니다.</td>
+					 			</tr>
+					 			<tr>
+					 				<td colspan="4">
+						 				<p>홈페이지 점검안내 드립니다.</p>
+						 				<p>홈페이지 점검안내 드립니다.</p>
+						 				<p>홈페이지 점검안내 드립니다.</p>
+						 				<p>홈페이지 점검안내 드립니다.</p>
+					 				</td>
+					 			</tr>
+					 		</tbody>
+					 </table>
 				</div>
-				<div class="container_score border_d">
-					<div class="professor_box">
-						<div class="p_bg"></div>
-						<div class="p_text">
-							<h5>김판수</h5>
-							<p>대표 : 컴퓨터 공학과</p>
-							<p>email : dafsdf@gmail.com</p>
-							<p>연락처 : 010-4567-7894</p>
-							<p>연구실 : 서울시 은평구 00 0000</p>
+				<div class="my_btn">
+							<input type="button" class="btn_edit" value="목록"/>
 						</div>
-						<div class="p_text">
-							<h5>담당과목</h5>
-							<p>컴퓨터 공학과</p>
-							<p>역사와 이해</p>
-							<p>이론과 실습</p>
-						</div>
-					</div>
-				</div>
-				<div class="paging">
-					<ul>
-						<li><</li>
-						<li class="active">1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
-						<li>></li>
-					</ul>
-				</div>
 			</section>
 		</div>
 	</div>

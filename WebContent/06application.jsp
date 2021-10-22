@@ -58,7 +58,7 @@
 			</section>
 			<section class="container_right cotainer_col">
 				<div class="main_title">
-					<img src="./img/title_img.png" alt="성적정보"/>
+					<img src="./img/title.png" alt="성적정보"/>
 					<h4>수강신청</h4>
 				</div>
 				<div class="search_box">

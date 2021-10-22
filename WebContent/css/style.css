@@ -306,6 +306,7 @@ table td{
 	padding: 0px 15px;
 	justify-content: space-between;
 	align-items: center;
+	margin-top:20px;
 }
 .search_box label{
 	margin-right:30px;
@@ -355,7 +356,7 @@ table td{
     border-radius: 100%;
 }
 .p_text {
-	margin-left:20px;
+	margin-left:40px;
 }
 .p_text h5 {
 	margin-bottom:10px;

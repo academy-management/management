@@ -7,12 +7,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div>공지사항</div>
+<div>학생-공지사항-상세보기</div>
 <div>
-	<div>
-		${sutdent.name}님 반갑습니다. 
-		<a href ="logout">로그아웃</a>
-	</div>
+	<ul style="float:right">
+		<li style="float:left">
+			<p>${student.name}님 반갑습니다</p>
+		</li>
+		<li style="float:left">
+			<select name="menu_studentInfo">
+				<option value="#"></option>
+				<option value="#"></option>
+				<option value="#"></option>
+				<option value="#"></option>
+			</select>
+		</li>
+		<li style="float:left">
+			<a href="#">로그아웃</a>
+		</li>	
+	</ul>
 
 	<table border =1>
 		<thead>

@@ -33,7 +33,11 @@ a, a:hover, a:focus {
     outline: none;
     color: #222;
 }
-
+table, caption, tbody, tfoot, thead, tr{
+	border: 1px solid #ddd;
+	border-left:none;
+	border-right:none;
+}
 body {
     color: #222;
     font-family: 'Noto Sans KR', sans-serif;
@@ -167,7 +171,7 @@ body {
 .container_left {
 	background:#2c318c;
 	height:100%;
-	width:220px;
+	width:270px;
 	position:fixed;
 	top:6%;
 }
@@ -190,8 +194,8 @@ body {
 	cursor: pointer;
 }
 .container_right{
-	margin-left: 240px;
-    padding-top: 76px;
+	margin-left: 297px;
+    padding-top: 82px;
     display:flex;
     
 }
@@ -214,7 +218,7 @@ table thead {
 table th,
 table td{
 	text-align:center;
-	height:49px;
+	height:60px;
 	vertical-align: middle;
 }
 /* 회원정보 변경 */
@@ -328,6 +332,9 @@ table td{
 	width:65px;
 	margin:0px;
 }
+.paging {
+	margin-top:50px;
+}
 .paging ul{
 	display: flex;
     justify-content: center;
@@ -346,30 +353,49 @@ table td{
 /* 교수정보 */
 .professor_box {
 	display: flex;
-    align-items: center;
+    align-items: flex-start;
+    border-top:1px solid #999;
+	padding: 20px 10px;
+	border-bottom:1px solid #999;
 }
 .p_bg {
 	background: url(../img/pj.jpg);
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     background-size: cover;
     border-radius: 100%;
 }
 .p_text {
 	margin-left:40px;
+	margin-top:30px;
 }
 .p_text h5 {
 	margin-bottom:10px;
 }
+.p_text:last-child{
+	margin-left:100px;
+}
+/* 공지사항 */
+.notice_btn {
+	display:flex;
+}
+.hei {
+	height:40px;
+	margin-right:20px;
+	width:500px;
+}
+.table_bg tbody > tr> th {
+	background:#f5f5f5;
+}
 
+.table_bg tbody > tr> td {
+	text-align:left;
+}
 
-
-
-
-
-
-
-
+/* 메뉴 */
+.menu_active {
+	background: #1e2150;
+}
 
 
 

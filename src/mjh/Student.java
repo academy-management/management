@@ -4,10 +4,52 @@ public class Student {
 	private int sno;
 	private String name;
 	private int year;
-	private String d_name;
+	private String d_name;     //학과
 	private String tel;
 	private String state;
+	private String password;
+	private String address;
+	private String email;
 	
+	public Student() {}
+	public Student(int sno, String name, int year, String d_name, String tel, String password, String address,
+			String email) {
+		super();
+		this.sno = sno;
+		this.name = name;
+		this.year = year;
+		this.d_name = d_name;
+		this.tel = tel;
+		this.password = password;
+		this.address = address;
+		this.email = email;
+	}
+
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	public int getSno() {
 		return sno;
 	}

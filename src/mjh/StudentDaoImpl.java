@@ -10,7 +10,31 @@ public class StudentDaoImpl implements StudentDao{
 
 	@Override
 	public void insert(Student student) {
-		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.STUDENT_INSERT);
+
+			pStatement.setInt(1, student.getSno());
+			pStatement.setString(2, student.getPassword());
+			pStatement.setString(3, student.getName());
+			pStatement.setInt(4, student.getYear());
+			pStatement.setString(5, student.getAddress());
+			pStatement.setString(6, student.getTel());
+			pStatement.setString(7, student.getEmail());
+			pStatement.setString(8, student.getD_name());
+		
+		
+			pStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(null, pStatement, connection);
+		}
+
 		
 	}
 	
@@ -47,6 +71,29 @@ public class StudentDaoImpl implements StudentDao{
 		}
 
 		return studentList;
+	}
+
+	@Override
+	public void update(int sno, String state) {
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.STUDENT_UPDATE);
+
+			pStatement.setString(1, state);
+			pStatement.setInt(2, sno);
+			
+			pStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(null, pStatement, connection);
+		}
+
+		
 	}
 
 	

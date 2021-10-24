@@ -243,7 +243,8 @@ select * from student;
 insert into student values('20210101','1234','김학생',1,2021,'지구상 어딘가','010-1234-5678','kim@naver.com','재학',1);
 insert into student values('20210102','1234','이학생',1,2021,'지구상 어딘가','010-1234-5678','lee@naver.com','재학',1);
 
-
+insert into student values(?,?,?,?,?,?,?,?,'재학',1);
 
 Select s.sno, s.name,  s.year , d.name, s.tel, s.state from student s ,department d where s.dno= d.dno;
 
+update student set state = '휴학' where sno='20210101'

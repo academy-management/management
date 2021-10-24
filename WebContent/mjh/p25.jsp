@@ -23,7 +23,7 @@
 <script type="text/javascript" src="./js/slick.js"></script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	
+
 </head>
 <body>
 	<div class="wrap">
@@ -79,7 +79,7 @@
 				</div>
 				<div class="search_box">
 					<div class="search">
-						
+
 						<form method="post" action="student_search">
 							<select name="year">
 								<option value="">입학년도</option>
@@ -124,14 +124,41 @@
 								<c:forEach var="student" items="${studentList}">
 
 									<tr>
-										<td>${student.sno}</td>
+										<form method="post" action="student_update">
+										<td><input type="text" name="sno" value=${student.sno
+											} readonly /></td>
 										<td>${student.name}</td>
 										<td>${student.year}</td>
 										<td>${student.d_name}</td>
 										<td>${student.tel}</td>
-										<td>${student.state}</td>
-										<td><input type="button" value="수정"></td>
-
+										<td>
+										<c:if test="${student.state == '재학'}"> 
+										<select name="state">
+												<option value="${student.state}">${student.state}</option>
+												<option value="휴학">휴학</option>
+												<option value="퇴학">퇴학</option>
+										</select>
+										</c:if>
+										
+										<c:if test="${student.state == '휴학'}"> 
+										<select name="state">
+												<option value="${student.state}">${student.state}</option>
+												<option value="재학">재학</option>
+												<option value="퇴학">퇴학</option>
+										</select>
+										</c:if>
+										
+										<c:if test="${student.state == '퇴학'}"> 
+										<select name="state">
+												<option value="${student.state}">${student.state}</option>
+												<option value="재학">재학</option>
+												<option value="휴학">휴학</option>
+										</select>
+										</c:if>
+										
+										</td>
+										<td><input type="submit" class="btn btn-outline-dark" value="수정" /></td>
+										</form>
 									</tr>
 								</c:forEach>
 						</table>

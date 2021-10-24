@@ -7,7 +7,7 @@ public interface StudentDao {
 	//int selectCntById(String id);
 	
 	//Student login(String id, String pwd);
-	//void update(Product product);
+	void update(int sno, String state);
 	//void delete(int productid);
 	
 	List<Student> selectAll();

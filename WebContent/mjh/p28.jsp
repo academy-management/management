@@ -67,11 +67,11 @@
 			</section>
 			<section class="container_right container_center">
 				<div class="my_login">
-					<h3 class="title">학생 등록</h3>
+					<h3 class="title">교수 등록</h3>
 					<div class="my_center">
-						<form method="post" action="student_insert">
+						<form method="post" action="professor_insert">
 						<div class="my_text_edit">
-							<label>학번</label><input type="text" class="login_text dis" name="sno"/>
+							<label>교수번호</label><input type="text" class="login_text dis" name="pno"/>
 						</div>
 						<div class="my_text_edit">
 							<label>비밀번호</label><input type="password" class="login_text" name="password"/>
@@ -87,14 +87,17 @@
 							</select>
 						</div>
 						<div class="my_text_edit">
-							<label>입학년도</label><input type="text" class="login_text" name="year" />
+							<label>전공</label><input type="text" class="login_text" name="major" />
+						</div>
+						<div class="my_text_edit">
+							<label>연구실</label><input type="text" class="login_text" name="pro_room" />
 						</div>
 						<div class="my_text_edit">
 							<label>연락처</label><input type="text" class="login_text" name="tel" />
 						</div>
 						<div class="my_text_edit">
 							<label>이메일</label><input type="text" class="login_text2" name="email" />@
-							<select class="login_select" name="email2">
+							<select class="login_select">
 								<option>선택해주세요</option>
 								<option value="naver.com">naver.com</option>
 								<option value="daum.net">daum.net</option>

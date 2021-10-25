@@ -96,6 +96,44 @@ public class StudentDaoImpl implements StudentDao{
 		
 	}
 
+	@Override
+	public List<Student> selectByNYN(String name, String year, String department) {
+		List<Student> studentList = new ArrayList<>();
+
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.STUDENT_SELECT_NYN);
+			pStatement.setString(1,"%"+name+"%");
+			pStatement.setString(2,"%"+year+"%");
+			pStatement.setString(3,"%"+department+"%");
+			resultSet = pStatement.executeQuery();
+
+			while (resultSet.next()) {
+
+				Student student = new Student();
+
+				student.setSno(resultSet.getInt("sno"));
+				student.setName(resultSet.getString("name"));
+				student.setYear(resultSet.getInt("year"));
+				student.setD_name(resultSet.getString("d_name"));
+				student.setTel(resultSet.getString("tel"));
+				student.setState(resultSet.getString("state"));
+
+				studentList.add(student);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}
+
+		return studentList;
+	}
+
 	
 	
 

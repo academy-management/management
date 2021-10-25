@@ -80,18 +80,18 @@
 				<div class="search_box">
 					<div class="search">
 
-						<form method="post" action="student_search">
+						<form method="post" action="student_searchbyname">
 							<select name="year">
 								<option value="">입학년도</option>
-								<option value="">2021</option>
-								<option value="">2020</option>
-								<option value="">2019</option>
+								<option value="2021">2021</option>
+								<option value="2020">2020</option>
+								<option value="2019">2019</option>
 							</select> <select name="department">
 								<option value="">전공</option>
-								<option value="">컴퓨터공학</option>
-								<option value="">기계공학</option>
-								<option value="">전기공학</option>
-							</select> <input type="text" name="name" placeholder="이름 검색" /><input
+								<option value="컴퓨터공학">컴퓨터공학</option>
+								<option value="기계공학">기계공학</option>
+								<option value="전기공학">전기공학</option>
+							</select> <input type="text" name="name" placeholder="이름 검색"/><input
 								type="submit" class="btn btn-outline-dark" value="검색" /><br>
 						</form>
 					</div>

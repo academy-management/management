@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet(name = "ManageController", urlPatterns = {"/student_search","/student_update","/student_insert","/professor_search","/professor_insert","/subject_search","/subject_insert"})
+@WebServlet(name = "ManageController", urlPatterns = {"/student_search","/student_searchbyname","/student_update","/student_insert","/professor_search","/professor_insert","/professor_update","/professor_searchbyname","/subject_search","/subject_insert"})
 public class ManageController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,6 +39,18 @@ public class ManageController extends HttpServlet{
 			List<Student> studentList = dao.selectAll();
 
 			req.setAttribute("studentList", studentList);
+			
+	    }else if(action.equals("student_searchbyname")){
+	    	
+	    	String name = req.getParameter("name");
+			String year = req.getParameter("year");
+			String department = req.getParameter("department");
+			
+			
+			StudentDao dao = new StudentDaoImpl();
+			List<Student> studentList = dao.selectByNYN(name, year, department);
+			req.setAttribute("studentList", studentList);
+			
 			
 	    }else if(action.equals("student_update")){
 	    	String state = req.getParameter("state");
@@ -74,9 +86,56 @@ public class ManageController extends HttpServlet{
 	    	}
 			
 	    }else if(action.equals("professor_search")){
+	 
+	    	ProfessorDao dao = new ProfessorDaoImpl();
+			List<Professor> professorlist = dao.selectAll();
+
+			req.setAttribute("professorlist", professorlist);
+			
+			
+	    }else if(action.equals("professor_searchbyname")){
 	    	
+	    	String name = req.getParameter("name");
+			String department = req.getParameter("department");
+			
+			ProfessorDao dao = new ProfessorDaoImpl();
+			List<Professor> professorlist = dao.selectByND(name, department);
+			req.setAttribute("professorlist", professorlist);
+			
 	    }else if(action.equals("professor_insert")){
+	    	if(req.getParameter("pno")!=null) {
+	    		
+	    		String pno = req.getParameter("pno");
+				String password = req.getParameter("password");
+				String name = req.getParameter("name");
+				String d_name = req.getParameter("d_name");
+				String major = req.getParameter("major");
+				String pro_room = req.getParameter("pro_room");
+				String tel = req.getParameter("tel");
+				String email1 = req.getParameter("email");
+				String email2 = req.getParameter("email2");
+				String email = email1+"@"+email2;
+				String address2 = req.getParameter("address2");
+				String address3 = req.getParameter("address3");
+				String address = address2+" "+address3;
+				
+				Professor professor = new Professor(pno,password,major,name,address,pro_room,tel,email,d_name);
+				
+				ProfessorDao dao = new ProfessorDaoImpl();
+				dao.insert(professor);
+	    	}
+	    }else if(action.equals("professor_update")){
 	    	
+	    	String state = req.getParameter("state");
+	    	String pno = req.getParameter("pno");
+	    	    	
+	    	ProfessorDao dao = new ProfessorDaoImpl();
+	    	dao.update(pno, state);
+	    	
+	    	List<Professor> professorlist = dao.selectAll();
+			req.setAttribute("professorlist", professorlist);
+			
+			
 	    }else if(action.equals("subject_search")){
 	    	
 	    }else if(action.equals("subject_insert")){
@@ -87,14 +146,20 @@ public class ManageController extends HttpServlet{
 	    
 	    if(action.equals("student_search")) {
 	    	dispatcherUrl = "/mjh/p25.jsp";
+	    }else if(action.equals("student_searchbyname")){
+	    	dispatcherUrl = "/mjh/p25.jsp";
 	    }else if(action.equals("student_update")){
 	    	dispatcherUrl = "/mjh/p25.jsp";
 	    }else if(action.equals("student_insert")){
 	    	dispatcherUrl = "/mjh/p26.jsp";
 	    }else if(action.equals("professor_search")){
 	    	dispatcherUrl = "/mjh/p27.jsp";
+	    }else if(action.equals("professor_searchbyname")){
+	    	dispatcherUrl = "/mjh/p27.jsp";
 	    }else if(action.equals("professor_insert")){
 	    	dispatcherUrl = "/mjh/p28.jsp";
+	    }else if(action.equals("professor_update")){
+	    	dispatcherUrl = "/mjh/p27.jsp";
 	    }else if(action.equals("subject_search")){
 	    	dispatcherUrl = "/mjh/p29.jsp";
 	    }else if(action.equals("subject_insert")){

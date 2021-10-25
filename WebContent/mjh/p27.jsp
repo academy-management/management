@@ -80,19 +80,19 @@
 				<div class="search_box">
 					<div class="search">
 						
-						<form method="post" action="student_search">
+						<form method="post" action="professor_searchbyname">
 							<select name="department">
 								<option value="">전공</option>
-								<option value="">컴퓨터공학</option>
-								<option value="">기계공학</option>
-								<option value="">전기공학</option>
+								<option value="컴퓨터공학">컴퓨터공학</option>
+								<option value="기계공학">기계공학</option>
+								<option value="전기공학">전기공학</option>
 							</select> <input type="text" name="name" placeholder="이름 검색" /><input
 								type="submit" class="btn btn-outline-dark" value="검색" /><br>
 						</form>
 					</div>
 
 				</div>
-				<c:if test="${!empty studentList}">
+				<c:if test="${!empty professorlist}">
 					<div class="container_score">
 						<table class="table table-hover">
 							<colgroup>
@@ -116,17 +116,43 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="student" items="${studentList}">
-
+								<c:forEach var="professor" items="${professorlist}">
+									
 									<tr>
-										<td>${student.sno}</td>
-										<td>${student.name}</td>
-										<td>${student.year}</td>
-										<td>${student.d_name}</td>
-										<td>${student.tel}</td>
-										<td>${student.state}</td>
-										<td><input type="button" value="수정"></td>
+										<form method="post" action="professor_update">
+										<td><input type="text" name="pno" value=${professor.pno} readonly /></td>
+										<td>${professor.name}</td>
+										<td>${professor.d_name}</td>
+										<td>${professor.major}</td>
+										<td>${professor.tel}</td>
+										<td>
+										<c:if test="${professor.state == '재직'}"> 
+										<select name="state">
+												<option value="${professor.state}">${professor.state}</option>
+												<option value="휴직">휴직</option>
+												<option value="퇴직">퇴직</option>
+										</select>
+										</c:if>
+										
+										<c:if test="${professor.state == '휴직'}"> 
+										<select name="state">
+												<option value="${professor.state}">${professor.state}</option>
+												<option value="재직">재직</option>
+												<option value="퇴직">퇴직</option>
+										</select>
+										</c:if>
+										
+										<c:if test="${professor.state == '퇴직'}"> 
+										<select name="state">
+												<option value="${professor.state}">${professor.state}</option>
+												<option value="재직">재직</option>
+												<option value="휴직">휴직</option>
+										</select>
+										</c:if>
 
+										</td>
+										<td><input type="submit" class="btn btn-outline-dark" value="수정"></td>
+										</form>
 									</tr>
 								</c:forEach>
 						</table>

@@ -115,7 +115,7 @@
 							</div>
 						</div>
 						<div class="my_btn">
-							<input type="reset" class="btn_can" value="리셋"/>
+							<input type="reset" class="btn_can" value="취소"/>
 							<input type="submit" class="btn_edit" value="등록"/>
 						</div>
 						</form>

@@ -6,7 +6,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentImpl implements StudentDao {
+import common.JDBCUtil;
+import model.Student;
+
+public class StudentDaoImpl implements StudentDao {
 		
 	@Override
 	public List<Student> selectAll() {
@@ -147,8 +150,8 @@ public class StudentImpl implements StudentDao {
 				student.setGrade(resultSet.getInt("grade"));
 				student.setState(resultSet.getString("state"));
 				student.setAddress(resultSet.getString("address"));
-				student.setEmail(resultSet.getString("email"));								
-			}		
+				student.setEmail(resultSet.getString("email"));
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -157,6 +160,66 @@ public class StudentImpl implements StudentDao {
 		}
 
 		return student;
+	}
+
+
+	@Override
+	public List<Student> selectBySubjectNo(int subno) {
+		List<Student> studentList = new ArrayList<>();
+
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.STUDENT_SELECT_BY_SUBNO);
+			pStatement.setInt(1, subno);
+			resultSet = pStatement.executeQuery();
+
+			while (resultSet.next()) {
+
+				Student student = new Student();
+				student.setSubno(resultSet.getInt("subno"));
+				student.setRegno(resultSet.getInt("regno"));
+				student.setSno(resultSet.getInt("sno"));
+				student.setName(resultSet.getString("name"));
+				student.setDname(resultSet.getString("dname"));
+				student.setGrade(resultSet.getInt("grade"));
+				student.setScore(resultSet.getString("score"));				
+				studentList.add(student);				
+			}
+		
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}
+
+		return studentList;
+	}
+
+
+	@Override
+	public void updateToScore(int regno, String score) {
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.UPDATE_TO_SCORE);
+			pStatement.setString(1, score);
+			pStatement.setInt(2, regno);
+			pStatement.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}		
 	}
 
 }

@@ -241,7 +241,7 @@ insert into department values(1,'컴퓨터공학과','1234-5678');
 insert into department values(2,'기계공학과','9123-4567');
 
 select * from student;
-<<<<<<< HEAD
+
 insert into student values('20210101','1234','김학생',1,2021,'지구상 어딘가','010-1234-5678','kim@naver.com','재학',1);
 insert into student values('20210102','1234','이학생',1,2021,'지구상 어딘가','010-1234-5678','lee@naver.com','재학',1);
 insert into student values('20210103','1234','박학생',1,2021,'지구상 어딘가','010-1236-2138','axcqw@naver.com','재학',1);
@@ -252,22 +252,23 @@ insert into student values('20210107','1234','정학생',2,2021,'지구상 어�
 insert into student values('20210108','1234','임학생',2,2021,'지구상 어딘가','010-9365-6666','zxc@naver.com','재학',2);
 insert into student values('20210109','1234','도학생',2,2021,'지구상 어딘가','010-7308-7560','kiasdqwem@naver.com','재학',2);
 insert into student values('20210110','1234','장학생',2,2021,'지구상 어딘가','010-2378-6865','zxcvag@naver.com','재학',2);
-=======
+
 insert into student values(20210101,'1234','김학생',1,2021,'지구상 어딘가','010-1234-5678','kim@naver.com','재학',1);
 insert into student values(20210102,'1234','이학생',1,2021,'지구상 어딘가','010-1234-5678','lee@naver.com','재학',1);
 
-<<<<<<< HEAD
+
+
 insert into student values(?,?,?,?,?,?,?,?,'재학',1);
-=======
+
 select sno, password, name, grade ,year, address, tel, email, state, dno from student
 
 select sno, password, name, grade ,year, address, tel, email, state, dno from student where sno =?
 
->>>>>>> branch 'main' of https://github.com/academy-management/management.git
+
 
 Select s.sno, s.name,  s.year , d.name, s.tel, s.state from student s ,department d where s.dno= d.dno;
 
-<<<<<<< HEAD
+
 update student set state = '휴학' where sno='20210101'
 
 Select p.pno, p.name, d.name, p.major, p.tel ,p.state from professor p , department d where p.dno= d.dno ;
@@ -280,7 +281,7 @@ insert into professor values('p004','p004','인공지능','최교수',null,'재�
 
 
 Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor p , department d where p.dno= d.dno and p.name = '%이%' and d.name like '%%' order by pno desc
-=======
+
 -------------------
 insert into Notice values(seqnotice.nextval, '2021-10-20','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,01);
 insert into Notice values(seqnotice.nextval, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,01);
@@ -325,13 +326,3 @@ select category, code, codeName from systemMaster where category = 'dep'
 
 select * from systemMaster where category = 'DEP';
 
-
-
-
-
-
-
-
-
-
->>>>>>> branch 'main' of https://github.com/academy-management/management.git

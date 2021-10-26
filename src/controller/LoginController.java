@@ -13,11 +13,10 @@ import javax.servlet.http.HttpSession;
 
 import ihk.notice.dao.NoticeDao;
 import ihk.notice.dao.NoticeDaoImpl;
+import ihk.notice.model.Notice;
 import ihk.professor.dao.ProfessorDao;
 import ihk.professor.dao.ProfessorDaoImpl;
-import model.Notice;
-import model.Professor;
-
+import ihk.professor.model.Professor;
 
 
 @WebServlet(urlPatterns = {"/login_input", "/login", "/logout"})

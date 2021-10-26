@@ -1,3 +1,6 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'main' of https\://github.com/academy-management/management.git
 eclipse.preferences.version=1
 encoding//src/controller/Login/Student_LoginController.java=UTF-8
 encoding//src/model/Student.java=UTF-8

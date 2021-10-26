@@ -30,18 +30,18 @@
 			</div>
 			<div class="user">
 				<ul>
-					<li>
-						<p>홍길동님 반갑습니다  <i class="xi-angle-down-min xi-x"></i></p>
-						<div class="user_choice">
+					<li class="last">
+						<c:if test="${member != null}">
+							${member}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
+							<div class="user_choice">
 							<ul>
 								<li><a href="">수강정보</a></li>
 								<li><a href="">성적정보</a></li>
-								<li><a href="">회원정보 변경</a></li>
+								<li><a href="user_detail">회원정보 변경</a></li>
 							</ul>
 						</div>
-					</li>
-					<li class="last">
-						<a href="login_out" class="login_out">로그아웃</a>
+							<a href="login_out" class="login_out">로그아웃</a>
+						</c:if>
 					</li>
 				</ul>
 			</div>
@@ -78,37 +78,14 @@
 					 			</tr>
 					 		</thead>
 					 		<tbody>
-					 			<tr>
-					 				<td>1</td>
-					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
-					 				<td>2021.03.12</td>
-					 				<td>100</td>
-					 			</tr>
-					 			<tr>
-					 				<td>1</td>
-					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
-					 				<td>2021.03.12</td>
-					 				<td>100</td>
-					 			</tr>
-					 			<tr>
-					 				<td>1</td>
-					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
-					 				<td>2021.03.12</td>
-					 				<td>100</td>
-					 			</tr>
-					 			<tr>
-					 				<td>1</td>
-					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
-					 				<td>2021.03.12</td>
-					 				<td>100</td>
-					 			</tr>
-					 			<tr>
-					 				<td>1</td>
-					 				<td>홈페이지 리뉴얼 안내 드립니다.</td>
-					 				<td>2021.03.12</td>
-					 				<td>100</td>
-					 			</tr>
-					 			
+					 			<c:forEach var="noticeList" items="${noticeList}">
+							      <tr>
+							        <td>${noticeList.Nno}</td>
+							        <td>${noticeList.subject}</td>
+							        <td>${noticeList.time}</td>
+							        <td><a href="memo_detail?memoid=${noticeList.Nno}">상세보기</a></td>		        
+							      </tr>		
+							   </c:forEach>  
 					 		</tbody>
 					 	</table>
 					 </div>

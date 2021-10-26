@@ -54,11 +54,11 @@ public class LoginController extends HttpServlet{
 			if (professor != null) {
 				
 				if(professor.getPassword().equals(password)) {
-					/*ë¡œê·¸ì¸ ì„±ê³µ -> ì„¸ì…˜ ìƒì„±*/
+					/*·Î±×ÀÎ ¼º°ø -> ¼¼¼Ç »ı¼º*/
 					HttpSession session = req.getSession();
 					session.setAttribute("member", professor);
 										
-					/*ë¡œê·¸ì¸ ì„±ê³µ -> ë©”ì¸ì— ê³µì§€ ë„ìš°ê¸°*/
+					/*·Î±×ÀÎ ¼º°ø -> ¸ŞÀÎ¿¡ °øÁö ¶ç¿ì±â*/
 					NoticeDao ndao = new NoticeDaoImpl();
 					List<Notice> noticeList = ndao.selectAll(1);
 					
@@ -66,12 +66,12 @@ public class LoginController extends HttpServlet{
 					
 				} else {
 					
-					req.setAttribute("massage", "ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+					req.setAttribute("massage", "ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
 				}
 
 			} else {
 				
-				req.setAttribute("massage", "ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì•„ì´ë””(êµë²ˆ)ì…ë‹ˆë‹¤.");
+				req.setAttribute("massage", "Á¸ÀçÇÏÁö ¾Ê´Â ¾ÆÀÌµğ(±³¹ø)ÀÔ´Ï´Ù.");
 				
 			}
 			

@@ -1,4 +1,4 @@
-package jmj;
+package controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import jmj.SutudentDao;
+import jmj.SutudentImpl;
 import model.Student;
 
 @WebServlet(name="LoginController", urlPatterns= {"/login","/login_out","/mylogin","/user_detail"})
-public class LoginController extends HttpServlet{
+public class LoginControllerjmj extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,7 +48,7 @@ public class LoginController extends HttpServlet{
 			
 			if(student != null) {
 				HttpSession session= req.getSession();
-				session.setAttribute("member", student.getCustomerseq()); 
+				session.setAttribute("member", student); 
 			}else {
 				req.setAttribute("message", "존재하지 않는 아이디 이거나 비밀전호가 일치 하지않습니다.");
 			}
@@ -58,11 +60,11 @@ public class LoginController extends HttpServlet{
 			
 			SutudentDao dao = new SutudentImpl();
 			
-			Studentx student = dao.mylogin(pw);
+			Student student = dao.mylogin(pw);
 			
 			if(student != null) {
 				HttpSession session= req.getSession();
-				session.setAttribute("member", student.getCustomerseq()); 
+				session.setAttribute("member", student); 
 			}else {
 				req.setAttribute("message", "비밀번호가 일치 하지않습니다.");
 			}

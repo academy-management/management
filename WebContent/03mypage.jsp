@@ -36,7 +36,7 @@
 							<ul>
 								<li><a href="">수강정보</a></li>
 								<li><a href="">성적정보</a></li>
-								<li><a href="">회원정보 변경</a></li>
+								<li><a href="user_detail">회원정보 변경</a></li>
 							</ul>
 						</div>
 					</li>
@@ -61,10 +61,10 @@
 					<h3 class="title">회원정보 변경</h3>
 					<div class="my_center">
 						<div class="my_text_edit">
-							<label>학번</label><input type="text" class="login_text dis" name="dnumber" readonly/>
+							<label>학번</label><input type="text" class="login_text dis" name="dnumber" value="${student.sno}" readonly/>
 						</div>
 						<div class="my_text_edit">
-							<label>학과</label><input type="text" class="login_text" name="department" readonly/>
+							<label>학과</label><input type="text" class="login_text" name="department"  readonly/>
 						</div>
 						<div class="my_text_edit">
 							<label>이름</label><input type="text" class="login_text" name="name" />

@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.Professor.ProfessorDao;
 import dao.Professor.ProfessorDaoImpl;
-import dao.mjh.ProfessorDao;
-import dao.mjh.StudentDaoImpl;
-import dao.mjh.StudentDao;
+import dao.student.StudentDao;
+import dao.student.StudentDaoImpl;
 import model.Professor;
 import model.Student;
 

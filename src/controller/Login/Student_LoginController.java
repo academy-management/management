@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.student.StudentDao;
+import dao.student.StudentDaoImpl;
 import model.Student;
 
 @WebServlet(name="LoginController", urlPatterns= {"/student_login","/student_login_out","/student_mylogin","/student_user_detail"})
@@ -39,7 +41,7 @@ public class Student_LoginController extends HttpServlet{
 			int sno = Integer.parseInt(req.getParameter("sno"));
 			String pw = req.getParameter("password");
 			
-			SutudentDao dao = new SutudentImpl();
+			StudentDao dao = new StudentDaoImpl();
 	
 			Student student = (Student) dao.login(sno,pw);
 			
@@ -55,7 +57,7 @@ public class Student_LoginController extends HttpServlet{
 		}else if(action.equals("student_mylogin")) {
 			String pw = req.getParameter("password");
 			
-			SutudentDao dao = new SutudentImpl();
+			StudentDao dao = new StudentDaoImpl();
 			
 			Student student = dao.mylogin(pw);
 			

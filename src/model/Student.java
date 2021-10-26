@@ -15,80 +15,34 @@ public class Student {
 	private int regno;
 	private String score;
 	private int dno;
+	private int grade;
 	
-	public Student() {}
-	public Student(int sno, String name, int year, String d_name, String tel, String password, String address,
-			String email) {
+	
+	public Student() {
+		super();
+	}
+	public Student(int sno, String name, int year, String d_name, String tel, String state, String password,
+			String address, String email, String dname, int subno, int regno, String score, int dno, int grade) {
 		super();
 		this.sno = sno;
 		this.name = name;
 		this.year = year;
 		this.d_name = d_name;
 		this.tel = tel;
+		this.state = state;
 		this.password = password;
 		this.address = address;
 		this.email = email;
-	}
-
-	
-	public String getDname() {
-		return dname;
-	}
-	public void setDname(String dname) {
 		this.dname = dname;
-	}
-	public int getSubno() {
-		return subno;
-	}
-	public void setSubno(int subno) {
 		this.subno = subno;
-	}
-	public int getRegno() {
-		return regno;
-	}
-	public void setRegno(int regno) {
 		this.regno = regno;
-	}
-	public String getScore() {
-		return score;
-	}
-	public void setScore(String score) {
 		this.score = score;
-	}
-	public int getDno() {
-		return dno;
-	}
-	public void setDno(int dno) {
 		this.dno = dno;
+		this.grade = grade;
 	}
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	public int getSno() {
 		return sno;
 	}
-	
 	public void setSno(int sno) {
 		this.sno = sno;
 	}
@@ -122,11 +76,67 @@ public class Student {
 	public void setState(String state) {
 		this.state = state;
 	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getDname() {
+		return dname;
+	}
+	public void setDname(String dname) {
+		this.dname = dname;
+	}
+	public int getSubno() {
+		return subno;
+	}
+	public void setSubno(int subno) {
+		this.subno = subno;
+	}
+	public int getRegno() {
+		return regno;
+	}
+	public void setRegno(int regno) {
+		this.regno = regno;
+	}
+	public String getScore() {
+		return score;
+	}
+	public void setScore(String score) {
+		this.score = score;
+	}
+	public int getDno() {
+		return dno;
+	}
+	public void setDno(int dno) {
+		this.dno = dno;
+	}
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
 	@Override
 	public String toString() {
 		return "Student [sno=" + sno + ", name=" + name + ", year=" + year + ", d_name=" + d_name + ", tel=" + tel
-				+ ", state=" + state + "]";
+				+ ", state=" + state + ", password=" + password + ", address=" + address + ", email=" + email
+				+ ", dname=" + dname + ", subno=" + subno + ", regno=" + regno + ", score=" + score + ", dno=" + dno
+				+ ", grade=" + grade + "]";
 	}
 	
-	
+		
 }

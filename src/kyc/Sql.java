@@ -13,9 +13,9 @@ public class Sql {
 	
 	public static final String STUDENT_SELECT_YEAR = "select s.*, d.name as dname from student s, department d where s.year like '%' || ? || '%'";
 	
-	public static final String MEMO_SELECY_BY_ID = "select MEMOID, name, age from MEMO where MEMOID = ?";
+	public static final String STUDENT_SELECT_BY_SUBNO = "select distinct re.regno, s.sno, s.name, d.name as dname, s.grade, re.score from student s, REGISTER re, DEPARTMENT d, subject su where re.sno = s.sno and s.dno = d.dno and re.subno = ?";
 	
-	public static final String MEMO_UPDATE = "update MEMO set name = ?, age = ? where MEMOID = ?";
+	public static final String UPDATE_TO_SCORE = "update REGISTER set score = 'B' where regno = ?";
 	
 	public static final String MEMO_DELETE = "delete from MEMO where MEMOID = ?";
 }

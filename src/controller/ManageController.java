@@ -152,25 +152,25 @@ public class ManageController extends HttpServlet{
 	    String dispatcherUrl= null;
 	    
 	    if(action.equals("student_search")) {
-	    	dispatcherUrl = "/jsp/p25.jsp";
+	    	dispatcherUrl = "/jsp/manager_student_search.jsp";
 	    }else if(action.equals("student_searchbyname")){
-	    	dispatcherUrl = "/jsp/p25.jsp";
+	    	dispatcherUrl = "/jsp/manager_student_search.jsp";
 	    }else if(action.equals("student_update")){
-	    	dispatcherUrl = "/jsp/p25.jsp";
+	    	dispatcherUrl = "/jsp/manager_student_search.jsp";
 	    }else if(action.equals("student_insert")){
-	    	dispatcherUrl = "/jsp/p26.jsp";
+	    	dispatcherUrl = "/jsp/manager_student_insert.jsp";
 	    }else if(action.equals("professor_search")){
-	    	dispatcherUrl = "/jsp/p27.jsp";
+	    	dispatcherUrl = "/jsp/manager_professor_search.jsp";
 	    }else if(action.equals("professor_searchbyname")){
-	    	dispatcherUrl = "/jsp/p27.jsp";
+	    	dispatcherUrl = "/jsp/manager_professor_search.jsp";
 	    }else if(action.equals("professor_insert")){
-	    	dispatcherUrl = "/jsp/p28.jsp";
+	    	dispatcherUrl = "/jsp/manager_professor_insert.jsp";
 	    }else if(action.equals("professor_update")){
-	    	dispatcherUrl = "/jsp/p27.jsp";
+	    	dispatcherUrl = "/jsp/manager_professor_search.jsp";
 	    }else if(action.equals("subject_search")){
-	    	dispatcherUrl = "/jsp/p29.jsp";
+	    	dispatcherUrl = "/jsp/manager_submit_search.jsp";
 	    }else if(action.equals("subject_insert")){
-	    	dispatcherUrl = "/jsp/p30.jsp";
+	    	dispatcherUrl = "/jsp/manager_submit_insert.jsp";
 	    }
 	    
 	    RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import ihk.professor.model.Professor;
+import model.Professor;
+
 
 @WebServlet(urlPatterns = {"/professorMylogin","/professorMypage", "/updateProfessorInfo"})
 public class ProfessorController extends HttpServlet{

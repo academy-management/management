@@ -1,0 +1,166 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet" href="./css/style.css" type="text/css">
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"
+	type="text/javascript"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="./js/script.js"></script>
+<script type="text/javascript" src="./js/slick.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
+</head>
+<body>
+	<div class="wrap">
+		<header class="header">
+			<div class="logo">
+				<h1>
+					<a href="#"> <img src="./img/logo.png" alt="메인" />
+					</a>
+				</h1>
+			</div>
+			<div class="user">
+				<ul>
+					<li>
+						<p>
+							홍길동님 반갑습니다 <i class="xi-angle-down-min xi-x"></i>
+						</p>
+						<div class="user_choice">
+							<ul>
+								<li><a href="">수강정보</a></li>
+								<li><a href="">성적정보</a></li>
+								<li><a href="">회원정보 변경</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="last"><a href="login_out" class="login_out">로그아웃</a>
+					</li>
+				</ul>
+			</div>
+		</header>
+		<div class="containers">
+			<section class="container_left">
+				<nav>
+					<ul>
+						<li><a href="">학생관리</a></li>
+						<li><a href="student_search">-학생검색</a></li>
+						<li><a href="student_insert">-학생등록</a></li>
+						<li><a href="">교수관리</a></li>
+						<li><a href="professor_search">-교수검색</a></li>
+						<li><a href="professor_insert">-교수등록</a></li>
+						<li><a href="">강의관리</a></li>
+						<li><a href="subject_search">-강의검색</a></li>
+						<li><a href="subject_insert">-강의등록</a></li>
+						<li><a href="">공지사항관리</a></li>
+						<li><a href="">-공지사항검색</a></li>
+						<li><a href="">-공지사항등록</a></li>
+					</ul>
+				</nav>
+			</section>
+			<section class="container_right cotainer_col">
+				<div class="main_title">
+					<img src="./img/title_img.png" alt="성적정보" />
+					<h4>교수검색</h4>
+				</div>
+				<div class="search_box">
+					<div class="search">
+						
+						<form method="post" action="professor_searchbyname">
+							<select name="department">
+								<option value="">전공</option>
+								<option value="컴퓨터공학">컴퓨터공학</option>
+								<option value="기계공학">기계공학</option>
+								<option value="전기공학">전기공학</option>
+							</select> <input type="text" name="name" placeholder="이름 검색" /><input
+								type="submit" class="btn btn-outline-dark" value="검색" /><br>
+						</form>
+					</div>
+
+				</div>
+				<c:if test="${!empty professorlist}">
+					<div class="container_score">
+						<table class="table table-hover">
+							<colgroup>
+								<col style="width: 15%">
+								<col style="width: 15%">
+								<col style="width: 15%">
+								<col style="width: 15%">
+								<col style="width: 15%">
+								<col style="width: 15%">
+								<col style="width: 10%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>교번</th>
+									<th>이름</th>
+									<th>소속학과</th>
+									<th>전공</th>
+									<th>전화번호</th>
+									<th>상태</th>
+									<th>상태수정</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="professor" items="${professorlist}">
+									
+									<tr>
+										<form method="post" action="professor_update">
+										<td><input type="text" name="pno" value=${professor.pno} readonly /></td>
+										<td>${professor.name}</td>
+										<td>${professor.d_name}</td>
+										<td>${professor.major}</td>
+										<td>${professor.tel}</td>
+										<td>
+										<c:if test="${professor.state == '재직'}"> 
+										<select name="state">
+												<option value="${professor.state}">${professor.state}</option>
+												<option value="휴직">휴직</option>
+												<option value="퇴직">퇴직</option>
+										</select>
+										</c:if>
+										
+										<c:if test="${professor.state == '휴직'}"> 
+										<select name="state">
+												<option value="${professor.state}">${professor.state}</option>
+												<option value="재직">재직</option>
+												<option value="퇴직">퇴직</option>
+										</select>
+										</c:if>
+										
+										<c:if test="${professor.state == '퇴직'}"> 
+										<select name="state">
+												<option value="${professor.state}">${professor.state}</option>
+												<option value="재직">재직</option>
+												<option value="휴직">휴직</option>
+										</select>
+										</c:if>
+
+										</td>
+										<td><input type="submit" class="btn btn-outline-dark" value="수정"></td>
+										</form>
+									</tr>
+								</c:forEach>
+						</table>
+					</div>
+				</c:if>
+			</section>
+		</div>
+	</div>
+
+</body>
+</html>

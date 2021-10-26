@@ -6,10 +6,12 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import common.JDBCUtil;
+
 public class StudentDaoImpl implements StudentDao{
 
 	@Override
-	public void insert(Student student) {
+	public void insert(model.Student student) {
 		Connection connection = null;
 		PreparedStatement pStatement = null;
 

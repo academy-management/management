@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import common.JDBCUtil;
+
 public class ProfessorDaoImpl implements ProfessorDao{
 
 	@Override
@@ -45,7 +47,7 @@ public class ProfessorDaoImpl implements ProfessorDao{
 	}
 
 	@Override
-	public void insert(Professor professor) {
+	public void insert(model.Professor professor) {
 		Connection connection = null;
 		PreparedStatement pStatement = null;
 

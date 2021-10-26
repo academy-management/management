@@ -12,6 +12,7 @@ public class Student {
 	private String state;
 	private String dno;
 	private String dname;
+	
 	public int getSno() {
 		return sno;
 	}

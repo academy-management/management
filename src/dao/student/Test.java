@@ -1,27 +1,15 @@
-package kyc;
+package dao.student;
 
 import java.util.List;
 
-import dao.kyc.StudentDaoImpl;
-import dao.kyc.StudentDao;
-import dao.kyc.SubjectDaoImpl;
-import dao.kyc.SubjectDao;
+import dao.subject.SubjectDao;
+import dao.subject.SubjectDaoImpl;
 import model.Student;
 import model.Subject;
 
 public class Test {
 	public static void main(String[] args) {
-//		new Test().stdTest();
-		new Test().subjectTest();
-	}
-	public void subjectTest() {
-		SubjectDao subDao = new SubjectDaoImpl();
-		for (Subject subject : subDao.selectAll()) {
-			System.out.println(subject.toString());
-		}
-	}
-	
-	public void stdTest() {
+		
 		StudentDao stdDao = new StudentDaoImpl();
 		for (Student student: stdDao.selectAll()) {
 			System.out.println(student.toString());

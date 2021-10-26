@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.jmj.SutudentDao;
-import dao.jmj.SutudentImpl;
+import dao.student.StudentDao;
+import dao.student.StudentDaoImpl;
 import model.Student;
 
 @WebServlet(name="LoginController", urlPatterns= {"/login","/login_out","/mylogin","/user_detail"})
@@ -42,7 +41,7 @@ public class LoginControllerjmj extends HttpServlet{
 			int sno = Integer.parseInt(req.getParameter("sno"));
 			String pw = req.getParameter("password");
 			
-			SutudentDao dao = new SutudentImpl();
+			StudentDao dao = new StudentDaoImpl();
 	
 			Student student = (Student) dao.login(sno,pw);
 			
@@ -58,7 +57,7 @@ public class LoginControllerjmj extends HttpServlet{
 		}else if(action.equals("mylogin")) {
 			String pw = req.getParameter("password");
 			
-			SutudentDao dao = new SutudentImpl();
+			StudentDao dao = new StudentDaoImpl();
 			
 			Student student = dao.mylogin(pw);
 			

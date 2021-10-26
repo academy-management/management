@@ -1,4 +1,4 @@
-package jmj;
+package model;
 
 public class SystemMaster {
 	private String category; 

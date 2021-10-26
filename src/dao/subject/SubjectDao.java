@@ -1,4 +1,4 @@
-package dao.kyc;
+package dao.subject;
 
 import java.util.ArrayList;
 import java.util.List;

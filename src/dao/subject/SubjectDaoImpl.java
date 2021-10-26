@@ -1,4 +1,4 @@
-package dao.kyc;
+package dao.subject;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import common.JDBCUtil;
-import kyc.Sql;
+import dao.subject.Sql;
 import model.Student;
 import model.Subject;
 

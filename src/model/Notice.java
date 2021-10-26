@@ -10,6 +10,8 @@ public class Notice {
 	private int views;
 	private int id;
 	
+
+	
 	public int getNno() {
 		return nno;
 	}

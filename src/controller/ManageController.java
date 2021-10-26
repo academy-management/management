@@ -43,7 +43,7 @@ public class ManageController extends HttpServlet{
 	    if(action.equals("student_search")) { 
 	    	
 	    	StudentDao dao = new StudentDaoImpl();
-			List<mjh.Student> studentList = dao.selectAll();
+			List<Student> studentList = dao.selectAll();
 
 			req.setAttribute("studentList", studentList);
 			
@@ -55,7 +55,7 @@ public class ManageController extends HttpServlet{
 			
 			
 			StudentDao dao = new StudentDaoImpl();
-			List<mjh.Student> studentList = dao.selectByNYN(name, year, department);
+			List<Student> studentList = dao.selectByNYN(name, year, department);
 			req.setAttribute("studentList", studentList);
 			
 			
@@ -66,7 +66,7 @@ public class ManageController extends HttpServlet{
 	    	StudentDao dao = new StudentDaoImpl();
 	    	dao.update(sno, state);
 	    	
-			List<mjh.Student> studentList = dao.selectAll();
+			List<Student> studentList = dao.selectAll();
 			req.setAttribute("studentList", studentList);
 	    	
 	    }else if(action.equals("student_insert")){
@@ -95,7 +95,7 @@ public class ManageController extends HttpServlet{
 	    }else if(action.equals("professor_search")){
 	 
 	    	ProfessorDao dao = new ProfessorDaoImpl();
-			List<mjh.Professor> professorlist = dao.selectAll();
+			List<Professor> professorlist = dao.selectAll();
 
 			req.setAttribute("professorlist", professorlist);
 			
@@ -106,7 +106,7 @@ public class ManageController extends HttpServlet{
 			String department = req.getParameter("department");
 			
 			ProfessorDao dao = new ProfessorDaoImpl();
-			List<mjh.Professor> professorlist = dao.selectByND(name, department);
+			List<Professor> professorlist = dao.selectByND(name, department);
 			req.setAttribute("professorlist", professorlist);
 			
 	    }else if(action.equals("professor_insert")){
@@ -139,7 +139,7 @@ public class ManageController extends HttpServlet{
 	    	ProfessorDao dao = new ProfessorDaoImpl();
 	    	dao.update(pno, state);
 	    	
-	    	List<mjh.Professor> professorlist = dao.selectAll();
+	    	List<Professor> professorlist = dao.selectAll();
 			req.setAttribute("professorlist", professorlist);
 			
 			
@@ -152,25 +152,25 @@ public class ManageController extends HttpServlet{
 	    String dispatcherUrl= null;
 	    
 	    if(action.equals("student_search")) {
-	    	dispatcherUrl = "/mjh/p25.jsp";
+	    	dispatcherUrl = "/jsp/manager_professor_search.jsp";
 	    }else if(action.equals("student_searchbyname")){
-	    	dispatcherUrl = "/mjh/p25.jsp";
+	    	dispatcherUrl = "/jsp/manager_professor_search.jsp";
 	    }else if(action.equals("student_update")){
-	    	dispatcherUrl = "/mjh/p25.jsp";
+	    	dispatcherUrl = "/jsp/manager_professor_search.jsp";
 	    }else if(action.equals("student_insert")){
-	    	dispatcherUrl = "/mjh/p26.jsp";
+	    	dispatcherUrl = "/jsp/manager_professor_insert.jsp";
 	    }else if(action.equals("professor_search")){
-	    	dispatcherUrl = "/mjh/p27.jsp";
+	    	dispatcherUrl = "/jsp/manager_student_search.jsp";
 	    }else if(action.equals("professor_searchbyname")){
-	    	dispatcherUrl = "/mjh/p27.jsp";
+	    	dispatcherUrl = "/jsp/manager_student_search.jsp";
 	    }else if(action.equals("professor_insert")){
-	    	dispatcherUrl = "/mjh/p28.jsp";
+	    	dispatcherUrl = "/jsp/manager_student_insert.jsp";
 	    }else if(action.equals("professor_update")){
-	    	dispatcherUrl = "/mjh/p27.jsp";
+	    	dispatcherUrl = "/jsp/manager_student_search.jsp";
 	    }else if(action.equals("subject_search")){
-	    	dispatcherUrl = "/mjh/p29.jsp";
+	    	dispatcherUrl = "/jsp/manager_submit_search.jsp";
 	    }else if(action.equals("subject_insert")){
-	    	dispatcherUrl = "/mjh/p30.jsp";
+	    	dispatcherUrl = "/jsp/manager_submit_insert.jsp";
 	    }
 	    
 	    RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

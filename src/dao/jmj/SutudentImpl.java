@@ -1,4 +1,4 @@
-package jmj;
+package dao.jmj;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,6 +9,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import common.JDBCUtil;
+import jmj.Notice;
+import jmj.Sql;
+import jmj.SystemMaster;
 import model.Student;
 
 public class SutudentImpl implements SutudentDao {

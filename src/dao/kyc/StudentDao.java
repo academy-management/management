@@ -1,4 +1,4 @@
-package kyc;
+package dao.kyc;
 
 import java.util.List;
 

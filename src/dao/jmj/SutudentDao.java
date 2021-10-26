@@ -1,31 +1,33 @@
-package jmj;
+package dao.jmj;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import jmj.Notice;
+import jmj.SystemMaster;
 import model.Student;
 
 public interface SutudentDao {
 	
-	//·Î±×ÀÎ
+	//ï¿½Î±ï¿½ï¿½ï¿½
 	model.Student login(int sno, String pw);
 	Student mylogin(String pw);
 	List<SystemMaster> selectDepCode(); 
 	
 	
 	Student selectBysno(int sno);
-	//È¸¿øÁ¤º¸ ¼öÁ¤
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int  loginProcess(HttpServletRequest request, Student student);
 
-//	//°øÁö»çÇ×
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	List<Notice> selectAll(int reqestPage);
 	
 	
 	Notice selectBymemoid(int Nno);
 	
 	
-	//°Ô½ÃÆÇ
+	//ï¿½Ô½ï¿½ï¿½ï¿½
 //	List<Board> selectBoardAll();
 //	Board selectBysubject(int nom);
 	

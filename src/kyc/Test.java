@@ -2,6 +2,10 @@ package kyc;
 
 import java.util.List;
 
+import dao.kyc.StudentDaoImpl;
+import dao.kyc.StudentDao;
+import dao.kyc.SubjectDaoImpl;
+import dao.kyc.SubjectDao;
 import model.Student;
 import model.Subject;
 

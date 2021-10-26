@@ -1,4 +1,4 @@
-package jmj;
+package dao.jmj;
 
 import java.io.IOException;
 import java.util.List;

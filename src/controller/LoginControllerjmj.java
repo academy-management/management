@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import jmj.SutudentDao;
-import jmj.SutudentImpl;
+import dao.jmj.SutudentDao;
+import dao.jmj.SutudentImpl;
 import model.Student;
 
 @WebServlet(name="LoginController", urlPatterns= {"/login","/login_out","/mylogin","/user_detail"})

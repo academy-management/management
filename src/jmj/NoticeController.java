@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.jmj.SutudentDao;
+import dao.jmj.SutudentImpl;
+
 @WebServlet(name = "NoticeController", urlPatterns= {"/memo_detail"})
 public class NoticeController extends HttpServlet{
 	@Override
@@ -26,7 +29,7 @@ public class NoticeController extends HttpServlet{
 	private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uri = req.getRequestURI();
 		int lastIndex = uri.lastIndexOf("/");
-		String action = uri.substring(lastIndex+1);//ÀÌ ÀÎµ¦½ººÎÅÍ ½ÃÀÛ ÇØ¼­ ±ÛÀÚ ´Ù °¡Á®¿Í
+		String action = uri.substring(lastIndex+1);//ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		
 		
 		if(action.equals("memo_detail")) {

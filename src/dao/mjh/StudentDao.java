@@ -1,4 +1,4 @@
-package mjh;
+package dao.mjh;
 
 import java.util.List;
 

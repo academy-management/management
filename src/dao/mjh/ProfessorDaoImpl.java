@@ -1,4 +1,4 @@
-package mjh;
+package dao.mjh;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,7 +19,7 @@ public class ProfessorDaoImpl implements ProfessorDao{
 		Connection connection = null;
 		PreparedStatement pStatement = null;
 		ResultSet resultSet = null;
-
+		
 		try {
 			connection = JDBCUtil.getConnection();
 			pStatement = connection.prepareStatement(Sql.PROFESSOR_SELECT_ALL);

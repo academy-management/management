@@ -13,12 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import ihk.notice.dao.NoticeDao;
 import ihk.notice.dao.NoticeDaoImpl;
-import ihk.notice.model.Notice;
-import ihk.page.PageDao;
-import ihk.page.PageDaoImpl;
-import ihk.page.PageGroupResult;
-import ihk.page.PageManager;
-import ihk.page.PageSql;
+import model.Notice;
+import page.PageDao;
+import page.PageDaoImpl;
+import page.PageGroupResult;
+import page.PageManager;
+
 
 @WebServlet(urlPatterns= {"/notice", "/notice_search", "/notice_detail"})
 public class NoticeController extends HttpServlet {

@@ -1,6 +1,6 @@
 package ihk.professor.dao;
 
-import ihk.professor.model.Professor;
+import model.Professor;
 
 public interface ProfessorDao {
 	

@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import ihk.professor.model.Professor;
+import common.JDBCUtil;
+import model.Professor;
+
 
 public class ProfessorDaoImpl implements ProfessorDao{
 
@@ -29,13 +31,13 @@ public class ProfessorDaoImpl implements ProfessorDao{
 				
 				professor = new Professor();
 				
-				professor.setPno(resultSet.getInt("pno"));
+				professor.setPno(resultSet.getString("pno"));
 				professor.setPassword(resultSet.getString("password"));
 				professor.setName(resultSet.getString("name"));
 				professor.setAddress(resultSet.getString("address"));
 				professor.setTel(resultSet.getString("tel"));
 				professor.setEmail(resultSet.getString("email"));
-				professor.setDname("컴퓨터공학과");
+				professor.setD_name(resultSet.getString("dname"));
 				
 			}		
 		} catch (Exception e) {

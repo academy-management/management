@@ -4,7 +4,7 @@ public class Student {
 	private int sno;
 	private String name;
 	private int year;
-	private String d_name;     //학과
+	private String d_name;     //��怨�
 	private String tel;
 	private String state;
 	private String password;
@@ -30,6 +30,10 @@ public class Student {
 		this.email = email;
 	}
 
+	public Student(int sno, String password){
+		this.sno = sno;
+		this.password = password;
+	}
 	
 	public String getDname() {
 		return dname;

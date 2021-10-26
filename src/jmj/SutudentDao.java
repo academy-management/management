@@ -7,14 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 public interface SutudentDao {
 	
 	//로그인
-	Student login(int sno, String pw);
-	Student mylogin(String pw);
+	model.Student login(int sno, String pw);
+	Studentx mylogin(String pw);
 	List<SystemMaster> selectDepCode(); 
 	
 	
-	Student selectBysno(int sno);
+	Studentx selectBysno(int sno);
 	//회원정보 수정
-	int  loginProcess(HttpServletRequest request, Student student);
+	int  loginProcess(HttpServletRequest request, Studentx student);
 
 //	//공지사항
 //	List<Notice> selectAll(int reqestPage);

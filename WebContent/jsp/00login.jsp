@@ -24,7 +24,7 @@
 						<option value="${depCodes.code}">${depCodes.codeName}</option>
 					</c:forEach>
 				</select>
-				<input type="text" class="login_text" name="dnumber" placeholder="학번을 입력해주세요"/>
+				<input type="text" class="login_text" name="sno" placeholder="학번을 입력해주세요"/>
 				<input type="password" class="login_text" name="password" placeholder="비밀번호를 입력해주세요"/>
 				<input type="submit" class="btn_submit" value="로그인"/>
 			</div>

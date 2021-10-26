@@ -12,7 +12,7 @@ public class Sql {
 			"select category, code, codeName from system_master where category = 'dep'";
 	
 	public static final String SUTUDENT_SNO = 
-			"";
+			"select sno, password, name, grade ,year, address, tel, email, state, dno from student where sno =?";
 	
 	
 	

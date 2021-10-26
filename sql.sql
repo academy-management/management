@@ -255,7 +255,6 @@ insert into student values('20210110','1234','장학생',2,2021,'지구상 어�
 =======
 insert into student values(20210101,'1234','김학생',1,2021,'지구상 어딘가','010-1234-5678','kim@naver.com','재학',1);
 insert into student values(20210102,'1234','이학생',1,2021,'지구상 어딘가','010-1234-5678','lee@naver.com','재학',1);
->>>>>>> branch 'main' of https://github.com/academy-management/management.git
 
 <<<<<<< HEAD
 insert into student values(?,?,?,?,?,?,?,?,'재학',1);

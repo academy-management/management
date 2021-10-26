@@ -8,7 +8,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import memo.model.Memo;
+import model.Student;
 
 public class SutudentImpl implements SutudentDao {
 

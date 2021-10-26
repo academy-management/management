@@ -1,6 +1,6 @@
 package jmj;
 
-public class Student {
+public class Studentx {
 	
 	private long customerseq;
 	private int sno; 
@@ -14,8 +14,8 @@ public class Student {
 	private String state;
 	private int dno;
 	
-	public Student(){}
-	public Student(int sno, String password){
+	public Studentx(){}
+	public Studentx(int sno, String password){
 		this.sno = sno;
 		this.password = password;
 	}

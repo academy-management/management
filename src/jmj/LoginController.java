@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Student;
 
 @WebServlet(name="LoginController", urlPatterns= {"/login","/login_out","/mylogin","/user_detail"})
 public class LoginController extends HttpServlet{
@@ -36,12 +37,12 @@ public class LoginController extends HttpServlet{
 		
 		//로직
 		if(action.equals("login")) {
-			int sno = Integer.parseInt(req.getParameter("dnumber"));
+			int sno = Integer.parseInt(req.getParameter("sno"));
 			String pw = req.getParameter("password");
 			
 			SutudentDao dao = new SutudentImpl();
 	
-			Student student = dao.login(sno,pw);
+			Student student = (Student) dao.login(sno,pw);
 			
 			if(student != null) {
 				HttpSession session= req.getSession();
@@ -57,7 +58,7 @@ public class LoginController extends HttpServlet{
 			
 			SutudentDao dao = new SutudentImpl();
 			
-			Student student = dao.mylogin(pw);
+			Studentx student = dao.mylogin(pw);
 			
 			if(student != null) {
 				HttpSession session= req.getSession();

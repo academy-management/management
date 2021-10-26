@@ -16,19 +16,20 @@
 </head>
 <body>
 	<div class="login_wrap">
-		<form method="post" action="">
+		<form method="post" action="login">
 			<div class="login_wraping">
 				<h3 class="title">로그인</h3>
-				<select class="login_text">
-					<option value="st">학생</option>
-					<option value="ps">교수</option>
-					<option value="ad">관리자</option>
+				<select name="depno" class="login_text"> 
+					<c:forEach items = "${smList}" var = "depCodes">
+						<option value="${depCodes.code}">${depCodes.codeName}</option>
+					</c:forEach>
 				</select>
 				<input type="text" class="login_text" name="dnumber" placeholder="학번을 입력해주세요"/>
 				<input type="password" class="login_text" name="password" placeholder="비밀번호를 입력해주세요"/>
 				<input type="submit" class="btn_submit" value="로그인"/>
 			</div>
 		</form>
+		<p class="">${message}<p>
 	</div>
 </body>
 </html>

@@ -108,7 +108,7 @@ CREATE TABLE subject (
 	score VARCHAR(255), /* 학점 */
 	people NUMBER, /* 인원수 */
 	room VARCHAR(255), /* 강의실 */
-	subtime DATE, /* 강의시간 */
+	subtime VARCHAR(50), /* 강의시간 */
 	state VARCHAR(50), /* 상태 */
 	startday DATE, /* 개강날 */
 	endday DATE, /* 종강날 */

@@ -33,27 +33,29 @@ public class Student {
 		this.password = password;
 		this.address = address;
 		this.email = email;
-<<<<<<< HEAD
-	}
 
+	}
+	public Student(int sno,String name,int year,String d_name, String tel,String password,String address,String email) {
+		super();
+		this.sno = sno;
+		this.name = name;
+		this.year = year;
+		this.d_name = d_name;
+		this.tel = tel;
+		this.password = password;
+		this.address = address;
+		this.email = email;
+
+	}
+	
+	
+	
 	public Student(int sno, String password){
 		this.sno = sno;
 		this.password = password;
 	}
 	
-	public String getDname() {
-		return dname;
-	}
-	public void setDname(String dname) {
-=======
->>>>>>> branch 'main' of https://github.com/academy-management/management.git
-		this.dname = dname;
-		this.subno = subno;
-		this.regno = regno;
-		this.score = score;
-		this.dno = dno;
-		this.grade = grade;
-	}
+
 	public int getSno() {
 		return sno;
 	}

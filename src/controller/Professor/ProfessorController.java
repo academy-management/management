@@ -48,14 +48,14 @@ public class ProfessorController extends HttpServlet{
 				
 				req.setAttribute("professor", professor);
 				
-				RequestDispatcher dispatcher = req.getRequestDispatcher("/ihk/14.professorMypage.jsp");
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/professorMypage.jsp");
 				dispatcher.forward(req, resp);
 				
 			} else {
 				
 				req.setAttribute("message", "잘못된 비밀번호 입니다");
 				
-				RequestDispatcher dispatcher = req.getRequestDispatcher("/ihk/13.professorMylogin.jsp");
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/professorMylogin.jsp");
 				dispatcher.forward(req, resp);
 			}
 			
@@ -70,7 +70,7 @@ public class ProfessorController extends HttpServlet{
 		
 		if(action.equals("professorMylogin")) {
 			
-			dispatcherUrl = "/ihk/13.professorMylogin.jsp";
+			dispatcherUrl = "/jsp/professorMylogin.jsp";
 			
 		} 
 		

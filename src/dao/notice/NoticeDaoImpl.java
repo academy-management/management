@@ -77,6 +77,7 @@ public class NoticeDaoImpl implements NoticeDao {
 				notice.setNno(resultSet.getInt("nno"));
 				notice.setSubject(resultSet.getString("subject"));
 				notice.setTime(resultSet.getString("time"));
+				notice.setViews(resultSet.getInt("views"));
 				
 			}
 		} catch (Exception e) {
@@ -115,6 +116,7 @@ public class NoticeDaoImpl implements NoticeDao {
 				notice.setNno(resultSet.getInt("nno"));
 				notice.setSubject(resultSet.getString("subject"));
 				notice.setTime(resultSet.getString("time"));
+				notice.setViews(resultSet.getInt("views"));
 				
 				noticeList.add(notice);				
 			}
@@ -155,6 +157,7 @@ public class NoticeDaoImpl implements NoticeDao {
 				notice.setNno(resultSet.getInt("nno"));
 				notice.setSubject(resultSet.getString("subject"));
 				notice.setTime(resultSet.getString("time"));
+				notice.setViews(resultSet.getInt("views"));
 				
 				noticeList.add(notice);
 				
@@ -191,6 +194,7 @@ public class NoticeDaoImpl implements NoticeDao {
 				notice.setViews(resultSet.getInt("views"));
 				notice.setSubject(resultSet.getString("subject"));
 				notice.setContents(resultSet.getString("contents"));
+				notice.setViews(resultSet.getInt("views"));
 				
 			}		
 		} catch (Exception e) {

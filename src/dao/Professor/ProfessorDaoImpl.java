@@ -139,7 +139,7 @@ public class ProfessorDaoImpl implements ProfessorDao{
 	}
 	
 	@Override
-	public Professor selectByPno(int pno) {
+	public Professor selectByPno(String pno) {
 		
 		Professor professor = null;
 		
@@ -151,7 +151,7 @@ public class ProfessorDaoImpl implements ProfessorDao{
 			connection = JDBCUtil.getConnection();
 			pStatement = connection.prepareStatement(Sql.SELECT_BY_PROFESSOR_PNO_SQL);
 			
-			pStatement.setInt(1, pno);
+			pStatement.setString(1, pno);
 			
 			resultSet = pStatement.executeQuery();
 			

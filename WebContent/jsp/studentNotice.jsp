@@ -31,7 +31,7 @@
 			<div class="user">
 				<ul>
 					<li>
-						<p>${student.name}님 반갑습니다  <i class="xi-angle-down-min xi-x"></i></p>
+						<p>${member.name}님 반갑습니다  <i class="xi-angle-down-min xi-x"></i></p>
 						<div class="user_choice">
 							<ul>
 								<li><a href="">수강정보</a></li>

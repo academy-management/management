@@ -91,7 +91,6 @@ public class NoticeController extends HttpServlet {
 				/*전체 선택 + 검색에 아무것도 입력하지 않았을 때*/
 				if (searchSubject == null || searchSubject.trim().isEmpty()) {
 					
-					System.out.println("도착1");
 					noticeList = dao.selectAll(requestPage);
 					
 					PageDao pageDao = new PageDaoImpl();
@@ -104,8 +103,7 @@ public class NoticeController extends HttpServlet {
 					
 				/*전체 선택 + 검색값을 넣었을 때*/	
 				} else {
-					
-					System.out.println("도착2");
+		
 					noticeList = dao.selectBySubject(requestPage, searchSubject);
 					
 					PageDao pageDao = new PageDaoImpl();
@@ -122,7 +120,6 @@ public class NoticeController extends HttpServlet {
 				/*학과 선택 + 검색에 아무것도 입력하지 않았을 때*/
 				if(searchSubject == null || searchSubject.isEmpty()) {
 					
-					System.out.println("도착3");
 					noticeList = dao.selectByDivision(requestPage, division);
 					
 					PageDao pageDao = new PageDaoImpl();
@@ -135,7 +132,7 @@ public class NoticeController extends HttpServlet {
 					
 				} else {
 					/*학과 선택 +검색값을 넣었을 때*/	
-					System.out.println("도착4");
+
 					noticeList = dao.selectByDivisionAndSubject(requestPage, division, searchSubject);
 					
 					PageDao pageDao = new PageDaoImpl();
@@ -145,7 +142,6 @@ public class NoticeController extends HttpServlet {
 					
 					PageManager pm = new PageManager(requestPage);
 					pgr = pm.getPageGroupResult(cnt);
-				
 				}
 			}
 			
@@ -171,14 +167,14 @@ public class NoticeController extends HttpServlet {
 		String dispatcherUrl = null;
 		
 		if(action.equals("notice")) {
-			dispatcherUrl = "/ihk/09.studentNotice.jsp";
+			dispatcherUrl = "/jsp/studentNotice.jsp";
 			
 		} else if(action.equals("notice_search")) {
-			dispatcherUrl = "/ihk/09.studentNotice.jsp";
+			dispatcherUrl = "/jsp/studentNotice.jsp";
 			
 		} else if(action.equals("notice_detail")) {
 			
-			dispatcherUrl = "/ihk/10.studentNoticeDetail.jsp";
+			dispatcherUrl = "/jsp/studentNoticeDetail.jsp";
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

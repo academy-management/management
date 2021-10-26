@@ -64,7 +64,7 @@
 							<label>교번</label><input type="text" class="login_text dis" name="dnumber" value="${member.pno}" readonly/>
 						</div>
 						<div class="my_text_edit">
-							<label>학과</label><input type="text" class="login_text" name="department" value="${member.dname}" readonly/>
+							<label>학과</label><input type="text" class="login_text" name="department" value="${member.d_name}" readonly/>
 						</div>
 						<div class="my_text_edit">
 							<label>이름</label><input type="text" class="login_text" name="name" value="${member.name}"/>
@@ -100,8 +100,8 @@
 							</div>
 						</div>
 						<div class="my_btn">
-							<input type="button" class="btn_can" onclick="location.href='login'" value="취소"/>
-							<input type="submit" class="btn_edit" value="수정"/>
+							<input type="button" class="btn_can" onclick="location.href='login'" value="취소"/>
+							<input type="submit" class="btn_edit" value="수정"/>
 						</div>			
 					</form>
 					</div>

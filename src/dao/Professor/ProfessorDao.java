@@ -6,7 +6,7 @@ import model.Professor;
 
 public interface ProfessorDao {
 	
-	Professor selectByPno(int pno);
+	Professor selectByPno(String pno);
 	void update(int pno);
 	
 	void insert(model.Professor professor);

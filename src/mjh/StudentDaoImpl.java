@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import common.JDBCUtil;
+import model.Student;
 
 public class StudentDaoImpl implements StudentDao{
 

@@ -2,6 +2,8 @@ package mjh;
 
 import java.util.List;
 
+import model.Student;
+
 public interface StudentDao {
 	void insert(model.Student student);
 	void update(int sno, String state);

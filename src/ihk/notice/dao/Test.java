@@ -2,7 +2,8 @@ package ihk.notice.dao;
 
 import java.util.List;
 
-import ihk.notice.model.Notice;
+import model.Notice;
+
 
 public class Test {
 	

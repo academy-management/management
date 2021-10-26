@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import ihk.notice.model.Notice;
-import ihk.page.PageManager;
-import ihk.page.PageRowResult;
-import ihk.page.PageSql;
+import common.JDBCUtil;
+import model.Notice;
+import page.PageManager;
+import page.PageRowResult;
 
 
 public class NoticeDaoImpl implements NoticeDao {

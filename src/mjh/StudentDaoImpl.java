@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import common.JDBCUtil;
+import model.Student;
 
 public class StudentDaoImpl implements StudentDao{
 
 	@Override
-	public void insert(model.Student student) {
+	public void insert(Student student) {
 		Connection connection = null;
 		PreparedStatement pStatement = null;
 

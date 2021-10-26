@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import common.JDBCUtil;
+import model.Professor;
 
 public class ProfessorDaoImpl implements ProfessorDao{
 

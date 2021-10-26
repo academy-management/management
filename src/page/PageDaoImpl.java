@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import ihk.notice.dao.JDBCUtil;
+import common.JDBCUtil;
 
 public class PageDaoImpl implements PageDao{
 

@@ -47,6 +47,7 @@ public class Student_LoginController extends HttpServlet{
 			StudentDao dao = new StudentDaoImpl();
 	
 			Student student = (Student) dao.login(sno,pw);
+			
 			if(student != null) {
 				HttpSession session= req.getSession();
 				session.setAttribute("member", student); 
@@ -82,8 +83,6 @@ public class Student_LoginController extends HttpServlet{
 				dispatcherUrl = "/jsp/Student/st_mylogin.jsp"; 
 			}
 			
-		}else if(action.equals("student_user_detail")) {
-			dispatcherUrl = "/jsp/Student/st_mypage.jsp"; 
 		}
 		
 		RequestDispatcher rd = req.getRequestDispatcher(dispatcherUrl);

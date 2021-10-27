@@ -52,4 +52,7 @@ public class Sql {
 	
 	public static final String PROFESSOR_UPDATE
 	="update professor set state = ? where pno=?";
+	
+	public static final String STUDENT_USER_UPDATE
+	="update student set name = ?, password =? , tel=?, email= ?, address=?; where sno= ?";
 }

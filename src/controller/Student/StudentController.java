@@ -37,9 +37,11 @@ public class StudentController extends HttpServlet{
 		
 		//로직
 		if(action.equals("student_mylogin")) {
-			
+
 		}
-		else if(action.equals("student_myloginpage")) {
+		else if(action.equals("student_myloginpage")) {  //비번 치는 화면
+			
+			
 			String password = req.getParameter("password");
 			
 			
@@ -48,9 +50,14 @@ public class StudentController extends HttpServlet{
 			Student Student = (Student)session.getAttribute("member");
 			
 			if(password.equals(Student.getPassword())) {
-				req.setAttribute("Student", Student);
+				//추가 한 부분
+				int sno = Integer.parseInt(req.getParameter("sno"));
+				StudentDao dao = new StudentDaoImpl();
+				Student student = dao.selectByuser(sno);
+				req.setAttribute("student", student);
 				
-				RequestDispatcher rd = req.getRequestDispatcher("/jsp/Student/st_mypage.jsp");
+				RequestDispatcher rd = req.getRequestDispatcher("/jsp/Student/st_mypage.jsp"); //회원정보 화면
+				
 				rd.forward(req, resp);
 			}else {
 				req.setAttribute("message", "비밀번호가 일치 하지않습니다.");
@@ -59,21 +66,29 @@ public class StudentController extends HttpServlet{
 			}
 		}else if(action.equals("student_user_update")) {
 			int sno = Integer.parseInt(req.getParameter("sno"));
-			int dno = Integer.parseInt(req.getParameter("dno"));
-			String name = req.getParameter("name");
-			String password = req.getParameter("password");
-			String tel = req.getParameter("tel");
-			String email = req.getParameter("email");
-			String address = req.getParameter("address");
-
-			Student student = new Student(sno, dno, name, password, tel, email, address);
-			
 			
 			StudentDao dao = new StudentDaoImpl();
-//			dao.selectBysno(student);
+			Student student = dao.selectByuser(sno);
 			
-			
+			req.setAttribute("student", student);
 		}
+//		else if(action.equals("student_user_update")) {
+//			int sno = Integer.parseInt(req.getParameter("sno"));
+//			int dno = Integer.parseInt(req.getParameter("dno"));
+//			String name = req.getParameter("name");
+//			String password = req.getParameter("password");
+//			String tel = req.getParameter("tel");
+//			String email = req.getParameter("email");
+//			String address = req.getParameter("address");
+//
+//			Student student = new Student(sno, dno, name, password, tel, email, address);
+//			
+//			
+//			StudentDao dao = new StudentDaoImpl();
+//			dao.studentUpdate(student);
+//			
+//			
+//		}
 		
 		
 		//페이지
@@ -86,3 +101,9 @@ public class StudentController extends HttpServlet{
 		rd.forward(req, resp);
 	}	
 }
+//			int sno = Integer.parseInt(req.getParameter("sno"));
+//
+//StudentDao dao = new StudentDaoImpl();
+//Student student = dao.selectByuser(sno);
+//
+//req.setAttribute("student", student);

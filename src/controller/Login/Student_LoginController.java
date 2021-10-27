@@ -38,7 +38,6 @@ public class Student_LoginController extends HttpServlet{
 		
 		//로직
 		if(action.equals("student_login_input")) {
-			
 		}
 		else if(action.equals("student_login")) {
 			int sno = Integer.parseInt(req.getParameter("sno"));

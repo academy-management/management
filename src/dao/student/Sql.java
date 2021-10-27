@@ -15,7 +15,7 @@ public class Sql {
 			"select category, code, codeName from system_master where category = 'dep'";
 	
 	public static final String SUTUDENT_SNO = 
-			"select sno, password, name, grade ,year, address, tel, email, state, dno from student where sno =?";
+			"Select s.sno, s.name, s.password , s.dno, s.tel, s.email, s.address from student s ,department d where sno = ?";
 	
 	public static final String STUDENT_SELECT_BY_ID = "select s.*, d.name as dname from student s, department d where sno = ?";
 	
@@ -55,4 +55,6 @@ public class Sql {
 	
 	public static final String STUDENT_USER_UPDATE
 	="update student set name = ?, password =? , tel=?, email= ?, address=?; where sno= ?";
+	
+	
 }

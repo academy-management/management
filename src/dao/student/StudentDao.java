@@ -23,7 +23,8 @@ public interface StudentDao {
 	
 
 	public List<Student> selectBySubjectNo(int subno);
-	Student selectByuser(int sno);
+	Student selectByuser(int sno); 
+	
 	void studentUpdate(Student student);
 
 }

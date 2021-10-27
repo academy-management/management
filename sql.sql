@@ -268,6 +268,10 @@ select sno, password, name, grade ,year, address, tel, email, state, dno from st
 
 Select s.sno, s.name,  s.year , d.name, s.tel, s.state from student s ,department d where s.dno= d.dno;
 
+Select s.sno, d.name, s.name, s.password , s.tel, s.email, s.address from student s ,department d where sno= '20210101';
+
+Select s.sno, d.name as dname, s.name as sname, s.password , s.tel, s.email, s.address from student s ,department d where sno = '20210101'
+
 
 update student set state = '휴학' where sno='20210101'
 
@@ -341,3 +345,6 @@ select Nno, subject, time, views from Notice
 update student set name = ?, password =? , tel=?, email= ?, address=?; where sno= ?
 
 select s.*, d.name as dname from student s, department d where s.year like '%' || 20
+
+
+

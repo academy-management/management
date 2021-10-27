@@ -445,13 +445,13 @@ public class StudentDaoImpl implements StudentDao {
 				student = new Student();
 
 				student.setSno(resultSet.getInt("sno"));
-				student.setDno(resultSet.getInt("dno"));
-				student.setPassword(resultSet.getString("password"));
+				//student.setD_name(resultSet.getString("d_name"));
 				student.setName(resultSet.getString("name"));
-				student.setAddress(resultSet.getString("address"));
+				student.setPassword(resultSet.getString("password"));
+				student.setDno(resultSet.getInt("dno"));
 				student.setTel(resultSet.getString("tel"));
 				student.setEmail(resultSet.getString("email"));
-				
+				student.setAddress(resultSet.getString("address"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

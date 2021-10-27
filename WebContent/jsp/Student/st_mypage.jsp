@@ -65,7 +65,7 @@
 								<label>학번</label><input type="text" class="login_text dis" name="sno" value="${student.sno}" readonly/>
 							</div>
 							<div class="my_text_edit">
-								<label>학과</label><input type="text" class="login_text" name="dno" value="${student.dno}" readonly/>
+								<label>학과</label><input type="text" class="login_text" name="d_name" value="${student.d_name}" readonly/>
 							</div>
 							<div class="my_text_edit">
 								<label>이름</label><input type="text" class="login_text" name="name" value="${student.name}" />

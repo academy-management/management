@@ -36,27 +36,22 @@ public class StudentController extends HttpServlet{
 		String action = uri.substring(lastIndex+1);
 		
 		//로직
-		if(action.equals("student_mylogin")) {
+		if(action.equals("student_mylogin")) { 
+			
 
 		}
-		else if(action.equals("student_myloginpage")) {  //비번 치는 화면
-			
+		else if(action.equals("student_myloginpage")) {  
 			
 			String password = req.getParameter("password");
-			
-			
 			HttpSession session= req.getSession();
-			
 			Student Student = (Student)session.getAttribute("member");
-			
+	
 			if(password.equals(Student.getPassword())) {
-				//추가 한 부분
-				int sno = Integer.parseInt(req.getParameter("sno"));
 				StudentDao dao = new StudentDaoImpl();
-				Student student = dao.selectByuser(sno);
+				Student student = dao.selectByuser(Student.getSno());
 				req.setAttribute("student", student);
 				
-				RequestDispatcher rd = req.getRequestDispatcher("/jsp/Student/st_mypage.jsp"); //회원정보 화면
+				RequestDispatcher rd = req.getRequestDispatcher("/jsp/Student/st_mypage.jsp"); 
 				
 				rd.forward(req, resp);
 			}else {

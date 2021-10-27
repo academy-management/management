@@ -335,7 +335,7 @@ select memoid, name, age from memo where memoid= ?
 select Nno, subject, time, views from Notice where Nno=?
 
 select Nno, subject, time, views from Notice
-
+select * from professor
 	
 ----------------------
 update student set name = ?, password =? , tel=?, email= ?, address=?; where sno= ?

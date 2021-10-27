@@ -114,7 +114,7 @@
 									<option value="7">15:30 [7교시]</option>
 									<option value="8">16:30 [8교시]</option>
 									<option value="9">17:30 [9교시]</option>
-									<option value="10">18:30 [10교시]</option>
+									<option value="10">18:30 [10교시]</option>								
 							</select>~
 							<select class="login_text2" name="time2">
 										<option value="1">9:30 [1교시]</option>

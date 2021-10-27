@@ -44,7 +44,7 @@ public class Professor_LoginController extends HttpServlet{
 			
 		} else if(action.equals("professor_login")) {
 			
-			int pno = Integer.parseInt(req.getParameter("pno"));
+			String pno = req.getParameter("pno");
 			String password = req.getParameter("password");
 			
 			ProfessorDao dao = new ProfessorDaoImpl();
@@ -54,11 +54,10 @@ public class Professor_LoginController extends HttpServlet{
 			if (professor != null) {
 				
 				if(professor.getPassword().equals(password)) {
-					/*�α��� ���� -> ���� ����*/
+
 					HttpSession session = req.getSession();
 					session.setAttribute("member", professor);
 										
-					/*�α��� ���� -> ���ο� ���� ����*/
 					NoticeDao ndao = new NoticeDaoImpl();
 					List<Notice> noticeList = ndao.selectAll(1);
 					
@@ -66,12 +65,12 @@ public class Professor_LoginController extends HttpServlet{
 					
 				} else {
 					
-					req.setAttribute("massage", "��й�ȣ�� ��ġ���� �ʽ��ϴ�.");
+					req.setAttribute("message", "비밀번호가 일치하지 않습니다.");
 				}
 
 			} else {
 				
-				req.setAttribute("massage", "�������� �ʴ� ���̵�(����)�Դϴ�.");
+				req.setAttribute("message", "존재하지 않는 교번입니다");
 				
 			}
 			
@@ -87,7 +86,7 @@ public class Professor_LoginController extends HttpServlet{
 		
 		if(action.equals("professor_login_input")) {
 			
-			dispatcherUrl = "/ihk/11.professorLogin.jsp";
+			dispatcherUrl = "/jsp/professorLogin.jsp";
 			
 		} else if(action.equals("professor_login")) {
 			
@@ -95,16 +94,16 @@ public class Professor_LoginController extends HttpServlet{
 			
 			if(session.getAttribute("member") != null) {
 				
-				dispatcherUrl = "/ihk/12.professorMain.jsp";
+				dispatcherUrl = "/jsp/professorMain.jsp";
 				
 			} else {
 				
-				dispatcherUrl = "/ihk/11.professorLogin.jsp";
+				dispatcherUrl = "/jsp/professorLogin.jsp";
 			}
 
 		} else if(action.equals("professor_logout")) {
 			
-			dispatcherUrl = "/ihk/00.login.jsp";
+			dispatcherUrl = "/jsp/professorLogin.jsp";
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

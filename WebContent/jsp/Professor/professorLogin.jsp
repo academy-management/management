@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div class="login_wrap">
-		<form method="post" action="login">
+		<form method="post" action="professor_login"">
 			<div class="login_wraping">
 				<h3 class="title">로그인</h3>
 				<select class="login_text">

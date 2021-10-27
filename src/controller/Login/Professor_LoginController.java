@@ -86,7 +86,7 @@ public class Professor_LoginController extends HttpServlet{
 		
 		if(action.equals("professor_login_input")) {
 			
-			dispatcherUrl = "/jsp/Professor/professorLogin.jsp";
+			dispatcherUrl = "/jsp/Professor/professor_login.jsp";
 			
 		} else if(action.equals("professor_login")) {
 			
@@ -94,16 +94,16 @@ public class Professor_LoginController extends HttpServlet{
 			
 			if(session.getAttribute("member") != null) {
 				
-				dispatcherUrl = "/jsp/Professor/professorMain.jsp";
+				dispatcherUrl = "/jsp/Professor/professor_main.jsp";
 				
 			} else {
 				
-				dispatcherUrl = "/jsp/Professor/professorLogin.jsp";
+				dispatcherUrl = "/jsp/Professor/professor_login.jsp";
 			}
 
 		} else if(action.equals("professor_logout")) {
 			
-			dispatcherUrl = "/jsp/Professor/professorLogin.jsp";
+			dispatcherUrl = "/jsp/Professor/professor_login.jsp";
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

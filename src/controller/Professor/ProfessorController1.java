@@ -26,8 +26,6 @@ import model.Professor;
 import model.Student;
 import model.Subject;
 
-
-
 @WebServlet(urlPatterns = {"/professorMylogin", "/professorMypage", "/updateProfessorInfo", "/professorLectureInfo", "/professorLectureInfoBySelect", "/professorLectureSituation"})
 public class ProfessorController1 extends HttpServlet{
 	
@@ -63,14 +61,14 @@ public class ProfessorController1 extends HttpServlet{
 				
 				req.setAttribute("professor", professor);
 				
-				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/Professor/professorMypage.jsp");
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/Professor/professor_mypage.jsp");
 				dispatcher.forward(req, resp);
 				
 			} else {
 				
 				req.setAttribute("message", "잘못된 비밀번호 입니다");
 				
-				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/Professor/professorMylogin.jsp");
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/Professor/professor_mylogin.jsp");
 				dispatcher.forward(req, resp);
 			}
 			
@@ -132,14 +130,11 @@ public class ProfessorController1 extends HttpServlet{
 			
 		}
 		
-
-
-
 		String dispatcherUrl = null;
 		
 		if(action.equals("professorMylogin")) {
 			
-			dispatcherUrl = "/jsp/Professor/professorMylogin.jsp";
+			dispatcherUrl = "/jsp/Professor/professor_mylogin.jsp";
 
 		} else if(action.equals("updateProfessorInfo")) {
 			
@@ -151,7 +146,6 @@ public class ProfessorController1 extends HttpServlet{
 			
 			dispatcherUrl = "/jsp/Professor/professor_lecture_situation.jsp";
 			
-
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

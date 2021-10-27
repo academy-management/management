@@ -40,7 +40,7 @@
 						</div>
 					</li>
 					<li class="last">
-						<a href="login_out" class="login_out">로그아웃</a>
+						<a href="professor_logout" class="login_out">로그아웃</a>
 					</li>
 				</ul>
 			</div>

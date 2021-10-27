@@ -24,14 +24,14 @@
 			<div class="logo">
 				<h1>
 					<a href="#">
-						<img src="/Academic-Management/img/logo.png" alt="ë©ì¸"/>
+						<img src="/Academic-Management/img/logo.png" alt="메인"/>
 					</a>
 				</h1>
 			</div>
 			<div class="user">
 				<ul>
 					<li>
-						<p>${member.name}님 반갑습니다  <i class="xi-angle-down-min xi-x"></i></p>
+						<p>${member.name}님 반갑습니다 <i class="xi-angle-down-min xi-x"></i></p>
 						<div class="user_choice">
 							<ul>
 								<li><a href="professorLectureInfo">강의정보</a></li>
@@ -40,7 +40,7 @@
 						</div>
 					</li>
 					<li class="last">
-						<a href="login_out" class="login_out">로그아웃</a>
+						<a href="professor_logout" class="login_out">로그아웃</a>
 					</li>
 				</ul>
 			</div>
@@ -49,26 +49,55 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href="">수강신청</a></li>
-						<li><a href="">교수정보</a></li>
+						<li><a href="">학생관리</a></li>
+						<li><a href="">성적관리</a></li>
 						<li><a href="">공지사항</a></li>
 					</ul>
 				</nav>
 			</section>
-			<section class="container_right container_center">
-				<div class="my_login">
-					<h3 class="title">회원정보 변경</h3>
-					<div class="my_center">
-					<form method="post" action="professorMypage">
-						<input type="password" class="login_text" name="password" placeholder="비밀번호를 입력해주세요">
-						<input type="submit" class="btn_submit" value="로그인"/>
-					</form>
+			<section class="container_right">
+				<div class="right_l">
+					<div class="main_bnr">
+						<img src="/Academic-Management/img/main1.png"/>
 					</div>
+					<div class="main_notice">
+					 	<table class="table table-hover">
+					 		<colgroup>
+					          <col style="width:10%">
+					          <col style="width:70%">
+					          <col style="width:10%">
+					          <col style="width:10%">
+					        </colgroup>
+					 		<thead>
+					 			<tr>
+					 				<th>No</th>
+					 				<th>제목</th>
+					 				<th>작성일</th>
+					 				<th>조회수</th>
+					 			</tr>
+					 		</thead>
+					 		<tbody>
+					 			<c:forEach var="notice" items="${noticeList}" begin = "0" end= "2">
+					 			<tr>
+					 				<td>${notice.nno}</td>
+					 				<td>${notice.subject}</td>
+					 				<td>${notice.time}</td>
+					 				<td>${notice.views}</td>
+					 			</tr>
+					 			</c:forEach>	
+					 		</tbody>
+					 	</table>
+					 </div>
+				</div>
+				<div class="slide_bnr">
+				  	<div id="slider-div">
+					    <div>
+					    	<img src="/Academic-Management/img/s11.png"/>
+					    </div>
+				  	</div>
 				</div>
 			</section>
-			
 		</div>
 	</div>
-	
 </body>
 </html>

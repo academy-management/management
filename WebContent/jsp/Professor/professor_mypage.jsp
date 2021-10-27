@@ -40,7 +40,7 @@
 						</div>
 					</li>
 					<li class="last">
-						<a href="login_out" class="login_out">로그아웃</a>
+						<a href="professor_logout" class="login_out">로그아웃</a>
 					</li>
 				</ul>
 			</div>
@@ -49,8 +49,8 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href="">수강신청</a></li>
-						<li><a href="">교수정보</a></li>
+						<li><a href="">학생관리</a></li>
+						<li><a href="">성적관리</a></li>
 						<li><a href="">공지사항</a></li>
 					</ul>
 				</nav>

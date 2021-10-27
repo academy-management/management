@@ -53,6 +53,9 @@ public class Professor_LoginController extends HttpServlet{
 			
 			if (professor != null) {
 				
+				System.out.println(password);
+				System.out.println(professor.getPassword());
+				
 				if(professor.getPassword().equals(password)) {
 
 					HttpSession session = req.getSession();

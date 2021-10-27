@@ -69,7 +69,7 @@
 									<input type="radio" name="division" value="total" checked="checked"/> 전체
 								</label>
 								<label for="subject">
-									<input type="radio" name="division" value="${student.subject}"/> 학과
+									<input type="radio" name="division" value="${member.subject}"/> 학과
 								</label>
 							</div>
 						</div>
@@ -112,7 +112,7 @@
 					<ul>
 						<c:if test="${pageGroupResult.beforePage}">
 							<li>
-								<a href="notice?reqPage=${pageGroupResult.groupStatrNumber-1}"><</a>
+								<a href="notice?reqPage=${pageGroupResult.groupStartNumber-1}"><</a>
 							</li> 
 						</c:if>
 						

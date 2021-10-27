@@ -34,7 +34,7 @@
 						<p>${member.name}님 반갑습니다  <i class="xi-angle-down-min xi-x"></i></p>
 						<div class="user_choice">
 							<ul>
-								<li><a href="">강의정보</a></li>
+								<li><a href="professorLectureInfo">강의정보</a></li>
 								<li><a href="professorMylogin">회원정보 변경</a></li>
 							</ul>
 						</div>
@@ -61,27 +61,27 @@
 					<div class="my_center">
 					<form method="post" action="updateProfessorInfo">
 						<div class="my_text_edit">
-							<label>교번</label><input type="text" class="login_text dis" name="dnumber" value="${member.pno}" readonly/>
+							<label>교번</label><input type="text" class="login_text dis" name="pno" value="${member.pno}" readonly/>
 						</div>
 						<div class="my_text_edit">
-							<label>학과</label><input type="text" class="login_text" name="department" value="${member.d_name}" readonly/>
+							<label>학과</label><input type="text" class="login_text" name="dname" value="${member.d_name}" readonly/>
 						</div>
 						<div class="my_text_edit">
 							<label>이름</label><input type="text" class="login_text" name="name" value="${member.name}"/>
 						</div>
 						<div class="my_text_edit">
-							<label>비밀번호</label><input type="password" class="login_text" name="password" value="${member.password}"/>
+							<label>비밀번호</label><input type="password" class="login_text" value="${member.password}"/>
 						</div>
 						<div class="my_text_edit">
 							<label>새 비밀번호</label><input type="password" class="login_text" name="password" />
 						</div>
 						<div class="my_text_edit">
-							<label>연락처</label><input type="text" class="login_text" name="phone" value="${member.tel}"/>
+							<label>연락처</label><input type="text" class="login_text" name="tel" value="${member.tel}"/>
 						</div>
 						<div class="my_text_edit">
-							<label>이메일 </label><input type="text" class="login_text2" name="email" value="${member.email}"/>@
-							<select class="login_select">
-								<option>선택해주세요</option>
+							<label>이메일 </label><input type="text" class="login_text2" name="email1" value="${email1}"/>@
+							<select class="login_select" name="email3">
+								<option value="${email2}" hidden="hidden">${email2}</option>
 								<option value="naver.com">naver.com</option> 
 								<option value="daum.net">daum.net</option>
 							</select>
@@ -95,8 +95,8 @@
 								</div>
 							</div>
 							<div class="my_right">
-								<input type="text" id="sample6_address" class="login_text big"  placeholder="주소">
-								<input type="text" id="sample6_detailAddress" class="login_text big" placeholder="상세주소">
+								<input type="text" id="sample6_address" class="login_text big" name="address1" value="${address1}">
+								<input type="text" id="sample6_detailAddress" class="login_text big" name="address2" value="${address2}">
 							</div>
 						</div>
 						<div class="my_btn">

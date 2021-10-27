@@ -11,12 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-import dao.student.StudentDao;
-import dao.student.StudentDaoImpl;
-import dao.subject.SubjectDao;
-import dao.subject.SubjectDaoImpl;
-
+import dao.Professor.ProfessorDao2;
+import dao.Professor.ProfessorDaoImpl2;
 import dao.student.StudentDao22;
 import dao.student.StudentDaoImpl22;
 import dao.subject.SubjectDao2;
@@ -57,9 +53,31 @@ public class ProfessorController1 extends HttpServlet{
 			HttpSession session = req.getSession();
 			Professor professor = (Professor) session.getAttribute("member");
 			
+			String address = professor.getAddress();
+			String target1 = ",";
+			int targetNum = address.lastIndexOf(target1);
+			
+			String address1 = address.substring(0,targetNum);
+			String address2 = address.substring(targetNum + 1);
+			
+			String email = professor.getEmail();
+			String target2 = "@";
+			int targetNum2 = email.lastIndexOf(target2);
+			
+			String email1 = email.substring(0, targetNum2);
+			String email2 = email.substring(targetNum2 + 1); 
+			
+			/*System.out.println(address1);
+			System.out.println(address2);
+			
+			*/
 			if(passwordCheck.equals(professor.getPassword())) {
 				
 				req.setAttribute("professor", professor);
+				req.setAttribute("address1", address1);
+				req.setAttribute("address2", address2);
+				req.setAttribute("email1", email1);
+				req.setAttribute("email2", email2);
 				
 				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/Professor/professor_mypage.jsp");
 				dispatcher.forward(req, resp);
@@ -74,7 +92,25 @@ public class ProfessorController1 extends HttpServlet{
 			
 		} else if(action.equals("updateProfessorInfo")) {
 			
+			String pno = req.getParameter("pno");
+			String d_name = req.getParameter("dname");
+			String name = req.getParameter("name");
+			String password = req.getParameter("password");
+			String address = req.getParameter("address1") + "," + req.getParameter("address2");
+			String tel = req.getParameter("tel");
+			String email = req.getParameter("email1") + "@" + req.getParameter("email3");
 			
+			Professor professor = new Professor();
+			professor.setPno(pno);
+			professor.setD_name(d_name);
+			professor.setName(name);
+			professor.setPassword(password);
+			professor.setAddress(address);
+			professor.setTel(tel);
+			professor.setEmail(email);
+			
+			ProfessorDao2 dao = new ProfessorDaoImpl2();
+			dao.update(professor);			
 			
 		} else if(action.equals("professorLectureInfo")) {
 
@@ -137,6 +173,8 @@ public class ProfessorController1 extends HttpServlet{
 			dispatcherUrl = "/jsp/Professor/professor_mylogin.jsp";
 
 		} else if(action.equals("updateProfessorInfo")) {
+			
+			dispatcherUrl = "/jsp/Professor/professor_main.jsp";
 			
 		} else if(action.equals("professorLectureInfo") || action.equals("professorLectureInfoBySelect")) {
 			

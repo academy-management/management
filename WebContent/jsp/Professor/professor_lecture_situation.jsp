@@ -17,6 +17,11 @@
 <script type="text/javascript" src="/Academic-Management/js/script.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<style>
+	
+
+</style>
 </head>
 <body>
 	<div class="wrap">
@@ -93,7 +98,7 @@
 										<td>${student.no}</td>
 										<td>${student.sno}</td>
 										<td>${student.name}</td>
-										<td>{student.d_name}</td>
+										<td>${student.d_name}</td>
 										<td>${student.grade}</td>
 										<td>${student.tel}</td>
 										<td>${student.email}</td> 

@@ -70,7 +70,7 @@ public class StudentController extends HttpServlet{
 			
 			
 			StudentDao dao = new StudentDaoImpl();
-			dao.selectBysno(student);
+//			dao.selectBysno(student);
 			
 			
 		}

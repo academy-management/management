@@ -21,7 +21,7 @@ public class Test {
 		}
 		
 		System.out.println("--------------------------------");
-		for (Student student : stdDao.selectYear(21)) {
+		for (Student student : stdDao.selectYear("21")) {
 			System.out.println(student.toString());
 		}
 		

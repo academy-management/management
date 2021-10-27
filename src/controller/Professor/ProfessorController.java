@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.student.StudentDao;
+import dao.student.StudentDaoImpl;
 import model.Professor;
 
 
-@WebServlet(urlPatterns = {"/professorMylogin","/professorMypage", "/updateProfessorInfo"})
+@WebServlet(urlPatterns = {"/professorMylogin","/professorMypage", "/updateProfessorInfo", "/studentSearch", "/studentNameOrYearSearch", "/studentAllSearch"})
 public class ProfessorController extends HttpServlet{
 	
 	@Override
@@ -48,14 +50,14 @@ public class ProfessorController extends HttpServlet{
 				
 				req.setAttribute("professor", professor);
 				
-				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/professorMypage.jsp");
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/Professor/professorMypage.jsp");
 				dispatcher.forward(req, resp);
 				
 			} else {
 				
 				req.setAttribute("message", "잘못된 비밀번호 입니다");
 				
-				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/professorMylogin.jsp");
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/Professor/professorMylogin.jsp");
 				dispatcher.forward(req, resp);
 			}
 			
@@ -64,15 +66,26 @@ public class ProfessorController extends HttpServlet{
 			
 			
 			
+		} else if(action.equals("studentSearch")) {
+			StudentDao dao = new StudentDaoImpl();
+			req.setAttribute("studentList", dao.selectAll());
+		} else if(action.equals("studentNameOrYearSearch")) {
+			StudentDao dao = new StudentDaoImpl();			
+			req.setAttribute("studentList", dao.selectYear(req.getParameterValues("yearSelect")[0]));
 		}
+		
 
 	String dispatcherUrl = null;
 		
 		if(action.equals("professorMylogin")) {
 			
-			dispatcherUrl = "/jsp/professorMylogin.jsp";
+			dispatcherUrl = "/jsp/Professor/professorMylogin.jsp";
 			
-		} 
+		} else if(action.equals("studentSearch")) {
+			dispatcherUrl = "/jsp/Professor/professorStudentSearch.jsp";
+		} else if(action.equals("studentNameOrYearSearch")) {
+			dispatcherUrl = "/jsp/Professor/professorStudentSearch.jsp";
+		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);
 		dispatcher.forward(req, resp);	

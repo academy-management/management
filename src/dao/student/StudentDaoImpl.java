@@ -182,7 +182,7 @@ public class StudentDaoImpl implements StudentDao {
 
 
 	@Override
-	public List<Student> selectYear(int year) {
+	public List<Student> selectYear(String year) {
 		List<Student> studentList = new ArrayList<>();
 
 		Connection connection = null;
@@ -193,7 +193,7 @@ public class StudentDaoImpl implements StudentDao {
 
 			connection = JDBCUtil.getConnection();
 			pStatement = connection.prepareStatement(Sql.STUDENT_SELECT_YEAR);
-			pStatement.setInt(1, year);
+			pStatement.setString(1, year);
 			resultSet = pStatement.executeQuery();
 
 			while (resultSet.next()) {
@@ -385,31 +385,75 @@ public class StudentDaoImpl implements StudentDao {
 		return depList;
 	}	
 
-	
 	@Override
-	public void selectBysno(Student student) {
+	public Student mylogin(String pw) {
+		Student student = null;
+
 		Connection connection = null;
 		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
 
 		try {
 			connection = JDBCUtil.getConnection();
-			pStatement = connection.prepareStatement(Sql.SUTUDENT_MY_UPDATE);
+			pStatement = connection.prepareStatement(Sql.SUTUDENT_MY_LOGIN_SQL);
 
-			pStatement.setInt(1, student.getSno());
-			pStatement.setInt(2, student.getDno());
-			pStatement.setString(3, student.getName());
-			pStatement.setString(4, student.getPassword());
-			pStatement.setString(5, student.getTel());
-			pStatement.setString(6, student.getEmail());
-			pStatement.setString(7, student.getAddress());
-			
+			pStatement.setString(1, pw);
 
-			pStatement.executeUpdate();
+			resultSet = pStatement.executeQuery();
+
+			if (resultSet.next()) {
+				student = new Student();
+
+				student.setSno(resultSet.getInt("sno"));
+				student.setPassword(resultSet.getString("password"));
+				student.setName(resultSet.getString("name"));
+				student.setGrade(resultSet.getInt("grade"));
+				student.setYear(resultSet.getInt("year"));
+				student.setAddress(resultSet.getString("address"));
+				student.setTel(resultSet.getString("tel"));
+				student.setEmail(resultSet.getString("email"));
+				student.setState(resultSet.getString("state"));
+				student.setDno(resultSet.getInt("dno"));
+
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			JDBCUtil.close(null, pStatement, connection);
+			JDBCUtil.close(resultSet, pStatement, connection);
 		}
+		return student;
+	}
+
+	@Override
+	public Student selectBysno(int sno) {
+		Student student = null; 
+
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.SUTUDENT_SNO);
+			
+			pStatement.setInt(1, sno);
+			
+			resultSet = pStatement.executeQuery();
+			
+			if (resultSet.next()) {
+				student = new Student();
+
+				student.setSno(resultSet.getInt("memoid"));
+				student.setName(resultSet.getString("name"));
+				student.setGrade(resultSet.getInt("grade"));
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}
+		return student;
 	}
 
 }

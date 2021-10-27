@@ -10,7 +10,6 @@ public interface StudentDao {
 	model.Student login(int sno, String pw);
 	Student mylogin(String pw);
 	List<SystemMaster> selectDepCode();	
-	Student selectBysno(int sno);
 	void insert(Student student);
 	void update(int sno, String state);	
 	List<Student> selectByNYN(String name,String year,String department);
@@ -20,5 +19,6 @@ public interface StudentDao {
 	public Student selectByNo(String sno);
 	public void updateToScore(int regno, String score);
 	public List<Student> selectBySubjectNo(int subno);
-	
+	Student selectByuser(int sno);
+	void studentUpdate(Student student);
 }

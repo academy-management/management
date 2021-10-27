@@ -48,6 +48,17 @@ public class Student {
 
 	}
 	
+	public Student(int sno,int dno, String name ,String password,String tel,String email,String address) {
+		super();
+		this.sno = sno;
+		this.name = name;
+		this.dno = dno;
+		this.tel = tel;
+		this.password = password;
+		this.address = address;
+		this.email = email;
+
+	}
 	
 	
 	public Student(int sno, String password){

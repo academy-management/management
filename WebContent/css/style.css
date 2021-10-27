@@ -401,6 +401,8 @@ table td{
 	background: #1e2150;
 }
 
-
+input[type=readonly]{
+	background:#ddd;
+}
 
 

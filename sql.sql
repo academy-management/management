@@ -309,20 +309,5 @@ select Nno, subject, time, views from Notice
 
 	
 ----------------------
---로그인 화면
-create table systemMaster
-( 
-    category         varchar(128) not null,
-    code             varchar(256) not null primary key,
-    codeName varchar(128) not null
-);
 
-insert into systemMaster (category,code, codeName) values ('dep','10', '학생');
-insert into systemMaster (category,code, codeName) values ('dep','20', '교수');
-insert into systemMaster (category,code, codeName) values ('dep','30', '관리자');
-
-select category, code, codeName from systemMaster where category = 'dep'
-
-
-select * from systemMaster where category = 'DEP';
 

@@ -7,10 +7,9 @@ import model.SystemMaster;
 
 public interface StudentDao {
 	
-	model.Student login(int sno, String pw);
-	Student mylogin(String pw);
+	Student login(int sno, String pw);
 	List<SystemMaster> selectDepCode();	
-	Student selectBysno(int sno);
+	void selectBysno(Student student);
 	void insert(Student student);
 	void update(int sno, String state);	
 	List<Student> selectByNYN(String name,String year,String department);

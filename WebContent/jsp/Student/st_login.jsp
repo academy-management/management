@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="./css/style.css" type="text/css">
+<link rel="stylesheet" href="/Academic-Management/css/style.css" type="text/css">
 
 	
 <script
@@ -16,13 +16,18 @@
 </head>
 <body>
 	<div class="login_wrap">
-		<form method="post" action="login">
+		<form method="post" action="student_login">
 			<div class="login_wraping">
 				<h3 class="title">로그인</h3>
-				<select name="depno" class="login_text"> 
+				<%-- <select name="depno" class="login_text"> 
 					<c:forEach items = "${smList}" var = "depCodes">
 						<option value="${depCodes.code}">${depCodes.codeName}</option>
 					</c:forEach>
+				</select> --%>
+				<select class="login_text">
+					<option value="st">학생</option>
+					<option value="ps">교수</option>
+					<option value="ad">관리자</option>
 				</select>
 				<input type="text" class="login_text" name="sno" placeholder="학번을 입력해주세요"/>
 				<input type="password" class="login_text" name="password" placeholder="비밀번호를 입력해주세요"/>

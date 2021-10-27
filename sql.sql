@@ -272,7 +272,7 @@ Select s.sno, d.name, s.name, s.password , s.tel, s.email, s.address from studen
 
 Select s.sno, d.name as dname, s.name as sname, s.password , s.tel, s.email, s.address from student s ,department d where sno = '20210101'
 
-
+select s.*, d.name as dname from student s, department d where sno = '20210101'
 update student set state = '휴학' where sno='20210101'
 
 Select p.pno, p.name, d.name, p.major, p.tel ,p.state from professor p , department d where p.dno= d.dno ;

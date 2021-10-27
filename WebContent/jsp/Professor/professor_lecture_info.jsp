@@ -94,6 +94,7 @@
 					</div>
 				</div>
 				<div class="container_score">
+				<c:if test="${not empty subjectList}">
 					<table class="table table-hover">
 					 		<colgroup>
 					          <col style="width:10%">
@@ -128,6 +129,12 @@
 								</c:forEach>
 							</tbody>
 					 	</table>
+					 </c:if>
+					 <c:if test="${empty subjectList}">
+					 	<div style="text-align:center">
+					 		<h6>등록된 수업이 없습니다 </h6>
+					 	</div>
+					 </c:if>	
 				</div>
 			</section>
 		</div>

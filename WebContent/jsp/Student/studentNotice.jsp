@@ -79,6 +79,7 @@
 						</div>
 					</div>
 				</form>	
+				<c:if test="${not empty noticeList}">
 				<div class="container_score">
 					<table class="table table-hover">
 					 		<colgroup>
@@ -106,8 +107,16 @@
 								</c:forEach>
 					 		</tbody>
 					 </table>
-
 				</div>
+				</c:if>
+				<c:if test="${empty noticeList}">
+					<br>
+					<div style="text-align:center" >
+					 	<h6>등록된 공지사항이 없습니다</h6>
+					 </div>
+				</c:if>
+				
+				<c:if test="${!empty noticeList}">
 				<div class="paging">
 					<ul>
 						<c:if test="${pageGroupResult.beforePage}">
@@ -138,6 +147,8 @@
 						</c:if>
 					</ul>
 				</div>
+				</c:if>
+				
 			</section>
 		</div>
 	</div>

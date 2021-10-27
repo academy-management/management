@@ -10,12 +10,12 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<link rel="stylesheet" href="/Academic_Management/css/style.css" type="text/css">
+<link rel="stylesheet" href="/Academic-Management/css/style.css" type="text/css">
 	
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>	
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="/Academic_Management/js/script.js"></script>
-<script type="text/javascript" src="/Academic_Management/js/slick.js"></script>
+<script type="text/javascript" src="/Academic-Management/js/script.js"></script>
+<script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
@@ -24,7 +24,7 @@
 			<div class="logo">
 				<h1>
 					<a href="#">
-						<img src="/Academic_Management/img/logo.png" alt="메인"/>
+						<img src="/Academic-Management/img/logo.png" alt="메인"/>
 					</a>
 				</h1>
 			</div>
@@ -58,7 +58,7 @@
 			</section>
 			<section class="container_right cotainer_col">
 				<div class="main_title">
-					<img src="/Academic_Management/img/title_img.png" alt="성적정보"/>
+					<img src="/Academic-Management/img/title_img.png" alt="성적정보"/>
 					<h4>공지사항</h4>
 				</div>
 				<form method="post" action="notice_search" style="vertical-align:middle;">

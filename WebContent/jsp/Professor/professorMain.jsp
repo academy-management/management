@@ -92,7 +92,7 @@
 				<div class="slide_bnr">
 				  	<div id="slider-div">
 					    <div>
-					    	<img src="/Academic_Management/img/s11.png" alt="ì±ì íì¸ ê¸°ê°"/>
+					    	<img src="/Academic-Management/img/s11.png" alt="ì±ì íì¸ ê¸°ê°"/>
 					    </div>
 					   <!--  <div>
 					    	<img src="./img/s1.png" alt="ì±ì íì¸ ê¸°ê°"/>2222

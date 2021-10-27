@@ -278,8 +278,6 @@ insert into professor values('p002','p002','정보통신','이교수',null,'재�
 insert into professor values('p003','p003','인공지능','박교수',null,'재직','지구상, 어딘가','B503','010-4786-1123','asfbikjq@naver.com',1);
 insert into professor values('p009','9999','인공지능','최교수',null,'재직','지구상, 어딘가','B504','010-8990-7831','asdscj@naver.com',1);
 
-select * from professor where pno = 'p001'
-
 Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor p , department d where p.dno= d.dno and p.name = '%이%' and d.name like '%%' order by pno desc
 
 	subno VARCHAR(50) NOT NULL, /* 강의코드 */
@@ -297,19 +295,6 @@ Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor 
 	pno VARCHAR(50) /* 교수아이디 */
 	
 insert into subject values('c0001', '컴퓨터공학개론', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
-
-
-
-regno NUMBER NOT NULL, /* 수강번호 */
-	year NUMBER, /* 년도 */
-	semester NUMBER, /* 학기 */
-	score VARCHAR(255), /* 성적 */
-	sno NUMBER, /* 학번(ID) */
-	subno VARCHAR(50) /* 강의코드 */
-	
-	
-select * from SUBJECT
-insert into register values(1114, 2021, 2, null,'20210103','1234')
 
 
 insert into student values('20210101','1234','김학생',1,2021,'지구상 어딘가','010-1234-5678','kim@naver.com','재학',1);

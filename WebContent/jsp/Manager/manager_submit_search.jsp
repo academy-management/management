@@ -13,14 +13,14 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<link rel="stylesheet" href="../css/style.css" type="text/css">
+<link rel="stylesheet" href="/Academic-Management/css/style.css" type="text/css">
 
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"
 	type="text/javascript"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="../js/script.js"></script>
-<script type="text/javascript" src="../js/slick.js"></script>
+<script type="text/javascript" src="/Academic-Management/js/script.js"></script>
+<script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	
@@ -30,7 +30,7 @@
 		<header class="header">
 			<div class="logo">
 				<h1>
-					<a href="#"> <img src="../img/logo.png" alt="메인" />
+					<a href="#"> <img src="/Academic-Management/img/logo.png" alt="메인" />
 					</a>
 				</h1>
 			</div>
@@ -74,21 +74,21 @@
 			</section>
 			<section class="container_right cotainer_col">
 				<div class="main_title">
-					<img src="./img/title_img.png" alt="성적정보" />
+					<img src="/Academic-Management/img/title_img.png" alt="성적정보" />
 					<h4>강의검색</h4>
 				</div>
 				<div class="search_box">
 					<div class="search">
 						
-						<form method="post" action="student_search">
-						<input type="text" name="name" placeholder="담당교수 검색" />
+						<form method="post" action="subject_searchNS">
+						<input type="text" name="p_name" placeholder="담당교수 검색" />
 							<input type="text" name="name" placeholder="과목명 검색" />
 							<input type="submit" class="btn btn-outline-dark" value="검색" /><br>
 						</form>
 					</div>
 
 				</div>
-				<c:if test="${!empty studentList}">
+				<c:if test="${!empty subjectList}">
 					<div class="container_score">
 						<table class="table table-hover">
 							<colgroup>
@@ -112,16 +112,16 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="student" items="${studentList}">
+								<c:forEach var="subject" items="${subjectList}">
 
 									<tr>
-										<td>${student.sno}</td>
-										<td>${student.name}</td>
-										<td>${student.year}</td>
-										<td>${student.d_name}</td>
-										<td>${student.tel}</td>
-										<td>${student.state}</td>
-										<td><input type="button" value="수정"></td>
+										<td>${subject.subno}</td>
+										<td>${subject.name}</td>
+										<td>${subject.p_name}</td>
+										<td>${subject.score}</td>
+										<td>${subject.date}</td>
+										<td>${subject.state}</td>
+										
 
 									</tr>
 								</c:forEach>

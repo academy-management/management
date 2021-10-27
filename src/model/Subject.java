@@ -1,7 +1,7 @@
 package model;
 
 public class Subject {
-	private int subno;
+	private String subno;
 	private String name;
 	private int grade;
 	private String score;
@@ -14,12 +14,13 @@ public class Subject {
 	private String division;
 	private int dno;
 	private int pno;	
+	private String p_name;  //교수이름
 	
 	public Subject() {
 		super();
 	}
 	
-	public Subject(int subno, String name, int grade, String score, int people, String room, String date, String state,
+	public Subject(String subno, String name, int grade, String score, int people, String room, String date, String state,
 			String start, String end, String division, int dno, int pno) {
 		super();
 		this.subno = subno;
@@ -36,10 +37,20 @@ public class Subject {
 		this.dno = dno;
 		this.pno = pno;
 	}
-	public int getSubno() {
+	
+	
+	public String getP_name() {
+		return p_name;
+	}
+
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+
+	public String getSubno() {
 		return subno;
 	}
-	public void setSubno(int subno) {
+	public void setSubno(String subno) {
 		this.subno = subno;
 	}
 	public String getName() {

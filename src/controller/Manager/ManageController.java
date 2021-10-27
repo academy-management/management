@@ -14,12 +14,15 @@ import dao.Professor.ProfessorDao;
 import dao.Professor.ProfessorDaoImpl;
 import dao.student.StudentDao;
 import dao.student.StudentDaoImpl;
+import dao.subject.SubjectDao;
+import dao.subject.SubjectDaoImpl;
 import model.Professor;
 import model.Student;
+import model.Subject;
 
 
 
-@WebServlet(name = "ManageController", urlPatterns = {"/student_search","/student_searchbyname","/student_update","/student_insert","/professor_search","/professor_insert","/professor_update","/professor_searchbyname","/subject_search","/subject_insert"})
+@WebServlet(name = "ManageController", urlPatterns = {"/student_search","/student_searchbyname","/student_update","/student_insert","/professor_search","/professor_insert","/professor_update","/professor_searchbyname","/subject_search","/subject_searchNS","/subject_insert"})
 public class ManageController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,8 +46,7 @@ public class ManageController extends HttpServlet{
 	    if(action.equals("student_search")) { 
 	    	
 	    	StudentDao dao = new StudentDaoImpl();
-			List<Student> studentList = dao.selectAll();
-
+			List<Student> studentList = dao.selectByNYN("", "", "");
 			req.setAttribute("studentList", studentList);
 			
 	    }else if(action.equals("student_searchbyname")){
@@ -66,7 +68,7 @@ public class ManageController extends HttpServlet{
 	    	StudentDao dao = new StudentDaoImpl();
 	    	dao.update(sno, state);
 	    	
-			List<Student> studentList = dao.selectAll();
+	    	List<Student> studentList = dao.selectByNYN("", "", "");
 			req.setAttribute("studentList", studentList);
 	    	
 	    }else if(action.equals("student_insert")){
@@ -145,6 +147,18 @@ public class ManageController extends HttpServlet{
 			
 	    }else if(action.equals("subject_search")){
 	    	
+	    	SubjectDao dao = new SubjectDaoImpl();
+			List<Subject> subjectList = dao.selectByNS("","");
+			req.setAttribute("subjectList", subjectList);
+			
+	    }else if(action.equals("subject_searchNS")){
+	    	String name = req.getParameter("name");
+	    	String p_name = req.getParameter("p_name");
+	    	
+	    	SubjectDao dao = new SubjectDaoImpl();
+			List<Subject> subjectList = dao.selectByNS(name,p_name);
+			req.setAttribute("subjectList", subjectList);
+			
 	    }else if(action.equals("subject_insert")){
 	    	
 	    }
@@ -152,25 +166,27 @@ public class ManageController extends HttpServlet{
 	    String dispatcherUrl= null;
 	    
 	    if(action.equals("student_search")) {
-	    	dispatcherUrl = "/jsp/manager_professor_search.jsp";
+	    	dispatcherUrl = "/jsp/Manager/manager_student_search.jsp";
 	    }else if(action.equals("student_searchbyname")){
-	    	dispatcherUrl = "/jsp/manager_professor_search.jsp";
+	    	dispatcherUrl = "/jsp/Manager/manager_student_search.jsp";
 	    }else if(action.equals("student_update")){
-	    	dispatcherUrl = "/jsp/manager_professor_search.jsp";
+	    	dispatcherUrl = "/jsp/Manager/manager_student_search.jsp";
 	    }else if(action.equals("student_insert")){
-	    	dispatcherUrl = "/jsp/manager_professor_insert.jsp";
+	    	dispatcherUrl = "/jsp/Manager/manager_student_insert.jsp";
 	    }else if(action.equals("professor_search")){
-	    	dispatcherUrl = "/jsp/manager_student_search.jsp";
+	    	dispatcherUrl = "/jsp/Manager/manager_professor_search.jsp";
 	    }else if(action.equals("professor_searchbyname")){
-	    	dispatcherUrl = "/jsp/manager_student_search.jsp";
+	    	dispatcherUrl = "/jsp/Manager/manager_professor_search.jsp";
 	    }else if(action.equals("professor_insert")){
-	    	dispatcherUrl = "/jsp/manager_student_insert.jsp";
+	    	dispatcherUrl = "/jsp/Manager/manager_professor_insert.jsp";
 	    }else if(action.equals("professor_update")){
-	    	dispatcherUrl = "/jsp/manager_student_search.jsp";
+	    	dispatcherUrl = "/jsp/Manager/manager_professor_search.jsp";
 	    }else if(action.equals("subject_search")){
-	    	dispatcherUrl = "/jsp/manager_submit_search.jsp";
+	    	dispatcherUrl = "/jsp/Manager/manager_submit_search.jsp";
+	    }else if(action.equals("subject_searchNS")){
+	    	dispatcherUrl = "/jsp/Manager/manager_submit_search.jsp";
 	    }else if(action.equals("subject_insert")){
-	    	dispatcherUrl = "/jsp/manager_submit_insert.jsp";
+	    	dispatcherUrl = "/jsp/Manager/manager_submit_insert.jsp";
 	    }
 	    
 	    RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

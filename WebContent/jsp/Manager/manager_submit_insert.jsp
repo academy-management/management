@@ -10,12 +10,12 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<link rel="stylesheet" href="../css/style.css" type="text/css">
+<link rel="stylesheet" href="/Academic-Management/css/style.css" type="text/css">
 	
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>	
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="../js/script.js"></script>
-<script type="text/javascript" src="../js/slick.js"></script>
+<script type="text/javascript" src="/Academic-Management/js/script.js"></script>
+<script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
@@ -24,7 +24,7 @@
 			<div class="logo">
 				<h1>
 					<a href="#">
-						<img src="../img/logo.png" alt="메인"/>
+						<img src="/Academic-Management/img/logo.png" alt="메인"/>
 					</a>
 				</h1>
 			</div>
@@ -70,16 +70,16 @@
 					<h3 class="title">강의 등록</h3>
 					<div class="my_center">
 						<div class="my_text_edit">
-							<label>과목코드</label><input type="text" class="login_text dis" name="sno"/>
+							<label>과목코드</label><input type="text" class="login_text dis" name="subno"/>
 						</div>
 						<div class="my_text_edit">
-							<label>과목명</label><input type="password" class="login_text" name="password"/>
+							<label>과목명</label><input type="password" class="login_text" name="name"/>
 						</div>
 						<div class="my_text_edit">
-							<label>교수명</label><input type="text" class="login_text" name="name" />
+							<label>교수명</label><input type="text" class="login_text" name="p_name-" />
 						</div>
 						<div class="my_text_edit">
-							<label>학년</label><input type="text" class="login_text" name="password" />
+							<label>학년</label><input type="text" class="login_text" name="grade" />
 						</div>
 						<div class="my_text_edit">
 							<label>학점</label><input type="text" class="login_text" name="password" />
@@ -88,15 +88,64 @@
 							<label>강의실</label><input type="text" class="login_text" name="password" />
 						</div>
 						<div class="my_text_edit">
-							<label>강의요일</label><input type="text" class="login_text" name="phone" />
+							<label>인원수</label><input type="text" class="login_text" name="people" />
 						</div>
+						<div class="my_text_edit" style="margin-bottom:20px">
+							<label>강의요일</label>
+							<select class="login_text" name="week">
+									<option value="월요일">월요일</option>
+									<option value="화요일">화요일</option>
+									<option value="수요일">수요일</option>
+									<option value="목요일">목요일</option>
+									<option value="금요일">금요일</option>
+									<option value="토요알">토요일</option>
+									<option value="일요일">일요일</option>
+							</select>
+						</div>
+						<div class="my_text_edit" style="margin-bottom:20px">
+							<label>강의시간</label>
+							<select class="login_text2" name="time">
+									<option value="1">9:30 [1교시]</option>
+									<option value="2">10:30 [2교시]</option>
+									<option value="3">11:30 [3교시]</option>
+									<option value="4">12:30 [4교시]</option>
+									<option value="5">13:30 [5교시]</option>
+									<option value="6">14:30 [6교시]</option>
+									<option value="7">15:30 [7교시]</option>
+									<option value="8">16:30 [8교시]</option>
+									<option value="9">17:30 [9교시]</option>
+									<option value="10">18:30 [10교시]</option>
+							</select>~
+							<select class="login_text2" name="time2">
+										<option value="1">9:30 [1교시]</option>
+									<option value="2">10:30 [2교시]</option>
+									<option value="3">11:30 [3교시]</option>
+									<option value="4">12:30 [4교시]</option>
+									<option value="5">13:30 [5교시]</option>
+									<option value="6">14:30 [6교시]</option>
+									<option value="7">15:30 [7교시]</option>
+									<option value="8">16:30 [8교시]</option>
+									<option value="9">17:30 [9교시]</option>
+									<option value="10">18:30 [10교시]</option>
+							</select>
+						</div>
+						<div class="my_text_edit" >
+							<label>강의날짜</label>
+							<input type="date" class="login_text2" name="startday" />
+							~
+							<input type="date" class="login_text2" name="endday" />
+						</div>
+						
 						<div class="my_text_edit">
-							<label>강의시간</label><input type="text" class="login_text2" name="email" />~
-							<input type="text" class="login_text2" name="email" />
+							<label>구분</label>
+							<select class="login_text" name="division">
+									<option value="전공">전공</option>
+									<option value="교양">교양</option>
+							</select>
 						</div>
 						
 						<div class="my_btn">
-							<input type="button" class="btn_can" value="취소"/>
+							<input type="reset" class="btn_can" value="취소"/>
 							<input type="submit" class="btn_edit" value="등록"/>
 						</div>
 					</div>

@@ -102,7 +102,7 @@ ALTER TABLE department
 
 /* 강의 */
 CREATE TABLE subject (
-	subno NUMBER NOT NULL, /* 강의코드 */
+	subno VARCHAR(50) NOT NULL, /* 강의코드 */
 	name VARCHAR(50), /* 강의명 */
 	grade NUMBER, /* 학년 */
 	score VARCHAR(255), /* 학점 */
@@ -131,7 +131,7 @@ CREATE TABLE register (
 	semester NUMBER, /* 학기 */
 	score VARCHAR(255), /* 성적 */
 	sno NUMBER, /* 학번(ID) */
-	subno NUMBER /* 강의코드 */
+	subno VARCHAR(50) /* 강의코드 */
 );
 
 ALTER TABLE register
@@ -281,6 +281,38 @@ insert into professor values('p004','p004','인공지능','최교수',null,'재�
 
 
 Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor p , department d where p.dno= d.dno and p.name = '%이%' and d.name like '%%' order by pno desc
+
+	subno VARCHAR(50) NOT NULL, /* 강의코드 */
+	name VARCHAR(50), /* 강의명 */
+	grade NUMBER, /* 학년 */
+	score VARCHAR(255), /* 학점 */
+	people NUMBER, /* 인원수 */
+	room VARCHAR(255), /* 강의실 */
+	subtime VARCHAR(50), /* 강의시간 */
+	state VARCHAR(50), /* 상태 */
+	startday DATE, /* 개강날 */
+	endday DATE, /* 종강날 */
+	division VARCHAR(50), /* 강의구분 */
+	dno NUMBER, /* 학과번호 */
+	pno VARCHAR(50) /* 교수아이디 */
+	
+insert into SUBJECT values('c0001','컴퓨터공학 개론','1','3','30','A관 101호','월 1-3','강의',sysdate,sysdate,'전공',1,'p001');
+
+select s.subno , s.name , p.name , s.score , s.subtime , s.state from subject s,professor p where s.pno= p.pno and s.name like ? and p.name like ?;
+select s.subno , s.name , p.name as p_name , s.score , s.subtime , s.state from subject s,professor p where s.pno= p.pno and s.name like '%%' and p.name like '%%' order by s.pno desc
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -------------------
 insert into Notice values(seqnotice.nextval, '2021-10-20','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,01);

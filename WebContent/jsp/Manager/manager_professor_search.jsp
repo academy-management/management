@@ -13,14 +13,14 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<link rel="stylesheet" href="../css/style.css" type="text/css">
+<link rel="stylesheet" href="/Academic-Management/css/style.css" type="text/css">
 
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"
 	type="text/javascript"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="../js/script.js"></script>
-<script type="text/javascript" src="../js/slick.js"></script>
+<script type="text/javascript" src="/Academic-Management/js/script.js"></script>
+<script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	
@@ -30,7 +30,7 @@
 		<header class="header">
 			<div class="logo">
 				<h1>
-					<a href="#"> <img src="../img/logo.png" alt="메인" />
+					<a href="#"> <img src="/Academic-Management/img/logo.png" alt="메인" />
 					</a>
 				</h1>
 			</div>
@@ -74,7 +74,7 @@
 			</section>
 			<section class="container_right cotainer_col">
 				<div class="main_title">
-					<img src="./img/title_img.png" alt="성적정보" />
+					<img src="/Academic-Management/img/title_img.png" alt="성적정보" />
 					<h4>교수검색</h4>
 				</div>
 				<div class="search_box">
@@ -120,7 +120,7 @@
 									
 									<tr>
 										<form method="post" action="professor_update">
-										<td><input type="text" name="pno" value=${professor.pno} readonly /></td>
+										<td><input type="hidden" name="pno" value=${professor.pno} readonly />${professor.pno}</td>
 										<td>${professor.name}</td>
 										<td>${professor.d_name}</td>
 										<td>${professor.major}</td>

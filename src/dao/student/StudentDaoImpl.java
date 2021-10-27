@@ -424,9 +424,10 @@ public class StudentDaoImpl implements StudentDao {
 		return student;
 	}
 
+	
 	@Override
-	public Student selectBysno(int sno) {
-		Student student = null; 
+	public Student selectByuser(int sno) {
+		Student student = null;  
 
 		Connection connection = null;
 		PreparedStatement pStatement = null;
@@ -443,10 +444,14 @@ public class StudentDaoImpl implements StudentDao {
 			if (resultSet.next()) {
 				student = new Student();
 
-				student.setSno(resultSet.getInt("memoid"));
+				student.setSno(resultSet.getInt("sno"));
+				student.setDno(resultSet.getInt("dno"));
+				student.setPassword(resultSet.getString("password"));
 				student.setName(resultSet.getString("name"));
-				student.setGrade(resultSet.getInt("grade"));
-
+				student.setAddress(resultSet.getString("address"));
+				student.setTel(resultSet.getString("tel"));
+				student.setEmail(resultSet.getString("email"));
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -454,6 +459,33 @@ public class StudentDaoImpl implements StudentDao {
 			JDBCUtil.close(resultSet, pStatement, connection);
 		}
 		return student;
+	}
+
+
+	@Override
+	public void studentUpdate(Student student) {
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.STUDENT_USER_UPDATE);
+
+			pStatement.setInt(1, student.getSno());
+			pStatement.setInt(2, student.getDno());
+			pStatement.setString(3, student.getName());
+			pStatement.setString(4, student.getPassword());
+			pStatement.setString(5, student.getTel());
+			pStatement.setString(6, student.getEmail());
+			pStatement.setString(7, student.getAddress());
+
+			pStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(null, pStatement, connection);
+		}
+		
 	}
 
 }

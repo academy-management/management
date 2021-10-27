@@ -296,21 +296,24 @@ Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor 
 	dno NUMBER, /* 학과번호 */
 	pno VARCHAR(50) /* 교수아이디 */
 	
-insert into SUBJECT values('c0001','컴퓨터공학 개론','1','3','30','A관 101호','월 1-3','강의',sysdate,sysdate,'전공',1,'p001');
+insert into subject values('c0001', '컴퓨터공학개론', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 select s.subno , s.name , p.name , s.score , s.subtime , s.state from subject s,professor p where s.pno= p.pno and s.name like ? and p.name like ?;
 select s.subno , s.name , p.name as p_name , s.score , s.subtime , s.state from subject s,professor p where s.pno= p.pno and s.name like '%%' and p.name like '%%' order by s.pno desc
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -320,14 +323,6 @@ insert into Notice values(seqnotice.nextval, '2021/10/21','전체','신입생, �
 select * from Notice;
 delete from memo where Nno = 1;
 
-
-Nno NUMBER NOT NULL, /* 번호 */
-	time DATE, /* 작성일자 */
-	division VARCHAR(50), /* 공지구분 */
-	subject VARCHAR(50), /* 제목 */
-	contents VARCHAR(50), /* 내용 */
-	views NUMBER, /* 조회수 */
-	id NUMBER /* 아이디 */
 	
 select Nno, time, subject, views
 from (select rownum rn, memos.* from (select * from Notice order by Nno desc) Notices)
@@ -341,5 +336,6 @@ select Nno, subject, time, views from Notice
 
 	
 ----------------------
+update student set name = ?, password =? , tel=?, email= ?, address=?; where sno= ?
 
 select s.*, d.name as dname from student s, department d where s.year like '%' || 20

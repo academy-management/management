@@ -16,7 +16,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/Academic_Management/js/script.js"></script>
 <script type="text/javascript" src="/Academic_Management/js/slick.js"></script>
- 
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -31,7 +31,7 @@
 			<div class="user">
 				<ul>
 					<li>
-						<p>${member.name}님 반갑습니다 <i class="xi-angle-down-min xi-x"></i></p>
+						<p>${member.name}님 반갑습니다  <i class="xi-angle-down-min xi-x"></i></p>
 						<div class="user_choice">
 							<ul>
 								<li><a href="professorLectureInfo">강의정보</a></li>
@@ -49,75 +49,92 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href="">수강신청</a></li>
-						<li><a href="">교수정보</a></li>
+						<li><a href="">학생관리</a></li>
+						<li><a href="">성적관리</a></li>
 						<li><a href="">공지사항</a></li>
 					</ul>
 				</nav>
 			</section>
-			<section class="container_right">
-				<div class="right_l">
-					<div class="main_bnr">
-						<img src="/Academic_Management/img/main1.png" alt="ë©ì¸ ë°°ë"/>
+			<section class="container_right cotainer_col">
+				<div class="main_title">
+					<img src="/Academic_Management/img/title_img.png" alt="강의정보"/>
+					<h4>강의 정보</h4>
+				</div>
+				<div class="search_box">
+					<div class="search">
+						<h5>[${subject.subno}] ${subject.name} (${subject.start} - ${subject.end})</h5>
 					</div>
-					<div class="main_notice">
-					 	<table class="table table-hover">
+				</div>
+				<div class="container_score">
+					<table class="table table-hover">
 					 		<colgroup>
 					          <col style="width:10%">
-					          <col style="width:70%">
 					          <col style="width:10%">
 					          <col style="width:10%">
+					          <col style="width:15%">
+					          <col style="width:10%">
+					          <col style="width:20%">
+					          <col style="width:25%">
 					        </colgroup>
 					 		<thead>
 					 			<tr>
 					 				<th>No</th>
-					 				<th>제목</th>
-					 				<th>작성일</th>
-					 				<th>조회수</th>
+									<th>학번</th>
+									<th>이름</th>
+									<th>전공</th>
+									<th>학년</th>
+									<th>전화번호</th>
+									<th>Email</th>
 					 			</tr>
 					 		</thead>
 					 		<tbody>
-					 			<c:forEach var="notice" items="${noticeList}" begin = "0" end= "2">
-					 			<tr>
-					 				<td>${notice.nno}</td>
-					 				<td>${notice.subject}</td>
-					 				<td>${notice.time}</td>
-					 				<td>${notice.views}</td>
-					 			</tr>
-					 			</c:forEach>	
-					 		</tbody>
+								<c:forEach var="student" items="${studentList}">
+									<tr>
+										<td>${student.no}</td>
+										<td>${student.sno}</td>
+										<td>${student.name}</td>
+										<td>{student.d_name}</td>
+										<td>${student.grade}</td>
+										<td>${student.tel}</td>
+										<td>${student.email}</td> 
+									</tr>
+								</c:forEach>
+							</tbody>
 					 	</table>
-					 </div>
 				</div>
-				<div class="slide_bnr">
-				  	<div id="slider-div">
-					    <div>
-					    	<img src="/Academic_Management/img/s11.png" alt="ì±ì íì¸ ê¸°ê°"/>
-					    </div>
-					   <!--  <div>
-					    	<img src="./img/s1.png" alt="ì±ì íì¸ ê¸°ê°"/>2222
-					    </div> -->
-				  	</div>
+				<div class="paging">
+					<ul>
+						<c:if test="${pageGroupResult.beforePage}">
+							<li>
+								<a href="#"><</a>
+							</li> 
+						</c:if>
+						
+						<c:forEach var="index" begin="${pageGroupResult.groupStartNumber}" end="${pageGroupResult.groupEndNumber}">
+							<c:choose>
+								<c:when test="">
+									<li>
+										<a href="#">${index}</a>
+									</li>
+								</c:when>
+								<c:otherwise>
+									<li>
+										<a href="#">${index}</a>
+									</li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						
+						<c:if test="${pageGroupResult.afterPage}">
+							<li>
+								<a href="#"> > </a>
+							</li> 
+						</c:if>
+					</ul>
 				</div>
 			</section>
-			
 		</div>
 	</div>
-	<!-- <script type="text/javascript">
-	$(function(){
-		$('#slider-div').slick({
-			slide: 'div',		
-			infinite : true, 	
-			slidesToShow : 1,		
-			slidesToScroll : 1,		
-			arrows : false, 		
-			dots : true, 		
-			autoplay : true,			
-			autoplaySpeed : 1000, 		
-			pauseOnHover : true,		
-			dotsClass : "slick-dots"	
-		});
-	})
-	</script> -->
+	
 </body>
 </html>

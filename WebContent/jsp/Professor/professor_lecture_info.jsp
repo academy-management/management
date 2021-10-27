@@ -18,6 +18,11 @@
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
+<style>
+	a:link {
+	  text-decoration: underline;
+	}
+</style>
 <body>
 	<div class="wrap">
 		<header class="header">
@@ -117,7 +122,7 @@
 										<td>${subject.date}</td>
 										<td>${subject.room}</td>
 										<td>
-											<a href="professorLectureSituation?subno=${subject.subno}">상세보기</a>
+											<a href="professorLectureSituation?subno=${subject.subno}" style="color: blue">상세보기</a>
 										</td>
 									</tr>
 								</c:forEach>

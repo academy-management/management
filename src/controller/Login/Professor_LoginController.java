@@ -50,40 +50,35 @@ public class Professor_LoginController extends HttpServlet{
 			ProfessorDao dao = new ProfessorDaoImpl();
 			Professor professor = dao.selectByPno(pno);
 			
+			if(professor != null) {
 			
-			if (professor != null) {
-				
-				System.out.println(password);
-				System.out.println(professor.getPassword());
-				
 				if(professor.getPassword().equals(password)) {
-
+	
 					HttpSession session = req.getSession();
 					session.setAttribute("member", professor);
-										
+											
 					NoticeDao ndao = new NoticeDaoImpl();
 					List<Notice> noticeList = ndao.selectAll(1);
-					
+						
 					req.setAttribute("noticeList", noticeList);
-					
+						
 				} else {
-					
+						
 					req.setAttribute("message", "비밀번호가 일치하지 않습니다.");
 				}
-
+				
 			} else {
 				
-				req.setAttribute("message", "존재하지 않는 교번입니다");
+				req.setAttribute("message", "존재하지 않는 교번입니다.");
 				
 			}
-			
+
 		} else if(action.equals("professor_logout")) {
 			
 			HttpSession session = req.getSession();
 			session.removeAttribute("member");
 			
 		}
-
 		
 		String dispatcherUrl = null;
 		

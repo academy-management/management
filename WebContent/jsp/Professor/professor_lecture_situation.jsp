@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,11 +18,6 @@
 <script type="text/javascript" src="/Academic-Management/js/script.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
-<style>
-	
-
-</style>
 </head>
 <body>
 	<div class="wrap">
@@ -63,11 +59,11 @@
 			<section class="container_right cotainer_col">
 				<div class="main_title">
 					<img src="/Academic-Management/img/title_img.png" alt="강의정보"/>
-					<h4>강의 정보</h4>
+					<h4>강의 수강 현황</h4>
 				</div>
 				<div class="search_box">
 					<div class="search">
-						<h5>[${subject.subno}] ${subject.name} (${subject.start} - ${subject.end})</h5>
+						<h6>[${subject.subno}] ${subject.name} (${subject.start} - ${subject.end})</h6>
 					</div>
 				</div>
 				<div class="container_score">
@@ -93,9 +89,9 @@
 					 			</tr>
 					 		</thead>
 					 		<tbody>
-								<c:forEach var="student" items="${studentList}">
+								<c:forEach var="student" items="${studentList}" varStatus="status">
 									<tr>
-										<td>${student.no}</td>
+										<td>${fn:length(studentList) - status.index}</td>
 										<td>${student.sno}</td>
 										<td>${student.name}</td>
 										<td>${student.d_name}</td>

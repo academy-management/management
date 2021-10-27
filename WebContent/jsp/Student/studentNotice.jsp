@@ -133,7 +133,7 @@
 						
 						<c:if test="${pageGroupResult.afterPage}">
 							<li>
-								<a href="notice?reqPage=${pageGroupResult.groupEndNumber+1}"> > </a>
+								<a href="notice?reqPage=${pageGroupResult.groupEndNumber+1}">></a>
 							</li> 
 						</c:if>
 					</ul>

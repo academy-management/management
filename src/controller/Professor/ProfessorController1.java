@@ -116,7 +116,21 @@ public class ProfessorController1 extends HttpServlet{
 
 			HttpSession session = req.getSession();
 			Professor professor = (Professor)session.getAttribute("member");
-
+			
+			String pno = professor.getPno();
+			
+			SubjectDao2 dao = new SubjectDaoImpl2();
+			List<Subject> subjectList = dao.selectByPno(pno);
+			
+			if(!subjectList.isEmpty()) {
+			
+				req.setAttribute("subjectList", subjectList);
+			
+			} else {
+				
+				req.setAttribute("message", "등록된 강의가 없습니다");
+			}
+			
 		} else if(action.equals("professorLectureInfoBySelect")) {
 			
 			HttpSession session = req.getSession();
@@ -126,10 +140,7 @@ public class ProfessorController1 extends HttpServlet{
 			
 			int year = Integer.parseInt(req.getParameter("year"));
 			int semester = Integer.parseInt(req.getParameter("semester"));
-			
-			System.out.println(year);
-			System.out.println(semester);
-			 
+		
 			SubjectDao2 dao = new SubjectDaoImpl2();
 			List<Subject> subjectList = dao.selectByRegisterYearAndSemester(pno, year, semester);
 			

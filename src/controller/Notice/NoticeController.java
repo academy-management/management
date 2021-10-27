@@ -167,14 +167,14 @@ public class NoticeController extends HttpServlet {
 		String dispatcherUrl = null;
 		
 		if(action.equals("notice")) {
-			dispatcherUrl = "/jsp/studentNotice.jsp";
+			dispatcherUrl = "/jsp/Student/studentNotice.jsp";
 			
 		} else if(action.equals("notice_search")) {
-			dispatcherUrl = "/jsp/studentNotice.jsp";
+			dispatcherUrl = "/jsp/Student/studentNotice.jsp";
 			
 		} else if(action.equals("notice_detail")) {
 			
-			dispatcherUrl = "/jsp/studentNoticeDetail.jsp";
+			dispatcherUrl = "/jsp/Student/studentNoticeDetail.jsp";
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

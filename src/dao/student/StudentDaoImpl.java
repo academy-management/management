@@ -257,7 +257,7 @@ public class StudentDaoImpl implements StudentDao {
 
 
 	@Override
-	public List<Student> selectBySubjectNo(int subno) {
+	public List<Student> selectBySubjectNo(String subno) {
 		List<Student> studentList = new ArrayList<>();
 
 		Connection connection = null;
@@ -268,7 +268,7 @@ public class StudentDaoImpl implements StudentDao {
 
 			connection = JDBCUtil.getConnection();
 			pStatement = connection.prepareStatement(Sql.STUDENT_SELECT_BY_SUBNO);
-			pStatement.setInt(1, subno);
+			pStatement.setString(1, subno);
 			resultSet = pStatement.executeQuery();
 
 			while (resultSet.next()) {
@@ -281,7 +281,7 @@ public class StudentDaoImpl implements StudentDao {
 				student.setDname(resultSet.getString("dname"));
 				student.setGrade(resultSet.getInt("grade"));
 				student.setScore(resultSet.getString("score"));				
-				studentList.add(student);				
+				studentList.add(student);
 			}
 		
 

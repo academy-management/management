@@ -342,4 +342,4 @@ select Nno, subject, time, views from Notice
 	
 ----------------------
 
-
+select s.*, d.name as dname from student s, department d where s.year like '%' || 20

@@ -27,5 +27,8 @@ public class Test {
 		
 		System.out.println("--------------------------------");
 		System.out.println(stdDao.selectByNo("20210101").toString());
+		
+		System.out.println("--------------------------------");
+		System.out.println(stdDao.selectBySubjectNo("1"));
 	}
 }

@@ -19,6 +19,6 @@ public interface StudentDao {
 	public List<Student> selectYear(String year);
 	public Student selectByNo(String sno);
 	public void updateToScore(int regno, String score);
-	public List<Student> selectBySubjectNo(int subno);
+	public List<Student> selectBySubjectNo(String subno);
 	
 }

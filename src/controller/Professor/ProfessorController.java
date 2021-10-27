@@ -12,10 +12,15 @@ import javax.servlet.http.HttpSession;
 
 import dao.student.StudentDao;
 import dao.student.StudentDaoImpl;
+import dao.subject.SubjectDao;
+import dao.subject.SubjectDaoImpl;
 import model.Professor;
+import model.Student;
+import model.Subject;
 
 
-@WebServlet(urlPatterns = {"/professorMylogin","/professorMypage", "/updateProfessorInfo", "/studentSearch", "/studentNameOrYearSearch", "/studentAllSearch"})
+@WebServlet(urlPatterns = {"/professorMylogin","/professorMypage", "/updateProfessorInfo", "/studentSearch", "/studentNameOrYearSearch", "/studentAllSearch",
+							"/studentDetail", "/studentScoreManage"})
 public class ProfessorController extends HttpServlet{
 	
 	@Override
@@ -70,12 +75,26 @@ public class ProfessorController extends HttpServlet{
 			StudentDao dao = new StudentDaoImpl();
 			req.setAttribute("studentList", dao.selectAll());
 		} else if(action.equals("studentNameOrYearSearch")) {
-			StudentDao dao = new StudentDaoImpl();			
-			req.setAttribute("studentList", dao.selectYear(req.getParameterValues("yearSelect")[0]));
+			StudentDao dao = new StudentDaoImpl();
+			if("" != req.getParameter("nameSearch")) {
+				req.setAttribute("studentList", dao.selectName(req.getParameter("nameSearch")));
+			}else {
+				req.setAttribute("studentList", dao.selectYear(req.getParameterValues("yearSelect")[0]));
+			}			
+		} else if(action.equals("studentDetail")) {
+			StudentDao dao = new StudentDaoImpl();
+			req.setAttribute("student", dao.selectByNo(req.getParameter("sno")));
+		} else if(action.equals("studentScoreManage")) {
+			SubjectDao subDao = new SubjectDaoImpl();
+			req.setAttribute("subjectList", subDao.selectAll());
+			StudentDao stdDao = new StudentDaoImpl();
+			req.setAttribute("studentList", stdDao.selectBySubjectNo("1"));
+//			req.getParameterValues("subjectSelect")[0]
+			
 		}
 		
 
-	String dispatcherUrl = null;
+		String dispatcherUrl = null;
 		
 		if(action.equals("professorMylogin")) {
 			
@@ -85,6 +104,10 @@ public class ProfessorController extends HttpServlet{
 			dispatcherUrl = "/jsp/Professor/professorStudentSearch.jsp";
 		} else if(action.equals("studentNameOrYearSearch")) {
 			dispatcherUrl = "/jsp/Professor/professorStudentSearch.jsp";
+		} else if(action.equals("studentDetail")) {
+			dispatcherUrl = "/jsp/Professor/professorStudentDetail.jsp";
+		} else if(action.equals("studentScoreManage")) {
+			dispatcherUrl = "/jsp/Professor/professorStudentScoreManage.jsp";
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

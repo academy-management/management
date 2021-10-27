@@ -13,7 +13,7 @@ public class Subject {
 	private String end;
 	private String division;
 	private int dno;
-	private int pno;	
+	private String pno;	
 	private String p_name;  //교수이름
 	
 	public Subject() {
@@ -21,7 +21,7 @@ public class Subject {
 	}
 	
 	public Subject(String subno, String name, int grade, String score, int people, String room, String date, String state,
-			String start, String end, String division, int dno, int pno) {
+			String start, String end, String division, int dno, String pno) {
 		super();
 		this.subno = subno;
 		this.name = name;
@@ -39,6 +39,23 @@ public class Subject {
 	}
 	
 	
+	public Subject(String subno, String name, int grade, String score, int people, String room, String date,
+			String start, String end, String division, int dno, String pno) {
+		super();
+		this.subno = subno;
+		this.name = name;
+		this.grade = grade;
+		this.score = score;
+		this.people = people;
+		this.room = room;
+		this.date = date;
+		this.start = start;
+		this.end = end;
+		this.division = division;
+		this.dno = dno;
+		this.pno = pno;
+	}
+
 	public String getP_name() {
 		return p_name;
 	}
@@ -119,10 +136,10 @@ public class Subject {
 	public void setDno(int dno) {
 		this.dno = dno;
 	}
-	public int getPno() {
+	public String getPno() {
 		return pno;
 	}
-	public void setPno(int pno) {
+	public void setPno(String pno) {
 		this.pno = pno;
 	}
 	@Override

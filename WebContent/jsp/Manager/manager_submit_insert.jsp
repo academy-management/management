@@ -69,23 +69,31 @@
 				<div class="my_login">
 					<h3 class="title">강의 등록</h3>
 					<div class="my_center">
+					<form method="post" action="subject_insert">
 						<div class="my_text_edit">
 							<label>과목코드</label><input type="text" class="login_text dis" name="subno"/>
 						</div>
 						<div class="my_text_edit">
-							<label>과목명</label><input type="password" class="login_text" name="name"/>
+							<label>과목명</label><input type="text" class="login_text" name="name"/>
 						</div>
-						<div class="my_text_edit">
-							<label>교수명</label><input type="text" class="login_text" name="p_name-" />
+						<div class="my_text_edit" style="margin-bottom:20px">
+							<label>교수명</label>
+							<select class="login_text" name="pno">
+									<option value="p001">김교수</option>
+									<option value="p002">이교수</option>
+									<option value="p003">박교수</option>
+									<option value="p004">최교수</option>
+							</select>
 						</div>
+						
 						<div class="my_text_edit">
 							<label>학년</label><input type="text" class="login_text" name="grade" />
 						</div>
 						<div class="my_text_edit">
-							<label>학점</label><input type="text" class="login_text" name="password" />
+							<label>학점</label><input type="text" class="login_text" name="score" />
 						</div>
 						<div class="my_text_edit">
-							<label>강의실</label><input type="text" class="login_text" name="password" />
+							<label>강의실</label><input type="text" class="login_text" name="room" />
 						</div>
 						<div class="my_text_edit">
 							<label>인원수</label><input type="text" class="login_text" name="people" />
@@ -136,7 +144,7 @@
 							<input type="date" class="login_text2" name="endday" />
 						</div>
 						
-						<div class="my_text_edit">
+						<div class="my_text_edit" style="margin-bottom:20px">
 							<label>구분</label>
 							<select class="login_text" name="division">
 									<option value="전공">전공</option>
@@ -144,10 +152,18 @@
 							</select>
 						</div>
 						
+						<div class="my_text_edit">
+							<label>학과</label>
+							<select class="login_text" name="department">
+									<option value="1">컴퓨터공학과</option>
+									<option value="2">기계공학과</option>
+							</select>
+						</div>
 						<div class="my_btn">
 							<input type="reset" class="btn_can" value="취소"/>
 							<input type="submit" class="btn_edit" value="등록"/>
 						</div>
+						</form>
 					</div>
 				</div>
 			</section>

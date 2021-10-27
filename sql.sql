@@ -298,6 +298,8 @@ Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor 
 	
 insert into SUBJECT values('c0001','컴퓨터공학 개론','1','3','30','A관 101호','월 1-3','강의',sysdate,sysdate,'전공',1,'p001');
 
+insert into SUBJECT values(?,?,?,?,?,?,?,'강의',?,?,?,?,?);
+
 select s.subno , s.name , p.name , s.score , s.subtime , s.state from subject s,professor p where s.pno= p.pno and s.name like ? and p.name like ?;
 select s.subno , s.name , p.name as p_name , s.score , s.subtime , s.state from subject s,professor p where s.pno= p.pno and s.name like '%%' and p.name like '%%' order by s.pno desc
 

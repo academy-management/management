@@ -82,7 +82,6 @@ public class StudentController extends HttpServlet{
 			dispatcherUrl = "/jsp/Student/st_mylogin.jsp"; 
 		}
 		
-		
 		RequestDispatcher rd = req.getRequestDispatcher(dispatcherUrl);
 		rd.forward(req, resp);
 	}	

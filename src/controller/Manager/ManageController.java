@@ -160,7 +160,34 @@ public class ManageController extends HttpServlet{
 			req.setAttribute("subjectList", subjectList);
 			
 	    }else if(action.equals("subject_insert")){
-	    	
+	    	if(req.getParameter("subno")!=null) {
+	    	String subno = req.getParameter("subno");
+			String name = req.getParameter("name");
+			int grade = Integer.parseInt(req.getParameter("grade"));
+			String score = req.getParameter("score");
+			int people = Integer.parseInt(req.getParameter("people"));
+			String room = req.getParameter("room");
+			
+			String time = req.getParameter("time");
+			String time2 = req.getParameter("time2");
+			String week = req.getParameter("week");
+			String subtime = week+" "+time+"-"+time2;
+			
+			String startday = req.getParameter("startday");
+			String endday = req.getParameter("endday");
+			String division = req.getParameter("division");
+			int dno = Integer.parseInt(req.getParameter("department"));
+			String pno = req.getParameter("pno");
+			
+			Subject subject = new Subject( subno,  name,  grade,  score,  people,  room,  subtime,
+					startday,  endday,  division,  dno,  pno);
+			SubjectDao dao = new SubjectDaoImpl();
+			dao.insert(subject);
+			
+	    	}
+			
+			
+			
 	    }
 	    
 	    String dispatcherUrl= null;

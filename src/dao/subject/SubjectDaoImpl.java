@@ -85,6 +85,40 @@ public class SubjectDaoImpl implements SubjectDao{
 
 		return subjectList;
 	}
+
+	@Override
+	public void insert(Subject subject) {
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.SUBJECT_INSERT);
+
+			pStatement.setString(1, subject.getSubno());
+			pStatement.setString(2, subject.getName());
+			pStatement.setInt(3, subject.getGrade());
+			pStatement.setString(4, subject.getScore());
+			pStatement.setInt(5, subject.getPeople());
+			pStatement.setString(6, subject.getRoom());
+			pStatement.setString(7, subject.getDate());
+			pStatement.setString(8, subject.getStart());
+			pStatement.setString(9, subject.getEnd());
+			pStatement.setString(10, subject.getDivision());
+			pStatement.setInt(11, subject.getDno());
+			pStatement.setString(12, subject.getPno());
+		
+		
+			pStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(null, pStatement, connection);
+		}
+
+		
+	}
 }
 	
 

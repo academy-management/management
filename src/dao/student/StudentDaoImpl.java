@@ -488,4 +488,11 @@ public class StudentDaoImpl implements StudentDao {
 		
 	}
 
+
+	@Override
+	public List<Student> selectBySubjectNo(int subno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -24,7 +24,7 @@
 						<option value="${depCodes.code}">${depCodes.codeName}</option>
 					</c:forEach>
 				</select> --%>
-				<select class="login_text">
+				<select class="login_text" >
 					<option value="st">학생</option>
 					<option value="ps">교수</option>
 					<option value="ad">관리자</option>

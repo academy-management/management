@@ -18,12 +18,12 @@ public interface StudentDao {
 	public List<Student> selectYear(String year);
 	public Student selectByNo(String sno);
 	public void updateToScore(int regno, String score);
-<<<<<<< HEAD
+
 	public List<Student> selectBySubjectNo(String subno);
 	
-=======
+
 	public List<Student> selectBySubjectNo(int subno);
 	Student selectByuser(int sno);
 	void studentUpdate(Student student);
->>>>>>> branch 'main' of https://github.com/academy-management/management.git
+
 }

@@ -11,28 +11,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-<<<<<<< HEAD
+
 import dao.student.StudentDao;
 import dao.student.StudentDaoImpl;
 import dao.subject.SubjectDao;
 import dao.subject.SubjectDaoImpl;
-=======
+
 import dao.student.StudentDao22;
 import dao.student.StudentDaoImpl22;
 import dao.subject.SubjectDao2;
 import dao.subject.SubjectDaoImpl2;
->>>>>>> branch 'main' of https://github.com/academy-management/management.git
+
 import model.Professor;
 import model.Student;
 import model.Subject;
 
 
-<<<<<<< HEAD
-@WebServlet(urlPatterns = {"/professorMylogin","/professorMypage", "/updateProfessorInfo", "/studentSearch", "/studentNameOrYearSearch", "/studentAllSearch",
-							"/studentDetail", "/studentScoreManage"})
-=======
-@WebServlet(urlPatterns = {"/professorMylogin","/professorMypage", "/updateProfessorInfo", "/professorLectureInfo", "/professorLectureInfoBySelect", "/professorLectureSituation"})
->>>>>>> branch 'main' of https://github.com/academy-management/management.git
+
+
+@WebServlet(urlPatterns = {"/professorMylogin","/professorMypage", "/updateProfessorInfo", "/professorLectureInfo", "/professorLectureInfoBySelect", "/professorLectureSituation", "/studentSearch", "/studentNameOrYearSearch", "/studentAllSearch",
+		"/studentDetail", "/studentScoreManage"})
 public class ProfessorController extends HttpServlet{
 	
 	@Override
@@ -86,8 +84,7 @@ public class ProfessorController extends HttpServlet{
 
 			HttpSession session = req.getSession();
 			Professor professor = (Professor)session.getAttribute("member");
-			
-<<<<<<< HEAD
+
 		} else if(action.equals("studentSearch")) {
 			StudentDao dao = new StudentDaoImpl();
 			req.setAttribute("studentList", dao.selectAll());
@@ -106,23 +103,9 @@ public class ProfessorController extends HttpServlet{
 			req.setAttribute("subjectList", subDao.selectAll());
 			StudentDao stdDao = new StudentDaoImpl();
 			req.setAttribute("studentList", stdDao.selectBySubjectNo("1"));
-//			req.getParameterValues("subjectSelect")[0]
-=======
-			String pno = professor.getPno();
-			
-			System.out.println(pno);
-			
-			SubjectDao2 dao = new SubjectDaoImpl2();
-			List<Subject> subjectList = dao.selectByPno(pno);
-			
-			if(!subjectList.isEmpty()) {
-				
-				req.setAttribute("subjectList", subjectList);
-			
-			} else {
-				
-				req.setAttribute("message", "등록된 강의가 없습니다");
-			}
+
+
+
 			
 		} else if(action.equals("professorLectureInfoBySelect")) {
 			
@@ -168,21 +151,20 @@ public class ProfessorController extends HttpServlet{
 				req.setAttribute("subject", subject);
 				req.setAttribute("message", "수강 중인 학생이 없습니다");
 			}
->>>>>>> branch 'main' of https://github.com/academy-management/management.git
+
 			
 		}
 		
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'main' of https://github.com/academy-management/management.git
+
+
 		String dispatcherUrl = null;
 		
 		if(action.equals("professorMylogin")) {
 			
 			dispatcherUrl = "/jsp/Professor/professorMylogin.jsp";
 			
-<<<<<<< HEAD
+
 		} else if(action.equals("studentSearch")) {
 			dispatcherUrl = "/jsp/Professor/professorStudentSearch.jsp";
 		} else if(action.equals("studentNameOrYearSearch")) {
@@ -191,7 +173,7 @@ public class ProfessorController extends HttpServlet{
 			dispatcherUrl = "/jsp/Professor/professorStudentDetail.jsp";
 		} else if(action.equals("studentScoreManage")) {
 			dispatcherUrl = "/jsp/Professor/professorStudentScoreManage.jsp";
-=======
+
 		} else if(action.equals("updateProfessorInfo")) {
 			
 		} else if(action.equals("professorLectureInfo") || action.equals("professorLectureInfoBySelect")) {
@@ -202,7 +184,7 @@ public class ProfessorController extends HttpServlet{
 			
 			dispatcherUrl = "/jsp/Professor/professor_lecture_situation.jsp";
 			
->>>>>>> branch 'main' of https://github.com/academy-management/management.git
+
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

@@ -81,8 +81,8 @@
 								<option value="15">2015</option>
 								<option value="14">2014</option>
 							</select> <span>이름</span> 
-							<input type="text" name="name" placeholder="Username"> 
-							<input type="submit" formaction="studentAllSearch" value="전체조회">
+							<input type="text" placeholder="Username" name="nameSearch"> 
+							<input type="submit" formaction="studentSearch" value="전체조회">
 							<input type="submit" formaction="studentNameOrYearSearch" value="조회">
 						</div>
 					</form>
@@ -105,7 +105,7 @@
 									<td>${std.dname}</td>
 									<td>${std.grade}</td>
 									<td>${std.state}</td>
-									<td><a href="/std_detail?sno=${std.sno}">상세보기</a></td>
+									<td><a href="studentDetail?sno=${std.sno}">상세보기</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

@@ -69,9 +69,9 @@
 				<div class="container mt-3">
 					<div>
 						과목 <select class="form-select form-select-sm"
-							style="width: 500px; display: inline;">
-							<c:forEach var="subject" items="subjectList">
-								<option>[subject.sno]컴퓨터와이해[subject.startdate-subject.enddate]</option>
+							style="width: 500px; display: inline;" name="subjectSelect" onchange="location.href=this.value">
+							<c:forEach var="subject" items="${subjectList}">
+								<option value="${subject.subno}">[${subject.subno}]${subject.name}[${subject.start}~${subject.end}]</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -87,30 +87,30 @@
 							</tr>
 						</thead>
 						<tbody>
-							<%-- <c:forEach var="register" items="${registerList}"> --%>
-							<tr>
-								<td>register.rno</td>
-								<td>register.sno</td>
-								<td>register.sname</td>
-								<td>register.dname</td>
-								<td>register.grade</td>
-								<td><select class="form-select form-select-sm"
-									style="width: 100px; display: inline;">
-										<!-- DB에서 점수 받아와서 선택하기 -->
-										<option>A+</option>
-										<option>A</option>
-										<option>A-</option>
-										<option>B+</option>
-										<option>B</option>
-										<option>B-</option>
-										<option>C+</option>
-										<option>C</option>
-										<option>C-</option>
-										<option>F</option>
-								</select> register.score
-									<button>저장</button></td>
-							</tr>
-							<%-- </c:forEach> --%>
+							<c:forEach var="student" items="${studentList}">
+								<tr>
+									<td>${student.regno}</td>
+									<td>${student.sno}</td>
+									<td>${student.name}</td>
+									<td>${student.dname}</td>
+									<td>${student.grade}</td>
+									<td><select class="form-select form-select-sm"
+										style="width: 100px; display: inline;">
+											<!-- DB에서 점수 받아와서 선택하기 -->
+											<option>A+</option>
+											<option>A</option>
+											<option>A-</option>
+											<option>B+</option>
+											<option>B</option>
+											<option>B-</option>
+											<option>C+</option>
+											<option>C</option>
+											<option>C-</option>
+											<option>F</option>
+									</select> register.score
+										<button>저장</button></td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 					<ul class="pagination justify-content-center">

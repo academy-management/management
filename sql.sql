@@ -340,3 +340,4 @@ select Nno, subject, time, views from Notice
 ----------------------
 update student set name = ?, password =? , tel=?, email= ?, address=?; where sno= ?
 
+select s.*, d.name as dname from student s, department d where s.year like '%' || 20

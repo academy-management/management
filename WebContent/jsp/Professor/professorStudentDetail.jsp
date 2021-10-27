@@ -67,45 +67,39 @@
 					<h4>성적정보</h4>
 				</div>
 				<div class="container mt-3">
-					<span>아이콘<i>학생 관리</i></span>
 					<table class="table table-striped">
 						<tr>
 							<td>학번</td>
-							<td>student.sno</td>
+							<td>${student.sno}</td>
 							<td>성명</td>
-							<td>student.name</td>
+							<td>${student.name}</td>
 						</tr>
 						<tr>
 							<td>연락처</td>
-							<td>student.tell</td>
+							<td>${student.tel}</td>
 						</tr>
 					</table>
 					<table class="table table-striped">
 						<tr>
 							<td>학과</td>
-							<td>department.dno</td>
-							<td>대학명</td>
-							<td>student.collegename</td>
-						</tr>
-						<tr>
+							<td>${student.dname}</td>
 							<td>학년</td>
-							<td>student.grade</td>
-							<td>담당교수</td>
-							<td>professor.name</td>
+							<td>${student.grade}</td>
 						</tr>
 						<tr>
+							
 							<td>재학상태</td>
-							<td>student.state</td>
-							<td>주소</td>
-							<td>student.address</td>
+							<td>${student.state}</td>
 						</tr>
-						<tr>
+						<tr>							
+							<td>주소</td>
+							<td>${student.address}</td>
 							<td>E-mail</td>
-							<td>student.email</td>
+							<td>${student.email}</td>
 						</tr>
 					</table>
 					<button type="button" class="btn btn-primary btn-lg"
-						onclick="location.href='std_list.jsp' ">뒤로</button>
+						onclick="location.href='studentSearch' ">뒤로</button>
 				</div>
 			</section>
 

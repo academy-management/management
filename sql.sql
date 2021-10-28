@@ -293,10 +293,12 @@ Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor 
 	division VARCHAR(50), /* 강의구분 */
 	dno NUMBER, /* 학과번호 */
 	pno VARCHAR(50) /* 교수아이디 */
-	
+
+select * from SUBJECT
 insert into subject values('c0001', '컴퓨터공학개론', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
+insert into subject values('c0002', '기초 프로그래밍', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
 
-
+select * from SUBJECT
 insert into student values('20210101','1234','김학생',1,2021,'지구상 어딘가','010-1234-5678','kim@naver.com','재학',1);
 insert into student values('20210102','1234','이학생',1,2021,'지구상 어딘가','010-1234-5678','lee@naver.com','재학',1);
 insert into student values('20210103','1234','박학생',1,2021,'지구상 어딘가','010-1236-2138','axcqw@naver.com','재학',1);
@@ -306,7 +308,17 @@ insert into student values('20210106','1234','문학생',2,2021,'지구상 어�
 insert into student values('20210107','1234','정학생',2,2021,'지구상 어딘가','010-1208-5555','zxcvz@naver.com','재학',2);
 insert into student values('20210108','1234','임학생',2,2021,'지구상 어딘가','010-9365-6666','zxc@naver.com','재학',2);
 insert into student values('20210109','1234','도학생',2,2021,'지구상 어딘가','010-7308-7560','kiasdqwem@naver.com','재학',2);
-insert into student values('20210110
+
+insert into REGISTER values(1, 2021, 2, 'A+', 20210101, 'c0001')
+
+regno NUMBER NOT NULL, /* 수강번호 */
+	year NUMBER, /* 년도 */
+	semester NUMBER, /* 학기 */
+	score VARCHAR(255), /* 성적 */
+	sno NUMBER, /* 학번(ID) */
+	subno VARCHAR(50) /* 강의코드 */
+	
+select distinct re.regno, s.sno, s.name, d.name as dname, s.grade, re.score from student s, REGISTER re, DEPARTMENT d, subject su where re.sno = s.sno and s.dno = d.dno and re.subno = 'c0001'
 
 
 

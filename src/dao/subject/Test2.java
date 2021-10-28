@@ -8,7 +8,6 @@ public class Test2 {
 	
 	public static void main(String[] args) {
 		
-		
 		SubjectDao2 dao2 = new SubjectDaoImpl2();
 		List<Subject> subjectList = dao2.selectByPno("p001");
 		
@@ -16,20 +15,14 @@ public class Test2 {
 			System.out.println(subject.getName());
 			System.out.println(subject.getSubno());
 		}
-		
-		
+
 		List<Subject> subjectList2 = dao2.selectByRegisterYearAndSemester("p001", 2021, 2);
 		
 		for (Subject subject : subjectList2) {
 			System.out.println(subject.getName());
 		}
 		
-		System.out.println(dao2.selectBySubno(1234));
-		
+		System.out.println(dao2.selectBySubno(1234));	
 	}
-	
-	
-	
-	
 
 }

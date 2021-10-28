@@ -57,16 +57,16 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href="">학생관리</a></li>
+						<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />학생관리</a></li>
 						<li><a href="student_search">-학생검색</a></li>
 						<li><a href="student_insert">-학생등록</a></li>
-						<li><a href="">교수관리</a></li>
+						<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />교수관리</a></li>
 						<li><a href="professor_search">-교수검색</a></li>
 						<li><a href="professor_insert">-교수등록</a></li>
-						<li><a href="">강의관리</a></li>
+						<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />강의관리</a></li>
 						<li><a href="subject_search">-강의검색</a></li>
 						<li><a href="subject_insert">-강의등록</a></li>
-						<li><a href="">공지사항관리</a></li>
+						<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />공지사항관리</a></li>
 						<li><a href="">-공지사항검색</a></li>
 						<li><a href="">-공지사항등록</a></li>
 					</ul>

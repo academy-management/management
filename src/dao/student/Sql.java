@@ -15,7 +15,7 @@ public class Sql {
 			"select category, code, codeName from system_master where category = 'dep'";
 	
 	public static final String SUTUDENT_SNO = 
-			"Select s.sno, s.name, s.password , s.dno, s.tel, s.email, s.address from student s ,department d where sno = ?";
+			"Select s.sno, d.name as d_name, s.name, s.password , s.tel, s.email, s.address from student s ,department d where sno = ?";
 	
 	public static final String STUDENT_SELECT_BY_ID = "select s.*, d.name as dname from student s, department d where sno = ?";
 	
@@ -54,7 +54,8 @@ public class Sql {
 	="update professor set state = ? where pno=?";
 	
 	public static final String STUDENT_USER_UPDATE
-	="update student set name = ?, password =? , tel=?, email= ?, address=?; where sno= ?";
+	="update student set sno =?, d.name as d_name, name = ?, password =? , tel=?, email= ?, address=?; where sno= ?";
 	
-	
+	public static final String STUDENT_SCORE_ALL
+	="select s.name, s.score, s.startday, s.endday, p.name, r.score  from register r, subject s , professor p where r.subno = s.subno and s.dno = p.dno";
 }

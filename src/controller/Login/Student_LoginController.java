@@ -87,4 +87,4 @@ public class Student_LoginController extends HttpServlet{
 		RequestDispatcher rd = req.getRequestDispatcher(dispatcherUrl);
 		rd.forward(req, resp);
 	}	
-}
+}// 학번 20210101 비번1234

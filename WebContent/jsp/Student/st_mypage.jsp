@@ -65,7 +65,7 @@
 								<label>학번</label><input type="text" class="login_text dis" name="sno" value="${student.sno}" readonly/>
 							</div>
 							<div class="my_text_edit">
-								<label>학과</label><input type="text" class="login_text" name="d_name" value="${student.d_name}" readonly/>
+								<label>학과</label><input type="text" class="login_text" name="dname" value="${student.d_name}" readonly/>
 							</div>
 							<div class="my_text_edit">
 								<label>이름</label><input type="text" class="login_text" name="name" value="${student.name}" />
@@ -96,7 +96,7 @@
 									</div>
 								</div>
 								<div class="my_right">
-									<input type="text" id="sample6_address" class="login_text big"  placeholder="주소" name="address">
+									<input type="text" id="sample6_address" class="login_text big"  placeholder="주소" name="address" value="${student.address}">
 									<input type="text" id="sample6_detailAddress" class="login_text big" placeholder="상세주소">
 									<input type="text" id="sample6_extraAddress" class="login_text big" placeholder="참고항목">
 								</div>

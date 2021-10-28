@@ -15,6 +15,7 @@ public class Subject {
 	private int dno;
 	private String pno;	
 	private String p_name;  //교수이름
+	private String r_score;  //성적
 	
 	public Subject() {
 		super();
@@ -142,6 +143,17 @@ public class Subject {
 	public void setPno(String pno) {
 		this.pno = pno;
 	}
+	
+	
+	
+	public String getR_score() {
+		return r_score;
+	}
+
+	public void setR_score(String r_score) {
+		this.r_score = r_score;
+	}
+
 	@Override
 	public String toString() {
 		return "Subject [subno=" + subno + ", name=" + name + ", grade=" + grade + ", score=" + score + ", people="

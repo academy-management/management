@@ -266,7 +266,6 @@ select sno, password, name, grade ,year, address, tel, email, state, dno from st
 
 
 
-Select s.sno, s.name,  s.year , d.name, s.tel, s.state from student s ,department d where s.dno= d.dno;
 
 Select s.sno, d.name, s.name, s.password , s.tel, s.email, s.address from student s ,department d where sno= '20210101';
 
@@ -282,39 +281,26 @@ insert into professor values('p002','p002','정보통신','이교수',null,'재�
 insert into professor values('p003','p003','인공지능','박교수',null,'재직','지구상 어딘가','B503','010-4786-1123','asfbikjq@naver.com',1);
 insert into professor values('p004','p004','인공지능','최교수',null,'재직','지구상 어딘가','B504','010-8990-7831','asdscj@naver.com',1);
 
-
+pno VARCHAR(50) NOT NULL, /* 교수아이디 */
+	password VARCHAR(50), /* 비밀번호 */
+	Major VARCHAR(50), /* 교수전공 */
+	name VARCHAR(50), /* 교수이름 */
+	COL2 BLOB, /* 교수사진 */
+	state VARCHAR(50),  /*교수상태*/
+	address VARCHAR(255), /* 교수주소 */
+	pro_room VARCHAR(255), /* 연구실위치 */
+	tel VARCHAR(30), /* 교수전화번호 */
+	email VARCHAR(40), /* 교수이메일 */
+	dno NUMBER /* 학과번호 */
 
 Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor p , department d where p.dno= d.dno and p.name = '%이%' and d.name like '%%' order by pno desc
 
-	subno VARCHAR(50) NOT NULL, /* 강의코드 */
-	name VARCHAR(50), /* 강의명 */
-	grade NUMBER, /* 학년 */
-	score VARCHAR(255), /* 학점 */
-	people NUMBER, /* 인원수 */
-	room VARCHAR(255), /* 강의실 */
-	subtime VARCHAR(50), /* 강의시간 */
-	state VARCHAR(50), /* 상태 */
-	startday DATE, /* 개강날 */
-	endday DATE, /* 종강날 */
-	division VARCHAR(50), /* 강의구분 */
-	dno NUMBER, /* 학과번호 */
-	pno VARCHAR(50) /* 교수아이디 */
 	
+	
+select s.name, s.score, s.startday, s.endday, r.score from register r, subject s where r.year= 2021 and r.semester = 1;
+select s.name, s.score, s.startday, s.endday, r.score from register r, subject s where r.year= ? and r.semester = ?;
 insert into subject values('c0001', '컴퓨터공학개론', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+insert into register values(201, 2021, 1, 80, '20210101', 'c0001');
 
 insert into SUBJECT values(?,?,?,?,?,?,?,'강의',?,?,?,?,?);
 
@@ -345,6 +331,13 @@ select Nno, subject, time, views from Notice
 update student set name = ?, password =? , tel=?, email= ?, address=?; where sno= ?
 
 select s.*, d.name as dname from student s, department d where s.year like '%' || 20
+
+-------------------------
+
+select s.name, s.score, s.startday, s.endday, p.name, r.score  from register r, subject s , professor p where r.subno = s.subno and s.dno = p.dno;
+select s.name, s.score, s.startday, s.endday, p.name, r.score  from register r, subject s , professor p where r.subno = s.subno;
+
+
 
 
 

@@ -62,62 +62,66 @@
 					<h4>성적정보</h4>
 				</div>
 				<div class="search_box">
-					<div class="search">
-						<label>학년/학기</label>
-						<select class="search_select">
-							<option value="2021">2021</option>
-							<option value="2021">2021</option>
-							<option value="2021">2021</option>
-							<option value="2021">2021</option>
-							<option value="2021">2021</option>
-						</select>
-						<select class="search_select">
-							<option value="1">1학기</option>
-							<option value="2">2학기</option>
-						</select>
-					</div>
-					<div>
-						<input type="submit" class="btn_edit" value="수정"/>
-					</div>
+					<form method="post" action="/jsp/Student/st_score.jsp">
+						<div class="search">
+							<label>학년/학기</label>
+							<select class="search_select" name="year">
+								<option value="2021">2021</option>
+								<option value="2020">2021</option>
+								<option value="2019">2021</option>
+								<option value="2018">2021</option>
+								<option value="2017">2021</option>
+							</select>
+							<select class="search_select" name="grade">
+								<option value="1">1학기</option>
+								<option value="2">2학기</option>
+							</select>
+						</div>
+						<div>
+							<input type="submit" class="btn_edit" value="수정"/>
+						</div>
+					</form>
 				</div>
 				<div class="container_score">
-					<table class="table table-hover">
-					 		<colgroup>
-					          <col style="width:30%">
-					          <col style="width:10%">
-					          <col style="width:15%">
-					          <col style="width:15%">
-					          <col style="width:15%">
-					          <col style="width:15%">
-					        </colgroup>
-					 		<thead>
-					 			<tr>
-					 				<th>과목</th>
-					 				<th>학점</th>
-					 				<th>개강일</th>
-					 				<th>종강일</th>
-					 				<th>담당교수</th>
-					 				<th>성적확인</th>
-					 			</tr>
-					 		</thead>
-					 		<tbody>
-					 			<tr>
-					 				<td>컴퓨터 와 이해</td>
-					 				<td>3</td>
-					 				<td>2021.03.12</td>
-					 				<td>2021.06.12</td>
-					 				<td>김판수</td>
-					 				<td>B+</td>
-					 			</tr>
-					 			<tr>
-					 				<td>컴퓨터 와 이해</td>
-					 				<td>3</td>
-					 				<td>2021.03.12</td>
-					 				<td>2021.06.12</td>
-					 				<td>김판수</td>
-					 				<td>B+</td>
-					 			</tr>
-					 	</table>
+				<c:if test="${!empty empList}">
+						<table class="table table-hover">
+						 		<colgroup>
+						          <col style="width:30%">
+						          <col style="width:10%">
+						          <col style="width:15%">
+						          <col style="width:15%">
+						          <col style="width:15%">
+						          <col style="width:15%">
+						        </colgroup>
+						 		<thead>
+						 			<tr>
+						 				<th>과목</th>
+						 				<th>학점</th>
+						 				<th>개강일</th>
+						 				<th>종강일</th>
+						 				<th>담당교수</th>
+						 				<th>성적확인</th>
+						 			</tr>
+						 		</thead>
+						 		<tbody>
+						 			<c:forEach var="emp" items="${empList}">
+							 			<tr>
+							 				<td>컴퓨터 와 이해</td>
+							 				<td>3</td>
+							 				<td>2021.03.12</td>
+							 				<td>2021.06.12</td>
+							 				<td>김판수</td>
+							 				<td>B+</td>
+							 			</tr>
+						 			</c:forEach>
+						 			
+								</tbody>	
+						 	</table>
+					 	</c:if>
+					 	<c:if test="${empty empList}">
+									 <hr />  
+									 작성된 글이 없습니다.	
+						</c:if>
 				</div>
 			</section>
 		</div>

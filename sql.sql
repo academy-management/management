@@ -266,20 +266,43 @@ select sno, password, name, grade ,year, address, tel, email, state, dno from st
 
 
 
-Select s.sno, s.name,  s.year , d.name, s.tel, s.state from student s ,department d where s.dno= d.dno;
 
+Select s.sno, d.name, s.name, s.password , s.tel, s.email, s.address from student s ,department d where sno= '20210101';
 
+Select s.sno, d.name as dname, s.name as sname, s.password , s.tel, s.email, s.address from student s ,department d where sno = '20210101'
+
+select s.*, d.name as dname from student s, department d where sno = '20210101'
 update student set state = '휴학' where sno='20210101'
 
 Select p.pno, p.name, d.name, p.major, p.tel ,p.state from professor p , department d where p.dno= d.dno ;
 
+<<<<<<< HEAD
+insert into professor values('p001','p001','정보통신','김교수',null,'재직','지구상 어딘가','B501','010-1234-5678','tyyn@naver.com',1);
+insert into professor values('p002','p002','정보통신','이교수',null,'재직','지구상 어딘가','B502','010-5623-7753','afdvjk@naver.com',1);
+insert into professor values('p003','p003','인공지능','박교수',null,'재직','지구상 어딘가','B503','010-4786-1123','asfbikjq@naver.com',1);
+insert into professor values('p004','p004','인공지능','최교수',null,'재직','지구상 어딘가','B504','010-8990-7831','asdscj@naver.com',1);
+
+pno VARCHAR(50) NOT NULL, /* 교수아이디 */
+	password VARCHAR(50), /* 비밀번호 */
+	Major VARCHAR(50), /* 교수전공 */
+	name VARCHAR(50), /* 교수이름 */
+	COL2 BLOB, /* 교수사진 */
+	state VARCHAR(50),  /*교수상태*/
+	address VARCHAR(255), /* 교수주소 */
+	pro_room VARCHAR(255), /* 연구실위치 */
+	tel VARCHAR(30), /* 교수전화번호 */
+	email VARCHAR(40), /* 교수이메일 */
+	dno NUMBER /* 학과번호 */
+=======
 insert into professor values('p001','p001','정보통신','김교수',null,'재직','지구상, 어딘가','B501','010-1234-5678','tyyn@naver.com',1);
 insert into professor values('p002','p002','정보통신','이교수',null,'재직','지구상, 어딘가','B502','010-5623-7753','afdvjk@naver.com',1);
 insert into professor values('p003','p003','인공지능','박교수',null,'재직','지구상, 어딘가','B503','010-4786-1123','asfbikjq@naver.com',1);
 insert into professor values('p009','9999','인공지능','최교수',null,'재직','지구상, 어딘가','B504','010-8990-7831','asdscj@naver.com',1);
+>>>>>>> refs/remotes/origin/main
 
 Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor p , department d where p.dno= d.dno and p.name = '%이%' and d.name like '%%' order by pno desc
 
+<<<<<<< HEAD
 	subno VARCHAR(50) NOT NULL, /* 강의코드 */
 	name VARCHAR(50), /* 강의명 */
 	grade NUMBER, /* 학년 */
@@ -294,7 +317,16 @@ Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor 
 	dno NUMBER, /* 학과번호 */
 	pno VARCHAR(50) /* 교수아이디 */
 
+=======
+	
+	
+select s.name, s.score, s.startday, s.endday, r.score from register r, subject s where r.year= 2021 and r.semester = 1;
+select s.name, s.score, s.startday, s.endday, r.score from register r, subject s where r.year= ? and r.semester = ?;
+>>>>>>> branch 'main' of https://github.com/academy-management/management.git
 insert into subject values('c0001', '컴퓨터공학개론', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
+<<<<<<< HEAD
+insert into register values(201, 2021, 1, 80, '20210101', 'c0001');
+=======
 
 
 insert into student values('20210101','1234','김학생',1,2021,'지구상 어딘가','010-1234-5678','kim@naver.com','재학',1);
@@ -308,11 +340,13 @@ insert into student values('20210108','1234','임학생',2,2021,'지구상 어�
 insert into student values('20210109','1234','도학생',2,2021,'지구상 어딘가','010-7308-7560','kiasdqwem@naver.com','재학',2);
 insert into student values('20210110
 
+
+
 insert into Notice values(1, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
 insert into Notice values(2, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
 insert into Notice values(3, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
 insert into Notice values(4, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
-insert into Notice values(5, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(9, '2021/10/21','컴퓨터공학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
 insert into Notice values(6, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
 insert into Notice values(7, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
 
@@ -325,9 +359,12 @@ id NUMBER NOT NULL, /* 아이디 */
 	email VARCHAR(40), /* 이메일 */
 	address VARCHAR(255) /* 주소 */
 
+update subject set name = '인공지능' , grade = 2 , score = 2 , room = '301호' , people =20, subtime = '월요일 6-7' , startday= sysdate, endday=sysdate, state= '강의' where subno = 'c0002' 
+
 select * from manager
 select * from notice
-
+select * from subject;
+>>>>>>> refs/remotes/origin/main
 
 insert into SUBJECT values(?,?,?,?,?,?,?,'강의',?,?,?,?,?);
 
@@ -339,7 +376,7 @@ select s.subno , s.name , p.name as p_name , s.score , s.subtime , s.state from 
 -------------------
 insert into Notice values(seqnotice.nextval, '2021-10-20','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,01);
 insert into Notice values(seqnotice.nextval, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,01);
-select * from Notice;
+select * from subject;
 delete from memo where Nno = 1;
 
 	
@@ -358,3 +395,13 @@ select * from professor
 update student set name = ?, password =? , tel=?, email= ?, address=?; where sno= ?
 
 select s.*, d.name as dname from student s, department d where s.year like '%' || 20
+
+-------------------------
+
+select s.name, s.score, s.startday, s.endday, p.name, r.score  from register r, subject s , professor p where r.subno = s.subno and s.dno = p.dno;
+select s.name, s.score, s.startday, s.endday, p.name, r.score  from register r, subject s , professor p where r.subno = s.subno;
+
+
+
+
+

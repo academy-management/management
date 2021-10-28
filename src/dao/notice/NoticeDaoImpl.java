@@ -227,4 +227,49 @@ public class NoticeDaoImpl implements NoticeDao {
 		
 	}
 
+	@Override
+	public void insert(Notice notice) {
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.NOTICE_INSERT);
+
+			pStatement.setString(1, notice.getDivision_d());
+			pStatement.setString(2, notice.getSubject());
+			pStatement.setString(3, notice.getContents());
+			
+		
+		
+			pStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(null, pStatement, connection);
+		}
+		
+	}
+
+	@Override
+	public void delete(int nno) {
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.NOTICE_DELETE);
+
+			pStatement.setInt(1, nno);
+			pStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(null, pStatement, connection);
+		}
+		
+	}
+
 }

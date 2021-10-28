@@ -29,7 +29,7 @@ import page.PageManager;
 
 
 
-@WebServlet(name = "ManageController", urlPatterns = {"/student_search","/student_searchbyname","/student_update","/student_insert","/professor_search","/professor_insert","/professor_update","/professor_searchbyname","/subject_search","/subject_searchNS","/subject_insert","/subject_update","/manager_notice","/manager_notice_search","/manager_notice_detail"})
+@WebServlet(name = "ManageController", urlPatterns = {"/student_search","/student_searchbyname","/student_update","/student_insert","/professor_search","/professor_insert","/professor_update","/professor_searchbyname","/subject_search","/subject_searchNS","/subject_insert","/subject_detail","/subject_update","/manager_notice","/manager_notice_search","/manager_notice_detail","/manager_notice_insert","/manager_notice_delete"})
 public class ManageController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -180,20 +180,24 @@ public class ManageController extends HttpServlet{
 			String week = req.getParameter("week");
 			String subtime = week+" "+time+"-"+time2;
 			
-			String startday = req.getParameter("startday");
-			String endday = req.getParameter("endday");
+			String startday1 = req.getParameter("startday");
+			String[] startday= startday1.split((" "));
+			
+			String endday1 = req.getParameter("endday");
+			String[] endday= endday1.split((" "));
+			
 			String division = req.getParameter("division");
 			int dno = Integer.parseInt(req.getParameter("department"));
 			String pno = req.getParameter("pno");
 			
 			Subject subject = new Subject( subno,  name,  grade,  score,  people,  room,  subtime,
-					startday,  endday,  division,  dno,  pno);
+					startday[0],  endday[0],  division,  dno,  pno);
 			SubjectDao dao = new SubjectDaoImpl();
 			dao.insert(subject);
 			
 	    	}
 	    	
-	    }else if(action.equals("subject_update")){
+	    }else if(action.equals("subject_detail")){
     		String subno = req.getParameter("subno");
  
     		SubjectDao dao = new SubjectDaoImpl();
@@ -201,9 +205,33 @@ public class ManageController extends HttpServlet{
  
     		req.setAttribute("subject", subject);
 
+    	}else if(action.equals("subject_update")) {
+    		if(req.getParameter("subno")!=null) {
+    	    	String subno = req.getParameter("subno");
+    			String name = req.getParameter("name");
+    			int grade = Integer.parseInt(req.getParameter("grade"));
+    			String score = req.getParameter("score");
+    			int people = Integer.parseInt(req.getParameter("people"));
+    			String room = req.getParameter("room");
+    			String start = req.getParameter("start");
+    			String end = req.getParameter("end");
+    			String state = req.getParameter("state");
+    			String date = req.getParameter("date");
+    			
+    			SubjectDao dao = new SubjectDaoImpl();
+        		Subject subject = new Subject( subno,  name,  grade,  score,  people,  room,  date, state,  start,  end);
+        		
+        		System.out.println(subject);
+        		dao.update(subject);
+    		
+    			
+    		}
+    			
+    		
+    		
     	}else if(action.equals("manager_notice")) {
     		
-int requestPage = 1;
+    		int requestPage = 1;
 			
 			if(req.getParameter("reqPage") != null) {
 				
@@ -321,7 +349,36 @@ int requestPage = 1;
 			Notice notice2 = dao.selectByNno(nno);
 
 			req.setAttribute("notice", notice2);
+			
+    	}else if(action.equals("manager_notice_insert")) {
+    		
+    		if(req.getParameter("subject")!=null) {
+    	    	
+    			String subject = req.getParameter("subject");
+    			String contents = req.getParameter("contents");
+    			String division = req.getParameter("division");
+    			
+    			Notice notice = new Notice(division,subject,contents);
+    			
+    			NoticeDao dao = new NoticeDaoImpl();
+    			dao.insert(notice);
+    			
+    	
+    			
+    			
+    	    	}
+    		
+    	}else if(action.equals("manager_notice_delete")) {
+    		
+    		int nno = Integer.parseInt(req.getParameter("nno"));
+    		
+    		NoticeDao dao = new NoticeDaoImpl();
+			dao.delete(nno);
+			
+    		
     	}
+    		
+    		
 	    
 	    String dispatcherUrl= null;
 	    
@@ -347,14 +404,20 @@ int requestPage = 1;
 	    	dispatcherUrl = "/jsp/Manager/manager_submit_search.jsp";
 	    }else if(action.equals("subject_insert")){
 	    	dispatcherUrl = "/jsp/Manager/manager_submit_insert.jsp";
-	    }else if(action.equals("subject_update")){
+	    }else if(action.equals("subject_detail")){
 	    	dispatcherUrl = "/jsp/Manager/manager_submit_detail.jsp";
+	    }else if(action.equals("subject_update")) {
+	    	dispatcherUrl = "subject_search";
 	    }else if(action.equals("manager_notice")) {
 	    	dispatcherUrl = "/jsp/Manager/manager_Notice.jsp";
     	}else if(action.equals("manager_notice_search")) {
 	    	dispatcherUrl = "/jsp/Manager/manager_Notice.jsp";
     	}else if(action.equals("manager_notice_detail")) {
     		dispatcherUrl = "/jsp/Manager/manager_NoticeDetail.jsp";
+    	}else if(action.equals("manager_notice_insert")) {
+    		dispatcherUrl = "/jsp/Manager/manager_notice_insert.jsp";
+    	}else if(action.equals("manager_notice_delete")) {
+    		dispatcherUrl = "manager_notice";
     	}
 	    
 	    RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

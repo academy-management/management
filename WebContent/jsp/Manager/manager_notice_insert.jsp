@@ -31,7 +31,7 @@
 			<div class="user">
 				<ul>
 					<li>
-						<p>${student.name}님 반갑습니다 <i class="xi-angle-down-min xi-x"></i></p>
+						<p>홍길동님 반갑습니다  <i class="xi-angle-down-min xi-x"></i></p>
 						<div class="user_choice">
 							<ul>
 								<li><a href="">수강정보</a></li>
@@ -65,43 +65,34 @@
 					</ul>
 				</nav>
 			</section>
-			<section class="container_right cotainer_col">
-				<div class="main_title">
-					<img src="/Academic-Management/img/title_img.png" alt="메인"/>
-					<h4>공지사항</h4>
-				</div>
-				
-				<div class="container_score">
-					<table class="table table_bg">
-					 		<colgroup>
-					          <col style="width:15%">
-					          <col style="width:35%">
-					          <col style="width:15%">
-					          <col style="width:35%">
-					        </colgroup>
-					 		<tbody>
-					 			<tr>
-					 				<th>작성일</th>
-					 				<td>${notice.time}</td>
-					 				<th>조회수</th>
-					 				<td>${notice.views}</td>
-					 			</tr>
-					 			<tr>
-					 				<th>작성일</th>
-					 				<td colspan="3">${notice.subject}</td>
-					 			</tr>
-					 			<tr>
-					 				<td colspan="4">
-						 				<p>${notice.contents}</p>
-					 				</td>
-					 			</tr>
-					 		</tbody>
-					 </table>
-				</div>
-				<div class="my_btn">
-							<input type="button" class="btn_edit" onclick="location.href='manager_notice'" value="목록"/>
+			<section class="container_right container_center">
+				<div class="my_login">
+					<h3 class="title">공지 등록</h3>
+					<div class="my_center">
+						<form method="post" action="manager_notice_insert">
+						<div class="my_text_edit">
+							<label>제목</label><input type="text" class="login_text dis" name="subject"/>
 						</div>
+						<div class="my_text_edit">
+							<label>내용</label><textarea class="login_text" name="contents" rows="100" cols="100" style="height:15rem" style="margin-bottom:20px">
+							</textarea>
+						</div>
+						<div class="my_text_edit">
+						<label>구분</label>
+							<select class="login_text" name="division">
+									<option value="전체">전체</option>
+									<option value="학과">학과</option>
+							</select>
+						</div>
+						<div class="my_btn">
+							<input type="reset" class="btn_can" value="취소"/>
+							<input type="submit" class="btn_edit" value="등록"/>
+						</div>
+						</form>
+					</div>
+				</div>
 			</section>
+			
 		</div>
 	</div>
 	

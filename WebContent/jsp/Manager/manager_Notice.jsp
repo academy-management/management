@@ -50,7 +50,7 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-							<li><a href="">학생관리</a></li>
+						<li><a href="">학생관리</a></li>
 						<li><a href="student_search">-학생검색</a></li>
 						<li><a href="student_insert">-학생등록</a></li>
 						<li><a href="">교수관리</a></li>
@@ -61,7 +61,7 @@
 						<li><a href="subject_insert">-강의등록</a></li>
 						<li><a href="">공지사항관리</a></li>
 						<li><a href="manager_notice">-공지사항검색</a></li>
-						<li><a href="">-공지사항등록</a></li>
+						<li><a href="manager_notice_insert">-공지사항등록</a></li>
 					</ul>
 				</nav>
 			</section>
@@ -93,9 +93,10 @@
 					<table class="table table-hover">
 					 		<colgroup>
 					          <col style="width:10%">
-					          <col style="width:70%">
+					          <col style="width:60%">
 					          <col style="width:10%">
 					          <col style="width:10%">
+					          <col style="width:10%">					        
 					        </colgroup>
 					 		<thead>
 					 			<tr>
@@ -103,6 +104,7 @@
 					 				<th>제목</th>
 					 				<th>작성일</th>
 					 				<th>조회수</th>
+					 				<th></th>
 					 			</tr>
 					 		</thead>
 					 		<tbody>
@@ -112,6 +114,7 @@
 									<td><a href="manager_notice_detail?nno=${notice.nno}">${notice.subject}</a></td>
 									<td>${notice.time}</td>
 									<td>${notice.views}</td>
+									<td><a href="manager_notice_delete?nno=${notice.nno}">삭제</a></td>
 								</tr>
 								</c:forEach>
 					 		</tbody>
@@ -130,7 +133,7 @@
 					<ul>
 						<c:if test="${pageGroupResult.beforePage}">
 							<li>
-								<a href="notice?reqPage=${pageGroupResult.groupStartNumber-1}"><</a>
+								<a href="manager_notice?reqPage=${pageGroupResult.groupStartNumber-1}"><</a>
 							</li> 
 						</c:if>
 						
@@ -138,12 +141,12 @@
 							<c:choose>
 								<c:when test="${pageGroupResult.selectPageNumber == index}">
 									<li class="active">
-										<a href="notice?reqPage=${index}">${index}</a>
+										<a href="manager_notice?reqPage=${index}">${index}</a>
 									</li>
 								</c:when>
 								<c:otherwise>
 									<li>
-										<a href="notice?reqPage=${index}">${index}</a>
+										<a href="manager_notice?reqPage=${index}">${index}</a>
 									</li>
 								</c:otherwise>
 							</c:choose>
@@ -151,7 +154,7 @@
 						
 						<c:if test="${pageGroupResult.afterPage}">
 							<li>
-								<a href="notice?reqPage=${pageGroupResult.groupEndNumber+1}">></a>
+								<a href="manager_notice?reqPage=${pageGroupResult.groupEndNumber+1}">></a>
 							</li> 
 						</c:if>
 					</ul>

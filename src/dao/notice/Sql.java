@@ -21,6 +21,13 @@ public class Sql {
 	public static final String UPDATE_NOTICE_VIEWS_SQL =
 			"UPDATE NOTICE SET VIEWS = ? WHERE NNO = ?";
 	
+	public static final String NOTICE_INSERT =
+			"insert into Notice values(seq_notice.nextval, sysdate ,?,?,?,1,1)";
+	
+	public static final String NOTICE_DELETE =
+			"delete from notice where nno = ?";
+	
+	
 	
 	
 	

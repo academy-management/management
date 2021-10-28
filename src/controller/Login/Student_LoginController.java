@@ -38,7 +38,6 @@ public class Student_LoginController extends HttpServlet{
 		
 		//로직
 		if(action.equals("student_login_input")) {
-			
 		}
 		else if(action.equals("student_login")) {
 			int sno = Integer.parseInt(req.getParameter("sno"));
@@ -88,4 +87,4 @@ public class Student_LoginController extends HttpServlet{
 		RequestDispatcher rd = req.getRequestDispatcher(dispatcherUrl);
 		rd.forward(req, resp);
 	}	
-}
+}// 학번 20210101 비번1234

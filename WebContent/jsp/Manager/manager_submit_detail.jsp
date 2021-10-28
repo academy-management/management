@@ -50,7 +50,7 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-							<li><a href="">학생관리</a></li>
+						<li><a href="">학생관리</a></li>
 						<li><a href="student_search">-학생검색</a></li>
 						<li><a href="student_insert">-학생등록</a></li>
 						<li><a href="">교수관리</a></li>
@@ -61,7 +61,7 @@
 						<li><a href="subject_insert">-강의등록</a></li>
 						<li><a href="">공지사항관리</a></li>
 						<li><a href="manager_notice">-공지사항검색</a></li>
-						<li><a href="">-공지사항등록</a></li>
+						<li><a href="manager_notice_insert">-공지사항등록</a></li>
 					</ul>
 				</nav>
 			</section>
@@ -70,7 +70,7 @@
 					<h3 class="title">강의 수정</h3>
 					<div class="my_center">
 					
-					<form method="post" action="subject_insert">
+					<form method="post" action="subject_update">
 				
 						<div class="my_text_edit">
 							
@@ -95,18 +95,18 @@
 						</div>
 						<div class="my_text_edit">
 							<label>강의요일</label>
-							<input type="text" class="login_text" name="people" value="${subject.date}"/>
+							<input type="text" class="login_text" name="date" value="${subject.date}"/>
 						</div>
 						<div class="my_text_edit" >
 							<label>강의날짜</label>
-							<input type="text" class="login_text2" name="startday" value="${subject.start}"/>
+							<input type="text" class="login_text2" name="start" value="${subject.start}"/>
 							~
-							<input type="text" class="login_text2" name="endday" value="${subject.end}"/>
+							<input type="text" class="login_text2" name="end" value="${subject.end}"/>
 						</div>
 												
 						<div class="my_text_edit">
 							<label>강의상태</label>
-							<input type="text" class="login_text" name="people" value="${subject.state}"/>
+							<input type="text" class="login_text" name="state" value="${subject.state}"/>
 						</div>
 								
 						<div class="my_btn">

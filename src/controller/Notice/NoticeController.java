@@ -173,7 +173,7 @@ public class NoticeController extends HttpServlet {
 			dispatcherUrl = "/jsp/Student/studentNotice.jsp";
 			
 		} else if(action.equals("notice_detail")) {
-			
+
 			dispatcherUrl = "/jsp/Student/studentNoticeDetail.jsp";
 		}
 		

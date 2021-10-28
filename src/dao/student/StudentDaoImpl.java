@@ -8,6 +8,7 @@ import java.util.List;
 
 import common.JDBCUtil;
 import model.Student;
+import model.Subject;
 import model.SystemMaster;
 
 public class StudentDaoImpl implements StudentDao {
@@ -274,7 +275,7 @@ public class StudentDaoImpl implements StudentDao {
 			while (resultSet.next()) {
 
 				Student student = new Student();
-				student.setSubno(resultSet.getInt("subno"));
+				student.setSubno(resultSet.getString("subno"));
 				student.setRegno(resultSet.getInt("regno"));
 				student.setSno(resultSet.getInt("sno"));
 				student.setName(resultSet.getString("name"));
@@ -296,7 +297,7 @@ public class StudentDaoImpl implements StudentDao {
 
 
 	@Override
-	public void updateToScore(int regno, String score) {
+	public void updateToScore(String regno, String score) {
 		Connection connection = null;
 		PreparedStatement pStatement = null;
 		ResultSet resultSet = null;
@@ -305,7 +306,7 @@ public class StudentDaoImpl implements StudentDao {
 			connection = JDBCUtil.getConnection();
 			pStatement = connection.prepareStatement(Sql.UPDATE_TO_SCORE);
 			pStatement.setString(1, score);
-			pStatement.setInt(2, regno);
+			pStatement.setString(2, regno);
 			pStatement.executeUpdate();
 			
 		} catch (Exception e) {
@@ -445,13 +446,12 @@ public class StudentDaoImpl implements StudentDao {
 				student = new Student();
 
 				student.setSno(resultSet.getInt("sno"));
-				student.setDno(resultSet.getInt("dno"));
-				student.setPassword(resultSet.getString("password"));
+				student.setD_name(resultSet.getString("d_name"));
 				student.setName(resultSet.getString("name"));
-				student.setAddress(resultSet.getString("address"));
+				student.setPassword(resultSet.getString("password"));
 				student.setTel(resultSet.getString("tel"));
 				student.setEmail(resultSet.getString("email"));
-				
+				student.setAddress(resultSet.getString("address"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -470,14 +470,13 @@ public class StudentDaoImpl implements StudentDao {
 		try {
 			connection = JDBCUtil.getConnection();
 			pStatement = connection.prepareStatement(Sql.STUDENT_USER_UPDATE);
-
-			pStatement.setInt(1, student.getSno());
-			pStatement.setInt(2, student.getDno());
-			pStatement.setString(3, student.getName());
-			pStatement.setString(4, student.getPassword());
-			pStatement.setString(5, student.getTel());
-			pStatement.setString(6, student.getEmail());
-			pStatement.setString(7, student.getAddress());
+			
+			pStatement.setString(1, student.getName());
+			pStatement.setString(2, student.getPassword());
+			pStatement.setString(3, student.getTel());
+			pStatement.setString(4, student.getEmail());
+			pStatement.setString(5, student.getAddress());
+			pStatement.setInt(6, student.getSno());
 
 			pStatement.executeUpdate();
 		} catch (Exception e) {
@@ -490,9 +489,76 @@ public class StudentDaoImpl implements StudentDao {
 
 
 	@Override
-	public List<Student> selectBySubjectNo(int subno) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Subject> subjectAll() {
+		List<Subject> subjectList = new ArrayList<>(); 
+
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.STUDENT_SCORE_ALL);
+			resultSet = pStatement.executeQuery();
+
+			while (resultSet.next()) {
+				Subject subject = new Subject();
+//			select s.name, s.score, s.startday, s.endday, p.name, r.score 
+//			from register r, subject s , professor p where r.subno = s.subno and s.dno = p.dno
+			
+				subject.setName(resultSet.getString("sname"));
+				subject.setScore(resultSet.getString("score"));
+				subject.setStart(resultSet.getString("startday"));
+				subject.setEnd(resultSet.getString("endday"));
+				subject.setP_name(resultSet.getString("pname"));
+				subject.setR_score(resultSet.getString("rscore"));
+
+				subjectList.add(subject);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}
+		return subjectList;
+	}
+
+
+	@Override
+	public List<Subject> subjectYear(int year, int semester) {
+		List<Subject> subjectList = new ArrayList<>();   
+
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.STUDENT_YEAR_SE);
+			
+			pStatement.setInt(1, year);
+			pStatement.setInt(2, semester);
+			
+			resultSet = pStatement.executeQuery();
+			
+			if (resultSet.next()) {
+				Subject subject = new Subject();
+
+				subject.setName(resultSet.getString("sname"));
+				subject.setScore(resultSet.getString("score"));
+				subject.setStart(resultSet.getString("startday"));
+				subject.setEnd(resultSet.getString("endday"));
+				subject.setP_name(resultSet.getString("pname"));
+				subject.setR_score(resultSet.getString("rscore"));
+				
+				subjectList.add(subject);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}
+		return subjectList;
 	}
 
 }

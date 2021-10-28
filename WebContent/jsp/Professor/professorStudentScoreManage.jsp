@@ -15,12 +15,30 @@
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="stylesheet" href="/Academic-Management/css/style.css" type="text/css">
 
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"
-	type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/script.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
+<!-- <script type="text/javascript">
+	$(function(){
+		$( ".target" ).change(function() {
+			$.ajax({	             
+	            type : "GET",
+	            url : "studentScoreManage",
+	            dataType : "text",
+	            error : function(){
+	                alert('통신실패!!');
+	            },
+	            success : function(data){
+	                alert("통신데이터 값 : " + data) ;
+	                $("#dataArea").html(data) ;
+	            }
+	             
+	        });
+		});
+	});
+</script> -->
 
 </head>
 <body>
@@ -34,19 +52,17 @@
 			</div>
 			<div class="user">
 				<ul>
-					<li>
-						<p>
-							홍길동님 반갑습니다 <i class="xi-angle-down-min xi-x"></i>
-						</p>
-						<div class="user_choice">
+					<li class="last">
+						<c:if test="${member != null}">
+							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
+							<div class="user_choice">
 							<ul>
-								<li><a href="">수강정보</a></li>
-								<li><a href="">성적정보</a></li>
-								<li><a href="">회원정보 변경</a></li>
+							<li><a href="professorLectureInfo">강의정보</a></li>
+								<li><a href="professorMylogin">회원정보 변경</a></li>
 							</ul>
 						</div>
-					</li>
-					<li class="last"><a href="login_out" class="login_out">로그아웃</a>
+							<a href="logout" class="login_out">로그아웃</a>
+						</c:if>
 					</li>
 				</ul>
 			</div>
@@ -55,8 +71,8 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href="">학생관리</a></li>
-						<li><a href="">성적관리</a></li>
+						<li><a href="studentSearch">학생관리</a></li>
+						<li><a href="studentScoreManage">성적관리</a></li>
 						<li><a href="">공지사항</a></li>
 					</ul>
 				</nav>
@@ -68,51 +84,60 @@
 				</div>
 				<div class="container mt-3">
 					<div>
-						과목 <select class="form-select form-select-sm"
-							style="width: 500px; display: inline;" name="subjectSelect" onchange="location.href=this.value">
-							<c:forEach var="subject" items="${subjectList}">
-								<option value="${subject.subno}">[${subject.subno}]${subject.name}[${subject.start}~${subject.end}]</option>
-							</c:forEach>
-						</select>
-					</div>
-					<table class="table">
-						<thead>
-							<tr>
-								<th>No</th>
-								<th>학번</th>
-								<th>이름</th>
-								<th>전공</th>
-								<th>학년</th>
-								<th>성적입력</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="student" items="${studentList}">
+						<form action="studentScoreManage">
+							과목 <select class="form-select form-select-sm target" id="subjectSelect" style="width: 500px; display: inline;" name="subjectSelect">
+								<c:forEach var="subject" items="${subjectList}">
+									<option value="${subject.subno}">[${subject.subno}]${subject.name}[${subject.start}~${subject.end}]</option>
+								</c:forEach>
+							</select>
+							<input type="submit" value="조회">
+						</form>
+					</div>					
+						<table class="table">
+							<thead>
 								<tr>
-									<td>${student.regno}</td>
-									<td>${student.sno}</td>
-									<td>${student.name}</td>
-									<td>${student.dname}</td>
-									<td>${student.grade}</td>
-									<td><select class="form-select form-select-sm"
-										style="width: 100px; display: inline;">
-											<!-- DB에서 점수 받아와서 선택하기 -->
-											<option>A+</option>
-											<option>A</option>
-											<option>A-</option>
-											<option>B+</option>
-											<option>B</option>
-											<option>B-</option>
-											<option>C+</option>
-											<option>C</option>
-											<option>C-</option>
-											<option>F</option>
-									</select> register.score
-										<button>저장</button></td>
+									<th>No</th>
+									<th>학번</th>
+									<th>이름</th>
+									<th>전공</th>
+									<th>학년</th>
+									<th>성적입력</th>
 								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+							</thead>
+							<tbody>							
+								<c:forEach var="student" items="${studentList}">
+									<form action="studentScoreManage">									
+										<tr>
+											<td>${student.regno}</td>
+											<td>${student.sno}</td>
+											<td>${student.name}</td>
+											<td>${student.dname}</td>
+											<td>${student.grade}</td>
+											<td>		
+												<select name="score" class="form-select form-select-sm" style="width: 100px; display: inline;" value="${student.score}">												
+													<option value="A+">A+</option>
+													<option value="A">A</option>
+													<option value="A-">A-</option>
+													<option value="B+">B+</option>
+													<option value="B">B</option>
+													<option value="B-">B-</option>
+													<option value="C+">C+</option>
+													<option value="C">C</option>
+													<option value="C-">C-</option>
+													<option value="F">F</option>
+												</select>
+												<input type="text" name="regno" hidden value="${student.regno}">
+												<input type="submit" value="저장">
+																							
+											</td>
+										</tr>
+										
+									</form>
+								</c:forEach>
+							</tbody>
+						</table>
+						
+					
 					<ul class="pagination justify-content-center">
 						<li class="page-item"><a class="page-link"
 							href="javascript:void(0);">Previous</a></li>

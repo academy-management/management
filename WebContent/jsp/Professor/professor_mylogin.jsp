@@ -30,17 +30,17 @@
 			</div>
 			<div class="user">
 				<ul>
-					<li>
-						<p>${member.name}님 반갑습니다  <i class="xi-angle-down-min xi-x"></i></p>
-						<div class="user_choice">
+					<li class="last">
+						<c:if test="${member != null}">
+							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
+							<div class="user_choice">
 							<ul>
-								<li><a href="professorLectureInfo">강의정보</a></li>
+							<li><a href="professorLectureInfo">강의정보</a></li>
 								<li><a href="professorMylogin">회원정보 변경</a></li>
 							</ul>
 						</div>
-					</li>
-					<li class="last">
-						<a href="login_out" class="login_out">로그아웃</a>
+							<a href="logout" class="login_out">로그아웃</a>
+						</c:if>
 					</li>
 				</ul>
 			</div>
@@ -49,8 +49,8 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href="">수강신청</a></li>
-						<li><a href="">교수정보</a></li>
+						<li><a href="studentSearch">학생관리</a></li>
+						<li><a href="studentScoreManage">성적관리</a></li>
 						<li><a href="">공지사항</a></li>
 					</ul>
 				</nav>

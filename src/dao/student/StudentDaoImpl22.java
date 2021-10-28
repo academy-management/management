@@ -34,7 +34,6 @@ public class StudentDaoImpl22 implements StudentDao22{
 				
 				student.setSno(resultSet.getInt("sno"));
 				student.setName(resultSet.getString("name"));
-				student.setYear(resultSet.getInt("year"));
 				student.setD_name(resultSet.getString("dname"));
 				student.setGrade(resultSet.getInt("grade"));
 				student.setTel(resultSet.getString("tel"));

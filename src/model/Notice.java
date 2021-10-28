@@ -10,7 +10,15 @@ public class Notice {
 	private int views;
 	private int id;
 	
-
+	public Notice() {}
+	
+	
+	public Notice(String division_d, String subject, String contents) {
+		super();
+		this.division_d = division_d;
+		this.subject = subject;
+		this.contents = contents;
+	}
 	
 	public int getNno() {
 		return nno;

@@ -11,7 +11,7 @@ public class Student {
 	private String address;
 	private String email;
 	private String dname;
-	private int subno;
+	private String subno;
 	private int regno;
 	private String score;
 	private int dno;
@@ -22,7 +22,7 @@ public class Student {
 		super();
 	}
 	public Student(int sno, String name, int year, String d_name, String tel, String state, String password,
-			String address, String email, String dname, int subno, int regno, String score, int dno, int grade) {
+			String address, String email, String dname, String subno, int regno, String score, int dno, int grade) {
 		super();
 		this.sno = sno;
 		this.name = name;
@@ -48,11 +48,9 @@ public class Student {
 
 	}
 	
-	public Student(int sno,int dno, String name ,String password,String tel,String email,String address) {
+	public Student(String name ,String password,String tel,String email,String address) {
 		super();
-		this.sno = sno;
 		this.name = name;
-		this.dno = dno;
 		this.tel = tel;
 		this.password = password;
 		this.address = address;
@@ -127,10 +125,10 @@ public class Student {
 	public void setDname(String dname) {
 		this.dname = dname;
 	}
-	public int getSubno() {
+	public String getSubno() {
 		return subno;
 	}
-	public void setSubno(int subno) {
+	public void setSubno(String subno) {
 		this.subno = subno;
 	}
 	public int getRegno() {

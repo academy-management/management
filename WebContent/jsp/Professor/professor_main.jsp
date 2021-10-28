@@ -30,17 +30,17 @@
 			</div>
 			<div class="user">
 				<ul>
-					<li>
-						<p>${member.name}님 반갑습니다 <i class="xi-angle-down-min xi-x"></i></p>
-						<div class="user_choice">
+					<li class="last">
+						<c:if test="${member != null}">
+							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
+							<div class="user_choice">
 							<ul>
-								<li><a href="professorLectureInfo">강의정보</a></li>
+							<li><a href="professorLectureInfo">강의정보</a></li>
 								<li><a href="professorMylogin">회원정보 변경</a></li>
 							</ul>
 						</div>
-					</li>
-					<li class="last">
-						<a href="login_out" class="login_out">로그아웃</a>
+							<a href="logout" class="login_out">로그아웃</a>
+						</c:if>
 					</li>
 				</ul>
 			</div>
@@ -49,8 +49,8 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href="">수강신청</a></li>
-						<li><a href="">교수정보</a></li>
+						<li><a href="studentSearch">학생관리</a></li>
+						<li><a href="studentScoreManage">성적관리</a></li>
 						<li><a href="">공지사항</a></li>
 					</ul>
 				</nav>
@@ -58,7 +58,7 @@
 			<section class="container_right">
 				<div class="right_l">
 					<div class="main_bnr">
-						<img src="/Academic-Management/img/main1.png" alt="ë©ì¸ ë°°ë"/>
+						<img src="/Academic-Management/img/main1.png"/>
 					</div>
 					<div class="main_notice">
 					 	<table class="table table-hover">
@@ -92,32 +92,12 @@
 				<div class="slide_bnr">
 				  	<div id="slider-div">
 					    <div>
-					    	<img src="/Academic_Management/img/s11.png" alt="ì±ì íì¸ ê¸°ê°"/>
+					    	<img src="/Academic-Management/img/s11.png"/>
 					    </div>
-					   <!--  <div>
-					    	<img src="./img/s1.png" alt="ì±ì íì¸ ê¸°ê°"/>2222
-					    </div> -->
 				  	</div>
 				</div>
 			</section>
-			
 		</div>
 	</div>
-	<!-- <script type="text/javascript">
-	$(function(){
-		$('#slider-div').slick({
-			slide: 'div',		
-			infinite : true, 	
-			slidesToShow : 1,		
-			slidesToScroll : 1,		
-			arrows : false, 		
-			dots : true, 		
-			autoplay : true,			
-			autoplaySpeed : 1000, 		
-			pauseOnHover : true,		
-			dotsClass : "slick-dots"	
-		});
-	})
-	</script> -->
 </body>
 </html>

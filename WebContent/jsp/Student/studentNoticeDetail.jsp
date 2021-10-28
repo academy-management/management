@@ -31,17 +31,17 @@
 			<div class="user">
 				<ul>
 					<li>
-						<p>${student.name}님 반갑습니다 <i class="xi-angle-down-min xi-x"></i></p>
+						<p>${member.name}님 반갑습니다 <i class="xi-angle-down-min xi-x"></i></p>
 						<div class="user_choice">
 							<ul>
 								<li><a href="">수강정보</a></li>
-								<li><a href="">성적정보</a></li>
-								<li><a href="">회원정보 변경</a></li>
+								<li><a href="student_score">성적정보</a></li>
+								<li><a href="student_mylogin">회원정보 변경</a></li>
 							</ul>
 						</div>
 					</li>
 					<li class="last">
-						<a href="login_out" class="login_out">로그아웃</a>
+						<a href="logout" class="login_out">로그아웃</a>
 					</li>
 				</ul>
 			</div>
@@ -58,7 +58,7 @@
 			</section>
 			<section class="container_right cotainer_col">
 				<div class="main_title">
-					<img src="/Academic_Management/img/title_img.png" alt="메인"/>
+					<img src="/Academic-Management/img/title_img.png" alt="메인"/>
 					<h4>공지사항</h4>
 				</div>
 				

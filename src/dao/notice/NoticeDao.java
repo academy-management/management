@@ -15,4 +15,7 @@ public interface NoticeDao {
 	Notice selectByNno(int nno);
 	void updateToViews(int views, int nno);
 	
+	void insert(Notice notice);
+	void delete(int nno);
+	
 }

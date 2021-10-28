@@ -293,7 +293,7 @@ Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor 
 	division VARCHAR(50), /* 강의구분 */
 	dno NUMBER, /* 학과번호 */
 	pno VARCHAR(50) /* 교수아이디 */
-	
+
 insert into subject values('c0001', '컴퓨터공학개론', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
 
 
@@ -308,9 +308,25 @@ insert into student values('20210108','1234','임학생',2,2021,'지구상 어�
 insert into student values('20210109','1234','도학생',2,2021,'지구상 어딘가','010-7308-7560','kiasdqwem@naver.com','재학',2);
 insert into student values('20210110
 
+insert into Notice values(1, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(2, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(3, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(4, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(5, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(6, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(7, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
 
+insert into manager values(1,'매니저','1234','010-5664-4455','asd@naver.com','asd');
 
+id NUMBER NOT NULL, /* 아이디 */
+	name VARCHAR(50), /* 이름 */
+	password VARCHAR(50), /* 비밀번호 */
+	tel VARCHAR(30), /* 연락처 */
+	email VARCHAR(40), /* 이메일 */
+	address VARCHAR(255) /* 주소 */
 
+select * from manager
+select * from notice
 
 
 insert into SUBJECT values(?,?,?,?,?,?,?,'강의',?,?,?,?,?);

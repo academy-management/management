@@ -57,7 +57,7 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href="">학생관리</a></li>
+							<li><a href="">학생관리</a></li>
 						<li><a href="student_search">-학생검색</a></li>
 						<li><a href="student_insert">-학생등록</a></li>
 						<li><a href="">교수관리</a></li>
@@ -67,7 +67,7 @@
 						<li><a href="subject_search">-강의검색</a></li>
 						<li><a href="subject_insert">-강의등록</a></li>
 						<li><a href="">공지사항관리</a></li>
-						<li><a href="">-공지사항검색</a></li>
+						<li><a href="manager_notice">-공지사항검색</a></li>
 						<li><a href="">-공지사항등록</a></li>
 					</ul>
 				</nav>
@@ -115,14 +115,12 @@
 								<c:forEach var="subject" items="${subjectList}">
 
 									<tr>
-										<td>${subject.subno}</td>
+										<td><a href='subject_update?subno=${subject.subno}' style="color:blue">${subject.subno}</a></td>
 										<td>${subject.name}</td>
 										<td>${subject.p_name}</td>
 										<td>${subject.score}</td>
 										<td>${subject.date}</td>
 										<td>${subject.state}</td>
-										
-
 									</tr>
 								</c:forEach>
 						</table>

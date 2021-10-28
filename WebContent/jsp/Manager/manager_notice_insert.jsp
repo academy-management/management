@@ -67,55 +67,22 @@
 			</section>
 			<section class="container_right container_center">
 				<div class="my_login">
-					<h3 class="title">교수 등록</h3>
+					<h3 class="title">공지 등록</h3>
 					<div class="my_center">
-						<form method="post" action="professor_insert">
+						<form method="post" action="manager_notice_insert">
 						<div class="my_text_edit">
-							<label>교수번호</label><input type="text" class="login_text dis" name="pno"/>
+							<label>제목</label><input type="text" class="login_text dis" name="subject"/>
 						</div>
 						<div class="my_text_edit">
-							<label>비밀번호</label><input type="password" class="login_text" name="password"/>
+							<label>내용</label><textarea class="login_text" name="contents" rows="100" cols="100" style="height:15rem" style="margin-bottom:20px">
+							</textarea>
 						</div>
 						<div class="my_text_edit">
-							<label>이름</label><input type="text" class="login_text" name="name" />
-						</div>
-						<div class="my_text_edit" style="margin-bottom:20px">
-							<label>소속학과</label>
-							<select class="login_text" name="d_name">
-									<option value="1">컴퓨터공학과</option>
-									<option value="2">기계공학과</option>
+						<label>구분</label>
+							<select class="login_text" name="division">
+									<option value="전체">전체</option>
+									<option value="학과">학과</option>
 							</select>
-						</div>
-						<div class="my_text_edit">
-							<label>전공</label><input type="text" class="login_text" name="major" />
-						</div>
-						<div class="my_text_edit">
-							<label>연구실</label><input type="text" class="login_text" name="pro_room" />
-						</div>
-						<div class="my_text_edit">
-							<label>연락처</label><input type="text" class="login_text" name="tel" />
-						</div>
-						<div class="my_text_edit">
-							<label>이메일</label><input type="text" class="login_text2" name="email" />@
-							<select class="login_select">
-								<option>선택해주세요</option>
-								<option value="naver.com">naver.com</option>
-								<option value="daum.net">daum.net</option>
-							</select>
-						</div>
-						<div class="my_adr">
-							<div class="my_text_edit">
-								<label>주소</label>
-								<div class="my_adr_search">
-									<input type="text" id="sample6_postcode" placeholder="우편번호" class="login_text login_text3" name="address">
-									<input type="button" onclick="sample6_execDaumPostcode()" value="찾기" class="btn_adr"><br>
-								</div>
-							</div>
-							<div class="my_right">
-								<input type="text" name="address2" id="sample6_address" class="login_text big"  placeholder="주소">
-								<input type="text" name="address3" id="sample6_detailAddress" class="login_text big" placeholder="상세주소">
-								<input type="text" name="address4" id="sample6_extraAddress" class="login_text big" placeholder="참고항목">
-							</div>
 						</div>
 						<div class="my_btn">
 							<input type="reset" class="btn_can" value="취소"/>

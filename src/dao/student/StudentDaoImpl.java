@@ -8,6 +8,7 @@ import java.util.List;
 
 import common.JDBCUtil;
 import model.Student;
+import model.Subject;
 import model.SystemMaster;
 
 public class StudentDaoImpl implements StudentDao {
@@ -445,13 +446,12 @@ public class StudentDaoImpl implements StudentDao {
 				student = new Student();
 
 				student.setSno(resultSet.getInt("sno"));
-				student.setDno(resultSet.getInt("dno"));
-				student.setPassword(resultSet.getString("password"));
+				student.setD_name(resultSet.getString("d_name"));
 				student.setName(resultSet.getString("name"));
-				student.setAddress(resultSet.getString("address"));
+				student.setPassword(resultSet.getString("password"));
 				student.setTel(resultSet.getString("tel"));
 				student.setEmail(resultSet.getString("email"));
-				
+				student.setAddress(resultSet.getString("address"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -471,8 +471,9 @@ public class StudentDaoImpl implements StudentDao {
 			connection = JDBCUtil.getConnection();
 			pStatement = connection.prepareStatement(Sql.STUDENT_USER_UPDATE);
 
+			
 			pStatement.setInt(1, student.getSno());
-			pStatement.setInt(2, student.getDno());
+			pStatement.setString(2, student.getD_name());
 			pStatement.setString(3, student.getName());
 			pStatement.setString(4, student.getPassword());
 			pStatement.setString(5, student.getTel());
@@ -490,9 +491,36 @@ public class StudentDaoImpl implements StudentDao {
 
 
 	@Override
-	public List<Student> selectBySubjectNo(int subno) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Subject> subjectAll() {
+		List<Subject> subjectList = new ArrayList<>(); // ù�ٿ� ���� �Ұ�
+
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.STUDENT_SCORE_ALL);
+			resultSet = pStatement.executeQuery();
+
+			while (resultSet.next()) {
+				Subject subject = new Subject();
+
+				subject.setName(resultSet.getString("name"));
+				subject.setScore(resultSet.getString("score"));
+				subject.setStart(resultSet.getString("start"));
+				subject.setEnd(resultSet.getString("end"));
+				subject.setP_name(resultSet.getString("p_name"));
+				subject.setR_score(resultSet.getString("r_score"));
+
+				subjectList.add(subject);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}
+		return subjectList;
 	}
 
 }

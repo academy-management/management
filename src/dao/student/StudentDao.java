@@ -3,6 +3,7 @@ package dao.student;
 import java.util.List;
 
 import model.Student;
+import model.Subject;
 import model.SystemMaster;
 
 public interface StudentDao {
@@ -22,8 +23,9 @@ public interface StudentDao {
 	public List<Student> selectBySubjectNo(String subno);
 	
 
-	public List<Student> selectBySubjectNo(int subno);
-	Student selectByuser(int sno);
+	Student selectByuser(int sno); 
+	
 	void studentUpdate(Student student);
-
+	
+	public List<Subject> subjectAll();
 }

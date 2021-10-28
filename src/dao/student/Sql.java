@@ -54,8 +54,11 @@ public class Sql {
 	="update professor set state = ? where pno=?";
 	
 	public static final String STUDENT_USER_UPDATE
-	="update student set sno =?, d.name as d_name, name = ?, password =? , tel=?, email= ?, address=?; where sno= ?";
+	="UPDATE STUDENT SET NAME = ?, PASSWORD = ?, TEL = ?, EMAIL = ? , ADDRESS = ? WHERE SNO = ?";
 	
 	public static final String STUDENT_SCORE_ALL
-	="select s.name, s.score, s.startday, s.endday, p.name, r.score  from register r, subject s , professor p where r.subno = s.subno and s.dno = p.dno";
+	="select s.name as sname, s.score as score, s.startday as startday, s.endday as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.subno = s.subno and s.dno = p.dno";
+
+	public static final String STUDENT_YEAR_SE
+	="select s.name as sname, s.score as score, s.startday as startday, s.endday as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.year =? and r.semester =?";
 }

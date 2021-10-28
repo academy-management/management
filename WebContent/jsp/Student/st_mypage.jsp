@@ -71,7 +71,7 @@
 								<label>이름</label><input type="text" class="login_text" name="name" value="${student.name}" />
 							</div>
 							<div class="my_text_edit">
-								<label>비밀번호</label><input type="password" class="login_text" name="password" value="${student.password}"/>
+								<label>비밀번호</label><input type="password" class="login_text" value="${student.password}"/>
 							</div>
 							<div class="my_text_edit">
 								<label>새 비밀번호</label><input type="password" class="login_text" name="password" />

@@ -62,28 +62,28 @@
 					<h4>성적정보</h4>
 				</div>
 				<div class="search_box">
-					<form method="post" action="/jsp/Student/st_score.jsp">
+					<form method="post" action="student_searched">
 						<div class="search">
 							<label>학년/학기</label>
-							<select class="search_select" name="year">
+							<select class="search_select" name="years">
 								<option value="2021">2021</option>
-								<option value="2020">2021</option>
-								<option value="2019">2021</option>
-								<option value="2018">2021</option>
+								<option value="2020">2020</option>
+								<option value="2019">2019</option>
+								<option value="2018">2018</option>
 								<option value="2017">2021</option>
 							</select>
-							<select class="search_select" name="grade">
+							<select class="search_select" name="semester">
 								<option value="1">1학기</option>
 								<option value="2">2학기</option>
 							</select>
 						</div>
 						<div>
-							<input type="submit" class="btn_edit" value="수정"/>
+							<input type="submit" class="btn_edit" value="조회"/>
 						</div>
 					</form>
 				</div>
 				<div class="container_score">
-				<c:if test="${!empty empList}">
+				<c:if test="${!empty subjectList}">
 						<table class="table table-hover">
 						 		<colgroup>
 						          <col style="width:30%">
@@ -104,23 +104,23 @@
 						 			</tr>
 						 		</thead>
 						 		<tbody>
-						 			<c:forEach var="emp" items="${empList}">
+						 			<c:forEach var="subjectList" items="${subjectList}">
 							 			<tr>
-							 				<td>컴퓨터 와 이해</td>
-							 				<td>3</td>
-							 				<td>2021.03.12</td>
-							 				<td>2021.06.12</td>
-							 				<td>김판수</td>
-							 				<td>B+</td>
+							 				<td>${subjectList.name}</td>
+							 				<td>${subjectList.score}</td>
+							 				<td>${subjectList.start}</td>
+							 				<td>${subjectList.end}</td>
+							 				<td>${subjectList.p_name}</td>
+							 				<td>${subjectList.r_score}</td>
 							 			</tr>
 						 			</c:forEach>
 						 			
 								</tbody>	
 						 	</table>
 					 	</c:if>
-					 	<c:if test="${empty empList}">
+					 	<c:if test="${empty subjectList}">
 									 <hr />  
-									 작성된 글이 없습니다.	
+									 신청한 강의가 없습니다.	
 						</c:if>
 				</div>
 			</section>

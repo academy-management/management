@@ -28,4 +28,5 @@ public interface StudentDao {
 	void studentUpdate(Student student);
 	
 	public List<Subject> subjectAll();
+	public List<Subject> subjectYear(int year, int semester);
 }

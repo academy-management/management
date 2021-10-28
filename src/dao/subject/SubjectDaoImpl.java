@@ -119,6 +119,84 @@ public class SubjectDaoImpl implements SubjectDao{
 
 		
 	}
+
+	@Override
+	public Subject select_by_subno(String subno) {
+		Subject subject = null;
+		
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.SUBJECT_SELECTBY_SUBNO);
+			
+			pStatement.setString(1, subno);
+				
+			resultSet = pStatement.executeQuery();
+
+			if (resultSet.next()) {
+
+				subject = new Subject();
+				subject.setSubno(resultSet.getString("subno"));
+				subject.setName(resultSet.getString("name"));
+				subject.setGrade(resultSet.getInt("grade"));
+				subject.setScore(resultSet.getString("score"));
+				subject.setPeople(resultSet.getInt("people"));
+				subject.setRoom(resultSet.getString("room"));
+				subject.setDate(resultSet.getString("subtime"));
+				subject.setState(resultSet.getString("state"));
+				subject.setStart(resultSet.getString("startday"));
+				subject.setEnd(resultSet.getString("endday"));
+				subject.setDivision(resultSet.getString("division"));
+				subject.setDno(resultSet.getInt("dno"));
+				subject.setPno(resultSet.getString("pno"));
+			}
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}
+
+		return subject;
+	}
+
+	@Override
+	public void update(Subject subject) {
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.SUBJECT_UPDATE);
+
+			pStatement.setString(1, subject.getName());
+			pStatement.setInt(2, subject.getGrade());
+			pStatement.setString(3, subject.getScore());
+			pStatement.setString(4, subject.getRoom());
+			pStatement.setInt(5, subject.getPeople());
+			pStatement.setString(6, subject.getDate());
+			pStatement.setString(7, subject.getStart());
+			pStatement.setString(8, subject.getEnd());
+			pStatement.setString(9, subject.getState());
+			pStatement.setString(10, subject.getSubno());
+		
+		
+		
+			pStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(null, pStatement, connection);
+		}
+
+		
+		
+	}
 }
 	
 

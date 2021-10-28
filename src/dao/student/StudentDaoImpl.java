@@ -275,7 +275,7 @@ public class StudentDaoImpl implements StudentDao {
 			while (resultSet.next()) {
 
 				Student student = new Student();
-				student.setSubno(resultSet.getInt("subno"));
+				student.setSubno(resultSet.getString("subno"));
 				student.setRegno(resultSet.getInt("regno"));
 				student.setSno(resultSet.getInt("sno"));
 				student.setName(resultSet.getString("name"));
@@ -297,7 +297,7 @@ public class StudentDaoImpl implements StudentDao {
 
 
 	@Override
-	public void updateToScore(int regno, String score) {
+	public void updateToScore(String regno, String score) {
 		Connection connection = null;
 		PreparedStatement pStatement = null;
 		ResultSet resultSet = null;
@@ -306,7 +306,7 @@ public class StudentDaoImpl implements StudentDao {
 			connection = JDBCUtil.getConnection();
 			pStatement = connection.prepareStatement(Sql.UPDATE_TO_SCORE);
 			pStatement.setString(1, score);
-			pStatement.setInt(2, regno);
+			pStatement.setString(2, regno);
 			pStatement.executeUpdate();
 			
 		} catch (Exception e) {

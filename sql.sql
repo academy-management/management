@@ -302,16 +302,41 @@ insert into professor values('p009','9999','인공지능','최교수',null,'재�
 
 Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor p , department d where p.dno= d.dno and p.name = '%이%' and d.name like '%%' order by pno desc
 
+<<<<<<< HEAD
+	subno VARCHAR(50) NOT NULL, /* 강의코드 */
+	name VARCHAR(50), /* 강의명 */
+	grade NUMBER, /* 학년 */
+	score VARCHAR(255), /* 학점 */
+	people NUMBER, /* 인원수 */
+	room VARCHAR(255), /* 강의실 */
+	subtime VARCHAR(50), /* 강의시간 */
+	state VARCHAR(50), /* 상태 */
+	startday DATE, /* 개강날 */
+	endday DATE, /* 종강날 */
+	division VARCHAR(50), /* 강의구분 */
+	dno NUMBER, /* 학과번호 */
+	pno VARCHAR(50) /* 교수아이디 */
+
+<<<<<<< HEAD
+select * from SUBJECT
+=======
+=======
 	
 	
 select s.name, s.score, s.startday, s.endday, r.score from register r, subject s where r.year= 2021 and r.semester = 1;
 select s.name, s.score, s.startday, s.endday, r.score from register r, subject s where r.year= ? and r.semester = ?;
+>>>>>>> branch 'main' of https://github.com/academy-management/management.git
+>>>>>>> branch 'main' of https://github.com/academy-management/management.git
 insert into subject values('c0001', '컴퓨터공학개론', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
+<<<<<<< HEAD
+insert into subject values('c0002', '기초 프로그래밍', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
+=======
 <<<<<<< HEAD
 insert into register values(201, 2021, 1, 80, '20210101', 'c0001');
 =======
+>>>>>>> branch 'main' of https://github.com/academy-management/management.git
 
-
+select * from SUBJECT
 insert into student values('20210101','1234','김학생',1,2021,'지구상 어딘가','010-1234-5678','kim@naver.com','재학',1);
 insert into student values('20210102','1234','이학생',1,2021,'지구상 어딘가','010-1234-5678','lee@naver.com','재학',1);
 insert into student values('20210103','1234','박학생',1,2021,'지구상 어딘가','010-1236-2138','axcqw@naver.com','재학',1);
@@ -321,12 +346,42 @@ insert into student values('20210106','1234','문학생',2,2021,'지구상 어�
 insert into student values('20210107','1234','정학생',2,2021,'지구상 어딘가','010-1208-5555','zxcvz@naver.com','재학',2);
 insert into student values('20210108','1234','임학생',2,2021,'지구상 어딘가','010-9365-6666','zxc@naver.com','재학',2);
 insert into student values('20210109','1234','도학생',2,2021,'지구상 어딘가','010-7308-7560','kiasdqwem@naver.com','재학',2);
-insert into student values('20210110
+
+insert into REGISTER values(1, 2021, 2, 'A+', 20210101, 'c0001')
+
+regno NUMBER NOT NULL, /* 수강번호 */
+	year NUMBER, /* 년도 */
+	semester NUMBER, /* 학기 */
+	score VARCHAR(255), /* 성적 */
+	sno NUMBER, /* 학번(ID) */
+	subno VARCHAR(50) /* 강의코드 */
+	
+select distinct re.regno, s.sno, s.name, d.name as dname, s.grade, re.score from student s, REGISTER re, DEPARTMENT d, subject su where re.sno = s.sno and s.dno = d.dno and re.subno = 'c0001'
 
 
 
+insert into Notice values(1, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(2, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(3, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(4, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(9, '2021/10/21','컴퓨터공학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(6, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(7, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
 
+insert into manager values(1,'매니저','1234','010-5664-4455','asd@naver.com','asd');
 
+id NUMBER NOT NULL, /* 아이디 */
+	name VARCHAR(50), /* 이름 */
+	password VARCHAR(50), /* 비밀번호 */
+	tel VARCHAR(30), /* 연락처 */
+	email VARCHAR(40), /* 이메일 */
+	address VARCHAR(255) /* 주소 */
+
+update subject set name = '인공지능' , grade = 2 , score = 2 , room = '301호' , people =20, subtime = '월요일 6-7' , startday= sysdate, endday=sysdate, state= '강의' where subno = 'c0002' 
+
+select * from manager
+select * from notice
+select * from subject;
 >>>>>>> refs/remotes/origin/main
 
 insert into SUBJECT values(?,?,?,?,?,?,?,'강의',?,?,?,?,?);
@@ -339,7 +394,7 @@ select s.subno , s.name , p.name as p_name , s.score , s.subtime , s.state from 
 -------------------
 insert into Notice values(seqnotice.nextval, '2021-10-20','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,01);
 insert into Notice values(seqnotice.nextval, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,01);
-select * from Notice;
+select * from subject;
 delete from memo where Nno = 1;
 
 	

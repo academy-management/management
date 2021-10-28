@@ -21,6 +21,21 @@ public class Subject {
 		super();
 	}
 	
+	public Subject(String subno, String name, int grade, String score, int people, String room, String date,
+			String state, String start, String end) {
+		super();
+		this.subno = subno;
+		this.name = name;
+		this.grade = grade;
+		this.score = score;
+		this.people = people;
+		this.room = room;
+		this.date = date;
+		this.state = state;
+		this.start = start;
+		this.end = end;
+	}
+
 	public Subject(String subno, String name, int grade, String score, int people, String room, String date, String state,
 			String start, String end, String division, int dno, String pno) {
 		super();

@@ -67,7 +67,12 @@ public class ProfessorController extends HttpServlet{
 			SubjectDao subDao = new SubjectDaoImpl();
 			req.setAttribute("subjectList", subDao.selectAll());
 			StudentDao stdDao = new StudentDaoImpl();
-			req.setAttribute("studentList", stdDao.selectBySubjectNo("1"));		
+			System.out.println((req.getParameter("subjectSelect")));
+			req.setAttribute("studentList", stdDao.selectBySubjectNo(req.getParameter("subjectSelect")));
+			System.out.println(req.getParameter("score"));
+			System.out.println(req.getParameter("regno"));
+			stdDao.updateToScore(req.getParameter("regno"), req.getParameter("score"));
+			
 		} 
 
 

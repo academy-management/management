@@ -276,6 +276,7 @@ update student set state = '휴학' where sno='20210101'
 
 Select p.pno, p.name, d.name, p.major, p.tel ,p.state from professor p , department d where p.dno= d.dno ;
 
+<<<<<<< HEAD
 insert into professor values('p001','p001','정보통신','김교수',null,'재직','지구상 어딘가','B501','010-1234-5678','tyyn@naver.com',1);
 insert into professor values('p002','p002','정보통신','이교수',null,'재직','지구상 어딘가','B502','010-5623-7753','afdvjk@naver.com',1);
 insert into professor values('p003','p003','인공지능','박교수',null,'재직','지구상 어딘가','B503','010-4786-1123','asfbikjq@naver.com',1);
@@ -292,6 +293,12 @@ pno VARCHAR(50) NOT NULL, /* 교수아이디 */
 	tel VARCHAR(30), /* 교수전화번호 */
 	email VARCHAR(40), /* 교수이메일 */
 	dno NUMBER /* 학과번호 */
+=======
+insert into professor values('p001','p001','정보통신','김교수',null,'재직','지구상, 어딘가','B501','010-1234-5678','tyyn@naver.com',1);
+insert into professor values('p002','p002','정보통신','이교수',null,'재직','지구상, 어딘가','B502','010-5623-7753','afdvjk@naver.com',1);
+insert into professor values('p003','p003','인공지능','박교수',null,'재직','지구상, 어딘가','B503','010-4786-1123','asfbikjq@naver.com',1);
+insert into professor values('p009','9999','인공지능','최교수',null,'재직','지구상, 어딘가','B504','010-8990-7831','asdscj@naver.com',1);
+>>>>>>> refs/remotes/origin/main
 
 Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor p , department d where p.dno= d.dno and p.name = '%이%' and d.name like '%%' order by pno desc
 
@@ -300,7 +307,27 @@ Select p.pno, p.name, d.name as d_name , p.major, p.tel ,p.state from professor 
 select s.name, s.score, s.startday, s.endday, r.score from register r, subject s where r.year= 2021 and r.semester = 1;
 select s.name, s.score, s.startday, s.endday, r.score from register r, subject s where r.year= ? and r.semester = ?;
 insert into subject values('c0001', '컴퓨터공학개론', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
+<<<<<<< HEAD
 insert into register values(201, 2021, 1, 80, '20210101', 'c0001');
+=======
+
+
+insert into student values('20210101','1234','김학생',1,2021,'지구상 어딘가','010-1234-5678','kim@naver.com','재학',1);
+insert into student values('20210102','1234','이학생',1,2021,'지구상 어딘가','010-1234-5678','lee@naver.com','재학',1);
+insert into student values('20210103','1234','박학생',1,2021,'지구상 어딘가','010-1236-2138','axcqw@naver.com','재학',1);
+insert into student values('20210104','1234','최학생',1,2021,'지구상 어딘가','010-5345-3807','asdczv@naver.com','재학',1);
+insert into student values('20210105','1234','명학생',1,2021,'지구상 어딘가','010-1234-3388','zcxvzxc@naver.com','재학',1);
+insert into student values('20210106','1234','문학생',2,2021,'지구상 어딘가','010-3978-7805','leasdae@naver.com','재학',2);
+insert into student values('20210107','1234','정학생',2,2021,'지구상 어딘가','010-1208-5555','zxcvz@naver.com','재학',2);
+insert into student values('20210108','1234','임학생',2,2021,'지구상 어딘가','010-9365-6666','zxc@naver.com','재학',2);
+insert into student values('20210109','1234','도학생',2,2021,'지구상 어딘가','010-7308-7560','kiasdqwem@naver.com','재학',2);
+insert into student values('20210110
+
+
+
+
+
+>>>>>>> refs/remotes/origin/main
 
 insert into SUBJECT values(?,?,?,?,?,?,?,'강의',?,?,?,?,?);
 
@@ -325,7 +352,7 @@ select memoid, name, age from memo where memoid= ?
 select Nno, subject, time, views from Notice where Nno=?
 
 select Nno, subject, time, views from Notice
-
+select * from professor
 	
 ----------------------
 update student set name = ?, password =? , tel=?, email= ?, address=?; where sno= ?

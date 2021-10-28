@@ -50,43 +50,41 @@ public class Professor_LoginController extends HttpServlet{
 			ProfessorDao dao = new ProfessorDaoImpl();
 			Professor professor = dao.selectByPno(pno);
 			
+			if(professor != null) {
 			
-			if (professor != null) {
-				
 				if(professor.getPassword().equals(password)) {
-
+	
 					HttpSession session = req.getSession();
 					session.setAttribute("member", professor);
-										
+											
 					NoticeDao ndao = new NoticeDaoImpl();
 					List<Notice> noticeList = ndao.selectAll(1);
-					
+						
 					req.setAttribute("noticeList", noticeList);
-					
+						
 				} else {
-					
+						
 					req.setAttribute("message", "비밀번호가 일치하지 않습니다.");
 				}
-
+				
 			} else {
 				
-				req.setAttribute("message", "존재하지 않는 교번입니다");
+				req.setAttribute("message", "존재하지 않는 교번입니다.");
 				
 			}
-			
+
 		} else if(action.equals("professor_logout")) {
 			
 			HttpSession session = req.getSession();
 			session.removeAttribute("member");
 			
 		}
-
 		
 		String dispatcherUrl = null;
 		
 		if(action.equals("professor_login_input")) {
 			
-			dispatcherUrl = "/jsp/Professor/professorLogin.jsp";
+			dispatcherUrl = "/jsp/Professor/professor_login.jsp";
 			
 		} else if(action.equals("professor_login")) {
 			
@@ -94,16 +92,16 @@ public class Professor_LoginController extends HttpServlet{
 			
 			if(session.getAttribute("member") != null) {
 				
-				dispatcherUrl = "/jsp/Professor/professorMain.jsp";
+				dispatcherUrl = "/jsp/Professor/professor_main.jsp";
 				
 			} else {
 				
-				dispatcherUrl = "/jsp/Professor/professorLogin.jsp";
+				dispatcherUrl = "/jsp/Professor/professor_login.jsp";
 			}
 
 		} else if(action.equals("professor_logout")) {
 			
-			dispatcherUrl = "/jsp/Professor/professorLogin.jsp";
+			dispatcherUrl = "/jsp/Professor/professor_login.jsp";
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

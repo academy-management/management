@@ -10,21 +10,26 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<link rel="stylesheet" href="/Academic_Management/css/style.css" type="text/css">
+<link rel="stylesheet" href="/Academic-Management/css/style.css" type="text/css">
 	
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>	
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="/Academic_Management/js/script.js"></script>
-<script type="text/javascript" src="/Academic_Management/js/slick.js"></script>
+<script type="text/javascript" src="/Academic-Management/js/script.js"></script>
+<script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
+<style>
+	a:link {
+	  text-decoration: underline;
+	}
+</style>
 <body>
 	<div class="wrap">
 		<header class="header">
 			<div class="logo">
 				<h1>
 					<a href="#">
-						<img src="/Academic_Management/img/logo.png" alt="메인"/>
+						<img src="/Academic-Management/img/logo.png" alt="메인"/>
 					</a>
 				</h1>
 			</div>
@@ -40,7 +45,7 @@
 						</div>
 					</li>
 					<li class="last">
-						<a href="login_out" class="login_out">로그아웃</a>
+						<a href="professor_logout" class="login_out">로그아웃</a>
 					</li>
 				</ul>
 			</div>
@@ -57,7 +62,7 @@
 			</section>
 			<section class="container_right cotainer_col">
 				<div class="main_title">
-					<img src="/Academic_Management/img/title_img.png" alt="강의정보"/>
+					<img src="/Academic-Management/img/title_img.png" alt="강의정보"/>
 					<h4>강의 정보</h4>
 				</div>
 				<form method="post" action="professorLectureInfoBySelect">
@@ -89,6 +94,7 @@
 					</div>
 				</div>
 				<div class="container_score">
+				<c:if test="${not empty subjectList}">
 					<table class="table table-hover">
 					 		<colgroup>
 					          <col style="width:10%">
@@ -117,12 +123,18 @@
 										<td>${subject.date}</td>
 										<td>${subject.room}</td>
 										<td>
-											<a href="professorLectureSituation?subno=${subject.subno}">상세보기</a>
+											<a href="professorLectureSituation?subno=${subject.subno}" style="color: blue">상세보기</a>
 										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 					 	</table>
+					 </c:if>
+					 <c:if test="${empty subjectList}">
+					 	<div style="text-align:center">
+					 		<h6>등록된 수업이 없습니다 </h6>
+					 	</div>
+					 </c:if>	
 				</div>
 			</section>
 		</div>

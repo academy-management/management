@@ -221,6 +221,7 @@ public class ManageController extends HttpServlet{
     			SubjectDao dao = new SubjectDaoImpl();
         		Subject subject = new Subject( subno,  name,  grade,  score,  people,  room,  date, state,  start,  end);
         		
+        		
         		System.out.println(subject);
         		dao.update(subject);
     		

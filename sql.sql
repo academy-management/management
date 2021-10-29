@@ -424,7 +424,7 @@ select s.name as sname, s.score as score, s.startday as startday, s.endday as en
 select s.name as sname, s.score as score, s.startday as startday, s.endday as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.year =? and r.semester =?
 select s.name as sname, s.score as score, s.startday as startday, s.endday as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.year =2021 and r.semester =1
 
-create sequence seqnotice;
+create sequence seq_notice;
 
 
 
@@ -446,14 +446,15 @@ insert into student values('20210109','1234','도학생',2,2021,'지구상 어�
 insert into student values('20210110','1234','장학생',2,2021,'지구상 어딘가','010-2378-6865','zxcvag@naver.com','재학',2);
 
 -- 교수 데이터 , 아이디 p001, 비번 p001 김교수
-insert into professor values('p001','p001','정보통신','김교수',null,'재직','지구상 어딘가','B501','010-1234-5678','tyyn@naver.com',1);
-insert into professor values('p002','p002','정보통신','이교수',null,'재직','지구상 어딘가','B502','010-5623-7753','afdvjk@naver.com',1);
-insert into professor values('p003','p003','인공지능','박교수',null,'재직','지구상 어딘가','B503','010-4786-1123','asfbikjq@naver.com',1);
-insert into professor values('p004','p004','인공지능','최교수',null,'재직','지구상 어딘가','B504','010-8990-7831','asdscj@naver.com',1);
+insert into professor values('p001','p001','정보통신','김교수',null,'재직','지구상,어딘가','B501','010-1234-5678','tyyn@naver.com',1);
+insert into professor values('p002','p002','정보통신','이교수',null,'재직','지구상,어딘가','B502','010-5623-7753','afdvjk@naver.com',1);
+insert into professor values('p003','p003','인공지능','박교수',null,'재직','지구상,어딘가','B503','010-4786-1123','asfbikjq@naver.com',1);
+insert into professor values('p004','p004','인공지능','최교수',null,'재직','지구상,어딘가','B504','010-8990-7831','asdscj@naver.com',1);
+
 
 -- 관리자 아이디 1 비밀번호 1234 이름 매니저
 insert into manager values(1,'매니저','1234','010-5664-4455','asd@naver.com','asd');
-
+select * from subject
 -- 강의 데이터 3개 , 김교수가 강의하는 강의 데이터 2개
 insert into subject values('c0001', '컴퓨터공학개론', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
 insert into subject values('c0002', '기초 프로그래밍', 1, '3', 30, 'B관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');

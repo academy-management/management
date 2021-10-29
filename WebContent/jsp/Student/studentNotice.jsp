@@ -52,7 +52,7 @@
 					<ul>
 						<li><a href="">수강신청</a></li>
 						<li><a href="">교수정보</a></li>
-						<li><a href="">공지사항</a></li>
+						<li><a href="notice">공지사항</a></li>
 					</ul>
 				</nav>
 			</section>
@@ -69,7 +69,7 @@
 									<input type="radio" name="division" value="total" checked="checked"/> 전체
 								</label>
 								<label for="subject">
-									<input type="radio" name="division" value="${member.subject}"/> 학과
+									<input type="radio" name="division" value=""/> 학과
 								</label>
 							</div>
 						</div>

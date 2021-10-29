@@ -8,7 +8,6 @@ import java.util.List;
 
 import common.JDBCUtil;
 import model.Professor;
-import model.Subject;
 
 
 public class ProfessorDaoImpl2 implements ProfessorDao2{
@@ -107,6 +106,7 @@ public class ProfessorDaoImpl2 implements ProfessorDao2{
 	}
 
 	
+
 
 	
 	

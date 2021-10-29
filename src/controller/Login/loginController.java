@@ -78,10 +78,12 @@ public class loginController extends HttpServlet{
 				
 			} else {
 				
+
 				req.setAttribute("message", "존재하지 않는 아이디,비밀번호입니다.");
 				dispatcherUrl = "/index.jsp";
 				
 			}
+			
 			}else if(req.getParameter("loginselect").equals("st")) {
 				
 				int pno = Integer.parseInt(req.getParameter("pno"));

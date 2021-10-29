@@ -11,8 +11,20 @@ public class Professor {
 	private String tel;
 	private String email;
 	private String d_name;
+
 	private int dno;
+
+
 	
+	
+
+	@Override
+	public String toString() {
+		return "Professor [pno=" + pno + ", password=" + password + ", major=" + major + ", name=" + name + ", state="
+				+ state + ", address=" + address + ", pro_room=" + pro_room + ", tel=" + tel + ", email=" + email
+				+ ", d_name=" + d_name + ", dno=" + dno + "]";
+	}
+
 	public Professor() {}
 	
 	public Professor(String pno, String password, String major, String name, String address,
@@ -31,14 +43,7 @@ public class Professor {
 
 
 
-	public int getDno() {
-		return dno;
-	}
-
-	public void setDno(int dno) {
-		this.dno = dno;
-	}
-
+	
 	public String getPno() {
 		return pno;
 	}
@@ -98,7 +103,17 @@ public class Professor {
 	}
 	public void setD_name(String d_name) {
 		this.d_name = d_name;
+	}
+
+	public int getDno() {
+		return dno;
+	}
+
+	public void setDno(int dno) {
+		this.dno = dno;
 	}  
+	
+	
 	
 	
 	

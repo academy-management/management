@@ -195,6 +195,43 @@ public class SubjectDaoImpl implements SubjectDao{
 		
 		
 	}
+
+	@Override
+	public List<Subject> selectByPno(String pno) {
+		List<Subject> subjectList = new ArrayList<>();		
+
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.SUBJECT_SELECT_BY_PNO);
+			pStatement.setString(1, pno);
+
+			resultSet = pStatement.executeQuery();
+
+			while (resultSet.next()) {
+
+				Subject subject = new Subject();
+				
+				subject.setSubno(resultSet.getString("subno"));
+				subject.setName(resultSet.getString("name"));
+				subject.setStart(resultSet.getString("startday"));
+				subject.setEnd(resultSet.getString("endday"));				
+				subjectList.add(subject);			
+			}
+		
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}
+
+		return subjectList;
+	}
 }
 	
 

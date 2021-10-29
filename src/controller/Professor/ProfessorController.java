@@ -29,7 +29,7 @@ import model.Subject;
 
 
 @WebServlet(urlPatterns = {"/studentSearch", "/studentNameOrYearSearch", "/studentAllSearch",
-		"/studentDetail", "/studentScoreManage"})
+		"/studentDetail", "/studentScoreManage", "/studentScoreUpdate"})
 public class ProfessorController extends HttpServlet{
 	
 	@Override
@@ -49,31 +49,39 @@ public class ProfessorController extends HttpServlet{
 		String uri = req.getRequestURI();
 		int lastIndex = uri.lastIndexOf("/");
 		String action =  uri.substring(lastIndex + 1);
+		HttpSession session = req.getSession();
+		Professor professor = (Professor) session.getAttribute("member");
 		
 	if(action.equals("studentSearch")) {
 			StudentDao dao = new StudentDaoImpl();
-			req.setAttribute("studentList", dao.selectAll());
+			req.setAttribute("studentList", dao.selectByPno(professor.getDno()));
+			System.out.println(professor.getDno());
 		} else if(action.equals("studentNameOrYearSearch")) {
 			StudentDao dao = new StudentDaoImpl();
 			if("" != req.getParameter("nameSearch")) {
-				req.setAttribute("studentList", dao.selectName(req.getParameter("nameSearch")));
+				req.setAttribute("studentList", dao.selectName(professor.getDno(), req.getParameter("nameSearch")));
 			}else {
-				req.setAttribute("studentList", dao.selectYear(req.getParameterValues("yearSelect")[0]));
+				req.setAttribute("studentList", dao.selectYear(professor.getDno(), req.getParameterValues("yearSelect")[0]));
 			}			
 		} else if(action.equals("studentDetail")) {
 			StudentDao dao = new StudentDaoImpl();
 			req.setAttribute("student", dao.selectByNo(req.getParameter("sno")));
 		} else if(action.equals("studentScoreManage")) {
 			SubjectDao subDao = new SubjectDaoImpl();
-			req.setAttribute("subjectList", subDao.selectAll());
+			req.setAttribute("subjectList", subDao.selectByPno(professor.getPno()));
 			StudentDao stdDao = new StudentDaoImpl();
 			System.out.println((req.getParameter("subjectSelect")));
 			req.setAttribute("studentList", stdDao.selectBySubjectNo(req.getParameter("subjectSelect")));
+					
+		} else if(action.equals("studentScoreUpdate")) {
+			SubjectDao subDao = new SubjectDaoImpl();
+			req.setAttribute("subjectList", subDao.selectByPno(professor.getPno()));
+			
+			StudentDao stdDao = new StudentDaoImpl();
 			System.out.println(req.getParameter("score"));
 			System.out.println(req.getParameter("regno"));
-			stdDao.updateToScore(req.getParameter("regno"), req.getParameter("score"));
-			
-		} 
+			stdDao.updateToScore(req.getParameter("regno"), req.getParameter("score"));	
+		}
 
 
 		String dispatcherUrl = null;
@@ -86,7 +94,9 @@ public class ProfessorController extends HttpServlet{
 			dispatcherUrl = "/jsp/Professor/professorStudentDetail.jsp";
 		} else if(action.equals("studentScoreManage")) {
 			dispatcherUrl = "/jsp/Professor/professorStudentScoreManage.jsp";
-		} 
+		} else if(action.equals("studentScoreUpdate")) {
+			dispatcherUrl = "/jsp/Professor/professorStudentScoreManage.jsp";
+		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);
 		dispatcher.forward(req, resp);	

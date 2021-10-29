@@ -9,7 +9,7 @@ public class Test {
 		
 		ProfessorDao dao = new ProfessorDaoImpl();
 		
-		System.out.println(dao.selectByPno("p001").getName());
+		System.out.println(dao.selectByPno("p001").toString());
 
 	}
 	

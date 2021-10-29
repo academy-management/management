@@ -73,7 +73,7 @@
 					<ul>
 						<li><a href="studentSearch">학생관리</a></li>
 						<li><a href="studentScoreManage">성적관리</a></li>
-						<li><a href="">공지사항</a></li>
+						<li><a href="professorNotice">공지사항</a></li>
 					</ul>
 				</nav>
 			</section>
@@ -86,6 +86,7 @@
 					<div>
 						<form action="studentScoreManage">
 							과목 <select class="form-select form-select-sm target" id="subjectSelect" style="width: 500px; display: inline;" name="subjectSelect">
+								<option>과목선택</option>
 								<c:forEach var="subject" items="${subjectList}">
 									<option value="${subject.subno}">[${subject.subno}]${subject.name}[${subject.start}~${subject.end}]</option>
 								</c:forEach>
@@ -101,6 +102,7 @@
 									<th>이름</th>
 									<th>전공</th>
 									<th>학년</th>
+									<th>강의명</th>
 									<th>성적입력</th>
 								</tr>
 							</thead>
@@ -114,7 +116,8 @@
 											<td>${student.dname}</td>
 											<td>${student.grade}</td>
 											<td>		
-												<select name="score" class="form-select form-select-sm" style="width: 100px; display: inline;" value="${student.score}">												
+												<select name="score" class="form-select form-select-sm" style="width: 100px; display: inline;"">												
+													<option value="${student.score}">${student.score}</option>
 													<option value="A+">A+</option>
 													<option value="A">A</option>
 													<option value="A-">A-</option>
@@ -126,8 +129,8 @@
 													<option value="C-">C-</option>
 													<option value="F">F</option>
 												</select>
-												<input type="text" name="regno" hidden value="${student.regno}">
-												<input type="submit" value="저장">
+												<input type="text" name="regno" value="${student.regno}" hidden>
+												<input type="submit" formaction="studentScoreUpdate" value="저장">
 																							
 											</td>
 										</tr>

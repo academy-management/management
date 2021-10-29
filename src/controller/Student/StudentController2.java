@@ -44,7 +44,7 @@ public class StudentController2 extends HttpServlet{
 			
 			int dno = student.getDno();
 			
-	
+		
 
 			
 			SubjectDao2 dao = new SubjectDaoImpl2();
@@ -62,7 +62,7 @@ public class StudentController2 extends HttpServlet{
 			Student student = (Student) session.getAttribute("member");
 			
 			int dno = student.getDno();
-			
+	
 
 			
 			String grade = req.getParameter("grade");

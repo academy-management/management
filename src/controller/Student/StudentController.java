@@ -101,6 +101,20 @@ public class StudentController extends HttpServlet{
 			List<Subject> subjectList = dao.subjectYear(year,semester);
 			
 			req.setAttribute("subjectList", subjectList);
+			
+		}else if(action.equals("student_class_search")) {
+			int year = Integer.parseInt(req.getParameter("years"));
+			int semester = Integer.parseInt(req.getParameter("semester"));
+			
+			StudentDao dao = new StudentDaoImpl();
+			List<Subject> subjectList = dao.subjectYear(year,semester);
+			
+			req.setAttribute("subjectList", subjectList);
+			
+		}else if(action.equals("student_class")) {
+			StudentDao dao = new StudentDaoImpl();
+			List<Subject> subjectList = dao.subjectAllClass();
+			req.setAttribute("subjectList", subjectList);
 		}
 		
 		
@@ -119,6 +133,10 @@ public class StudentController extends HttpServlet{
 			dispatcherUrl = "/jsp/Student/st_score.jsp"; 
 		}else if(action.equals("student_searched")) {
 			dispatcherUrl = "/jsp/Student/st_score.jsp"; 
+		}else if(action.equals("student_class")) {
+			dispatcherUrl = "/jsp/Student/st_lecture.jsp"; 
+		}else if(action.equals("student_class_search")) {
+			dispatcherUrl = "/jsp/Student/st_lecture.jsp"; 
 		}
 		
 		

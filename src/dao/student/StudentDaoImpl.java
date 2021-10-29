@@ -541,8 +541,11 @@ public class StudentDaoImpl implements StudentDao {
 
 			while (resultSet.next()) {
 				Subject subject = new Subject();
+<<<<<<< HEAD
+=======
 //			select s.name, s.score, s.startday, s.endday, p.name, r.score 
 //			from register r, subject s , professor p where r.subno = s.subno and s.dno = p.dno
+>>>>>>> branch 'main' of https://github.com/academy-management/management.git
 			
 				subject.setName(resultSet.getString("sname"));
 				subject.setScore(resultSet.getString("score"));
@@ -599,6 +602,7 @@ public class StudentDaoImpl implements StudentDao {
 		return subjectList;
 	}
 
+<<<<<<< HEAD
 
 	@Override
 	public List<Student> selectByPno(int pno) {
@@ -636,4 +640,41 @@ public class StudentDaoImpl implements StudentDao {
 		return studentList;
 	}
 
+=======
+<<<<<<< HEAD
+
+	@Override
+	public List<Subject> subjectAllClass() {
+		List<Subject> subjectList = new ArrayList<>(); 
+
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.STUDENT_LETURE);
+			resultSet = pStatement.executeQuery();
+
+			while (resultSet.next()) {
+				Subject subject = new Subject();
+				
+				subject.setName(resultSet.getString("sname"));
+				subject.setSemester(resultSet.getString("semester"));
+				subject.setStart(resultSet.getString("startday"));
+				subject.setEnd(resultSet.getString("endday"));
+				subject.setP_name(resultSet.getString("pname"));
+				subject.setState(resultSet.getString("state"));
+
+				subjectList.add(subject);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}
+		return subjectList;
+	}
+	
+>>>>>>> branch 'main' of https://github.com/academy-management/management.git
 }

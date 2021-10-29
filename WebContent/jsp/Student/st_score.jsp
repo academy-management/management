@@ -83,7 +83,11 @@
 					</form>
 				</div>
 				<div class="container_score">
+<<<<<<< HEAD
+					<c:if test="${!empty subjectList}">
+=======
 				<c:if test="${!empty subjectList}">
+>>>>>>> branch 'main' of https://github.com/academy-management/management.git
 						<table class="table table-hover">
 						 		<colgroup>
 						          <col style="width:30%">
@@ -119,8 +123,13 @@
 						 	</table>
 					 	</c:if>
 					 	<c:if test="${empty subjectList}">
+<<<<<<< HEAD
+							 <hr />  
+							 <p class="center">신청한 강의가 없습니다.</p>
+=======
 									 <hr />  
 									 신청한 강의가 없습니다.	
+>>>>>>> branch 'main' of https://github.com/academy-management/management.git
 						</c:if>
 				</div>
 			</section>

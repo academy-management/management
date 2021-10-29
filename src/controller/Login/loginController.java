@@ -78,6 +78,75 @@ public class loginController extends HttpServlet{
 				
 			} else {
 				
+
+				req.setAttribute("message", "존재하지 않는 아이디입니다.");
+				dispatcherUrl = "/index.jsp";
+				
+			}
+			}else if(req.getParameter("loginselect").equals("st")) {
+				
+				int pno = Integer.parseInt(req.getParameter("pno"));
+				String password = req.getParameter("password");
+					
+				StudentDao dao = new StudentDaoImpl();
+				Student student = dao.login(pno,password);
+				
+				if(student != null) {
+				
+					if(student.getPassword().equals(password)) {
+		
+						HttpSession session = req.getSession();
+						session.setAttribute("member", student);
+												
+						NoticeDao ndao = new NoticeDaoImpl();
+						List<Notice> noticeList = ndao.selectAll(1);
+							
+						req.setAttribute("noticeList", noticeList);
+						dispatcherUrl = "/jsp/Student/st_main.jsp";
+							
+					} else {
+							
+						req.setAttribute("message", "비밀번호가 일치하지 않습니다.");
+						dispatcherUrl = "/index.jsp";
+					}
+					
+				} else {
+					
+					req.setAttribute("message", "존재하지 않는 아이디입니다.");
+					dispatcherUrl = "/index.jsp";
+				}
+				
+			}else if(req.getParameter("loginselect").equals("ad")) {
+				
+				int pno = Integer.parseInt(req.getParameter("pno"));
+				String password = req.getParameter("password");
+					
+				ManagerDao dao = new ManagerDaoImpl();
+				Manager manager = dao.selectById(pno);
+				
+				if(manager != null) {
+				
+					if(manager.getPassword().equals(password)) {
+		
+						HttpSession session = req.getSession();
+						session.setAttribute("member", manager);
+												
+						NoticeDao ndao = new NoticeDaoImpl();
+						List<Notice> noticeList = ndao.selectAll(1);
+							
+						req.setAttribute("noticeList", noticeList);
+						dispatcherUrl = "/jsp/Manager/manager_main.jsp";
+							
+					} else {
+							
+						req.setAttribute("message", "비밀번호가 일치하지 않습니다.");
+						dispatcherUrl = "/index.jsp";
+					}
+					
+				} else {
+					
+					req.setAttribute("message", "존재하지 않는 아이디입니다.");
+
 				req.setAttribute("message", "존재하지 않는 아이디,비밀번호입니다.");
 				dispatcherUrl = "/index.jsp";
 				

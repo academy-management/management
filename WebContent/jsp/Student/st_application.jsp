@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>       
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,11 +61,14 @@
 					<img src="/Academic-Management/img/title.png" alt="성적정보"/>
 					<h4>수강신청</h4>
 				</div>
+<<<<<<< HEAD
+=======
 				<form method="post" action="student_subject_select">
+>>>>>>> branch 'main' of https://github.com/academy-management/management.git
 				<div class="search_box">
 					<div class="search">
 						<label>학년</label>
-						<select class="search_select" name="grade">
+						<select class="search_select">
 							<option value="0">전체</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -75,10 +77,10 @@
 						</select>
 						<div style="margin-left:20px;">
 							<label for="major">
-								<input type="radio" name="division" id="major" value="전공"/> 전공
+								<input type="radio" id="major" checked/> 전공
 							</label>
 							<label for="subject">
-								<input type="radio" name="division" id="subject" value="교양"/> 교양
+								<input type="radio" id="subject" /> 교양
 							</label>
 						</div>
 					</div>
@@ -86,7 +88,6 @@
 						<input type="submit" class="btn_edit" value="조회"/>
 					</div>
 				</div>
-				</form>
 				<div class="container_score">
 					<table class="table table-hover">
 					 		<colgroup>
@@ -119,28 +120,178 @@
 					 			</tr>
 					 		</thead>
 					 		<tbody>
-					 		
-					 		<c:forEach var="subject" items="${subjectList}" varStatus="status">
 					 			<tr>
-					 				<td>${fn:length(subjectList) - status.index}</td>
-					 				<td>${subject.name}</td>
-					 				<td>${subject.grade}</td>
-					 				<td>${subject.start}</td>
-					 				<td>${subject.end}</td>
-					 				<td>${subject.score}</td>
-					 				<td>${subject.date}</td>
-					 				<td>${subject.p_name}</td>
-					 				<td>${subject.room}</td>
-					 				<td>${subject.people}</td>
-					 				<td>##</td>
+					 				<td>2</td>
+					 				<td>컴퓨터 와 이해</td>
+					 				<td>1</td>
+					 				<td>2021.03.12</td>
+					 				<td>2021.06.12</td>
+					 				<td>3</td>
+					 				<td>월5,수6,7</td>
+					 				<td>김판수</td>
+					 				<td>A09</td>
+					 				<td>30</td>
+					 				<td>25</td>
 					 				<td>
-					 					<input type="button" class="btn_edit btn_cancle" onclick= "location.href='register_student?subno=${subject.subno}&date=${subject.start}'" value="신청"/>
+					 					<input type="submit" class="btn_edit btn_cancle" value="신청"/>
 					 				</td>
 					 			</tr>
-					 		</c:forEach>
-					 		
-					 		</tbody>
+					 			<tr>
+					 				<td>1</td>
+					 				<td>컴퓨터 와 이해</td>
+					 				<td>1</td>
+					 				<td>2021.03.12</td>
+					 				<td>2021.06.12</td>
+					 				<td>3</td>
+					 				<td>월5,수6,7</td>
+					 				<td>김판수</td>
+					 				<td>A09</td>
+					 				<td>30</td>
+					 				<td>25</td>
+					 				<td>
+					 					<input type="submit" class="btn_edit btn_cancle" value="신청"/>
+					 				</td>
+					 			</tr>
+					 			<tr>
+					 				<td>1</td>
+					 				<td>컴퓨터 와 이해</td>
+					 				<td>1</td>
+					 				<td>2021.03.12</td>
+					 				<td>2021.06.12</td>
+					 				<td>3</td>
+					 				<td>월5,수6,7</td>
+					 				<td>김판수</td>
+					 				<td>A09</td>
+					 				<td>30</td>
+					 				<td>25</td>
+					 				<td>
+					 					<input type="submit" class="btn_edit btn_cancle" value="신청"/>
+					 				</td>
+					 			</tr>
+					 			<tr>
+					 				<td>1</td>
+					 				<td>컴퓨터 와 이해</td>
+					 				<td>1</td>
+					 				<td>2021.03.12</td>
+					 				<td>2021.06.12</td>
+					 				<td>3</td>
+					 				<td>월5,수6,7</td>
+					 				<td>김판수</td>
+					 				<td>A09</td>
+					 				<td>30</td>
+					 				<td>25</td>
+					 				<td>
+					 					<input type="submit" class="btn_edit btn_cancle" value="신청"/>
+					 				</td>
+					 			</tr>
+					 			<tr>
+					 				<td>1</td>
+					 				<td>컴퓨터 와 이해</td>
+					 				<td>1</td>
+					 				<td>2021.03.12</td>
+					 				<td>2021.06.12</td>
+					 				<td>3</td>
+					 				<td>월5,수6,7</td>
+					 				<td>김판수</td>
+					 				<td>A09</td>
+					 				<td>30</td>
+					 				<td>25</td>
+					 				<td>
+					 					<input type="submit" class="btn_edit btn_cancle" value="신청"/>
+					 				</td>
+					 			</tr>
+					 			<tr>
+					 				<td>1</td>
+					 				<td>컴퓨터 와 이해</td>
+					 				<td>1</td>
+					 				<td>2021.03.12</td>
+					 				<td>2021.06.12</td>
+					 				<td>3</td>
+					 				<td>월5,수6,7</td>
+					 				<td>김판수</td>
+					 				<td>A09</td>
+					 				<td>30</td>
+					 				<td>25</td>
+					 				<td>
+					 					<input type="submit" class="btn_edit btn_cancle" value="신청"/>
+					 				</td>
+					 			</tr>
+					 			<tr>
+					 				<td>1</td>
+					 				<td>컴퓨터 와 이해</td>
+					 				<td>1</td>
+					 				<td>2021.03.12</td>
+					 				<td>2021.06.12</td>
+					 				<td>3</td>
+					 				<td>월5,수6,7</td>
+					 				<td>김판수</td>
+					 				<td>A09</td>
+					 				<td>30</td>
+					 				<td>25</td>
+					 				<td>
+					 					<input type="submit" class="btn_edit btn_cancle" value="신청"/>
+					 				</td>
+					 			</tr>
+					 			<tr>
+					 				<td>1</td>
+					 				<td>컴퓨터 와 이해</td>
+					 				<td>1</td>
+					 				<td>2021.03.12</td>
+					 				<td>2021.06.12</td>
+					 				<td>3</td>
+					 				<td>월5,수6,7</td>
+					 				<td>김판수</td>
+					 				<td>A09</td>
+					 				<td>30</td>
+					 				<td>25</td>
+					 				<td>
+					 					<input type="submit" class="btn_edit btn_cancle" value="신청"/>
+					 				</td>
+					 			</tr>
+					 			<tr>
+					 				<td>1</td>
+					 				<td>컴퓨터 와 이해</td>
+					 				<td>1</td>
+					 				<td>2021.03.12</td>
+					 				<td>2021.06.12</td>
+					 				<td>3</td>
+					 				<td>월5,수6,7</td>
+					 				<td>김판수</td>
+					 				<td>A09</td>
+					 				<td>30</td>
+					 				<td>25</td>
+					 				<td>
+					 					<input type="submit" class="btn_edit btn_cancle" value="신청"/>
+					 				</td>
+					 			</tr>
+					 			<tr>
+					 				<td>1</td>
+					 				<td>컴퓨터 와 이해</td>
+					 				<td>1</td>
+					 				<td>2021.03.12</td>
+					 				<td>2021.06.12</td>
+					 				<td>3</td>
+					 				<td>월5,수6,7</td>
+					 				<td>김판수</td>
+					 				<td>A09</td>
+					 				<td>30</td>
+					 				<td>25</td>
+					 				<td>
+					 					<input type="submit" class="btn_edit btn_cancle" value="신청"/>
+					 				</td>
+					 			</tr>
 					 	</table>
+				</div>
+				<div class="paging">
+					<ul>
+						<li><</li>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>></li>
+					</ul>
 				</div>
 			</section>
 		</div>

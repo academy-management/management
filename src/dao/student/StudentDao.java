@@ -31,4 +31,6 @@ public interface StudentDao {
 	
 	public List<Subject> subjectAll();
 	public List<Subject> subjectYear(int year, int semester);
+	
+	public List<Subject> subjectAllClass();
 }

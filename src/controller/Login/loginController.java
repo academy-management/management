@@ -78,7 +78,7 @@ public class loginController extends HttpServlet{
 				
 			} else {
 				
-				req.setAttribute("message", "존재하지 않는 아이디입니다.");
+				req.setAttribute("message", "존재하지 않는 아이디,비밀번호입니다.");
 				dispatcherUrl = "/index.jsp";
 				
 			}
@@ -111,7 +111,7 @@ public class loginController extends HttpServlet{
 					
 				} else {
 					
-					req.setAttribute("message", "존재하지 않는 아이디입니다.");
+					req.setAttribute("message", "존재하지 않는 아이디,비밀번호입니다.");
 					dispatcherUrl = "/index.jsp";
 				}
 				
@@ -144,7 +144,7 @@ public class loginController extends HttpServlet{
 					
 				} else {
 					
-					req.setAttribute("message", "존재하지 않는 아이디입니다.");
+					req.setAttribute("message", "존재하지 않는 아이디,비밀번호입니다.");
 					dispatcherUrl = "/index.jsp";
 					
 				}

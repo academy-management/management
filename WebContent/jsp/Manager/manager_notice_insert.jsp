@@ -81,7 +81,7 @@
 						<label>구분</label>
 							<select class="login_text" name="division">
 									<option value="전체">전체</option>
-									<option value="학과">학과</option>
+									<option value="컴퓨터공학과">컴퓨터공학과</option>
 							</select>
 						</div>
 						<div class="my_btn">

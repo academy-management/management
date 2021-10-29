@@ -430,4 +430,4 @@ select s.name as sname, r.semester as semester, s.startday as startday, s.endday
 select * from register
 select * from 
 
-select p.dno ad dno from professor p, department d where p.dno = d.dno;
+select p.dno as dno,  from professor p, department d where p.dno = d.dno;

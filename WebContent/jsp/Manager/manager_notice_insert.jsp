@@ -30,18 +30,17 @@
 			</div>
 			<div class="user">
 				<ul>
-					<li>
-						<p>${member.name}님 반갑습니다  <i class="xi-angle-down-min xi-x"></i></p>
-						<div class="user_choice">
+					<li class="last">
+						<c:if test="${member != null}">
+							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
+							<div class="user_choice">
 							<ul>
-								<li><a href="">수강정보</a></li>
-								<li><a href="">성적정보</a></li>
-								<li><a href="">회원정보 변경</a></li>
+								<li><a href="manager_mylogin">회원정보변경</a></li>
+								
 							</ul>
 						</div>
-					</li>
-					
-						<a href="logout" class="login_out">로그아웃</a>
+							<a href="logout" class="login_out">로그아웃</a>
+						</c:if>
 					</li>
 				</ul>
 			</div>
@@ -82,6 +81,7 @@
 							<select class="login_text" name="division">
 									<option value="전체">전체</option>
 									<option value="컴퓨터공학과">컴퓨터공학과</option>
+									<option value="기계공학과">기계공학과</option>
 							</select>
 						</div>
 						<div class="my_btn">

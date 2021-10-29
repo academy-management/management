@@ -61,4 +61,9 @@ public class Sql {
 
 	public static final String STUDENT_YEAR_SE
 	="select s.name as sname, s.score as score, s.startday as startday, s.endday as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.year =? and r.semester =?";
+
+	public static final String STUDENT_LETURE
+	="select s.name as sname, r.semester as semester, s.startday as startday, s.endday as endday, p.name as pname, s.state as state from register r, subject s , professor p, student st where r.sno = st.sno";
+
+	
 }

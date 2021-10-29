@@ -12,7 +12,7 @@ import model.Student;
 public class StudentDaoImpl22 implements StudentDao22{
 
 	@Override
-	public List<Student> selectBySubno(int subno) {
+	public List<Student> selectBySubno(String subno) {
 		
 		List<Student> studentList = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public class StudentDaoImpl22 implements StudentDao22{
 			connection = JDBCUtil.getConnection();
 			pStatement = connection.prepareStatement(Sql22.SUTUDENT_BY_SUBNO);
 			
-			pStatement.setInt(1, subno);
+			pStatement.setString(1, subno);
 	
 			resultSet = pStatement.executeQuery();
 

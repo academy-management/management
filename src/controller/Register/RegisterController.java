@@ -43,36 +43,13 @@ public class RegisterController extends HttpServlet {
 		if(action.equals("register_student")) {
 			
 			HttpSession session = req.getSession();
-			Student student = (Student) session.getAttribute("member");
+			Student student = (Student)session.getAttribute("member");
 			
-			String startDate = req.getParameter("date");
-			String startYear = startDate.substring(0,4);
-			
-			System.out.println(startDate);
-			System.out.println(startYear);
-			
-			int year = Integer.parseInt(startYear);
-			
-			String startMonth = startDate.substring(5,7);
-			
-			int month = Integer.parseInt(startMonth);
-			
-			System.out.println(year);
-			System.out.println(month);
-			
-			int semester = 0;
-			
-			if(month > 3 && month < 7) {
-				semester = 1;
-			} else if(month > 8 && month < 12) {
-				semester = 2;
-			}
-			
-			System.out.println(year);
-			System.out.println(semester);
-			
-			/*int sno = student.getSno();*/
-			int sno=20210101;
+			int year = 2021;
+			int semester = 2;
+		
+			int sno = student.getSno();
+		
 			String subno = req.getParameter("subno");
 			
 			Register register = new Register();

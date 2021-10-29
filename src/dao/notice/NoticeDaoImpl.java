@@ -69,6 +69,11 @@ public class NoticeDaoImpl implements NoticeDao {
 			pStatement.setInt(2, prr.getRowStartNumber());
 			pStatement.setInt(3, prr.getRowEndNumber());
 		
+			System.out.println("====== impl ");
+			System.out.println(division);
+			System.out.println(prr.getRowStartNumber());
+			System.out.println(prr.getRowStartNumber());
+			
 			resultSet = pStatement.executeQuery();
 			
 			while(resultSet.next()) {
@@ -78,6 +83,8 @@ public class NoticeDaoImpl implements NoticeDao {
 				notice.setSubject(resultSet.getString("subject"));
 				notice.setTime(resultSet.getString("time"));
 				notice.setViews(resultSet.getInt("views"));
+				
+				noticeList.add(notice);
 				
 			}
 		} catch (Exception e) {

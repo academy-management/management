@@ -35,7 +35,7 @@
 							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
 							<div class="user_choice">
 							<ul>
-								<li><a href="">수강정보</a></li>
+								<li><a href="student_class">수강정보</a></li>
 								<li><a href="student_score">성적정보</a></li>
 								<li><a href="student_mylogin">회원정보 변경</a></li>
 							</ul>
@@ -50,8 +50,8 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href="">수강신청</a></li>
-						<li><a href="">교수정보</a></li>
+						<li><a href="student_application">수강신청</a></li>
+						<li><a href="professor_url">교수정보</a></li>
 						<li><a href="notice">공지사항</a></li>
 					</ul>
 				</nav>
@@ -66,10 +66,10 @@
 						<div class="search" style="display:inline-block;weight:100%">
 							<div style="margin-left:20px;">
 								<label for="major">
-									<input type="radio" name="division" value="total" checked="checked"/> 전체
+									<input type="radio" name="division" value="전체" checked="checked"/> 전체
 								</label>
 								<label for="subject">
-									<input type="radio" name="division" value=""/> 학과
+									<input type="radio" name="division" value="${member.d_name}"/> 학과
 								</label>
 							</div>
 						</div>

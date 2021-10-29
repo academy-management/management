@@ -16,13 +16,15 @@ public class Subject {
 	private String pno;	
 	private String p_name;  //교수이름
 	private String r_score;  //성적
+	private String semester;  
+	
 	
 	public Subject() {
 		super();
 	}
 	
 	public Subject(String subno, String name, int grade, String score, int people, String room, String date,
-			String state, String start, String end) {
+			String state) {
 		super();
 		this.subno = subno;
 		this.name = name;
@@ -32,8 +34,7 @@ public class Subject {
 		this.room = room;
 		this.date = date;
 		this.state = state;
-		this.start = start;
-		this.end = end;
+	
 	}
 
 	public Subject(String subno, String name, int grade, String score, int people, String room, String date, String state,
@@ -167,6 +168,14 @@ public class Subject {
 
 	public void setR_score(String r_score) {
 		this.r_score = r_score;
+	}
+
+	public String getSemester() {
+		return semester;
+	}
+
+	public void setSemester(String semester) {
+		this.semester = semester;
 	}
 
 	@Override

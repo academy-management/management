@@ -112,6 +112,10 @@ public class ProfessorController1 extends HttpServlet{
 			ProfessorDao2 dao = new ProfessorDaoImpl2();
 			dao.update(professor);			
 			
+			HttpSession session = req.getSession();
+			session.removeAttribute("memeber");
+			session.setAttribute("member", professor); 
+
 		} else if(action.equals("professorLectureInfo")) {
 
 			HttpSession session = req.getSession();
@@ -155,7 +159,7 @@ public class ProfessorController1 extends HttpServlet{
 			
 		} else if(action.equals("professorLectureSituation")) {
 			
-			int subno = Integer.parseInt(req.getParameter("subno"));
+			 String subno = req.getParameter("subno");
 			
 			SubjectDao2 subDao = new SubjectDaoImpl2();
 			StudentDao22 dao = new StudentDaoImpl22();

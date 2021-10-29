@@ -6,6 +6,6 @@ import model.Student;
 
 public interface StudentDao22 {
 	
-	List<Student> selectBySubno(int subno);
+	 List<Student> selectBySubno(String subno);
 
 }

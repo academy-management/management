@@ -179,10 +179,8 @@ public class SubjectDaoImpl implements SubjectDao{
 			pStatement.setString(4, subject.getRoom());
 			pStatement.setInt(5, subject.getPeople());
 			pStatement.setString(6, subject.getDate());
-			pStatement.setString(7, subject.getStart());
-			pStatement.setString(8, subject.getEnd());
-			pStatement.setString(9, subject.getState());
-			pStatement.setString(10, subject.getSubno());
+			pStatement.setString(7, subject.getState());
+			pStatement.setString(8, subject.getSubno());
 		
 		
 		

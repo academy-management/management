@@ -11,6 +11,7 @@ public class Professor {
 	private String tel;
 	private String email;
 	private String d_name;
+	private int dno;
 	
 	public Professor() {}
 	
@@ -29,6 +30,14 @@ public class Professor {
 	}
 
 
+
+	public int getDno() {
+		return dno;
+	}
+
+	public void setDno(int dno) {
+		this.dno = dno;
+	}
 
 	public String getPno() {
 		return pno;

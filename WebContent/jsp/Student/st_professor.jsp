@@ -35,7 +35,7 @@
 							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
 							<div class="user_choice">
 							<ul>
-								<li><a href="">수강정보</a></li>
+								<li><a href="student_class">수강정보</a></li>
 								<li><a href="student_score">성적정보</a></li>
 								<li><a href="student_mylogin">회원정보 변경</a></li>
 							</ul>
@@ -50,8 +50,8 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href="">수강신청</a></li>
-						<li class="menu_active"><a href="">교수정보</a></li>
+						<li><a href="student_application">수강신청</a></li>
+						<li><a href="professor_url">교수정보</a></li>
 						<li><a href="notice">공지사항</a></li>
 					</ul>
 				</nav>
@@ -62,46 +62,76 @@
 					<h4>교수정보</h4>
 				</div>
 				<div class="search_box">
-					<div class="search">
-						<label>학과</label>
-						<select class="search_select">
-							<option value=11">컴퓨터공학과</option>
-							<option value="12">행정과</option>
-							<option value="22">법학과</option>
-							<option value="33">시각 디자인과</option>
-						</select>
-					</div>
-					<div>
-						<input type="submit" class="btn_edit" value="조회"/>
-					</div>
+					<form method="post" action="professor_searcheds">
+						<div class="search">
+							<label>학과</label>
+							<select class="search_select" name="professor_ch">
+								<option value="1">컴퓨터 공학과</option>
+								<option value="2">기계 공학과</option>
+							</select>
+						</div>
+						<div>
+							<input type="submit" class="btn_edit" value="조회"/>
+						</div>
+					</form>
 				</div>
 				<div class="container_score border_d">
-					<div class="professor_box">
-						<div class="p_bg"></div>
-						<div class="p_text">
-							<h5>김판수</h5>
-							<p>대표 : 컴퓨터 공학과</p>
-							<p>email : dafsdf@gmail.com</p>
-							<p>연락처 : 010-4567-7894</p>
-							<p>연구실 : 서울시 은평구 00 0000</p>
-						</div>
-						<div class="p_text">
-							<h5>담당과목</h5>
-							<p>컴퓨터 공학과</p>
-							<p>역사와 이해</p>
-							<p>이론과 실습</p>
-						</div>
-					</div>
+					<c:if test="${!empty professorList}">
+						<c:forEach var="professorList" items="${professorList}">
+							<div class="professor_box">
+								<div class="p_bg">
+									<i class="xi-face xi-5x"></i> 
+								</div>
+								<div class="p_text">
+									<h5>${professorList.name}</h5>
+									<p>전공 : ${professorList.major}</p>
+									<p>email : ${professorList.email}</p>
+									<p>연락처 : ${professorList.tel}</p>
+									<p>연구실 : ${professorList.pro_room}</p>
+								</div>
+								<!-- <div class="p_text">
+									<h5>담당과목</h5>
+									<p>컴퓨터 공학과</p>
+									<p>역사와 이해</p>
+									<p>이론과 실습</p>
+								</div> -->
+							</div>
+						</c:forEach>
+					</c:if>
+					<c:if test="${empty professorList}">
+							 <hr />  
+							 <p class="center">등록된 교수님이 없습니다.</p>
+									 <hr />  
+						</c:if>
 				</div>
 				<div class="paging">
 					<ul>
-						<li><</li>
-						<li class="active">1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
-						<li>></li>
+						<c:if test="${pageGroupResult.beforePage}">
+							<li>
+								<a href="professor?reqPage=${pageGroupResult.groupStartNumber-1}"><</a>
+							</li> 
+						</c:if>
+						
+						<c:forEach var="index" begin="${pageGroupResult.groupStartNumber}" end="${pageGroupResult.groupEndNumber}">
+							<c:choose>
+								<c:when test="${pageGroupResult.selectPageNumber == index}">
+									<li class="active">
+										<a href="professor?reqPage=${index}">${index}</a>
+									</li>
+								</c:when>
+								<c:otherwise>
+									<li>
+										<a href="professor?reqPage=${index}">${index}</a>
+									</li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						
+						<c:if test="${pageGroupResult.afterPage}">
+							<li>
+								<a href="professor?reqPage=${pageGroupResult.groupEndNumber+1}">></a>
+							</li> 
+						</c:if>
 					</ul>
 				</div>
 			</section>

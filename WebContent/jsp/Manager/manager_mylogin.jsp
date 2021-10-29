@@ -35,9 +35,8 @@
 							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
 							<div class="user_choice">
 							<ul>
-								<li><a href="student_class">수강정보</a></li>
-								<li><a href="student_score">성적정보</a></li>
-								<li><a href="student_mylogin">회원정보 변경</a></li>
+								<li><a href="manager_mylogin">회원정보변경</a></li>
+								
 							</ul>
 						</div>
 							<a href="logout" class="login_out">로그아웃</a>
@@ -50,14 +49,23 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href="student_application">수강신청</a></li>
-						<li><a href="professor_url">교수정보</a></li>
-						<li><a href="notice">공지사항</a></li>
+					<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />학생관리</a></li>
+						<li><a href="student_search">-학생검색</a></li>
+						<li><a href="student_insert">-학생등록</a></li>
+						<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />교수관리</a></li>
+						<li><a href="professor_search">-교수검색</a></li>
+						<li><a href="professor_insert">-교수등록</a></li>
+						<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />강의관리</a></li>
+						<li><a href="subject_search">-강의검색</a></li>
+						<li><a href="subject_insert">-강의등록</a></li>
+						<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />공지사항관리</a></li>
+						<li><a href="manager_notice">-공지사항검색</a></li>
+						<li><a href="manager_notice_insert">-공지사항등록</a></li>
 					</ul>
 				</nav>
 			</section>
 			<section class="container_right container_center">
-				<form method="post" action="student_myloginpage">
+				<form method="post" action="manager_loginpage">
 					<div class="my_login">
 						<h3 class="title">회원정보 변경</h3>
 						<div class="my_center">

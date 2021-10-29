@@ -11,15 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Professor.ProfessorDao2;
+import dao.Professor.ProfessorDaoImpl2;
 import dao.notice.NoticeDao;
 import dao.notice.NoticeDaoImpl;
 import dao.student.StudentDao;
 import dao.student.StudentDaoImpl;
 import model.Notice;
+import model.Professor;
 import model.Student;
 import model.Subject;
 
-@WebServlet(urlPatterns = {"/student_mylogin","/student_myloginpage","/student_user_detail","/student_user_update","/student_score","/student_searched"})
+@WebServlet(urlPatterns = {"/student_mylogin","/student_myloginpage","/student_user_detail","/student_user_update","/student_score","/student_searched","/student_class","/student_class_search", "/professor_url","/professor_searcheds"})
 public class StudentController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -101,6 +104,36 @@ public class StudentController extends HttpServlet{
 			List<Subject> subjectList = dao.subjectYear(year,semester);
 			
 			req.setAttribute("subjectList", subjectList);
+			
+		}else if(action.equals("student_class")) {
+			StudentDao dao = new StudentDaoImpl();
+			List<Subject> subjectList = dao.subjectAllClass();
+			req.setAttribute("subjectList", subjectList);
+		}
+		else if(action.equals("student_class_search")) {
+			int year = Integer.parseInt(req.getParameter("years"));
+			int semester = Integer.parseInt(req.getParameter("semester"));
+			
+			StudentDao dao = new StudentDaoImpl();
+			List<Subject> subjectList = dao.subjectYear(year,semester);
+			
+			req.setAttribute("subjectList", subjectList);
+			
+		}
+		else if(action.equals("professor_url")) {
+			ProfessorDao2 dao = new ProfessorDaoImpl2();
+			List<Professor> professorList = dao.ProfessorAllInformation();
+			
+			req.setAttribute("professorList", professorList);
+			
+			
+		}else if(action.equals("professor_searcheds")) {
+			int professor_ch = Integer.parseInt(req.getParameter("professor_ch"));
+			
+			ProfessorDao2 dao = new ProfessorDaoImpl2();
+			List<Professor> professorList = dao.Professordep(professor_ch);
+			
+			req.setAttribute("professorList", professorList);
 		}
 		
 		
@@ -119,6 +152,16 @@ public class StudentController extends HttpServlet{
 			dispatcherUrl = "/jsp/Student/st_score.jsp"; 
 		}else if(action.equals("student_searched")) {
 			dispatcherUrl = "/jsp/Student/st_score.jsp"; 
+		}else if(action.equals("student_class")) {
+			dispatcherUrl = "/jsp/Student/st_lecture.jsp"; 
+		}else if(action.equals("student_class_search")) {
+			dispatcherUrl = "/jsp/Student/st_lecture.jsp"; 
+		}
+		
+		else if(action.equals("professor_url")) {
+			dispatcherUrl = "/jsp/Student/st_professor.jsp"; 
+		}else if(action.equals("professor_searcheds")) {
+			dispatcherUrl = "/jsp/Student/st_professor.jsp"; 
 		}
 		
 		

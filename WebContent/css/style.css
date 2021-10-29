@@ -123,17 +123,25 @@ body {
 }
 .user{
 	justify-content: flex-end;
+	position:relative;
 }
 .user > ul {
  	display:flex;
  	justify-content: space-around;
     width: 280px;
     align-items: center;
+    position:relative;
  }
  .last {
 	margin-top: 15px;
     color: #fff;
     cursor: pointer;
+    display:flex;
+    position:relative;
+    height:55px;
+}
+.last i{
+	padding-top:6px;
 }
 .user ul > li.last >a:hover {
 	color:#fff;
@@ -145,28 +153,50 @@ body {
 	margin-bottom: 0.3rem;
 	cursor: pointer;
 }
-.user_choice {
+
+.user_choice li {
+	padding:10px;
+}
+.user_choice{
+	position:relative;
+	height:170px;
+}
+.user_choice li:hover{
+	background:#f5f5f5;
+	color:#222;
+}
+/* .user li div.user_choice ul{
+	display:none;
 	width: 150px;
     height: 125px;
     background: #fff;
     border: 1px solid #ddd;
     position: absolute;
-    display:none;
-    margin-top: 23px;
+    left: -154px;
+    bottom:0px;
+} */
+.user li .user_choice{
+	display:none;
+	width: 150px;
+    height: 125px;
+    background: #fff;
+    border: 1px solid #ddd;
+    position: absolute;
+    bottom:0px;
+    top:26px;
 }
-.user_choice li {
-	padding:10px;
+/* .user li:hover div.user_choice ul {
+	display:block;
+} */
+.user li:hover .user_choice {
+	display:block;
 }
 
-.user_choice li:hover{
-	background:#f5f5f5;
-	color:#222;
-}
 
 .login_out{
 	color:#fff;
 	font-size:15px;
-	padding:15px 20px;
+	padding:0px 20px;
 }
 
 .containers {
@@ -338,6 +368,7 @@ table td{
 }
 .paging {
 	margin-top:50px;
+	margin-bottom:50px;
 }
 .paging ul{
 	display: flex;
@@ -363,11 +394,17 @@ table td{
 	border-bottom:1px solid #999;
 }
 .p_bg {
-	background: url(../img/pj.jpg);
+	/* background: url(../img/pj.jpg); */
     width: 180px;
     height: 180px;
     background-size: cover;
     border-radius: 100%;
+    text-align:center;
+}
+.p_bg i {
+	padding: 54px;
+    border: 1px  solid #ddd;
+    border-radius: 50%;
 }
 .p_text {
 	margin-left:40px;
@@ -401,8 +438,33 @@ table td{
 	background: #1e2150;
 }
 
-input[type=readonly]{
-	background:#ddd;
+/* 테이블 문구 */
+.center {
+	text-align:center;
 }
+
+/*검색박스 */
+.search_box form {
+	display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

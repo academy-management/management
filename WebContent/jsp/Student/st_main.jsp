@@ -35,7 +35,7 @@
 							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
 							<div class="user_choice">
 							<ul>
-								<li><a href="">수강정보</a></li>
+								<li><a href="student_class">수강정보</a></li>
 								<li><a href="student_score">성적정보</a></li>
 								<li><a href="student_mylogin">회원정보 변경</a></li>
 							</ul>
@@ -50,8 +50,8 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href="">수강신청</a></li>
-						<li><a href="">교수정보</a></li>
+						<li><a href="student_application">수강신청</a></li>
+						<li><a href="professor_url">교수정보</a></li>
 						<li><a href="notice">공지사항</a></li>
 					</ul>
 				</nav>

@@ -1,20 +1,13 @@
 //마이페이지 
-$(function(){
-    $(".user").mouseover(function(){
-        $(".user_choice").slideDown();
-    });
-    $(".user").mouseleave(function(){
-        $(".user_choice").slideUp();
-    });
-
-});
-
-
-
-
-
-
-
+//$(function(){
+//    $(".user").mouseover(function(){
+//        $(".user_choice").slideDown();
+//    });
+//    $(".user").mouseleave(function(){
+//        $(".user_choice").slideUp();
+//    });
+//
+//});
 
 
 

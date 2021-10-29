@@ -22,7 +22,7 @@ public class Test2 {
 			System.out.println(subject.getName());
 		}
 		
-		System.out.println(dao2.selectBySubno(1234));	
+		//System.out.println(dao2.selectBySubno(1234));	
 	}
 
 }

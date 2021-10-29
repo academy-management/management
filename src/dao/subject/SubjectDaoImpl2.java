@@ -95,7 +95,7 @@ public class SubjectDaoImpl2 implements SubjectDao2 {
 	}
 
 	@Override
-	public Subject selectBySubno(int subno) {
+	public Subject selectBySubno(String subno) {
 		Subject subject = null;
 		
 		Connection connection = null;
@@ -107,7 +107,7 @@ public class SubjectDaoImpl2 implements SubjectDao2 {
 			connection = JDBCUtil.getConnection();
 			pStatement = connection.prepareStatement(Sql2.SUBJECT_SELECT_BY_SUBNO);
 			
-			pStatement.setInt(1, subno);
+			pStatement.setString(1, subno);
 				
 			resultSet = pStatement.executeQuery();
 

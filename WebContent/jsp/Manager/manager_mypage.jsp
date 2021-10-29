@@ -47,9 +47,9 @@
 		</header>
 		<div class="containers">
 			<section class="container_left">
-				<nav>
+			<nav>
 					<ul>
-						<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />학생관리</a></li>
+					<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />학생관리</a></li>
 						<li><a href="student_search">-학생검색</a></li>
 						<li><a href="student_insert">-학생등록</a></li>
 						<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />교수관리</a></li>
@@ -65,52 +65,60 @@
 				</nav>
 			</section>
 			<section class="container_right container_center">
-				<div class="my_login">
-					<h3 class="title">강의 수정</h3>
-					<div class="my_center">
-					
-					<form method="post" action="subject_update">
-				
-						<div class="my_text_edit">
-							
-							<label>과목코드</label><input type="text" class="login_text dis" name="subno" value="${subject.subno}" readonly/>
-							
+				<form method="post" action="manager_user_update">
+					<div class="my_login">
+						<h3 class="title">회원정보 변경</h3>
+						<div class="my_center">
+							<div class="my_text_edit">
+								<label>아이디</label><input type="text" class="login_text dis" name="id" value="${manager.id}" readonly/>
+							</div>
+							<div class="my_text_edit">
+								<label>이름</label><input type="text" class="login_text" name="name" value="${manager.name}" />
+							</div>
+							<div class="my_text_edit">
+								<label>비밀번호</label><input type="password" class="login_text" value="${manager.password}"/>
+							</div>
+							<div class="my_text_edit">
+								<label>새 비밀번호</label><input type="password" class="login_text" name="password" />
+							</div>
+							<div class="my_text_edit">
+								<label>연락처</label><input type="text" class="login_text" name="tel" value="${manager.tel}"/>
+							</div>
+							<div class="my_text_edit">
+								<label>이메일 </label><input type="text" class="login_text2"
+									name="email1" value="${email1}" />@ <select
+									class="login_select" name="email3">
+									<option value="${email2}" hidden="hidden">${email2}</option>
+									<option value="naver.com">naver.com</option>
+									<option value="daum.net">daum.net</option>
+								</select>
+							</div>
+							<div class="my_adr">
+								<div class="my_text_edit">
+									<label>주소</label>
+									<div class="my_adr_search">
+										<input type="text" id="sample6_postcode" placeholder="우편번호"
+											class="login_text login_text3"> <input type="button"
+											onclick="sample6_execDaumPostcode()" value="찾기"
+											class="btn_adr"><br>
+									</div>
+								</div>
+								<div class="my_right">
+									<input type="text" id="sample6_address" class="login_text big"
+										placeholder="주소" name="address" value="${student.address}">
+									<input type="text" id="sample6_detailAddress"
+										class="login_text big" placeholder="상세주소"> <input
+										type="text" id="sample6_extraAddress" class="login_text big"
+										placeholder="참고항목">
+								</div>
+							</div>
+							<div class="my_btn">
+								<input type="button" class="btn_can" value="취소"/>
+								<input type="submit" class="btn_edit" value="수정"/>
+							</div>
 						</div>
-						<div class="my_text_edit">
-							<label>과목명</label><input type="text" class="login_text" name="name" value="${subject.name}"/>
-						</div>
-						
-						<div class="my_text_edit">
-							<label>학년</label><input type="text" class="login_text" name="grade" value="${subject.grade}"/>
-						</div>
-						<div class="my_text_edit">
-							<label>학점</label><input type="text" class="login_text" name="score" value="${subject.score}"/>
-						</div>
-						<div class="my_text_edit">
-							<label>강의실</label><input type="text" class="login_text" name="room" value="${subject.room}"/>
-						</div>
-						<div class="my_text_edit">
-							<label>인원수</label><input type="text" class="login_text" name="people" value="${subject.people}"/>
-						</div>
-						<div class="my_text_edit">
-							<label>강의요일</label>
-							<input type="text" class="login_text" name="date" value="${subject.date}"/>
-						</div>
-						
-												
-						<div class="my_text_edit">
-							<label>강의상태</label>
-							<input type="text" class="login_text" name="state" value="${subject.state}"/>
-						</div>
-								
-						<div class="my_btn">
-							
-							<input type="submit" class="btn_edit" value="수정"/>
-						</div>
-			
-						</form>
 					</div>
-				</div>
+				</form>
 			</section>
 			
 		</div>

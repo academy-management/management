@@ -213,13 +213,11 @@ public class ManageController extends HttpServlet{
     			String score = req.getParameter("score");
     			int people = Integer.parseInt(req.getParameter("people"));
     			String room = req.getParameter("room");
-    			String start = req.getParameter("start");
-    			String end = req.getParameter("end");
     			String state = req.getParameter("state");
     			String date = req.getParameter("date");
     			
     			SubjectDao dao = new SubjectDaoImpl();
-        		Subject subject = new Subject( subno,  name,  grade,  score,  people,  room,  date, state,  start,  end);
+        		Subject subject = new Subject( subno,  name,  grade,  score,  people,  room,  date, state);
         		
         		
         		System.out.println(subject);

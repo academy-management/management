@@ -30,18 +30,17 @@
 			</div>
 			<div class="user">
 				<ul>
-					<li>
-						<p>${member.name}님  반갑습니다  <i class="xi-angle-down-min xi-x"></i></p>
-						<div class="user_choice">
+					<li class="last">
+						<c:if test="${member != null}">
+							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
+							<div class="user_choice">
 							<ul>
-								<li><a href="">수강정보</a></li>
-								<li><a href="">성적정보</a></li>
-								<li><a href="">회원정보 변경</a></li>
+								<li><a href="manager_mylogin">회원정보변경</a></li>
+								
 							</ul>
 						</div>
-					</li>
-					
-						<a href="logout" class="login_out">로그아웃</a>
+							<a href="logout" class="login_out">로그아웃</a>
+						</c:if>
 					</li>
 				</ul>
 			</div>
@@ -50,16 +49,16 @@
 			<section class="container_left">
 				<nav>
 					<ul>
-						<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />학생관리</a></li>
+						<li><a href="#"><img src="/Academic-Management/img/title_img.png" alt="성적정보" />학생관리</a></li>
 						<li><a href="student_search">-학생검색</a></li>
 						<li><a href="student_insert">-학생등록</a></li>
-						<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />교수관리</a></li>
+						<li><a href="#"><img src="/Academic-Management/img/title_img.png" alt="성적정보" />교수관리</a></li>
 						<li><a href="professor_search">-교수검색</a></li>
 						<li><a href="professor_insert">-교수등록</a></li>
-						<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />강의관리</a></li>
+						<li><a href="#"><img src="/Academic-Management/img/title_img.png" alt="성적정보" />강의관리</a></li>
 						<li><a href="subject_search">-강의검색</a></li>
 						<li><a href="subject_insert">-강의등록</a></li>
-						<li><a href=""><img src="/Academic-Management/img/title_img.png" alt="성적정보" />공지사항관리</a></li>
+						<li><a href="#"><img src="/Academic-Management/img/title_img.png" alt="성적정보" />공지사항관리</a></li>
 						<li><a href="manager_notice">-공지사항검색</a></li>
 						<li><a href="manager_notice_insert">-공지사항등록</a></li>
 					</ul>
@@ -154,8 +153,9 @@
 						
 						<div class="my_text_edit">
 							<label>학과</label>
-							<select class="login_text" name="department">
-									<option value="1">컴퓨터공학과</option>
+							<select class="login_text" name="department">							
+									<option value="0">교양</option>
+									<option value="1" selected>컴퓨터공학과</option>
 									<option value="2">기계공학과</option>
 							</select>
 						</div>

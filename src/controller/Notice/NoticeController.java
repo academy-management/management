@@ -10,10 +10,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.notice.NoticeDao;
 import dao.notice.NoticeDaoImpl;
 import model.Notice;
+import model.Student;
 import page.PageDao;
 import page.PageDaoImpl;
 import page.PageGroupResult;
@@ -70,12 +72,14 @@ public class NoticeController extends HttpServlet {
 			req.setAttribute("pageGroupResult", pgr);
 		
 		} else if(action.equals("notice_search")) {
-
+			
 			String division = req.getParameter("division");
+
+			System.out.println(division);
 			String searchSubject = req.getParameter("search");
 
 			NoticeDao dao = new NoticeDaoImpl();
-			List<Notice> noticeList = null;
+			/*List<Notice> noticeList = null;*/
 			
 			int requestPage = 1;
 			
@@ -87,11 +91,11 @@ public class NoticeController extends HttpServlet {
 			PageGroupResult pgr = null;
 			
 			/*전체 검색 클릭*/
-			if(division.equals("total") ) {
+			if(division.equals("전체")) {
 				/*전체 선택 + 검색에 아무것도 입력하지 않았을 때*/
 				if (searchSubject == null || searchSubject.trim().isEmpty()) {
 					
-					noticeList = dao.selectAll(requestPage);
+					List<Notice> noticeList = dao.selectAll(requestPage);
 					
 					PageDao pageDao = new PageDaoImpl();
 					int cnt = pageDao.getCountNotice();
@@ -101,10 +105,12 @@ public class NoticeController extends HttpServlet {
 					PageManager pm = new PageManager(requestPage);
 					pgr = pm.getPageGroupResult(cnt);
 					
+					req.setAttribute("noticeList", noticeList);
+					
 				/*전체 선택 + 검색값을 넣었을 때*/	
 				} else {
 		
-					noticeList = dao.selectBySubject(requestPage, searchSubject);
+					List<Notice> noticeList = dao.selectBySubject(requestPage, searchSubject);
 					
 					PageDao pageDao = new PageDaoImpl();
 					int cnt = pageDao.getCountNoticeSearched(searchSubject);
@@ -113,14 +119,21 @@ public class NoticeController extends HttpServlet {
 					
 					PageManager pm = new PageManager(requestPage);
 					pgr = pm.getPageGroupResult(cnt);
+					
+					req.setAttribute("noticeList", noticeList);
 		
 				}
 			/*학과 검색 클릭*/
 			} else {
 				/*학과 선택 + 검색에 아무것도 입력하지 않았을 때*/
 				if(searchSubject == null || searchSubject.isEmpty()) {
+					System.out.println("여기");
+					System.out.println(division);
+					List<Notice> noticeList = dao.selectByDivision(requestPage, division);
 					
-					noticeList = dao.selectByDivision(requestPage, division);
+					for (Notice notice : noticeList) {
+						System.out.println(notice.toString());
+					}
 					
 					PageDao pageDao = new PageDaoImpl();
 					int cnt = pageDao.getCountNoticeDivided(division);
@@ -130,10 +143,11 @@ public class NoticeController extends HttpServlet {
 					PageManager pm = new PageManager(requestPage);
 					pgr = pm.getPageGroupResult(cnt);
 					
+					req.setAttribute("noticeList", noticeList);
 				} else {
 					/*학과 선택 +검색값을 넣었을 때*/	
 
-					noticeList = dao.selectByDivisionAndSubject(requestPage, division, searchSubject);
+					List<Notice> noticeList = dao.selectByDivisionAndSubject(requestPage, division, searchSubject);
 					
 					PageDao pageDao = new PageDaoImpl();
 					int cnt = pageDao.getCountNoticeSearchedAndDivided(searchSubject, division);
@@ -142,11 +156,13 @@ public class NoticeController extends HttpServlet {
 					
 					PageManager pm = new PageManager(requestPage);
 					pgr = pm.getPageGroupResult(cnt);
+					
+					req.setAttribute("noticeList", noticeList);
 				}
 			}
 			
 			req.setAttribute("pageGroupResult", pgr);
-			req.setAttribute("noticeList", noticeList);
+			
 			
 		} else if(action.equals("notice_detail")) {
 			

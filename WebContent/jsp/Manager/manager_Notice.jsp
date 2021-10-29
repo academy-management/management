@@ -30,18 +30,17 @@
 			</div>
 			<div class="user">
 				<ul>
-					<li>
-						<p>${member.name}님 반갑습니다  <i class="xi-angle-down-min xi-x"></i></p>
-						<div class="user_choice">
+					<li class="last">
+						<c:if test="${member != null}">
+							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
+							<div class="user_choice">
 							<ul>
-								<li><a href="">수강정보</a></li>
-								<li><a href="">성적정보</a></li>
-								<li><a href="">회원정보 변경</a></li>
+								<li><a href="manager_mylogin">회원정보변경</a></li>
+								
 							</ul>
 						</div>
-					</li>
-					
-						<a href="logout" class="login_out">로그아웃</a>
+							<a href="logout" class="login_out">로그아웃</a>
+						</c:if>
 					</li>
 				</ul>
 			</div>
@@ -76,14 +75,11 @@
 							<div style="margin-left:20px;">
 								<label for="major">
 									<input type="radio" name="division" value="total" checked="checked"/> 전체
-								</label>
-								<label for="subject">
-									<input type="radio" name="division" value=""/> 학과
-								</label>
+								</label>	
 							</div>
 						</div>
 						<div class="notice_btn" style="float:right">
-							<input type="text" class="login_text dis hei" name="search" style="float:left"/>
+							<input type="text" class="login_text dis hei" name="search" style="float:left" placeholder="제목을 입력하세요"/>
 							<input type="submit" class="btn_edit" value="조회"/>	
 						</div>
 					</div>

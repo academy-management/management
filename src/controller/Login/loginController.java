@@ -88,7 +88,8 @@ public class loginController extends HttpServlet{
 				String password = req.getParameter("password");
 					
 				StudentDao dao = new StudentDaoImpl();
-				Student student = dao.login(pno,password);
+				Student student = dao.selectByuser(pno);
+				//Student student2 = dao.selectByuser(pno);
 				
 				if(student != null) {
 				

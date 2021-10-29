@@ -11,5 +11,5 @@ public class Sql {
 			"select * from subject where subno =?";
 	
 	public static final String SUBJECT_UPDATE=
-			"update subject set name = ? , grade = ? , score = ? , room = ? , people =?, subtime = ? , startday=?, endday=?, state= ? where subno = ? ";
+			"update subject set name = ? , grade = ? , score = ? , room = ? , people =?, subtime = ? , state= ? where subno = ? ";
 }

@@ -444,7 +444,7 @@ insert into student values('20210107','1234','정학생',2,2021,'지구상 어�
 insert into student values('20210108','1234','임학생',2,2021,'지구상 어딘가','010-9365-6666','zxc@naver.com','재학',2);
 insert into student values('20210109','1234','도학생',2,2021,'지구상 어딘가','010-7308-7560','kiasdqwem@naver.com','재학',2);
 insert into student values('20210110','1234','장학생',2,2021,'지구상 어딘가','010-2378-6865','zxcvag@naver.com','재학',2);
-
+select * from student
 -- 교수 데이터 , 아이디 p001, 비번 p001 김교수
 insert into professor values('p001','p001','정보통신','김교수',null,'재직','지구상,어딘가','B501','010-1234-5678','tyyn@naver.com',1);
 insert into professor values('p002','p002','정보통신','이교수',null,'재직','지구상,어딘가','B502','010-5623-7753','afdvjk@naver.com',1);
@@ -454,12 +454,12 @@ insert into professor values('p004','p004','인공지능','최교수',null,'재�
 
 -- 관리자 아이디 1 비밀번호 1234 이름 매니저
 insert into manager values(1,'매니저','1234','010-5664-4455','asd@naver.com','asd');
-select * from subject
+select * from manager
 -- 강의 데이터 3개 , 김교수가 강의하는 강의 데이터 2개
 insert into subject values('c0001', '컴퓨터공학개론', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
 insert into subject values('c0002', '기초 프로그래밍', 1, '3', 30, 'B관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
 insert into subject values('c0003', '자바 프로그래밍', 1, '3', 30, 'C관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p002');
-
+select * from subject
 -- 수강 데이터 , 20210101(김학생)이  수강하고 있음,
 insert into register values(1, 2021, 1, 50, '20210101', 'c0002');
 insert into register values(2, 2021, 1, 60, '20210101', 'c0003');
@@ -473,3 +473,6 @@ insert into Notice values(4, '2021/10/21','학과','신입생, 편입생 공지 
 insert into Notice values(9, '2021/10/21','컴퓨터공학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
 insert into Notice values(6, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
 insert into Notice values(7, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+
+create sequence REG_SEQ
+

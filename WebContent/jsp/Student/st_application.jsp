@@ -35,20 +35,12 @@
 							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
 							<div class="user_choice">
 							<ul>
-<<<<<<< HEAD
-								<li><a href="student_class">수강정보</a></li>
-=======
 								<li><a href="">수강정보</a></li>
->>>>>>> branch 'main' of https://github.com/academy-management/management.git
 								<li><a href="student_score">성적정보</a></li>
 								<li><a href="student_mylogin">회원정보 변경</a></li>
 							</ul>
 						</div>
-<<<<<<< HEAD
-							<a href="login_out" class="login_out">로그아웃</a>
-=======
 							<a href="logout" class="login_out">로그아웃</a>
->>>>>>> branch 'main' of https://github.com/academy-management/management.git
 						</c:if>
 					</li>
 				</ul>
@@ -60,7 +52,7 @@
 					<ul>
 						<li class="menu_active"><a href="">수강신청</a></li>
 						<li><a href="">교수정보</a></li>
-						<li><a href="">공지사항</a></li>
+						<li><a href="notice">공지사항</a></li>
 					</ul>
 				</nav>
 			</section>
@@ -69,6 +61,10 @@
 					<img src="/Academic-Management/img/title.png" alt="성적정보"/>
 					<h4>수강신청</h4>
 				</div>
+<<<<<<< HEAD
+=======
+				<form method="post" action="student_subject_select">
+>>>>>>> branch 'main' of https://github.com/academy-management/management.git
 				<div class="search_box">
 					<div class="search">
 						<label>학년</label>

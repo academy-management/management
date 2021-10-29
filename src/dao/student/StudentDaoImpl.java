@@ -503,6 +503,11 @@ public class StudentDaoImpl implements StudentDao {
 
 			while (resultSet.next()) {
 				Subject subject = new Subject();
+<<<<<<< HEAD
+=======
+//			select s.name, s.score, s.startday, s.endday, p.name, r.score 
+//			from register r, subject s , professor p where r.subno = s.subno and s.dno = p.dno
+>>>>>>> branch 'main' of https://github.com/academy-management/management.git
 			
 				subject.setName(resultSet.getString("sname"));
 				subject.setScore(resultSet.getString("score"));
@@ -559,6 +564,7 @@ public class StudentDaoImpl implements StudentDao {
 		return subjectList;
 	}
 
+<<<<<<< HEAD
 
 	@Override
 	public List<Subject> subjectAllClass() {
@@ -593,5 +599,4 @@ public class StudentDaoImpl implements StudentDao {
 		return subjectList;
 	}
 	
-
 }

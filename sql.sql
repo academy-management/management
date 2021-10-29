@@ -367,12 +367,21 @@ select s.name, s.score, s.startday, s.endday, p.name, r.score  from register r, 
 select s.name, s.score, s.startday, s.endday, p.name, r.score  from register r, subject s , professor p where r.subno = s.subno;
 
 
+<<<<<<< HEAD
 select s.name as sname, r.semester as semester, s.startday as startday, s.endday as endday, p.name as pname, s.state as state from register r, subject s , professor p where r.subno = s.subno and s.dno = p.dno
 select s.name as sname, s.score as score, s.startday as startday, s.endday as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.year =? and r.semester =?
 select s.name as sname, s.score as score, s.startday as startday, s.endday as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.year =2021 and r.semester =1
+=======
+select s.name as sname, s.score as score, s.startday as startday, s.endday as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.subno = s.subno and s.dno = p.dno
+select s.name as sname, s.score as score, s.startday as startday, s.endday as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.year =? and r.semester =?
+select s.name as sname, s.score as score, s.startday as startday, s.endday as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.year =2021 and r.semester =1
+
+create sequence seq_notice;
+>>>>>>> branch 'main' of https://github.com/academy-management/management.git
 
 
 
+<<<<<<< HEAD
 select s.name as sname, r.semester as semester, s.startday as startday, s.endday as endday, p.name as pname, s.state as state from register r, subject s , professor p where r.sno = ?
 
 
@@ -431,3 +440,50 @@ select * from register
 select * from 
 
 select p.dno as dno,  from professor p, department d where p.dno = d.dno;
+=======
+
+-- 학과 데이터 2개 컴퓨터공학과, 기계공학과
+insert into department values(1,'컴퓨터공학과','1234-5678');
+insert into department values(2,'기계공학과','9123-4567');
+
+-- 학생 데이터 아이디 20210101, 비밀번호 1234 김학생
+insert into student values('20210101','1234','김학생',1,2021,'지구상 어딘가','010-1234-5678','kim@naver.com','재학',1);
+insert into student values('20210102','1234','이학생',1,2021,'지구상 어딘가','010-1234-5678','lee@naver.com','재학',1);
+insert into student values('20210103','1234','박학생',1,2021,'지구상 어딘가','010-1236-2138','axcqw@naver.com','재학',1);
+insert into student values('20210104','1234','최학생',1,2021,'지구상 어딘가','010-5345-3807','asdczv@naver.com','재학',1);
+insert into student values('20210105','1234','명학생',1,2021,'지구상 어딘가','010-1234-3388','zcxvzxc@naver.com','재학',1);
+insert into student values('20210106','1234','문학생',2,2021,'지구상 어딘가','010-3978-7805','leasdae@naver.com','재학',2);
+insert into student values('20210107','1234','정학생',2,2021,'지구상 어딘가','010-1208-5555','zxcvz@naver.com','재학',2);
+insert into student values('20210108','1234','임학생',2,2021,'지구상 어딘가','010-9365-6666','zxc@naver.com','재학',2);
+insert into student values('20210109','1234','도학생',2,2021,'지구상 어딘가','010-7308-7560','kiasdqwem@naver.com','재학',2);
+insert into student values('20210110','1234','장학생',2,2021,'지구상 어딘가','010-2378-6865','zxcvag@naver.com','재학',2);
+
+-- 교수 데이터 , 아이디 p001, 비번 p001 김교수
+insert into professor values('p001','p001','정보통신','김교수',null,'재직','지구상,어딘가','B501','010-1234-5678','tyyn@naver.com',1);
+insert into professor values('p002','p002','정보통신','이교수',null,'재직','지구상,어딘가','B502','010-5623-7753','afdvjk@naver.com',1);
+insert into professor values('p003','p003','인공지능','박교수',null,'재직','지구상,어딘가','B503','010-4786-1123','asfbikjq@naver.com',1);
+insert into professor values('p004','p004','인공지능','최교수',null,'재직','지구상,어딘가','B504','010-8990-7831','asdscj@naver.com',1);
+
+
+-- 관리자 아이디 1 비밀번호 1234 이름 매니저
+insert into manager values(1,'매니저','1234','010-5664-4455','asd@naver.com','asd');
+select * from subject
+-- 강의 데이터 3개 , 김교수가 강의하는 강의 데이터 2개
+insert into subject values('c0001', '컴퓨터공학개론', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
+insert into subject values('c0002', '기초 프로그래밍', 1, '3', 30, 'B관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
+insert into subject values('c0003', '자바 프로그래밍', 1, '3', 30, 'C관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p002');
+
+-- 수강 데이터 , 20210101(김학생)이  수강하고 있음,
+insert into register values(1, 2021, 1, 50, '20210101', 'c0002');
+insert into register values(2, 2021, 1, 60, '20210101', 'c0003');
+insert into register values(3, 2021, 1, 70, '20210101', 'c0001');
+
+-- 공지사항 데이터 
+insert into Notice values(1, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(2, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(3, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(4, '2021/10/21','학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(9, '2021/10/21','컴퓨터공학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(6, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+insert into Notice values(7, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+>>>>>>> branch 'main' of https://github.com/academy-management/management.git

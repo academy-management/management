@@ -19,7 +19,7 @@ import model.Notice;
 import model.Student;
 import model.Subject;
 
-@WebServlet(urlPatterns = {"/student_mylogin","/student_myloginpage","/student_user_detail","/student_user_update","/student_score","/student_searched","/student_class","/student_class_search"})
+@WebServlet(urlPatterns = {"/student_mylogin","/student_myloginpage","/student_user_detail","/student_user_update","/student_score","/student_searched"})
 public class StudentController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -114,7 +114,6 @@ public class StudentController extends HttpServlet{
 		}else if(action.equals("student_class")) {
 			StudentDao dao = new StudentDaoImpl();
 			List<Subject> subjectList = dao.subjectAllClass();
-			
 			req.setAttribute("subjectList", subjectList);
 		}
 		

@@ -15,12 +15,14 @@ public interface StudentDao {
 	void update(int sno, String state);	
 	List<Student> selectByNYN(String name,String year,String department);
 	public List<Student> selectAll();
-	public List<Student> selectName(String name);
-	public List<Student> selectYear(String year);
+	public List<Student> selectName(int dno, String name);
+	public List<Student> selectYear(int dno, String year);
 	public Student selectByNo(String sno);
 	public void updateToScore(String regno, String score);
 
 	public List<Student> selectBySubjectNo(String subno);
+	public List<Student> selectBySubject();
+	public List<Student> selectByPno(int pno);
 	
 
 	Student selectByuser(int sno); 

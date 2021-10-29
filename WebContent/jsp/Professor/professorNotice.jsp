@@ -21,14 +21,15 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/script.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
-
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
 	<div class="wrap">
 		<header class="header">
 			<div class="logo">
 				<h1>
-					<a href="#"> <img src="/Academic-Management/img/logo.png" alt="메인" />
+					<a href="#"> <img src="/Academic-Management//img/logo.png" alt="메인" />
 					</a>
 				</h1>
 			</div>
@@ -39,8 +40,9 @@
 							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
 							<div class="user_choice">
 							<ul>
-							<li><a href="professorLectureInfo">강의정보</a></li>
-								<li><a href="professorMylogin">회원정보 변경</a></li>
+								<li><a href="">수강정보</a></li>
+								<li><a href="student_score">성적정보</a></li>
+								<li><a href="student_mylogin">회원정보 변경</a></li>
 							</ul>
 						</div>
 							<a href="logout" class="login_out">로그아웃</a>
@@ -55,27 +57,38 @@
 					<ul>
 						<li><a href="studentSearch">학생관리</a></li>
 						<li><a href="studentScoreManage">성적관리</a></li>
-						<li><a href="">공지사항</a></li>
+						<li><a href="professorNotice">공지사항</a></li>
 					</ul>
 				</nav>
 			</section>
-			<section class="container_right container_center">
+			<section class="container_right cotainer_col">
 				<div class="main_title">
-					<img src="/Academic-Management/img/title.png" alt="성적정보" />
-					<h4>성적정보</h4>
+					<img src="/Academic-Management/img/title_img.png" alt="성적정보" />
+					<h4>공지사항</h4>
 				</div>
-				<div class="container mt-3">
-					<form action="/action_page.php">
-						<div>
-							<input type="radio" id="radio1" name="optradio2" value="option1"
-								checked> <label for="radio1">전체</label> <input
-								type="radio" id="radio2" name="optradio2" value="option2">
-							<label for="radio2">학과</label> <input type="text"
-								name="search_notice" placeholder="내용을 입력해주세요">
-							<button type="submit">검색</button>
+				<div class="search_box">
+					<div class="search">
+						<div style="margin-left: 20px;">
+							<label for="major"> <input type="radio" id="major"
+								checked /> 전체
+							</label> <label for="subject"> <input type="radio" id="subject" />
+								학과
+							</label>
 						</div>
-					</form>
-					<table class="table">
+					</div>
+					<div class="notice_btn">
+						<input type="text" class="login_text dis hei" name="search" /> <input
+							type="submit" class="btn_edit" value="조회" />
+					</div>
+				</div>
+				<div class="container_score">
+					<table class="table table-hover">
+						<colgroup>
+							<col style="width: 10%">
+							<col style="width: 70%">
+							<col style="width: 10%">
+							<col style="width: 10%">
+						</colgroup>
 						<thead>
 							<tr>
 								<th>No</th>
@@ -85,28 +98,57 @@
 							</tr>
 						</thead>
 						<tbody>
-							<%-- <c:forEach var="register" items="${noticeList}"> --%>
-							<tr>
-								<td>notice.nno</td>
-								<td>notice.title</td>
-								<td>notice.writedate</td>
-								<td>register.views</td>
-							</tr>
-							<%-- </c:forEach> --%>
+							<c:forEach items="${noticeList}" var="noticeList">
+								<tr>
+									<td>${noticeList.nno}</td>
+									<td>${noticeList.subject}</td>
+									<td>${noticeList.time}</td>
+									<td>${noticeList.views}</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
-					<ul class="pagination justify-content-center">
-						<li class="page-item"><a class="page-link"
-							href="javascript:void(0);">Previous</a></li>
-						<li class="page-item"><a class="page-link"
-							href="javascript:void(0);">1</a></li>
-						<li class="page-item"><a class="page-link"
-							href="javascript:void(0);">2</a></li>
-						<li class="page-item"><a class="page-link"
-							href="javascript:void(0);">Next</a></li>
-					</ul>
-			</section>
+				</div>
+				<div class="paging">
+					<!-- <ul>
+						<li><</li>
+						<li class="active">1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>></li>
+					</ul> -->
+					<ul class="pagination pagination-sm">
+						<c:if test="${pageGroupReulst.beforePage}">
+							<li class="page-item"><a class="page-link"
+								href="memo_search?reqPage=${pageGroupReulst.groupStarNumber-1}">이전</a>
+							</li>
+						</c:if>
 
+
+						<c:forEach var="index" begin="${pageGroupReulst.groupStarNumber}"
+							end="${pageGroupReulst.groyupEndNumber}">
+							<c:choose>
+								<c:when test="${pageGroupReulst.selectPageNumber==index}">
+									<li class="page-item active"><a class="page-link"
+										href="memo_search?reqPage=${index}">${index}</a></li>
+								</c:when>
+								<c:otherwise>
+									<li class="page-item"><a class="page-link"
+										href="memo_search?reqPage=${index}">${index}</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+
+						<c:if test="${pageGroupReulst.afterPage}">
+							<li class="page-item"><a class="page-link"
+								href="memo_search?reqPage=${pageGroupReulst.groyupEndNumber+1}">다음
+							</a></li>
+						</c:if>
+					</ul>
+				</div>
+			</section>
 		</div>
 	</div>
 

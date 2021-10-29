@@ -10,4 +10,5 @@ public interface SubjectDao {
 	void insert(Subject subject);
 	Subject select_by_subno(String subno);
 	void update(Subject subject);
+	public List<Subject> selectByPno(String pno);
 }

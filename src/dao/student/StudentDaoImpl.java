@@ -145,7 +145,7 @@ public class StudentDaoImpl implements StudentDao {
 
 
 	@Override
-	public List<Student> selectName(String name) {
+	public List<Student> selectName(int dno, String name) {
 		List<Student> studentList = new ArrayList<>();
 
 		Connection connection = null;
@@ -156,7 +156,8 @@ public class StudentDaoImpl implements StudentDao {
 
 			connection = JDBCUtil.getConnection();
 			pStatement = connection.prepareStatement(Sql.STUDENT_SELECT_NAME);
-			pStatement.setString(1, name);
+			pStatement.setInt(1, dno);
+			pStatement.setString(2, name);
 			resultSet = pStatement.executeQuery();
 
 			while (resultSet.next()) {
@@ -183,7 +184,7 @@ public class StudentDaoImpl implements StudentDao {
 
 
 	@Override
-	public List<Student> selectYear(String year) {
+	public List<Student> selectYear(int dno, String year) {
 		List<Student> studentList = new ArrayList<>();
 
 		Connection connection = null;
@@ -194,7 +195,8 @@ public class StudentDaoImpl implements StudentDao {
 
 			connection = JDBCUtil.getConnection();
 			pStatement = connection.prepareStatement(Sql.STUDENT_SELECT_YEAR);
-			pStatement.setString(1, year);
+			pStatement.setInt(1, dno);
+			pStatement.setString(2, year);
 			resultSet = pStatement.executeQuery();
 
 			while (resultSet.next()) {
@@ -274,6 +276,42 @@ public class StudentDaoImpl implements StudentDao {
 
 			while (resultSet.next()) {
 
+				Student student = new Student();
+				student.setSubno(resultSet.getString("subno"));
+				student.setRegno(resultSet.getInt("regno"));
+				student.setSno(resultSet.getInt("sno"));
+				student.setName(resultSet.getString("name"));
+				student.setDname(resultSet.getString("dname"));
+				student.setGrade(resultSet.getInt("grade"));
+				student.setScore(resultSet.getString("score"));				
+				studentList.add(student);
+			}
+		
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}
+
+		return studentList;
+	}
+	
+	@Override
+	public List<Student> selectBySubject() {
+		List<Student> studentList = new ArrayList<>();
+
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.STUDENT_SELECT_BY_SUBJECT_ALL);			
+			resultSet = pStatement.executeQuery();
+
+			while (resultSet.next()) {
 				Student student = new Student();
 				student.setSubno(resultSet.getString("subno"));
 				student.setRegno(resultSet.getInt("regno"));
@@ -559,6 +597,43 @@ public class StudentDaoImpl implements StudentDao {
 			JDBCUtil.close(resultSet, pStatement, connection);
 		}
 		return subjectList;
+	}
+
+
+	@Override
+	public List<Student> selectByPno(int pno) {
+		List<Student> studentList = new ArrayList<>();   
+
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.STUDENT_SELECT_BY_PNO);
+			
+			pStatement.setInt(1, pno);			
+			
+			resultSet = pStatement.executeQuery();
+			
+			while (resultSet.next()) {
+
+				Student student = new Student();
+				student.setSno(resultSet.getInt("sno"));
+				student.setName(resultSet.getString("name"));
+				student.setDname(resultSet.getString("dname"));
+				student.setGrade(resultSet.getInt("grade"));
+				student.setState(resultSet.getString("state"));
+				
+				studentList.add(student);				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}
+		return studentList;
 	}
 
 }

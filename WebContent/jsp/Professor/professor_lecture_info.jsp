@@ -56,7 +56,7 @@
 					<ul>
 					<li><a href="studentSearch">학생관리</a></li>
 						<li><a href="studentScoreManage">성적관리</a></li>
-						<li><a href="">공지사항</a></li>
+						<li><a href="notice">공지사항</a></li>
 					</ul>
 				</nav>
 			</section>

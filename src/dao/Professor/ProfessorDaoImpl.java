@@ -166,7 +166,7 @@ public class ProfessorDaoImpl implements ProfessorDao{
 				professor.setTel(resultSet.getString("tel"));
 				professor.setEmail(resultSet.getString("email"));
 				professor.setD_name(resultSet.getString("dname"));
-				
+				professor.setDno(resultSet.getInt("dno"));
 			}		
 		} catch (Exception e) {
 			e.printStackTrace();

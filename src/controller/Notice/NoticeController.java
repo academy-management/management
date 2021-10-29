@@ -20,7 +20,7 @@ import page.PageGroupResult;
 import page.PageManager;
 
 
-@WebServlet(urlPatterns= {"/notice", "/notice_search", "/notice_detail"})
+@WebServlet(urlPatterns= {"/notice", "/notice_search", "/notice_detail", "/professorNotice"})
 public class NoticeController extends HttpServlet {
 	
 	@Override
@@ -41,7 +41,7 @@ public class NoticeController extends HttpServlet {
 		int lastIndex = uri.lastIndexOf("/");
 		String action =  uri.substring(lastIndex + 1);
 		
-		if(action.equals("notice")) {
+		if(action.equals("notice") || action.equals("professorNotice")) {
 			
 			int requestPage = 1;
 			
@@ -175,6 +175,8 @@ public class NoticeController extends HttpServlet {
 		} else if(action.equals("notice_detail")) {
 
 			dispatcherUrl = "/jsp/Student/studentNoticeDetail.jsp";
+		} else if(action.equals("professorNotice")) {
+			dispatcherUrl = "/jsp/Professor/professorNotice.jsp";
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

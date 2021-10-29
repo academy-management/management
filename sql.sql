@@ -282,6 +282,11 @@ insert into professor values('p002','p002','정보통신','이교수',null,'재�
 insert into professor values('p003','p003','인공지능','박교수',null,'재직','지구상 어딘가','B503','010-4786-1123','asfbikjq@naver.com',1);
 insert into professor values('p004','p004','인공지능','최교수',null,'재직','지구상 어딘가','B504','010-8990-7831','asdscj@naver.com',1);
 
+delete from professor where pno = 'p001'
+delete from professor where pno = 'p002'
+delete from professor where pno = 'p003'
+delete from professor where pno = 'p004'
+
 pno VARCHAR(50) NOT NULL, /* 교수아이디 */
 	password VARCHAR(50), /* 비밀번호 */
 	Major VARCHAR(50), /* 교수전공 */
@@ -294,6 +299,8 @@ pno VARCHAR(50) NOT NULL, /* 교수아이디 */
 	email VARCHAR(40), /* 교수이메일 */
 	dno NUMBER /* 학과번호 */
 =======
+select * from student
+select * from professor 
 insert into professor values('p001','p001','정보통신','김교수',null,'재직','지구상, 어딘가','B501','010-1234-5678','tyyn@naver.com',1);
 insert into professor values('p002','p002','정보통신','이교수',null,'재직','지구상, 어딘가','B502','010-5623-7753','afdvjk@naver.com',1);
 insert into professor values('p003','p003','인공지능','박교수',null,'재직','지구상, 어딘가','B503','010-4786-1123','asfbikjq@naver.com',1);
@@ -450,12 +457,14 @@ insert into professor values('p001','p001','정보통신','김교수',null,'재�
 insert into professor values('p002','p002','정보통신','이교수',null,'재직','지구상,어딘가','B502','010-5623-7753','afdvjk@naver.com',1);
 insert into professor values('p003','p003','인공지능','박교수',null,'재직','지구상,어딘가','B503','010-4786-1123','asfbikjq@naver.com',1);
 insert into professor values('p004','p004','인공지능','최교수',null,'재직','지구상,어딘가','B504','010-8990-7831','asdscj@naver.com',1);
-
+insert into professor values('p005','p005','기계설계','장교수',null,'재직','지구상,어딘가','B504','010-8220-7831','asdscj@naver.com',2);
+select dno from professor
 
 -- 관리자 아이디 1 비밀번호 1234 이름 매니저
 insert into manager values(1,'매니저','1234','010-5664-4455','asd@naver.com','asd');
 select * from subject
 -- 강의 데이터 3개 , 김교수가 강의하는 강의 데이터 2개
+
 insert into subject values('c0001', '컴퓨터공학개론', 1, '3', 30, 'A관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
 insert into subject values('c0002', '기초 프로그래밍', 1, '3', 30, 'B관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p001');
 insert into subject values('c0003', '자바 프로그래밍', 1, '3', 30, 'C관 101호', '월 1-3', '강의', sysdate, sysdate, '전공', 1, 'p002');
@@ -473,3 +482,18 @@ insert into Notice values(4, '2021/10/21','학과','신입생, 편입생 공지 
 insert into Notice values(9, '2021/10/21','컴퓨터공학과','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
 insert into Notice values(6, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
 insert into Notice values(7, '2021/10/21','전체','신입생, 편입생 공지 드립니다.','내용입니다.',1,1);
+
+select distinct re.regno, s.sno, s.name, d.name as dname, s.grade, re.score from student s, REGISTER re, DEPARTMENT d, subject su where re.sno = s.sno and s.dno = d.dno and re.subno = 'c0003'
+select s.*, d.*, d.name as dname from student s, department d where s.dno = d.dno order by sno desc
+ select s.*, d.*, d.name as dname from student s, department d where s.dno = d.dno and d.name='컴퓨터공학과' order by sno desc ;
+select s.sno, s.name,  s.year , d.name as dname, s.tel, s.state from student s ,department d where s.dno = d.dno and d.name='컴퓨터공학과';
+select s.*, d.*, d.name as dname from student s, department d where s.dno = d.dno and s.year like '%' || 2021 order by sno desc
+select s.*, d.*, d.name as dname from student s, department d where s.dno = d.dno and s.name like '%' || '김' || '%' order by sno desc
+select distinct re.regno, s.sno, s.name, d.name as dname, s.grade, re.score, re.subno, su.name as subname from student s, REGISTER re, DEPARTMENT d, subject su where re.sno = s.sno and s.dno = d.dno and re.subno = su.subno
+
+select s.pno, s.subno , s.name , p.name as p_name, s.startday, s.endday, s.score , s.subtime , s.state from subject s,professor p where s.pno= p.pno and s.pno = 'p002' order by s.pno desc
+
+select distinct s.*, s.dno as s_dno, p.dno as p_dno from student s, professor p where s.dno = p.dno and p.dno = 1
+select distinct s.*, s.dno as s_dno, p.dno as p_dno, d.name as dname from student s, professor p, department d where s.dno = p.dno and s.dno = d.dno and p.dno = 1 and s.year like '%' || 2021 order by sno desc
+select distinct s.*, s.dno as s_dno, p.dno as p_dno, d.name as dname from student s, professor p, department d where s.dno = p.dno and s.dno = d.dno and p.dno = 1 and s.name like '%' || '김' || '%' order by sno desc
+select distinct s.*, s.dno as s_dno, p.dno as p_dno from student s, professor p where s.dno = p.dno and p.dno = 1

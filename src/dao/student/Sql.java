@@ -19,16 +19,21 @@ public class Sql {
 	
 	public static final String STUDENT_SELECT_BY_ID = "select s.*, d.name as dname from student s, department d where sno = ?";
 	
-	public static final String STUDENT_SELECT_ALL = "select s.*, d.*, d.name as dname from student s, department d order by sno desc";
+	public static final String STUDENT_SELECT_ALL = "select s.*, d.*, d.name as dname from student s, department d where s.dno = d.dno order by sno desc";
 	
-	public static final String STUDENT_SELECT_NAME = "select s.*, d.name as dname from student s, department d where s.name like '%' || ? || '%'";
+	public static final String STUDENT_SELECT_BY_PNO = "select distinct s.*, s.dno as s_dno, p.dno as p_dno, d.name as dname from student s, professor p, department d where s.dno = p.dno and s.dno = d.dno and p.dno = ?";
 	
-	public static final String STUDENT_SELECT_YEAR = "select s.*, d.name as dname from student s, department d where s.year like '%' || ?";
+	public static final String STUDENT_SELECT_NAME = "select distinct s.*, s.dno as s_dno, p.dno as p_dno, d.name as dname from student s, professor p, department d where s.dno = p.dno and s.dno = d.dno and p.dno = ? and s.name like '%' || ? || '%' order by sno desc";
 	
-	public static final String STUDENT_SELECT_BY_SUBNO = "select distinct su.subno, re.regno, s.sno, s.name, d.name as dname, s.grade, re.score from student s, REGISTER re, DEPARTMENT d, subject su where re.sno = s.sno and s.dno = d.dno and re.subno = ?";	
+	public static final String STUDENT_SELECT_YEAR = "select distinct s.*, s.dno as s_dno, p.dno as p_dno, d.name as dname from student s, professor p, department d where s.dno = p.dno and s.dno = d.dno and p.dno = ? and s.year like '%' || ? order by sno desc";
 	
 	
-	public static final String UPDATE_TO_SCORE = "update REGISTER set score = '?' where regno = ?";
+	public static final String STUDENT_SELECT_BY_SUBNO = "select distinct re.regno, s.sno, s.name, d.name as dname, s.grade, re.score, re.subno from student s, REGISTER re, DEPARTMENT d, subject su where re.sno = s.sno and s.dno = d.dno and re.subno = ?";	
+	
+	public static final String STUDENT_SELECT_BY_SUBJECT_ALL = "select distinct re.regno, s.sno, s.name, d.name as dname, s.grade, re.score, re.subno, su.name as subname from student s, REGISTER re, DEPARTMENT d, subject su where re.sno = s.sno and s.dno = d.dno and re.subno = su.subno";
+	
+	
+	public static final String UPDATE_TO_SCORE = "update REGISTER set score = ? where regno = ?";
 	
 	public static final String MEMO_DELETE = "delete from MEMO where MEMOID = ?";
 	

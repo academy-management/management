@@ -16,6 +16,8 @@ public class Subject {
 	private String pno;	
 	private String p_name;  //교수이름
 	private String r_score;  //성적
+	private String semester;  
+	
 	
 	public Subject() {
 		super();
@@ -167,6 +169,14 @@ public class Subject {
 
 	public void setR_score(String r_score) {
 		this.r_score = r_score;
+	}
+
+	public String getSemester() {
+		return semester;
+	}
+
+	public void setSemester(String semester) {
+		this.semester = semester;
 	}
 
 	@Override

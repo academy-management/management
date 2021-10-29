@@ -8,7 +8,7 @@ import model.SystemMaster;
 
 public interface StudentDao {
 	
-	model.Student login(int sno, String pw);
+	Student login(int sno, String pw);
 	Student mylogin(String pw);
 	List<SystemMaster> selectDepCode();	
 	void insert(Student student);
@@ -28,4 +28,7 @@ public interface StudentDao {
 	void studentUpdate(Student student);
 	
 	public List<Subject> subjectAll();
+	public List<Subject> subjectYear(int year, int semester);
+	
+	public List<Subject> subjectAllClass();
 }

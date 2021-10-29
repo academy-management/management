@@ -37,15 +37,15 @@
 				<ul>
 					<li class="last">
 						<c:if test="${member != null}">
-							${member}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
+							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
 							<div class="user_choice">
 							<ul>
 								<li><a href="">수강정보</a></li>
-								<li><a href="">성적정보</a></li>
-								<li><a href="user_detail">회원정보 변경</a></li>
+								<li><a href="student_score">성적정보</a></li>
+								<li><a href="student_mylogin">회원정보 변경</a></li>
 							</ul>
 						</div>
-							<a href="login_out" class="login_out">로그아웃</a>
+							<a href="logout" class="login_out">로그아웃</a>
 						</c:if>
 					</li>
 				</ul>

@@ -36,11 +36,11 @@
 							<div class="user_choice">
 							<ul>
 								<li><a href="">수강정보</a></li>
-								<li><a href="">성적정보</a></li>
-								<li><a href="user_detail">회원정보 변경</a></li>
+								<li><a href="student_score">성적정보</a></li>
+								<li><a href="student_mylogin">회원정보 변경</a></li>
 							</ul>
 						</div>
-							<a href="login_out" class="login_out">로그아웃</a>
+							<a href="logout" class="login_out">로그아웃</a>
 						</c:if>
 					</li>
 				</ul>
@@ -71,7 +71,7 @@
 								<label>이름</label><input type="text" class="login_text" name="name" value="${student.name}" />
 							</div>
 							<div class="my_text_edit">
-								<label>비밀번호</label><input type="password" class="login_text" name="password" value="${student.password}"/>
+								<label>비밀번호</label><input type="password" class="login_text" value="${student.password}"/>
 							</div>
 							<div class="my_text_edit">
 								<label>새 비밀번호</label><input type="password" class="login_text" name="password" />

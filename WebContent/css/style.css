@@ -401,8 +401,15 @@ table td{
 	background: #1e2150;
 }
 
-input[type=readonly]{
-	background:#ddd;
+/* 테이블 문구 */
+.center {
+	text-align:center;
 }
 
+/*검색박스 */
+.search_box form {
+	display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
 

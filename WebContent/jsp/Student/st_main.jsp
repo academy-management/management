@@ -35,12 +35,12 @@
 							${member.name}님 반갑습니다.<i class="xi-angle-down-min xi-x"></i>
 							<div class="user_choice">
 							<ul>
-								<li><a href="">수강정보</a></li>
-								<li><a href="">성적정보</a></li>
-								<li><a href=student_mylogin>회원정보 변경</a></li>
+								<li><a href="student_class">수강정보</a></li>
+								<li><a href="student_score">성적정보</a></li>
+								<li><a href="student_mylogin">회원정보 변경</a></li>
 							</ul>
 						</div>
-							<a href="login_out" class="login_out">로그아웃</a>
+							<a href="logout" class="login_out">로그아웃</a>
 						</c:if>
 					</li>
 				</ul>
@@ -78,14 +78,14 @@
 					 			</tr>
 					 		</thead>
 					 		<tbody>
-					 			<c:forEach var="noticeList" items="${noticeList}">
-							      <tr>
-							        <td>${noticeList.nno}</td>
-							        <td>${noticeList.subject}</td>
-							        <td>${noticeList.time}</td>
-							        <td><a href="memo_detail?memoid=${noticeList.Nno}">상세보기</a></td>		        
-							      </tr>		
-							   </c:forEach>  
+					 			<c:forEach var="notice" items="${noticeList}" begin = "0" end= "2">
+					 			<tr>
+					 				<td>${notice.nno}</td>
+					 				<td>${notice.subject}</td>
+					 				<td>${notice.time}</td>
+					 				<td>${notice.views}</td>
+					 			</tr>
+					 			</c:forEach>	
 					 		</tbody>
 					 	</table>
 					 </div>

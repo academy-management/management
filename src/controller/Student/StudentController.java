@@ -11,13 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.notice.NoticeDao;
+import dao.notice.NoticeDaoImpl;
 import dao.student.StudentDao;
 import dao.student.StudentDaoImpl;
-import memo.model.Memo;
+import model.Notice;
 import model.Student;
 import model.Subject;
 
-@WebServlet(urlPatterns = {"/student_mylogin","/student_myloginpage","/student_user_detail"})
+@WebServlet(urlPatterns = {"/student_mylogin","/student_myloginpage","/student_user_detail","/student_user_update","/student_score","/student_searched","/student_class","/student_class_search"})
 public class StudentController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,7 +47,7 @@ public class StudentController extends HttpServlet{
 		}
 		else if(action.equals("student_myloginpage")) {  
 			
-			String password = req.getParameter("password"); //비번을 친다
+			String password = req.getParameter("password"); 
 			HttpSession session= req.getSession();
 			Student Student = (Student)session.getAttribute("member");
 	
@@ -54,7 +56,7 @@ public class StudentController extends HttpServlet{
 				Student student = dao.selectByuser(Student.getSno());
 				req.setAttribute("student", student);
 				
-				RequestDispatcher rd = req.getRequestDispatcher("/jsp/Student/st_mypage.jsp"); //학생이 비번을 쳐서 들어가는 회원변경 화면
+				RequestDispatcher rd = req.getRequestDispatcher("/jsp/Student/st_mypage.jsp"); 
 				
 				rd.forward(req, resp);
 			}else {
@@ -62,42 +64,56 @@ public class StudentController extends HttpServlet{
 				RequestDispatcher rd = req.getRequestDispatcher("/jsp/Student/st_mylogin.jsp");
 				rd.forward(req, resp);
 			}
-		}else if(action.equals("student_user_update")) {
-			int sno = Integer.parseInt(req.getParameter("sno"));
-			
-			StudentDao dao = new StudentDaoImpl();
-			Student student = dao.selectByuser(sno);
-			
-			req.setAttribute("student", student);
 		}
 		else if(action.equals("student_user_update")) {
 			
+			int sno = Integer.parseInt(req.getParameter("sno"));
 			String name = req.getParameter("name");
 			String password = req.getParameter("password");
 			String tel = req.getParameter("tel");
 			String email = req.getParameter("email");
 			String address = req.getParameter("address");
-
-			Student student = new Student(name, password, tel, email, address);
+			
+			Student st = new Student();
+			st.setName(name);
+			st.setPassword(password);
+			st.setTel(tel);
+			st.setEmail(email);	
+			st.setAddress(address);
+			st.setSno(sno);
 			
 			
 			StudentDao dao = new StudentDaoImpl();
-			dao.studentUpdate(student);
+			dao.studentUpdate(st);
 			
 		}else if(action.equals("student_score")) {
-			String year_ = req.getParameter("year");
-			String grade_ = req.getParameter("grade");
-			
-			String year = "2021";
-			if(year_ != null && !year_.equals(""))
-				year = year_;
-			
-			String grade = "";
-			if(grade_ != null && !grade_.equals(""))
-				grade = grade_;
 			
 			StudentDao dao = new StudentDaoImpl();
-			List<Subject> subjectList = dao.subjectAll(year,grade,1);
+			List<Subject> subjectList = dao.subjectAll();
+			
+			req.setAttribute("subjectList", subjectList);
+			
+		}else if(action.equals("student_searched")) {
+			int year = Integer.parseInt(req.getParameter("years"));
+			int semester = Integer.parseInt(req.getParameter("semester"));
+			
+			StudentDao dao = new StudentDaoImpl();
+			List<Subject> subjectList = dao.subjectYear(year,semester);
+			
+			req.setAttribute("subjectList", subjectList);
+			
+		}else if(action.equals("student_class_search")) {
+			int year = Integer.parseInt(req.getParameter("years"));
+			int semester = Integer.parseInt(req.getParameter("semester"));
+			
+			StudentDao dao = new StudentDaoImpl();
+			List<Subject> subjectList = dao.subjectYear(year,semester);
+			
+			req.setAttribute("subjectList", subjectList);
+			
+		}else if(action.equals("student_class")) {
+			StudentDao dao = new StudentDaoImpl();
+			List<Subject> subjectList = dao.subjectAllClass();
 			
 			req.setAttribute("subjectList", subjectList);
 		}
@@ -108,7 +124,20 @@ public class StudentController extends HttpServlet{
 		if(action.equals("student_mylogin")) {
 			dispatcherUrl = "/jsp/Student/st_mylogin.jsp"; 
 		}else if(action.equals("student_user_update")) {
+			NoticeDao ndao = new NoticeDaoImpl();
+			List<Notice> noticeList = ndao.selectAll(1);
+				
+			req.setAttribute("noticeList", noticeList);
+			dispatcherUrl = "/jsp/Student/st_main.jsp";
 			
+		}else if(action.equals("student_score")) {
+			dispatcherUrl = "/jsp/Student/st_score.jsp"; 
+		}else if(action.equals("student_searched")) {
+			dispatcherUrl = "/jsp/Student/st_score.jsp"; 
+		}else if(action.equals("student_class")) {
+			dispatcherUrl = "/jsp/Student/st_lecture.jsp"; 
+		}else if(action.equals("student_class_search")) {
+			dispatcherUrl = "/jsp/Student/st_lecture.jsp"; 
 		}
 		
 		

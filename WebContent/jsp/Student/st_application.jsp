@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>       
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>     
+<%
+	String searchGrade = (String) request.getAttribute("searchGrade");
+	String searchDivision = (String) request.getAttribute("searchDivision");
+	
+	System.out.println(searchGrade);
+	System.out.println(searchDivision);
+	
+%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +26,43 @@
 <script type="text/javascript" src="/Academic-Management/js/script.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+	 $(document).ready(function() {
+		var searchGrade = $('#searchGrade').val();
+		var searchDivision = $('#searchDivision').val();
+		if(searchGrade != '') {
+			$('select[name="grade"]').val(searchGrade).prop('selected', true);
+		} else {
+			$('select[name="grade"]').val('0').prop('selected', true);
+		}
+		
+		$('input[name="division"]').each(function() {
+			var value = $(this).val();
+			
+			if(searchDivision == value) {
+				$(this).prop('checked', true);
+			}
+		});
+		
+	});
+	 
+	var goRegist = function(index) {
+		var subno = $('#subno' + index).val();
+		
+		$.get("register_student?subno=" + subno, function(res) {
+			if(res == '이미 신청된 과목입니다.') {
+				alert(res);
+			} else {
+				alert(res);
+				$('#search').click();
+			}
+		})
+	}
+	
+	
+	
+</script>
+
 </head>
 <body>
 	<div class="wrap">
@@ -63,6 +108,8 @@
 					<h4>수강신청</h4>
 				</div>
 				<form method="post" action="student_subject_select">
+				<input type="hidden" id="searchGrade" value="${searchGrade }">
+				<input type="hidden" id="searchDivision" value="${searchDivision }">
 				<div class="search_box">
 					<div class="search">
 						<label>학년</label>
@@ -132,11 +179,12 @@
 					 				<td>${subject.p_name}</td>
 					 				<td>${subject.room}</td>
 					 				<td>${subject.people}</td>
-					 				<td>##</td>
+					 				<td>${subject.regcnt}</td>
 					 				<td>
-					 					<input type="button" class="btn_edit btn_cancle" onclick= "location.href='register_student?subno=${subject.subno}'"value="신청"/>
+					 					<input type="button" class="btn_edit btn_cancle" onclick= "goRegist(${status.index})" value="신청"/>
 					 				</td>
 					 			</tr>
+					 			<input type="hidden" id="subno${status.index }" value="${subject.subno}" >
 					 		</c:forEach>
 					 		
 					 		</tbody>

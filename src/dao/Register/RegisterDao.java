@@ -6,6 +6,7 @@ public interface RegisterDao {
 	
 	void insert(Register register);
 	int selectBySubno(String subno);
+	int selectBySno(int sno, String subno);
 	
 
 }

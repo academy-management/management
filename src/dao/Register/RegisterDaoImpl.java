@@ -65,4 +65,35 @@ public class RegisterDaoImpl implements RegisterDao{
 		return cnt;
 	}
 
+	@Override
+	public int selectBySno(int sno, String subno) {
+		int cnt = 0;
+		
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+	
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.SELECT_BY_SNO);
+			
+			pStatement.setString(1, subno);
+			pStatement.setInt(2, sno);
+			
+			resultSet = pStatement.executeQuery();
+
+			while (resultSet.next()) {
+				
+				cnt = resultSet.getInt("cnt");
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}
+		
+		return cnt;
+	}
+
 }

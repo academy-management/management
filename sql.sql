@@ -514,7 +514,7 @@ insert into Notice values(7, '2021/10/21','전체','신입생, 편입생 공지 
 
 create sequence REG_SEQ
 
-
+select * from register
 
 select distinct re.regno, s.sno, s.name, d.name as dname, s.grade, re.score from student s, REGISTER re, DEPARTMENT d, subject su where re.sno = s.sno and s.dno = d.dno and re.subno = 'c0003'
 select s.*, d.*, d.name as dname from student s, department d where s.dno = d.dno order by sno desc

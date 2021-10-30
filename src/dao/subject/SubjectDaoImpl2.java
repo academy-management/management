@@ -159,6 +159,7 @@ public class SubjectDaoImpl2 implements SubjectDao2 {
 				subject.setRoom(resultSet.getString("room"));
 				subject.setPeople(resultSet.getInt("people"));
 				subject.setSubno(resultSet.getString("subno"));
+				subject.setRegcnt(resultSet.getInt("regcnt"));
 
 				subjectList.add(subject);			
 			}
@@ -204,6 +205,7 @@ public class SubjectDaoImpl2 implements SubjectDao2 {
 				subject.setRoom(resultSet.getString("room"));
 				subject.setPeople(resultSet.getInt("people"));
 				subject.setSubno(resultSet.getString("subno"));
+				subject.setRegcnt(resultSet.getInt("regcnt"));
 
 				subjectList.add(subject);			
 			}
@@ -249,6 +251,7 @@ public class SubjectDaoImpl2 implements SubjectDao2 {
 				subject.setRoom(resultSet.getString("room"));
 				subject.setPeople(resultSet.getInt("people"));
 				subject.setSubno(resultSet.getString("subno"));
+				subject.setRegcnt(resultSet.getInt("regcnt"));
 
 				subjectList.add(subject);			
 			}

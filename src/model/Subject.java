@@ -16,7 +16,8 @@ public class Subject {
 	private String pno;	
 	private String p_name;  //교수이름
 	private String r_score;  //성적
-	private String semester;  
+	private String semester; 
+	private int regcnt;
 	
 	
 	public Subject() {
@@ -176,6 +177,14 @@ public class Subject {
 
 	public void setSemester(String semester) {
 		this.semester = semester;
+	}
+	
+	public int getRegcnt() {
+		return regcnt;
+	}
+
+	public void setRegcnt(int regcnt) {
+		this.regcnt = regcnt;
 	}
 
 	@Override

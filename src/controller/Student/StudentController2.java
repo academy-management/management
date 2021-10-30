@@ -48,14 +48,14 @@ public class StudentController2 extends HttpServlet{
 
 			SubjectDao2 dao = new SubjectDaoImpl2();
 			List<Subject> subjectList = dao.selectAll(dno);
-			
-			req.setAttribute("subjectList", subjectList);
-			
+		
 			req.setAttribute("subjectList", subjectList);
 			session.setAttribute("subjectList", subjectList);
 			
 		
 		} else if(action.equals("student_subject_select")) {
+			
+			System.out.println("Controller!");
 			
 			HttpSession session = req.getSession();
 			Student student = (Student) session.getAttribute("member");
@@ -66,22 +66,38 @@ public class StudentController2 extends HttpServlet{
 			String grade = req.getParameter("grade");
 			String division = req.getParameter("division");
 			
+			System.out.println("======> " + division);
+			
 			List<Subject> subjectList = null;
 			
-			if (grade.equals("0")) {
+			
+			
+			if (grade.equals("0") && division != null) {
 				
 				SubjectDao2 dao = new SubjectDaoImpl2();
 				subjectList = dao.selectByDivision(division, dno);
 		
+			} else if(grade.equals("0") && division == null) {
+				
+				SubjectDao2 dao = new SubjectDaoImpl2();
+				subjectList = dao.selectAll(dno);
+				
 			} else {
 				
 				SubjectDao2 dao = new SubjectDaoImpl2();
 				subjectList = dao.selectByDivisionAndGrade(division, dno, grade);
-	
-			}
+				
+				for (Subject subject : subjectList) {
+					System.out.println(subject.getName());
+				}
 
+			} 
+
+			req.setAttribute("searchGrade", grade);
+			req.setAttribute("searchDivision", division);
 			req.setAttribute("subjectList", subjectList);
 			session.setAttribute("subjectList", subjectList);
+			
 			
 		}
 

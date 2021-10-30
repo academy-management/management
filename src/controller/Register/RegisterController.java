@@ -61,7 +61,7 @@ public class RegisterController extends HttpServlet {
 			
 			RegisterDao dao = new RegisterDaoImpl();
 			dao.insert(register);
-			
+	
 			ArrayList<Subject> subjectlist = (ArrayList)session.getAttribute("subjectList");
 			req.setAttribute("subjectList", subjectlist );
 

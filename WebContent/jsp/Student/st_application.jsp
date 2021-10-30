@@ -83,7 +83,7 @@
 						</div>
 					</div>
 					<div>
-						<input type="submit" class="btn_edit" value="조회"/>
+						<input type="submit" class="btn_edit" id="search" value="조회"/>
 					</div>
 				</div>
 				</form>
@@ -134,7 +134,7 @@
 					 				<td>${subject.people}</td>
 					 				<td>##</td>
 					 				<td>
-					 					<input type="button" class="btn_edit btn_cancle" onclick= "location.href='register_student?subno=${subject.subno}&date=${subject.start}'" value="신청"/>
+					 					<input type="button" class="btn_edit btn_cancle" onclick= "location.href='register_student?subno=${subject.subno}'"value="신청"/>
 					 				</td>
 					 			</tr>
 					 		</c:forEach>

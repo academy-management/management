@@ -42,11 +42,10 @@ public class StudentController2 extends HttpServlet{
 			HttpSession session = req.getSession();
 			Student student = (Student) session.getAttribute("member");
 			
-			int dno = student.getDno();
+			int dno = 1;
 			
-		
+			/*int dno = student.getDno();*/
 
-			
 			SubjectDao2 dao = new SubjectDaoImpl2();
 			List<Subject> subjectList = dao.selectAll(dno);
 			
@@ -61,10 +60,9 @@ public class StudentController2 extends HttpServlet{
 			HttpSession session = req.getSession();
 			Student student = (Student) session.getAttribute("member");
 			
-			int dno = student.getDno();
+			/*int dno = student.getDno();*/
+			int dno = 1;
 	
-
-			
 			String grade = req.getParameter("grade");
 			String division = req.getParameter("division");
 			
@@ -81,7 +79,7 @@ public class StudentController2 extends HttpServlet{
 				subjectList = dao.selectByDivisionAndGrade(division, dno, grade);
 	
 			}
-			
+
 			req.setAttribute("subjectList", subjectList);
 			session.setAttribute("subjectList", subjectList);
 			

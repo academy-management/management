@@ -14,8 +14,7 @@ public interface SubjectDao2 {
 	List<Subject> selectByDivision(String division, int dno);
 	List<Subject> selectByDivisionAndGrade(String division, int dno, String grade);
 
-
-	Subject selectBySubno(int subno);
+	/*Subject selectBySubno(int subno);*/
 
 
 }

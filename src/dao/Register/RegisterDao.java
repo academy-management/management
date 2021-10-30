@@ -5,6 +5,7 @@ import model.Register;
 public interface RegisterDao {
 	
 	void insert(Register register);
+	int selectBySubno(String subno);
 	
 
 }

@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 
 import common.JDBCUtil;
 import model.Register;
-import model.Student;
 
 public class RegisterDaoImpl implements RegisterDao{
 
@@ -94,6 +93,27 @@ public class RegisterDaoImpl implements RegisterDao{
 		}
 		
 		return cnt;
+	}
+
+	@Override
+	public void delete(int regno) {
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.REGISTER_DELETE);
+
+			pStatement.setInt(1, regno);
+			pStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(null, pStatement, connection);
+		}
+
+		
 	}
 
 }

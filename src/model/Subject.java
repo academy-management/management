@@ -18,7 +18,7 @@ public class Subject {
 	private String r_score;  //성적
 	private String semester; 
 	private int regcnt;
-	
+	private int regno;
 	
 	public Subject() {
 		super();
@@ -72,6 +72,14 @@ public class Subject {
 		this.division = division;
 		this.dno = dno;
 		this.pno = pno;
+	}
+
+	public int getRegno() {
+		return regno;
+	}
+
+	public void setRegno(int regno) {
+		this.regno = regno;
 	}
 
 	public String getP_name() {

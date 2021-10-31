@@ -539,6 +539,6 @@ select * from register
 
 select s.name as sname, r.semester as semester, to_char(s.startday, 'YYYY.MM.DD') as startday, to_char(s.endday, 'YYYY.MM.DD') as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.subno = s.subno  and s.pno =p.pno  and r.year = 2021 and r.semester = 2 and r.sno='20' 
 
-
+select s.name as sname, r.semester as semester, to_char(s.startday, 'YYYY.MM.DD') as startday, to_char(s.endday, 'YYYY.MM.DD') as endday, p.name as pname, r.score as rscore ,r.regno from register r, subject s , professor p where r.subno = s.subno  and s.pno =p.pno  and r.year = 2021 and r.semester = 2 and r.sno='20210101'
 
 

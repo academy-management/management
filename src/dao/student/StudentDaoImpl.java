@@ -698,6 +698,7 @@ public class StudentDaoImpl implements StudentDao {
 				subject.setEnd(resultSet.getString("endday"));
 				subject.setP_name(resultSet.getString("pname"));
 				subject.setR_score(resultSet.getString("rscore"));
+				subject.setRegno(resultSet.getInt("regno"));
 				
 				subjectList.add(subject);
 			}

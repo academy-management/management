@@ -68,7 +68,7 @@ public class Sql {
 	="select s.name as sname, s.score as score, to_char(s.startday, 'YYYY.MM.DD') as startday, to_char(s.endday, 'YYYY.MM.DD') as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.subno = s.subno  and s.pno =p.pno  and r.year = ? and r.semester = ? and r.sno = ? ";
 
 	public static final String STUDENT_YEAR_SE2
-	="select s.name as sname, r.semester as semester, to_char(s.startday, 'YYYY.MM.DD') as startday, to_char(s.endday, 'YYYY.MM.DD') as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.subno = s.subno  and s.pno =p.pno  and r.year = ? and r.semester = ? and r.sno=?";
+	="select s.name as sname, r.semester as semester, to_char(s.startday, 'YYYY.MM.DD') as startday, to_char(s.endday, 'YYYY.MM.DD') as endday, p.name as pname, r.score as rscore , r.regno from register r, subject s , professor p where r.subno = s.subno  and s.pno =p.pno  and r.year = ? and r.semester = ? and r.sno=?";
 	
 	public static final String STUDENT_LETURE
 	="select s.name as sname, r.semester as semester, s.startday as startday, s.endday as endday, p.name as pname, s.state as state from register r, subject s , professor p where r.subno = s.subno  and s.pno =p.pno";

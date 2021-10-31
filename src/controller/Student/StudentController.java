@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import dao.Professor.ProfessorDao2;
 import dao.Professor.ProfessorDaoImpl2;
+import dao.Register.RegisterDao;
+import dao.Register.RegisterDaoImpl;
 import dao.notice.NoticeDao;
 import dao.notice.NoticeDaoImpl;
 import dao.student.StudentDao;
@@ -23,7 +25,7 @@ import model.Professor;
 import model.Student;
 import model.Subject;
 
-@WebServlet(urlPatterns = {"/student_mylogin","/student_myloginpage","/student_user_detail","/student_user_update","/student_score","/student_searched","/student_class","/student_class_search", "/professor_url","/professor_searcheds"})
+@WebServlet(urlPatterns = {"/student_mylogin","/student_myloginpage","/student_user_detail","/student_user_update","/student_score","/student_searched","/student_class","/student_class_search","/student_class_delete", "/professor_url","/professor_searcheds"})
 public class StudentController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -140,6 +142,13 @@ public class StudentController extends HttpServlet{
 			System.out.println(subjectList);
 			req.setAttribute("subjectList", subjectList);
 			
+		}else if(action.equals("student_class_delete")){
+			int regno = Integer.parseInt(req.getParameter("regno"));
+			
+			RegisterDao dao = new RegisterDaoImpl();
+			dao.delete(regno);
+					
+		
 		}
 		else if(action.equals("professor_url")) {
 			
@@ -200,6 +209,8 @@ public class StudentController extends HttpServlet{
 		}else if(action.equals("professor_searcheds")) {
 			dispatcherUrl = "/jsp/Student/st_professor.jsp"; 
 
+		}else if(action.equals("student_class_delete")){
+			dispatcherUrl = "student_class"; 
 		}
 		
 		

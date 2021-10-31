@@ -100,7 +100,7 @@
 					 				<th>개강일</th>
 					 				<th>종강일</th>
 					 				<th>담당교수</th>
-					 				<th>취소</th>
+					 				<th>수강취소</th>
 					 			</tr>
 					 		</thead>
 					 		<tbody>
@@ -110,8 +110,8 @@
 						 				<td>${subjectList.semester}</td>
 						 				<td>${subjectList.start}</td>
 						 				<td>${subjectList.end}</td>
-						 				<td>${subjectList.p_name}</td>
-						 				<td>${subjectList.state}</td>
+						 				<td>${subjectList.p_name}</td>						 		
+						 				<td><input type="button" class="btn_edit" onclick="location.href='student_class_delete?regno=${subjectList.regno}'" value="수강취소"/></td>
 						 			</tr>
 					 			</c:forEach>
 					 	</table>

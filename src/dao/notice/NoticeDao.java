@@ -17,5 +17,7 @@ public interface NoticeDao {
 	
 	void insert(Notice notice);
 	void delete(int nno);
+	void update(String subject, String contents,String division, int nno);
+	
 	
 }

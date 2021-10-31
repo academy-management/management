@@ -66,15 +66,15 @@
 			</section>
 			<section class="container_right container_center">
 				<div class="my_login">
-					<h3 class="title">공지 등록</h3>
+					<h3 class="title">공지 수정</h3>
 					<div class="my_center">
-						<form method="post" action="manager_notice_insert">
+						<form method="post" action="manager_noticeupdate">
+						<input type="hidden" class="login_text dis" name="nno" value="${notice.nno}"/>
 						<div class="my_text_edit">
-							<label>제목</label><input type="text" class="login_text dis" name="subject"/>
+							<label>제목</label><input type="text" class="login_text dis" name="subject" value="${notice.subject}"/>
 						</div>
 						<div class="my_text_edit">
-							<label>내용</label><textarea class="login_text" name="contents" rows="100" cols="100" style="height:15rem" style="margin-bottom:20px">
-							</textarea>
+							<label>내용</label><textarea class="login_text" name="contents" rows="100" cols="100" style="height:15rem" style="margin-bottom:20px">${notice.contents}</textarea>
 						</div>
 						<div class="my_text_edit">
 						<label>구분</label>
@@ -86,8 +86,9 @@
 							</select>
 						</div>
 						<div class="my_btn">
-							<input type="reset" class="btn_can" value="취소"/>
-							<input type="submit" class="btn_edit" value="등록"/>
+							
+							<input type="submit" class="btn_edit" value="수정"/>
+							<input type="button" class="btn_edit" onclick="location.href='manager_notice_delete?nno=${notice.nno}'" value="삭제"/>
 						</div>
 						</form>
 					</div>

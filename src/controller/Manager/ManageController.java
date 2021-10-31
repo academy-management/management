@@ -29,7 +29,7 @@ import page.PageManager;
 
 
 
-@WebServlet(name = "ManageController", urlPatterns = {"/student_search","/student_searchbyname","/student_update","/student_insert","/professor_search","/professor_insert","/professor_update","/professor_searchbyname","/subject_search","/subject_searchNS","/subject_insert","/subject_detail","/subject_update","/manager_notice","/manager_notice_search","/manager_notice_detail","/manager_notice_insert","/manager_notice_delete"})
+@WebServlet(name = "ManageController", urlPatterns = {"/student_search","/student_searchbyname","/student_update","/student_insert","/professor_search","/professor_insert","/professor_update","/professor_searchbyname","/subject_search","/subject_searchNS","/subject_insert","/subject_detail","/subject_update","/manager_notice","/manager_notice_search","/manager_notice_detail","/manager_notice_insert","/manager_notice_delete","/manager_notice_update","/manager_noticeupdate"})
 public class ManageController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -94,7 +94,7 @@ public class ManageController extends HttpServlet{
 			
 			String address2 = req.getParameter("address2");
 			String address3 = req.getParameter("address3");
-			String address = address2+" "+address3;
+			String address = address2+","+address3;
 			Student student = new Student(sno,name,year,d_name,tel,password,address,email);
 			
 			StudentDao dao = new StudentDaoImpl();
@@ -133,7 +133,7 @@ public class ManageController extends HttpServlet{
 				String email = email1+"@"+email2;
 				String address2 = req.getParameter("address2");
 				String address3 = req.getParameter("address3");
-				String address = address2+" "+address3;
+				String address = address2+","+address3;
 				
 				Professor professor = new Professor(pno,password,major,name,address,pro_room,tel,email,d_name);
 				
@@ -229,32 +229,33 @@ public class ManageController extends HttpServlet{
     		
     		
     	}else if(action.equals("manager_notice")) {
-    		
-    		int requestPage = 1;
+    		String division = "전체";
+			String searchSubject = "";
+
+			NoticeDao dao = new NoticeDaoImpl();
+			List<Notice> noticeList = null;
+			
+			int requestPage = 1;
 			
 			if(req.getParameter("reqPage") != null) {
 				
 				requestPage = Integer.parseInt(req.getParameter("reqPage"));
 			}
 			
-			System.out.println(requestPage);
+			PageGroupResult pgr = null;
 			
-			NoticeDao dao = new NoticeDaoImpl();
-			List<Notice> noticeList = dao.selectAll(requestPage);	
 			
-			req.setAttribute("noticeList", noticeList);
-			
-			/*NOTICE 전체 줄 수 가져오기*/
+    		noticeList = dao.selectByDivision(requestPage, division);
 			
 			PageDao pageDao = new PageDaoImpl();
-			int cnt = pageDao.getCountNotice();
+			int cnt = pageDao.getCountNoticeDivided(division);
 			
-			System.out.println(cnt);
 			
 			PageManager pm = new PageManager(requestPage);
-			PageGroupResult pgr = pm.getPageGroupResult(cnt);
+			pgr = pm.getPageGroupResult(cnt);
 			
 			req.setAttribute("pageGroupResult", pgr);
+			req.setAttribute("noticeList", noticeList);
     		
     	} else if(action.equals("manager_notice_search")) {
     		
@@ -274,16 +275,15 @@ public class ManageController extends HttpServlet{
 			PageGroupResult pgr = null;
 			
 			/*전체 검색 클릭*/
-			if(division.equals("total") ) {
+			if(division.equals("전체") ) {
 				/*전체 선택 + 검색에 아무것도 입력하지 않았을 때*/
 				if (searchSubject == null || searchSubject.trim().isEmpty()) {
 					
-					noticeList = dao.selectAll(requestPage);
+					noticeList = dao.selectByDivision(requestPage, division);
 					
 					PageDao pageDao = new PageDaoImpl();
-					int cnt = pageDao.getCountNotice();
+					int cnt = pageDao.getCountNoticeDivided(division);
 					
-					System.out.println(cnt);
 					
 					PageManager pm = new PageManager(requestPage);
 					pgr = pm.getPageGroupResult(cnt);
@@ -375,6 +375,26 @@ public class ManageController extends HttpServlet{
 			dao.delete(nno);
 			
     		
+    	}else if(action.equals("manager_notice_update")) {
+    		
+    		int nno = Integer.parseInt(req.getParameter("nno"));
+    		NoticeDao dao = new NoticeDaoImpl();
+    		Notice notice2 = dao.selectByNno(nno);
+
+			req.setAttribute("notice", notice2);
+			
+    		
+    	}else if(action.equals("manager_noticeupdate")) {
+    		
+    		String subject = req.getParameter("subject");
+    		String contents = req.getParameter("contents");
+    		String division = req.getParameter("division");
+    		int nno = Integer.parseInt(req.getParameter("nno"));
+    		NoticeDao dao = new NoticeDaoImpl();
+    		dao.update(subject, contents, division, nno);
+
+			
+    		
     	}
     		
     		
@@ -416,6 +436,10 @@ public class ManageController extends HttpServlet{
     	}else if(action.equals("manager_notice_insert")) {
     		dispatcherUrl = "/jsp/Manager/manager_notice_insert.jsp";
     	}else if(action.equals("manager_notice_delete")) {
+    		dispatcherUrl = "manager_notice";
+    	}else if(action.equals("manager_notice_update")) {
+    		dispatcherUrl = "/jsp/Manager/manager_notice_update.jsp";
+    	}else if(action.equals("manager_noticeupdate")) {
     		dispatcherUrl = "manager_notice";
     	}
 	    

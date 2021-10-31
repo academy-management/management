@@ -86,7 +86,7 @@
 					 				<td>${notice.views}</td>
 					 			</tr>
 					 			<tr>
-					 				<th>작성일</th>
+					 				<th>제목</th>
 					 				<td colspan="3">${notice.subject}</td>
 					 			</tr>
 					 			<tr>
@@ -99,6 +99,8 @@
 				</div>
 				<div class="my_btn">
 							<input type="button" class="btn_edit" onclick="location.href='manager_notice'" value="목록"/>
+							<input type="button" class="btn_edit" onclick="location.href='manager_notice_update?nno=${notice.nno}'" value="수정"/>
+							
 						</div>
 			</section>
 		</div>

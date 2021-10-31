@@ -1,7 +1,7 @@
 package model;
 
 public class Manager {
-	private int id;
+	private String id;
 	private String name;
 	private String password;
 	private String tel;
@@ -13,7 +13,7 @@ public class Manager {
 	public Manager() {
 		super();
 	}
-	public Manager(int id, String name, String password, String tel, String email, String address) {
+	public Manager(String id, String name, String password, String tel, String email, String address) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -22,10 +22,10 @@ public class Manager {
 		this.email = email;
 		this.address = address;
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {

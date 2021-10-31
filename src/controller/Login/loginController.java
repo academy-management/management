@@ -120,7 +120,7 @@ public class loginController extends HttpServlet{
 				
 			}else if(req.getParameter("loginselect").equals("ad")) {
 				
-				int pno = Integer.parseInt(req.getParameter("pno"));
+				String pno = req.getParameter("pno");
 				String password = req.getParameter("password");
 					
 				ManagerDao dao = new ManagerDaoImpl();

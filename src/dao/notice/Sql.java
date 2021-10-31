@@ -22,7 +22,7 @@ public class Sql {
 			"UPDATE NOTICE SET VIEWS = ? WHERE NNO = ?";
 	
 	public static final String NOTICE_INSERT =
-			"insert into Notice values(seq_notice.nextval, sysdate ,?,?,?,1,1)";
+			"insert into Notice values(seq_notice.nextval, sysdate ,?,?,?,1,'admin')";
 	
 	public static final String NOTICE_DELETE =
 			"delete from notice where nno = ?";
@@ -81,5 +81,8 @@ public class Sql {
 			"select nom, subject, content, wdata, cnt, id from BBS";
 	public static final String BOARD_SELECTSUBJECT_SQL = 
 			"select nom, subject, content, wdata, cnt, id from BBS where nom = ?";
+	
+	public static final String MANAGER_NOTICE_UPDATE = 
+			"update notice set subject =? , contents=? , division =? where nno =?";
 	
 }

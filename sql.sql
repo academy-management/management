@@ -532,3 +532,13 @@ select distinct s.*, s.dno as s_dno, p.dno as p_dno, d.name as dname from studen
 select distinct s.*, s.dno as s_dno, p.dno as p_dno from student s, professor p where s.dno = p.dno and p.dno = 1
 
 select s.name as sname, s.score as score, s.startday as startday, s.endday as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.subno = s.subno  and s.pno =p.pno
+
+select pno,address from professor
+Select s.sno, d.name as d_name, s.name, s.password , s.tel, s.email, s.address ,s.dno from student s ,department d where s.dno=d.dno and sno = ?
+select * from register
+
+select s.name as sname, r.semester as semester, to_char(s.startday, 'YYYY.MM.DD') as startday, to_char(s.endday, 'YYYY.MM.DD') as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.subno = s.subno  and s.pno =p.pno  and r.year = 2021 and r.semester = 2 and r.sno='20' 
+
+
+
+

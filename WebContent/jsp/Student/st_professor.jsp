@@ -67,7 +67,8 @@
 							<label>학과</label>
 							<select class="search_select" name="professor_ch">
 								<option value="1">컴퓨터 공학과</option>
-								<option value="2">기계 공학과</option>
+								<option value="2">경영학과</option>
+								<option value="3">화학과</option>
 							</select>
 						</div>
 						<div>

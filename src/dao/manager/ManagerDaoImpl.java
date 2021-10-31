@@ -11,7 +11,7 @@ import model.Notice;
 public class ManagerDaoImpl implements ManagerDao{
 
 	@Override
-	public Manager selectById(int id) {
+	public Manager selectById(String id) {
 		Manager manager = null;
 		
 		Connection connection = null;
@@ -22,7 +22,7 @@ public class ManagerDaoImpl implements ManagerDao{
 			connection = JDBCUtil.getConnection();
 			pStatement = connection.prepareStatement(Sql.SELECT_MANAGER_BY_ID);
 			
-			pStatement.setInt(1, id);
+			pStatement.setString(1, id);
 			
 			resultSet = pStatement.executeQuery();
 			
@@ -30,7 +30,7 @@ public class ManagerDaoImpl implements ManagerDao{
 				
 				manager = new Manager();
 				
-				manager.setId(resultSet.getInt("id"));
+				manager.setId(resultSet.getString("id"));
 				manager.setName(resultSet.getString("name"));
 				manager.setPassword(resultSet.getString("password"));
 				manager.setTel(resultSet.getString("tel"));
@@ -47,7 +47,7 @@ public class ManagerDaoImpl implements ManagerDao{
 	}
 
 	@Override
-	public void managerUpdate(int id, String name, String password, String tel, String email, String address) {		
+	public void managerUpdate(String id, String name, String password, String tel, String email, String address) {		
 		
 		Connection connection = null;
 		PreparedStatement pStatement = null;
@@ -61,7 +61,7 @@ public class ManagerDaoImpl implements ManagerDao{
 			pStatement.setString(3, tel);
 			pStatement.setString(4, email);
 			pStatement.setString(5, address);
-			pStatement.setInt(6, id);
+			pStatement.setString(6, id);
 			
 			pStatement.executeUpdate();
 			

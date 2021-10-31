@@ -15,7 +15,7 @@ public class Sql {
 			"select category, code, codeName from system_master where category = 'dep'";
 	
 	public static final String SUTUDENT_SNO = 
-			"Select s.sno, d.name as d_name, s.name, s.password , s.tel, s.email, s.address from student s ,department d where sno = ?";
+			"Select s.sno, d.name as d_name, s.name, s.password , s.tel, s.email, s.address ,s.dno from student s ,department d where s.dno=d.dno and sno = ?";
 	
 	public static final String STUDENT_SELECT_BY_ID = "select s.*, d.name as dname from student s, department d where sno = ?";
 	
@@ -65,10 +65,13 @@ public class Sql {
 	="select s.name as sname, s.score as score, s.startday as startday, s.endday as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.subno = s.subno and s.dno = p.dno";
 
 	public static final String STUDENT_YEAR_SE
-	="select s.name as sname, s.score as score, s.startday as startday, s.endday as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.subno = s.subno  and s.pno =p.pno and r.year =? and r.semester =?";
+	="select s.name as sname, s.score as score, to_char(s.startday, 'YYYY.MM.DD') as startday, to_char(s.endday, 'YYYY.MM.DD') as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.subno = s.subno  and s.pno =p.pno  and r.year = ? and r.semester = ? and r.sno = ? ";
 
+	public static final String STUDENT_YEAR_SE2
+	="select s.name as sname, r.semester as semester, to_char(s.startday, 'YYYY.MM.DD') as startday, to_char(s.endday, 'YYYY.MM.DD') as endday, p.name as pname, r.score as rscore from register r, subject s , professor p where r.subno = s.subno  and s.pno =p.pno  and r.year = ? and r.semester = ? and r.sno=?";
+	
 	public static final String STUDENT_LETURE
-	="select s.name as sname, r.semester as semester, s.startday as startday, s.endday as endday, p.name as pname, s.state as state from register r, subject s , professor p, student st where r.sno = st.sno";
+	="select s.name as sname, r.semester as semester, s.startday as startday, s.endday as endday, p.name as pname, s.state as state from register r, subject s , professor p where r.subno = s.subno  and s.pno =p.pno";
 
 
 	

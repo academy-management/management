@@ -202,6 +202,7 @@ public class NoticeDaoImpl implements NoticeDao {
 				notice.setSubject(resultSet.getString("subject"));
 				notice.setContents(resultSet.getString("contents"));
 				notice.setViews(resultSet.getInt("views"));
+				notice.setNno(resultSet.getInt("nno"));
 				
 			}		
 		} catch (Exception e) {
@@ -269,6 +270,30 @@ public class NoticeDaoImpl implements NoticeDao {
 			pStatement = connection.prepareStatement(Sql.NOTICE_DELETE);
 
 			pStatement.setInt(1, nno);
+			pStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(null, pStatement, connection);
+		}
+		
+	}
+
+	@Override
+	public void update(String subject, String contents,String division, int nno) {
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.MANAGER_NOTICE_UPDATE);
+
+			pStatement.setString(1, subject);
+			pStatement.setString(2, contents);
+			pStatement.setString(3, division);
+			pStatement.setInt(4, nno);
+			
 			pStatement.executeUpdate();
 
 		} catch (Exception e) {

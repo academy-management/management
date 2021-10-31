@@ -30,7 +30,7 @@ public interface StudentDao {
 	void studentUpdate(Student student);
 	
 	public List<Subject> subjectAll();
-	public List<Subject> subjectYear(int year, int semester);
-	
+	public List<Subject> subjectYear(int year, int semester,int sno);
+	public List<Subject> subjectYear2(int year, int semester, int sno);
 	public List<Subject> subjectAllClass();
 }

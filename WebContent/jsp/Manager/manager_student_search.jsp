@@ -23,7 +23,28 @@
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
+<script>
+	 $(document).ready(function() {
+		var searchGrade = $('#searchGrade').val();
+		var searchDivision = $('#searchDivision').val();
+		if(searchGrade != '') {
+			$('select[name="grade"]').val(searchGrade).prop('selected', true);
+		} else {
+			$('select[name="grade"]').val('0').prop('selected', true);
+		}
+		
+		$('input[name="division"]').each(function() {
+			var value = $(this).val();
+			
+			if(searchDivision == value) {
+				$(this).prop('checked', true);
+			}
+		});
+		
+	});
+	 
+	
+</script>
 </head>
 <body>
 	<div class="wrap">

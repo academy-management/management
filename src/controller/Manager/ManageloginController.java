@@ -90,7 +90,7 @@ public class ManageloginController extends HttpServlet{
 	    	
 			
 	    }else if(action.equals("manager_user_update")) {
-	    	int id = Integer.parseInt(req.getParameter("id"));
+	    	String id = req.getParameter("id");
 			String name = req.getParameter("name");
 			String password = req.getParameter("password");
 			String tel = req.getParameter("tel");

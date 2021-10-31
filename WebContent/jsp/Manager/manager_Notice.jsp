@@ -74,7 +74,12 @@
 						<div class="search" style="display:inline-block;weight:100%">
 							<div style="margin-left:20px;">
 								<label for="major">
-									<input type="radio" name="division" value="total" checked="checked"/> 전체
+									<select name="division">
+									<option value="전체">전체</option>
+									<option value="컴퓨터공학과">컴퓨터공학과</option>
+									<option value="경영학과">경영학과</option>
+									<option value="화학과">화학과</option>
+							</select>
 								</label>	
 							</div>
 						</div>
@@ -89,10 +94,10 @@
 					<table class="table table-hover">
 					 		<colgroup>
 					          <col style="width:10%">
-					          <col style="width:60%">
+					          <col style="width:70%">
 					          <col style="width:10%">
 					          <col style="width:10%">
-					          <col style="width:10%">					        
+					       					        
 					        </colgroup>
 					 		<thead>
 					 			<tr>
@@ -110,7 +115,7 @@
 									<td><a href="manager_notice_detail?nno=${notice.nno}">${notice.subject}</a></td>
 									<td>${notice.time}</td>
 									<td>${notice.views}</td>
-									<td><a href="manager_notice_delete?nno=${notice.nno}">삭제</a></td>
+									
 								</tr>
 								</c:forEach>
 					 		</tbody>

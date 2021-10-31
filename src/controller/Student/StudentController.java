@@ -17,6 +17,7 @@ import dao.notice.NoticeDao;
 import dao.notice.NoticeDaoImpl;
 import dao.student.StudentDao;
 import dao.student.StudentDaoImpl;
+import model.Manager;
 import model.Notice;
 import model.Professor;
 import model.Student;
@@ -54,10 +55,19 @@ public class StudentController extends HttpServlet{
 			HttpSession session= req.getSession();
 			Student Student = (Student)session.getAttribute("member");
 	
+			String email = Student.getEmail();
+			String target2 = "@";
+			int targetNum2 = email.lastIndexOf(target2);
+			
+			String email1 = email.substring(0, targetNum2);
+			String email2 = email.substring(targetNum2 + 1); 
+			
 			if(password.equals(Student.getPassword())) {
 				StudentDao dao = new StudentDaoImpl();
 				Student student = dao.selectByuser(Student.getSno());
 				req.setAttribute("student", student);
+				req.setAttribute("email1", email1);
+				req.setAttribute("email2", email2);
 				
 				RequestDispatcher rd = req.getRequestDispatcher("/jsp/Student/st_mypage.jsp"); 
 				
@@ -90,39 +100,64 @@ public class StudentController extends HttpServlet{
 			dao.studentUpdate(st);
 			
 		}else if(action.equals("student_score")) {
+			HttpSession session = req.getSession();
+			Student student = (Student) session.getAttribute("member");
 			
 			StudentDao dao = new StudentDaoImpl();
-			List<Subject> subjectList = dao.subjectAll();
+			List<Subject> subjectList = dao.subjectYear(2021,2,student.getSno());
 			
 			req.setAttribute("subjectList", subjectList);
 			
 		}else if(action.equals("student_searched")) {
+			HttpSession session = req.getSession();
+			Student student = (Student) session.getAttribute("member");
+			
 			int year = Integer.parseInt(req.getParameter("years"));
 			int semester = Integer.parseInt(req.getParameter("semester"));
 			
 			StudentDao dao = new StudentDaoImpl();
-			List<Subject> subjectList = dao.subjectYear(year,semester);
+			List<Subject> subjectList = dao.subjectYear(year,semester,student.getSno());
 			
 			req.setAttribute("subjectList", subjectList);
 
 		}else if(action.equals("student_class")) {
+			
+			HttpSession session = req.getSession();
+			Student student = (Student) session.getAttribute("member");
 			StudentDao dao = new StudentDaoImpl();
-			List<Subject> subjectList = dao.subjectAllClass();
+			List<Subject> subjectList = dao.subjectYear2(2021, 2,student.getSno());
+			System.out.println(subjectList);
 			req.setAttribute("subjectList", subjectList);
 		}
 		else if(action.equals("student_class_search")) {
+			HttpSession session = req.getSession();
+			Student student = (Student) session.getAttribute("member");
 			int year = Integer.parseInt(req.getParameter("years"));
 			int semester = Integer.parseInt(req.getParameter("semester"));
 			
 			StudentDao dao = new StudentDaoImpl();
-			List<Subject> subjectList = dao.subjectYear(year,semester);
-			
+			List<Subject> subjectList = dao.subjectYear2(year, semester,student.getSno());
+			System.out.println(subjectList);
 			req.setAttribute("subjectList", subjectList);
 			
 		}
 		else if(action.equals("professor_url")) {
+			
+			HttpSession session = req.getSession();
+			Student student = (Student) session.getAttribute("member");
+			int professor_ch = 0; 
+			if(student.getD_name().equals("컴퓨터공학과")){
+				professor_ch=1;
+			}else if(student.getD_name().equals("경영학과")) {
+				professor_ch=2;
+			}else if(student.getD_name().equals("화학과")) {
+				professor_ch=3;
+			}
+			
+			
+			
 			ProfessorDao2 dao = new ProfessorDaoImpl2();
-			List<Professor> professorList = dao.ProfessorAllInformation();
+			List<Professor> professorList = dao.Professordep(professor_ch);
 			
 			req.setAttribute("professorList", professorList);
 			
@@ -134,20 +169,6 @@ public class StudentController extends HttpServlet{
 			List<Professor> professorList = dao.Professordep(professor_ch);
 			
 			req.setAttribute("professorList", professorList);
-
-		}else if(action.equals("student_class_search")) {
-			int year = Integer.parseInt(req.getParameter("years"));
-			int semester = Integer.parseInt(req.getParameter("semester"));
-			
-			StudentDao dao = new StudentDaoImpl();
-			List<Subject> subjectList = dao.subjectYear(year,semester);
-			
-			req.setAttribute("subjectList", subjectList);
-			
-		}else if(action.equals("student_class")) {
-			StudentDao dao = new StudentDaoImpl();
-			List<Subject> subjectList = dao.subjectAllClass();
-			req.setAttribute("subjectList", subjectList);
 
 		}
 		

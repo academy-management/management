@@ -490,6 +490,7 @@ public class StudentDaoImpl implements StudentDao {
 				student.setTel(resultSet.getString("tel"));
 				student.setEmail(resultSet.getString("email"));
 				student.setAddress(resultSet.getString("address"));
+				student.setDno(resultSet.getInt("dno"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -561,7 +562,7 @@ public class StudentDaoImpl implements StudentDao {
 
 
 	@Override
-	public List<Subject> subjectYear(int year, int semester) {
+	public List<Subject> subjectYear(int year, int semester, int sno) {
 		List<Subject> subjectList = new ArrayList<>();   
 
 		Connection connection = null;
@@ -574,10 +575,10 @@ public class StudentDaoImpl implements StudentDao {
 			
 			pStatement.setInt(1, year);
 			pStatement.setInt(2, semester);
-			
+			pStatement.setInt(3, sno);
 			resultSet = pStatement.executeQuery();
 			
-			if (resultSet.next()) {
+			while (resultSet.next()) {
 				Subject subject = new Subject();
 
 				subject.setName(resultSet.getString("sname"));
@@ -668,6 +669,44 @@ public class StudentDaoImpl implements StudentDao {
 			JDBCUtil.close(resultSet, pStatement, connection);
 		}
 		return studentList;
+	}
+
+
+	@Override
+	public List<Subject> subjectYear2(int year, int semester , int sno) {
+		List<Subject> subjectList = new ArrayList<>();   
+
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = JDBCUtil.getConnection();
+			pStatement = connection.prepareStatement(Sql.STUDENT_YEAR_SE2);
+			
+			pStatement.setInt(1, year);
+			pStatement.setInt(2, semester);
+			pStatement.setInt(3, sno);
+			resultSet = pStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				Subject subject = new Subject();
+
+				subject.setName(resultSet.getString("sname"));
+				subject.setSemester(resultSet.getString("semester"));
+				subject.setStart(resultSet.getString("startday"));
+				subject.setEnd(resultSet.getString("endday"));
+				subject.setP_name(resultSet.getString("pname"));
+				subject.setR_score(resultSet.getString("rscore"));
+				
+				subjectList.add(subject);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(resultSet, pStatement, connection);
+		}
+		return subjectList;
 	}
 
 	

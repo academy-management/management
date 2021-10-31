@@ -69,12 +69,11 @@
 								<option value="2021">2021</option>
 								<option value="2020">2020</option>
 								<option value="2019">2019</option>
-								<option value="2018">2018</option>
-								<option value="2017">2021</option>
+								
 							</select>
 							<select class="search_select" name="semester">
 								<option value="1">1학기</option>
-								<option value="2">2학기</option>
+								<option value="2" selected>2학기</option>
 							</select>
 						</div>
 						<div>
@@ -122,13 +121,11 @@
 						 	</table>
 					 	</c:if>
 					 	<c:if test="${empty subjectList}">
-<<<<<<< HEAD
+
 							 <hr />  
 							 <p class="center">신청한 강의가 없습니다.</p>
-=======
-									 <hr />  
-									 신청한 강의가 없습니다.	
->>>>>>> branch 'main' of https://github.com/academy-management/management.git
+
+							
 						</c:if>
 				</div>
 			</section>

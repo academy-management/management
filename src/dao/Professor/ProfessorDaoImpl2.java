@@ -53,7 +53,7 @@ public class ProfessorDaoImpl2 implements ProfessorDao2{
 			
 			resultSet = pStatement.executeQuery();
 			
-			if (resultSet.next()) {
+			while (resultSet.next()) {
 				Professor professor = new Professor();
 				professor.setName(resultSet.getString("pname"));
 				professor.setMajor(resultSet.getString("major"));

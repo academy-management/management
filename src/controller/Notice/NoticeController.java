@@ -144,6 +144,7 @@ public class NoticeController extends HttpServlet {
 					pgr = pm.getPageGroupResult(cnt);
 					
 					req.setAttribute("noticeList", noticeList);
+
 				} else {
 					/*학과 선택 +검색값을 넣었을 때*/	
 
@@ -158,11 +159,12 @@ public class NoticeController extends HttpServlet {
 					pgr = pm.getPageGroupResult(cnt);
 					
 					req.setAttribute("noticeList", noticeList);
+					req.setAttribute("searchDivision", division);
 				}
 			}
 			
 			req.setAttribute("pageGroupResult", pgr);
-			
+			req.setAttribute("searchDivision", division);
 			
 		} else if(action.equals("notice_detail")) {
 			

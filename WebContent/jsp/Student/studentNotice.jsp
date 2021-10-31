@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +18,20 @@
 <script type="text/javascript" src="/Academic-Management/js/script.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+	$(document).ready(function(){
+		var searchDivision = $('#searchDivision').val();
+	
+		$('input[name="division"]').each(function() {
+			var value = $(this).val();
+			
+			if(searchDivision == value) {
+				$(this).prop('checked', true);
+			}
+		});
+	});
+	
+</script>
 </head>
 <body>
 	<div class="wrap">
@@ -61,23 +76,24 @@
 					<img src="/Academic-Management/img/title_img.png" alt="성적정보"/>
 					<h4>공지사항</h4>
 				</div>
+				<input type="hidden" id="searchDivision" value="${searchDivision}">
 				<form method="post" action="notice_search" style="vertical-align:middle;">
-					<div class="search_box">
-						<div class="search" style="display:inline-block;weight:100%">
-							<div style="margin-left:20px;">
-								<label for="major">
-									<input type="radio" name="division" value="전체" checked="checked"/> 전체
-								</label>
-								<label for="subject">
-									<input type="radio" name="division" value="${member.d_name}"/> 학과
-								</label>
-							</div>
-						</div>
-						<div class="notice_btn" style="float:right">
-							<input type="text" class="login_text dis hei" name="search" style="float:left"/>
-							<input type="submit" class="btn_edit" value="조회"/>	
+				<div class="search_box">
+					<div class="search" style="display:inline-block;weight:100%">
+						<div style="margin-left:20px;">
+							<label for="major">
+								<input type="radio" name="division" value="전체"/> 전체
+							</label>
+							<label for="subject">
+								<input type="radio" name="division" value="${member.d_name}"/> 학과
+							</label>
 						</div>
 					</div>
+					<div class="notice_btn" style="float:right">
+						<input type="text" class="login_text dis hei" name="search" style="float:left"/>
+						<input type="submit" class="btn_edit" value="조회"/>	
+					</div>
+				</div>
 				</form>	
 				<c:if test="${not empty noticeList}">
 				<div class="container_score">
@@ -97,9 +113,9 @@
 					 			</tr>
 					 		</thead>
 					 		<tbody>
-					 			<c:forEach var="notice" items="${noticeList}">
+					 			<c:forEach var="notice" items="${noticeList}" varStatus="status">
 								<tr>
-									<td>${notice.nno}</td>
+									<td>${fn:length(noticeList) - status.index}</td>
 									<td><a href="notice_detail?nno=${notice.nno}">${notice.subject}</a></td>
 									<td>${notice.time}</td>
 									<td>${notice.views}</td>

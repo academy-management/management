@@ -8,8 +8,10 @@
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link 
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" 
+	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="stylesheet" href="/Academic-Management/css/style.css" type="text/css">
 	
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>	
@@ -17,11 +19,28 @@
 <script type="text/javascript" src="/Academic-Management/js/script.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+	$(document).ready(function(){
+		var searchYear = $('#searchYear').val();
+		var searchSemester = $('#searchSemester').val();
+		if (searchYear != '') {
+			$('select[name="year"]').val(searchYear).prop('selected', true);			
+		} 
+		
+		if (searchSemester != '') {
+			$('select[name="semester"]').val(searchSemester).prop('select', true);
+		}
+	})
+	
+</script>
+
 </head>
+
 <style>
 	a:link {
 	  text-decoration: underline;
 	}
+	
 </style>
 <body>
 	<div class="wrap">
@@ -65,6 +84,8 @@
 					<img src="/Academic-Management/img/title_img.png" alt="강의정보"/>
 					<h4>강의 정보</h4>
 				</div>
+				<input type="hidden" id="searchYear" value="${searchYear}">
+				<input type="hidden" id="searchSemester" value="${searchSemester}">
 				<form method="post" action="professorLectureInfoBySelect">
 				<div class="search_box">
 					<div class="search">

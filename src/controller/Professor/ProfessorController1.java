@@ -151,6 +151,12 @@ public class ProfessorController1 extends HttpServlet{
 			SubjectDao2 dao = new SubjectDaoImpl2();
 			List<Subject> subjectList = dao.selectByRegisterYearAndSemester(pno, year, semester);
 			
+			System.out.println(year);
+			System.out.println(semester);
+			
+			req.setAttribute("searchYear", year);
+			req.setAttribute("searchSemester", semester);
+			
 			if(!subjectList.isEmpty()) {
 			
 				req.setAttribute("subjectList", subjectList);

@@ -43,7 +43,7 @@ public class StudentController2 extends HttpServlet{
 			Student student = (Student) session.getAttribute("member");
 	
 			int dno = student.getDno();
-
+			System.out.println(dno);
 			SubjectDao2 dao = new SubjectDaoImpl2();
 			List<Subject> subjectList = dao.selectAll(dno);
 		
@@ -59,7 +59,7 @@ public class StudentController2 extends HttpServlet{
 			Student student = (Student) session.getAttribute("member");
 			
 			int dno = student.getDno();
-	
+			System.out.println(dno);
 			String grade = req.getParameter("grade");
 			String division = req.getParameter("division");
 			

@@ -67,32 +67,32 @@
 				<div class="container mt-3">
 					<table class="table table-striped">
 						<tr>
-							<td>학번</td>
+							<td><b>학번</b></td>
 							<td>${student.sno}</td>
-							<td>성명</td>
+							<td><b>성명</b></td>
 							<td>${student.name}</td>
 						</tr>
 						<tr>
-							<td>연락처</td>
+							<td><b>연락처</b></td>
 							<td>${student.tel}</td>
 						</tr>
 					</table>
 					<table class="table table-striped">
 						<tr>
-							<td>학과</td>
+							<td><b>학과</b></td>
 							<td>${student.dname}</td>
-							<td>학년</td>
+							<td><b>학년</b></td>
 							<td>${student.grade}</td>
 						</tr>
 						<tr>
 							
-							<td>재학상태</td>
+							<td><b>재학상태</b></td>
 							<td>${student.state}</td>
 						</tr>
 						<tr>							
-							<td>주소</td>
+							<td><b>주소</b></td>
 							<td>${student.address}</td>
-							<td>E-mail</td>
+							<td><b>E-mail</b></td>
 							<td>${student.email}</td>
 						</tr>
 					</table>

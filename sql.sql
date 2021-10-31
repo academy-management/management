@@ -541,4 +541,124 @@ select s.name as sname, r.semester as semester, to_char(s.startday, 'YYYY.MM.DD'
 
 select s.name as sname, r.semester as semester, to_char(s.startday, 'YYYY.MM.DD') as startday, to_char(s.endday, 'YYYY.MM.DD') as endday, p.name as pname, r.score as rscore ,r.regno from register r, subject s , professor p where r.subno = s.subno  and s.pno =p.pno  and r.year = 2021 and r.semester = 2 and r.sno='20210101'
 
+select * from student
 
+select * from subject;
+
+--강의 테이블 1,2,3,4 컴공 10개, 경영학과 5개, 화학과 5개 교양수업10개
+insert into subject values('c0001', '컴퓨터공학개론1반', 1, '3', 30, 'B관 101호', '월 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+insert into subject values('c0002', '컴퓨터공학개론2반', 1, '3', 30, 'B관 101호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+insert into subject values('c0003', '기초 프로그래밍1반', 1, '2', 30, 'B관 102호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p002');
+insert into subject values('c0004', '기초 프로그래밍2반', 1, '2', 30, 'B관 102호', '수 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p002');
+insert into subject values('c0005', '자바 프로그래밍', 1, '3', 30, 'B관 301호', '수 2-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p003');
+insert into subject values('c0006', 'C프로그래밍', 1, '3', 30, 'B관 501호', '월 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p004');
+insert into subject values('c0007', '이산수학', 1, '3', 30, 'B관 401호', '목 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p005');
+insert into subject values('c0008', '이산수학', 1, '3', 30, 'B관 401호', '금 2-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p005');
+insert into subject values('c0009', '논리회로설계1반', 1, '3', 30, 'A관 101호', '화 3-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+insert into subject values('c0010', '논리회로설계2반', 1, '3', 30, 'A관 101호', '금 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+
+insert into subject values('c0011', '자료구조1반', 2, '3', 30, 'B관 101호', '월 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+insert into subject values('c0012', '자료구조2반', 2, '3', 30, 'B관 101호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+insert into subject values('c0013', '컴퓨터구조1반', 2, '2', 30, 'B관 102호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p002');
+insert into subject values('c0014', '컴퓨터구조2반', 2, '2', 30, 'B관 102호', '수 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p002');
+insert into subject values('c0015', '리눅스', 2, '3', 30, 'B관 301호', '수 2-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p003');
+insert into subject values('c0016', 'C프로그래밍2', 2, '3', 30, 'B관 501호', '월 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p004');
+insert into subject values('c0017', '데이터베이스1반', 2, '3', 30, 'B관 401호', '목 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p005');
+insert into subject values('c0018', '데이터베이스2반', 2, '3', 30, 'B관 401호', '금 2-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p005');
+insert into subject values('c0019', '자바 프로그래밍2 1반', 2, '3', 30, 'A관 101호', '화 3-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+insert into subject values('c0020', '자바 프로그래밍2 2반', 2, '3', 30, 'A관 101호', '금 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+
+insert into subject values('c0021', '임베디드 1반', 3, '3', 30, 'B관 101호', '월 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+insert into subject values('c0022', '임베디드 2반', 3, '3', 30, 'B관 101호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+insert into subject values('c0023', '네트워크 1반', 3, '2', 30, 'B관 102호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p002');
+insert into subject values('c0024', '네트워크 2반', 3, '2', 30, 'B관 102호', '수 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p002');
+insert into subject values('c0025', '운영체제', 3, '3', 30, 'B관 301호', '수 2-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p003');
+insert into subject values('c0026', '소프트웨어', 3, '3', 30, 'B관 501호', '월 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p004');
+insert into subject values('c0027', '데이터베이스 1반', 3, '3', 30, 'B관 401호', '목 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p005');
+insert into subject values('c0028', '데이터베이스 2반', 3, '3', 30, 'B관 401호', '금 2-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p005');
+insert into subject values('c0029', '데이터통신 1반', 3, '3', 30, 'A관 101호', '화 3-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+insert into subject values('c0030', '데이터통신 2반', 3, '3', 30, 'A관 101호', '금 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+
+insert into subject values('c0031', '전자회로 1반', 4, '3', 30, 'B관 101호', '월 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+insert into subject values('c0032', '전자회로 2반', 4, '3', 30, 'B관 101호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+insert into subject values('c0033', '인공지능 1반', 4, '2', 30, 'B관 102호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p002');
+insert into subject values('c0034', '인공지능 2반', 4, '2', 30, 'B관 102호', '수 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p002');
+insert into subject values('c0035', '양자 컴퓨팅 및 정보의 기초', 4, '3', 30, 'B관 301호', '수 2-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p003');
+insert into subject values('c0036', '딥러닝', 4, '3', 30, 'B관 501호', '월 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p004');
+insert into subject values('c0037', '블록체인 1반', 4, '3', 30, 'B관 401호', '목 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p005');
+insert into subject values('c0038', '블록체인 2반', 4, '3', 30, 'B관 401호', '금 2-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p005');
+insert into subject values('c0039', '인터넷보안 1반', 4, '3', 30, 'A관 101호', '화 3-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+insert into subject values('c0040', '인터넷보안 2반', 4, '3', 30, 'A관 101호', '금 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 1, 'p001');
+
+
+insert into subject values('b0001', '회계학', 1, '3', 30, 'B관 101호', '월 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p006');
+insert into subject values('b0002', '회계학', 1, '3', 30, 'B관 101호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p006');
+insert into subject values('b0003', '재무관리', 1, '2', 30, 'B관 102호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공',2, 'p007');
+insert into subject values('b0004', '재무관리', 1, '2', 30, 'B관 102호', '수 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p007');
+insert into subject values('b0005', '마케팅', 1, '3', 30, 'B관 301호', '수 2-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p008');
+insert into subject values('b0006', '인사·조직', 1, '3', 30, 'B관 501호', '월 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p009');
+insert into subject values('b0007', 'MS/OM(생산운영관리)', 1, '3', 30, 'B관 401호', '목 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p010');
+insert into subject values('b0008', 'MS/OM(생산운영관리)', 1, '3', 30, 'B관 401호', '금 2-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p010');
+insert into subject values('b0009', '계량경영', 1, '3', 30, 'A관 101호', '화 3-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p006');
+insert into subject values('b0010', '계량경영', 1, '3', 30, 'A관 101호', '금 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p006');
+
+insert into subject values('b0011', '경영정보시스템', 2, '3', 30, 'B관 101호', '월 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p006');
+insert into subject values('b0012', '경영정보시스템', 2, '3', 30, 'B관 101호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p006');
+insert into subject values('b0013', '국제경영', 2, '2', 30, 'B관 102호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p007');
+insert into subject values('b0014', '국제경영', 2, '2', 30, 'B관 102호', '수 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p007');
+insert into subject values('b0015', '경영전략 ', 2, '3', 30, 'B관 301호', '수 2-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p008');
+insert into subject values('b0016', '파이낸스', 2, '3', 30, 'B관 501호', '월 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p009');
+insert into subject values('b0017', 'SSOM', 2, '3', 30, 'B관 401호', '목 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p010');
+insert into subject values('b0018', 'SSOM', 2, '3', 30, 'B관 401호', '금 2-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p010');
+insert into subject values('b0019', 'CSR', 2, '3', 30, 'A관 101호', '화 3-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p006');
+insert into subject values('b0020', 'CSR', 2, '3', 30, 'A관 101호', '금 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 2, 'p006');
+
+
+insert into subject values('d0001', '미적분학및연습', 1, '3', 30, 'B관 101호', '월 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p011');
+insert into subject values('d0002', '미적분학및연습', 1, '3', 30, 'B관 101호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p011');
+insert into subject values('d0003', '일반화학및연습', 1, '2', 30, 'B관 102호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공',3, 'p012');
+insert into subject values('d0004', '일반화학및연습', 1, '2', 30, 'B관 102호', '수 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p012');
+insert into subject values('d0005', '일반물리학및연습', 1, '3', 30, 'B관 301호', '수 2-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p013');
+insert into subject values('d0006', '물리화학 I', 2, '3', 30, 'B관 501호', '월 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p014');
+insert into subject values('d0007', '유기화학 I', 2, '3', 30, 'B관 401호', '목 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p015');
+insert into subject values('d0008', '유기화학 I',2, '3', 30, 'B관 401호', '금 2-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p015');
+insert into subject values('d0009', '분석화학 I', 2, '3', 30, 'A관 101호', '화 3-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p011');
+insert into subject values('d0010', '분석화학 I', 2, '3', 30, 'A관 101호', '금 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p011');
+
+insert into subject values('d0011', '양자화학', 3, '3', 30, 'B관 101호', '월 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p011');
+insert into subject values('d0012', '양자화학', 3, '3', 30, 'B관 101호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p011');
+insert into subject values('d0013', '유기화학 II', 3, '2', 30, 'B관 102호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p012');
+insert into subject values('d0014', '유기화학 II', 3, '2', 30, 'B관 102호', '수 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p012');
+insert into subject values('d0015', '분석화학 II ', 3, '3', 30, 'B관 301호', '수 2-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p013');
+insert into subject values('d0016', '물리화학 III', 3, '3', 30, 'B관 501호', '월 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p014');
+insert into subject values('d0017', '의약화학', 4, '3', 30, 'B관 401호', '목 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p015');
+insert into subject values('d0018', '의약화학', 4, '3', 30, 'B관 401호', '금 2-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p015');
+insert into subject values('d0019', '나노화학', 4, '3', 30, 'A관 101호', '화 3-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p011');
+insert into subject values('d0020', '나노화학', 4, '3', 30, 'A관 101호', '금 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '전공', 3, 'p011');
+
+
+insert into subject values('a0001', '교양타악실기', 1, '3', 30, 'B관 101호', '월 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p011');
+insert into subject values('a0002', '교양타악실기', 1, '3', 30, 'B관 101호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p011');
+insert into subject values('a0003', '교양댄스스포츠', 1, '2', 30, 'B관 102호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양',1, 'p012');
+insert into subject values('a0004', '교양댄스스포츠', 1, '2', 30, 'B관 102호', '수 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양',1, 'p012');
+insert into subject values('a0005', '교양골프', 1, '3', 30, 'B관 301호', '수 2-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p013');
+insert into subject values('a0006', '교양윈드써핑', 2, '3', 30, 'B관 501호', '월 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p014');
+insert into subject values('a0007', '교양수영', 2, '3', 30, 'B관 401호', '목 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p015');
+insert into subject values('a0008', '교양수영',2, '3', 30, 'B관 401호', '금 2-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p015');
+insert into subject values('a0009', '교양축구', 2, '3', 30, 'A관 101호', '화 3-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p011');
+insert into subject values('a0010', '교양축구', 2, '3', 30, 'A관 101호', '금 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p011');
+
+insert into subject values('a0011', '교양테니스', 3, '3', 30, 'B관 101호', '월 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p011');
+insert into subject values('a0012', '교양테니스', 3, '3', 30, 'B관 101호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p011');
+insert into subject values('a0013', '교양탁구', 3, '2', 30, 'B관 102호', '화 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p012');
+insert into subject values('a0014', '교양탁구', 3, '2', 30, 'B관 102호', '수 1-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p012');
+insert into subject values('a0015', '교양배드민턴 ', 3, '3', 30, 'B관 301호', '수 2-3', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p013');
+insert into subject values('a0016', '교양승마', 3, '3', 30, 'B관 501호', '월 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p014');
+insert into subject values('a0017', '사회봉사', 4, '3', 30, 'B관 401호', '목 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p015');
+insert into subject values('a0018', '사회봉사', 4, '3', 30, 'B관 401호', '금 2-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p015');
+insert into subject values('a0019', '융합과학특강', 4, '3', 30, 'A관 101호', '화 3-5', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p011');
+insert into subject values('a0020', '융합과학특강', 4, '3', 30, 'A관 101호', '금 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p011');
+
+
+
+select * from register

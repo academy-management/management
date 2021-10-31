@@ -82,7 +82,7 @@
 					<div class="search" style="display:inline-block;weight:100%">
 						<div style="margin-left:20px;">
 							<label for="major">
-								<input type="radio" name="division" value="전체"/> 전체
+								<input type="radio" name="division" value="전체" checked/> 전체
 							</label>
 							<label for="subject">
 								<input type="radio" name="division" value="${member.d_name}"/> 학과

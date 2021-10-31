@@ -51,8 +51,8 @@ public class RegisterController extends HttpServlet {
 			int year = 2021;
 			int semester = 2;
 		
-			/*int sno = student.getSno();*/
-			int sno = 20210101;
+			int sno = student.getSno();
+		
 			
 			String subno = req.getParameter("subno");
 			

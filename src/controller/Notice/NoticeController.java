@@ -22,7 +22,7 @@ import page.PageGroupResult;
 import page.PageManager;
 
 
-@WebServlet(urlPatterns= {"/notice", "/notice_search", "/notice_detail", "/professorNotice"})
+@WebServlet(urlPatterns= {"/notice", "/notice_search", "/notice_detail", "/professorNotice", "/professorNotice_search", "/professorNotice_detail"})
 public class NoticeController extends HttpServlet {
 	
 	@Override
@@ -42,6 +42,7 @@ public class NoticeController extends HttpServlet {
 		String uri = req.getRequestURI();
 		int lastIndex = uri.lastIndexOf("/");
 		String action =  uri.substring(lastIndex + 1);
+		System.out.println(action);
 		
 		if(action.equals("notice") || action.equals("professorNotice")) {
 			
@@ -71,7 +72,7 @@ public class NoticeController extends HttpServlet {
 			
 			req.setAttribute("pageGroupResult", pgr);
 		
-		} else if(action.equals("notice_search")) {
+		} else if(action.equals("notice_search") || action.equals("professorNotice_search")) {
 			
 			String division = req.getParameter("division");
 
@@ -166,7 +167,7 @@ public class NoticeController extends HttpServlet {
 			req.setAttribute("pageGroupResult", pgr);
 			req.setAttribute("searchDivision", division);
 			
-		} else if(action.equals("notice_detail")) {
+		} else if(action.equals("notice_detail") || action.equals("professorNotice_detail")) {
 			
 			int nno = Integer.parseInt(req.getParameter("nno"));
 			
@@ -195,6 +196,10 @@ public class NoticeController extends HttpServlet {
 			dispatcherUrl = "/jsp/Student/studentNoticeDetail.jsp";
 		} else if(action.equals("professorNotice")) {
 			dispatcherUrl = "/jsp/Professor/professorNotice.jsp";
+		} else if(action.equals(("professorNotice_search"))) {
+			dispatcherUrl = "/jsp/Professor/professorNotice.jsp";
+		} else if(action.equals("professorNotice_detail")) {
+			dispatcherUrl = "/jsp/Professor/professorNoticeDetail.jsp";
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher(dispatcherUrl);

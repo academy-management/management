@@ -81,8 +81,9 @@
 						<div class="my_text_edit" style="margin-bottom:20px">
 							<label>소속학과</label>
 							<select class="login_text" name="d_name">
-									<option value="1">컴퓨터공학과</option>
-									<option value="2">기계공학과</option>
+									<option value="1" selected>컴퓨터공학과</option>
+									<option value="2" >경영학과</option>
+									<option value="3" >화학과</option>
 							</select>
 						</div>
 						<div class="my_text_edit">

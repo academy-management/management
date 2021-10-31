@@ -78,10 +78,11 @@
 						<div class="my_text_edit" style="margin-bottom:20px">
 							<label>교수명</label>
 							<select class="login_text" name="pno">
-									<option value="p001">김교수</option>
-									<option value="p002">이교수</option>
-									<option value="p003">박교수</option>
-									<option value="p004">최교수</option>
+									<option value="p001">백시우 교수</option>
+									<option value="p002">양호성 교수</option>
+									<option value="p003">권상미 교수</option>
+									<option value="p004">황보민선 교수</option>
+									<option value="p005">노지은 교수</option>
 							</select>
 						</div>
 						
@@ -156,7 +157,8 @@
 							<select class="login_text" name="department">							
 									<option value="0">교양</option>
 									<option value="1" selected>컴퓨터공학과</option>
-									<option value="2">기계공학과</option>
+									<option value="2" >경영학과</option>
+									<option value="3" >화학과</option>
 							</select>
 						</div>
 						<div class="my_btn">

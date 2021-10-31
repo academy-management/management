@@ -68,18 +68,25 @@ public class ProfessorController extends HttpServlet{
 			req.setAttribute("student", dao.selectByNo(req.getParameter("sno")));
 		} else if(action.equals("studentScoreManage")) {
 			SubjectDao subDao = new SubjectDaoImpl();
+			System.out.println(subDao.selectByPno(professor.getPno()));
 			req.setAttribute("subjectList", subDao.selectByPno(professor.getPno()));
 			StudentDao stdDao = new StudentDaoImpl();
 			System.out.println((req.getParameter("subjectSelect")));
+			req.setAttribute("subjectSelected", req.getParameter("subjectSelect"));
 			req.setAttribute("studentList", stdDao.selectBySubjectNo(req.getParameter("subjectSelect")));
 					
 		} else if(action.equals("studentScoreUpdate")) {
 			SubjectDao subDao = new SubjectDaoImpl();
+			System.out.println(subDao.selectByPno(professor.getPno()));
 			req.setAttribute("subjectList", subDao.selectByPno(professor.getPno()));
-			
 			StudentDao stdDao = new StudentDaoImpl();
-			System.out.println(req.getParameter("score"));
-			System.out.println(req.getParameter("regno"));
+			System.out.println((req.getParameter("subjectSelect")));
+			req.setAttribute("subjectSelected", req.getParameter("subjectSelect"));
+			req.setAttribute("studentList", stdDao.selectBySubjectNo(req.getParameter("subjectSelect")));
+			
+			System.out.println("score = "+req.getParameter("score"));
+			System.out.println("regno = "+req.getParameter("regno"));
+			
 			stdDao.updateToScore(req.getParameter("regno"), req.getParameter("score"));	
 		}
 
@@ -94,7 +101,8 @@ public class ProfessorController extends HttpServlet{
 			dispatcherUrl = "/jsp/Professor/professorStudentDetail.jsp";
 		} else if(action.equals("studentScoreManage")) {
 			dispatcherUrl = "/jsp/Professor/professorStudentScoreManage.jsp";
-		} else if(action.equals("studentScoreUpdate")) {
+		} 
+		else if(action.equals("studentScoreUpdate")) {
 			dispatcherUrl = "/jsp/Professor/professorStudentScoreManage.jsp";
 		}
 		

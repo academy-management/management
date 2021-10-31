@@ -22,7 +22,15 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/script.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
-
+<script>
+$(document).ready(function(){
+	var searchSelect = $('#yearSelected').val();
+	if(searchSelect != ""){
+		$('select[name="yearSelect"]').val(searchSelect).prop("selected", true);
+	}
+	
+});
+</script>
 </head>
 <body>
 	<div class="wrap">
@@ -69,19 +77,16 @@
 					<form method="get" action="" style="">						
 						<div>
 							입학년도 
-							<select class="form-select form-select-sm" style="width: 100px; display: inline;" name="yearSelect">
+							<input type="hidden" id="yearSelected" value="${yearSelected}">							
+							<select class="form-select form-select-sm year" style="width: 100px; display: inline;" id="yearSelect" name="yearSelect">
 								<option value="21">2021</option>
 								<option value="20">2020</option>
 								<option value="19">2019</option>
 								<option value="18">2018</option>
-								<option value="17">2017</option>
-								<option value="16">2016</option>
-								<option value="15">2015</option>
-								<option value="14">2014</option>
 							</select> <span>이름</span> 
-							<input type="text" placeholder="Username" name="nameSearch"> 
-							<input type="submit" formaction="studentSearch" value="전체조회">
-							<input type="submit" formaction="studentNameOrYearSearch" value="조회">
+							<input type="text" placeholder="검색할 학생이름을 입력하세요" name="nameSearch"> 
+							<input type="submit" formaction="studentSearch" value="학년도 전체조회">
+							<input type="submit" formaction="studentNameOrYearSearch" value="이름/학년도 조회">
 						</div>
 					</form>
 					<table class="table">
@@ -103,21 +108,11 @@
 									<td>${std.dname}</td>
 									<td>${std.grade}</td>
 									<td>${std.state}</td>
-									<td><a href="studentDetail?sno=${std.sno}">상세보기</a></td>
+									<td><a href="studentDetail?sno=${std.sno}" style="color:blue; text-decoration: underline;">상세보기</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
-					<ul class="pagination justify-content-center">
-						<li class="page-item"><a class="page-link"
-							href="javascript:void(0);">Previous</a></li>
-						<li class="page-item"><a class="page-link"
-							href="javascript:void(0);">1</a></li>
-						<li class="page-item"><a class="page-link"
-							href="javascript:void(0);">2</a></li>
-						<li class="page-item"><a class="page-link"
-							href="javascript:void(0);">Next</a></li>
-					</ul>
 				</div>
 			</section>
 

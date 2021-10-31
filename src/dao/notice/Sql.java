@@ -4,16 +4,34 @@ public class Sql {
 	
 	/*페이지별로 SELECT*/
 	public static final String SELECT_NOTICE_TOTAL_SQL =
-			"SELECT NNO, SUBJECT, TO_CHAR(TIME, 'YYYY.MM.DD') AS TIME, VIEWS FROM (SELECT ROWNUM RN, NOTICES.* FROM (SELECT * FROM NOTICE ORDER BY NNO DESC) NOTICES) WHERE RN BETWEEN ? AND ?";
+			"SELECT NNO, "
+			+ "SUBJECT, "
+			+ "TO_CHAR(TIME, 'YYYY.MM.DD') AS TIME, "
+			+ "VIEWS FROM (SELECT ROWNUM RN, "
+			+ "NOTICES.* FROM (SELECT * FROM NOTICE WHERE DIVISION = '전체' ORDER BY NNO DESC) NOTICES) "
+			+ "WHERE RN BETWEEN ? AND ? ";
 	
 	public static final String SELECT_NOTICE_BY_DIVISION_SQL =
-			"SELECT NNO, SUBJECT, TO_CHAR(TIME, 'YYYY.MM.DD') AS TIME, VIEWS FROM (SELECT ROWNUM RN, NOTICES.* FROM (SELECT * FROM NOTICE WHERE DIVISION = ? ORDER BY NNO DESC) NOTICES) WHERE RN BETWEEN ? AND ? ";
+			"SELECT NNO, "
+			+ "SUBJECT, "
+			+ "TO_CHAR(TIME, 'YYYY.MM.DD') AS TIME, "
+			+ "VIEWS FROM (SELECT ROWNUM RN, "
+			+ "NOTICES.* FROM (SELECT * FROM NOTICE WHERE DIVISION = ? ORDER BY NNO DESC) NOTICES) "
+			+ "WHERE RN BETWEEN ? AND ? ";
 
 	public static final String SELECT_NOTICE_BY_SUBJECT_SQL =
-			"SELECT NNO, SUBJECT, TO_CHAR(TIME, 'YYYY.MM.DD') AS TIME, VIEWS FROM (SELECT ROWNUM RN, NOTICES.* FROM (SELECT * FROM NOTICE WHERE SUBJECT LIKE '%'|| ? || '%' ORDER BY NNO DESC) NOTICES) WHERE RN BETWEEN ? AND ? ";
+			"SELECT NNO, "
+			+ "SUBJECT, "
+			+ "TO_CHAR(TIME, 'YYYY.MM.DD') AS TIME, "
+			+ "VIEWS FROM (SELECT ROWNUM RN, NOTICES.* FROM "
+			+ "(SELECT * FROM NOTICE WHERE SUBJECT LIKE '%'|| ? || '%' AND DIVISION = '전체' ORDER BY NNO DESC) NOTICES) WHERE RN BETWEEN ? AND ? ";
 	
 	public static final String SELECT_NOTICE_BY_DIVISION_AND_SUBJECT_SQL =
-			"SELECT NNO, SUBJECT, TO_CHAR(TIME, 'YYYY.MM.DD') AS TIME, VIEWS FROM (SELECT ROWNUM RN, NOTICES.* FROM (SELECT * FROM NOTICE WHERE SUBJECT LIKE '%'|| ? || '%' AND DIVISION = ? ORDER BY NNO DESC) NOTICES) WHERE RN BETWEEN ? AND ? ";
+			"SELECT NNO, "
+			+ "SUBJECT, "
+			+ "TO_CHAR(TIME, 'YYYY.MM.DD') AS TIME, "
+			+ "VIEWS FROM (SELECT ROWNUM RN, NOTICES.* FROM "
+			+ "(SELECT * FROM NOTICE WHERE SUBJECT LIKE '%'|| ? || '%' AND DIVISION = ? ORDER BY NNO DESC) NOTICES) WHERE RN BETWEEN ? AND ? ";
 	
 	public static final String SELECT_NOTICE_BY_NNO_SQL =
 			"SELECT NNO, SUBJECT, TO_CHAR(TIME, 'YYYY.MM.DD') AS TIME, CONTENTS, VIEWS FROM NOTICE WHERE NNO = ?";
@@ -22,7 +40,7 @@ public class Sql {
 			"UPDATE NOTICE SET VIEWS = ? WHERE NNO = ?";
 	
 	public static final String NOTICE_INSERT =
-			"insert into Notice values(seq_notice.nextval, sysdate ,?,?,?,1,'admin')";
+			"insert into Notice values(seq_notice.nextval, sysdate ,?,?,?,1,1)";
 	
 	public static final String NOTICE_DELETE =
 			"delete from notice where nno = ?";
@@ -81,7 +99,7 @@ public class Sql {
 			"select nom, subject, content, wdata, cnt, id from BBS";
 	public static final String BOARD_SELECTSUBJECT_SQL = 
 			"select nom, subject, content, wdata, cnt, id from BBS where nom = ?";
-	
+
 	public static final String MANAGER_NOTICE_UPDATE = 
 			"update notice set subject =? , contents=? , division =? where nno =?";
 	

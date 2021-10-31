@@ -20,25 +20,34 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/script.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
-<!-- <script type="text/javascript">
-	$(function(){
-		$( ".target" ).change(function() {
-			$.ajax({	             
-	            type : "GET",
-	            url : "studentScoreManage",
-	            dataType : "text",
-	            error : function(){
-	                alert('통신실패!!');
-	            },
-	            success : function(data){
-	                alert("통신데이터 값 : " + data) ;
-	                $("#dataArea").html(data) ;
-	            }
-	             
-	        });
-		});
+<script type="text/javascript">
+$(document).ready(function(){
+	var now = new Date();
+	if(now.getMonth() > 9){
+		var seme = 2;
+	}else{
+		var seme = 1;
+	}
+	
+	$("#year_seme").text(now.getFullYear()+"-"+seme);
+	
+	var searchSelect = $('#subjectSelected').val();
+	if(searchSelect != ""){
+		$('select[name="subjectSelect"]').val(searchSelect).prop("selected", true);
+	}
+	
+});
+var updateScore = function(index) {
+	var regno = $('#regno' + index).val();
+	var newScore = $('#newScore' + index).val();
+
+	$.get("studentScoreUpdate?regno=" + regno + "&score=" + encodeURIComponent(newScore), function(res) {
+		$("#submit").click();
+		alert("수정되었습니다");
 	});
-</script> -->
+	
+}
+</script>
 
 </head>
 <body>
@@ -76,22 +85,25 @@
 						<li><a href="professorNotice">공지사항</a></li>
 					</ul>
 				</nav>
-			</section>
-			<section class="container_right container_center">
-				<div class="main_title">
+			</section>			
+			<section class="container_right container_center">			
+				<div class="main_title">					
 					<img src="/Academic-Management/img/title.png" alt="성적정보" />
 					<h4>성적정보</h4>
 				</div>
 				<div class="container mt-3">
-					<div>
+					<div>					
 						<form action="studentScoreManage">
+						<input type="hidden" id="subjectSelected" value="${subjectSelected}">
+						<h3 id="year_seme" style="display: inline;"></h3><h3 style="display: inline;">학기 성적정보입니다.</h3><br>
 							과목 <select class="form-select form-select-sm target" id="subjectSelect" style="width: 500px; display: inline;" name="subjectSelect">
-								<option>과목선택</option>
-								<c:forEach var="subject" items="${subjectList}">
-									<option value="${subject.subno}">[${subject.subno}]${subject.name}[${subject.start}~${subject.end}]</option>
+								<option value="null">과목선택</option>
+								<c:forEach var="subject" items="${subjectList}">									
+									<option value="${subject.subno}">${subject.name}</option>
 								</c:forEach>
 							</select>
-							<input type="submit" value="조회">
+							<input type="submit" value="강의 성적 조회" id="submit">
+							
 						</form>
 					</div>					
 						<table class="table">
@@ -102,13 +114,13 @@
 									<th>이름</th>
 									<th>전공</th>
 									<th>학년</th>
-									<th>강의명</th>
 									<th>성적입력</th>
 								</tr>
 							</thead>
 							<tbody>							
-								<c:forEach var="student" items="${studentList}">
-									<form action="studentScoreManage">									
+								<c:forEach var="student" items="${studentList}" varStatus="status">
+									<!-- <form action="studentScoreManage"> -->
+									<%-- <input type="text" id="subjectSelected" value="${subjectSelected}">	 --%>						
 										<tr>
 											<td>${student.regno}</td>
 											<td>${student.sno}</td>
@@ -116,8 +128,8 @@
 											<td>${student.dname}</td>
 											<td>${student.grade}</td>
 											<td>		
-												<select name="score" class="form-select form-select-sm" style="width: 100px; display: inline;"">												
-													<option value="${student.score}">${student.score}</option>
+												<select id="newScore${status.index}" class="form-select form-select-sm" style="width: 100px; display: inline;">
+													<option value="${student.score}">${student.score}</option>												
 													<option value="A+">A+</option>
 													<option value="A">A</option>
 													<option value="A-">A-</option>
@@ -128,29 +140,17 @@
 													<option value="C">C</option>
 													<option value="C-">C-</option>
 													<option value="F">F</option>
-												</select>
-												<input type="text" name="regno" value="${student.regno}" hidden>
-												<input type="submit" formaction="studentScoreUpdate" value="저장">
+												</select>												
+												<input type="button" id="save" onclick="updateScore(${status.index})" value="저장">
+												<input type="hidden" id="regno${status.index}" value="${student.regno}">
 																							
 											</td>
 										</tr>
 										
-									</form>
+									<!-- </form> -->
 								</c:forEach>
 							</tbody>
-						</table>
-						
-					
-					<ul class="pagination justify-content-center">
-						<li class="page-item"><a class="page-link"
-							href="javascript:void(0);">Previous</a></li>
-						<li class="page-item"><a class="page-link"
-							href="javascript:void(0);">1</a></li>
-						<li class="page-item"><a class="page-link"
-							href="javascript:void(0);">2</a></li>
-						<li class="page-item"><a class="page-link"
-							href="javascript:void(0);">Next</a></li>
-					</ul>
+						</table>	
 				</div>
 			</section>
 

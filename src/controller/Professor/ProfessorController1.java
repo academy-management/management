@@ -42,6 +42,7 @@ public class ProfessorController1 extends HttpServlet{
 		String uri = req.getRequestURI();
 		int lastIndex = uri.lastIndexOf("/");
 		String action =  uri.substring(lastIndex + 1);
+		String dispatcherUrl = null;
 		
 		if(action.equals("professorMylogin")) {
 			
@@ -52,6 +53,8 @@ public class ProfessorController1 extends HttpServlet{
 			
 			HttpSession session = req.getSession();
 			Professor professor = (Professor) session.getAttribute("member");
+			
+			System.out.println(professor.toString());
 			
 			String address = professor.getAddress();
 			String target1 = ",";
@@ -79,15 +82,13 @@ public class ProfessorController1 extends HttpServlet{
 				req.setAttribute("email1", email1);
 				req.setAttribute("email2", email2);
 				
-				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/Professor/professor_mypage.jsp");
-				dispatcher.forward(req, resp);
+				dispatcherUrl = "/jsp/Professor/professor_mypage.jsp";
 				
 			} else {
 				
 				req.setAttribute("message", "잘못된 비밀번호 입니다");
 				
-				RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/Professor/professor_mylogin.jsp");
-				dispatcher.forward(req, resp);
+				dispatcherUrl = "/jsp/Professor/professor_mylogin.jsp";
 			}
 			
 		} else if(action.equals("updateProfessorInfo")) {
@@ -99,6 +100,8 @@ public class ProfessorController1 extends HttpServlet{
 			String address = req.getParameter("address1") + "," + req.getParameter("address2");
 			String tel = req.getParameter("tel");
 			String email = req.getParameter("email1") + "@" + req.getParameter("email3");
+			
+			System.out.println("====> check address : " + address);
 			
 			Professor professor = new Professor();
 			professor.setPno(pno);
@@ -181,7 +184,7 @@ public class ProfessorController1 extends HttpServlet{
 			
 		}
 		
-		String dispatcherUrl = null;
+		
 		
 		if(action.equals("professorMylogin")) {
 			

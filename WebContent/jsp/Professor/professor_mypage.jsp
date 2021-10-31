@@ -22,8 +22,25 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/script.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type ="text/javascript">
+
+$(function(){
+	
+	$('#submit').click(
+		function(){
+
+			var chk_pwd_val = $('#pwd').val();
+				
+			if(!chk_pwd_val) {
+				alert("새로운 비밀번호를 입력하세요");
+				$('#pwd').focus();
+				return false;
+			} 
+	});
+});
+</script>
 </head>
 <body>
 	<div class="wrap">
@@ -82,7 +99,7 @@
 									value="${member.password}" />
 							</div>
 							<div class="my_text_edit">
-								<label>새 비밀번호</label><input type="password" class="login_text"
+								<label>새 비밀번호</label><input type="password" class="login_text" id="pwd"
 									name="password" />
 							</div>
 							<div class="my_text_edit">
@@ -110,9 +127,9 @@
 								</div>
 								<div class="my_right">
 									<input type="text" id="sample6_address" class="login_text big"
-										placeholder="주소" name="address" value="${student.address}">
+										placeholder="주소" name="address1" value="${address1}">
 									<input type="text" id="sample6_detailAddress"
-										class="login_text big" placeholder="상세주소"> <input
+										class="login_text big" name="address2" value="${address2}"> <input
 										type="text" id="sample6_extraAddress" class="login_text big"
 										placeholder="참고항목">
 								</div>
@@ -121,7 +138,7 @@
 							<div class="my_btn">
 								<input type="button" class="btn_can"
 									onclick="location.href='login'" value="취소" /> <input
-									type="submit" class="btn_edit" value="수정" />
+									type="submit" class="btn_edit" id ="submit" value="수정" />
 							</div>
 						</form>
 					</div>

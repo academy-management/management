@@ -28,7 +28,7 @@ public class Test {
 		ProfessorDao2 dao = new ProfessorDaoImpl2();
 		dao.update(p);	
 		
-		ProfessorDao dao2 = new ProfessorDaoImpl();
+/*		ProfessorDao dao2 = new ProfessorDaoImpl();
 		List<Professor> proList = dao2.selectAll();
 		
 //		for (Professor professor : proList) {
@@ -59,8 +59,8 @@ public class Test {
 		for (Subject subject3 : Subject2) {
 			System.out.println(Subject2.toString());
 		}
-		}
-	
+		}*/
+	}
 		
 
 }

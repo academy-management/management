@@ -68,74 +68,43 @@
 				</div>
 				<div class="container_score">
 					<table class="table table-hover">
-					 		<colgroup>
-					          <col style="width:10%">
-					          <col style="width:10%">
-					          <col style="width:10%">
-					          <col style="width:15%">
-					          <col style="width:10%">
-					          <col style="width:20%">
-					          <col style="width:25%">
-					        </colgroup>
-					 		<thead>
-					 			<tr>
-					 				<th>No</th>
-									<th>학번</th>
-									<th>이름</th>
-									<th>전공</th>
-									<th>학년</th>
-									<th>전화번호</th>
-									<th>Email</th>
-					 			</tr>
-					 		</thead>
-					 		<tbody>
-								<c:forEach var="student" items="${studentList}" varStatus="status">
-									<tr>
-										<td>${fn:length(studentList) - status.index}</td>
-										<td>${student.sno}</td>
-										<td>${student.name}</td>
-										<td>${student.d_name}</td>
-										<td>${student.grade}</td>
-										<td>${student.tel}</td>
-										<td>${student.email}</td> 
-									</tr>
-								</c:forEach>
-							</tbody>
-					 	</table>
-				</div>
-				<div class="paging">
-					<ul>
-						<c:if test="${pageGroupResult.beforePage}">
-							<li>
-								<a href="#"><</a>
-							</li> 
-						</c:if>
-						
-						<c:forEach var="index" begin="${pageGroupResult.groupStartNumber}" end="${pageGroupResult.groupEndNumber}">
-							<c:choose>
-								<c:when test="">
-									<li>
-										<a href="#">${index}</a>
-									</li>
-								</c:when>
-								<c:otherwise>
-									<li>
-										<a href="#">${index}</a>
-									</li>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>
-						
-						<c:if test="${pageGroupResult.afterPage}">
-							<li>
-								<a href="#"> > </a>
-							</li> 
-						</c:if>
-					</ul>
+					 	<colgroup>
+							<col style="width:10%">
+							<col style="width:10%">
+							<col style="width:10%">
+							<col style="width:15%">
+							<col style="width:10%">
+							<col style="width:20%">
+							<col style="width:25%">
+						</colgroup>
+					 	<thead>
+					 		<tr>
+					 			<th>No</th>
+								<th>학번</th>
+								<th>이름</th>
+								<th>전공</th>
+								<th>학년</th>
+								<th>전화번호</th>
+								<th>Email</th>
+					 		</tr>
+					 	</thead>
+					 	<tbody>
+							<c:forEach var="student" items="${studentList}" varStatus="status">
+								<tr>
+									<td>${fn:length(studentList) - status.index}</td>
+									<td>${student.sno}</td>
+									<td>${student.name}</td>
+									<td>${student.d_name}</td>
+									<td>${student.grade}</td>
+									<td>${student.tel}</td>
+									<td>${student.email}</td> 
+								</tr>
+							</c:forEach>
+						</tbody>
+					 </table>
 				</div>
 			</section>
 		</div>
 	</div>
-	
 </body>
 </html>

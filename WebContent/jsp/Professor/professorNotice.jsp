@@ -87,7 +87,7 @@
 						</div>
 					</div>
 					<div class="notice_btn" style="float:right">
-						<input type="text" class="login_text dis hei" name="search" style="float:left"/>
+						<input type="text" class="login_text dis hei" name="search" style="float:left" placeholder="제목을 입력해주세요."/>
 						<input type="submit" class="btn_edit" value="조회"/>	
 					</div>
 				</div>

@@ -17,6 +17,23 @@
 <script type="text/javascript" src="/Academic-Management/js/script.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type ="text/javascript">
+
+$(function(){
+	
+	$('#submit').click(
+		function(){
+
+			var chk_pwd_val = $('#pwd').val();
+				
+			if(!chk_pwd_val) {
+				alert("새로운 비밀번호를 입력하세요");
+				$('#pwd').focus();
+				return false;
+			} 
+	});
+});
+</script>
 </head>
 <body>
 	<div class="wrap">
@@ -70,19 +87,17 @@
 							<div class="my_text_edit">
 								<label>이름</label><input type="text" class="login_text" name="name" value="${student.name}" />
 							</div>
+						
 							<div class="my_text_edit">
-								<label>비밀번호</label><input type="password" class="login_text" value="${student.password}"/>
-							</div>
-							<div class="my_text_edit">
-								<label>새 비밀번호</label><input type="password" class="login_text" name="password" />
+								<label>새 비밀번호</label><input type="password" class="login_text" name="password" id="pwd"/>
 							</div>
 							<div class="my_text_edit">
 								<label>연락처</label><input type="text" class="login_text" name="tel" value="${student.tel}"/>
 							</div>
 							<div class="my_text_edit">
-								<label>이메일</label><input type="text" class="login_text2" name="email" value="${student.email}"/>@
-								<select class="login_select">
-									<option>선택해주세요</option>
+								<label>이메일</label><input type="text" class="login_text2" name="email1" value="${email1}"/>@
+								<select class="login_select" name="email3">
+									<option value="${email2}" hidden="hidden">${email2}</option>
 									<option value="naver.com">naver.com</option>
 									<option value="daum.net">daum.net</option>
 								</select>
@@ -96,14 +111,14 @@
 									</div>
 								</div>
 								<div class="my_right">
-									<input type="text" id="sample6_address" class="login_text big"  placeholder="주소" name="address" value="${student.address}">
-									<input type="text" id="sample6_detailAddress" class="login_text big" placeholder="상세주소">
+									<input type="text" id="sample6_address" class="login_text big"  placeholder="주소" name="address1" value="${address1}">
+									<input type="text" id="sample6_detailAddress" class="login_text big" placeholder="상세주소" name="address2" value="${address2}">
 									<input type="text" id="sample6_extraAddress" class="login_text big" placeholder="참고항목">
 								</div>
 							</div>
 							<div class="my_btn">
 								<input type="button" class="btn_can" value="취소"/>
-								<input type="submit" class="btn_edit" value="수정"/>
+								<input type="submit" id="submit" class="btn_edit" value="수정"/>
 							</div>
 						</div>
 					</div>

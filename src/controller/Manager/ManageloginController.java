@@ -94,12 +94,17 @@ public class ManageloginController extends HttpServlet{
 			String name = req.getParameter("name");
 			String password = req.getParameter("password");
 			String tel = req.getParameter("tel");
-			String email = req.getParameter("email");
-			String address = req.getParameter("address");
+			String email1 = req.getParameter("email1");
+			String email2 = req.getParameter("email2");
+			String email = email1+"@"+email2;
+			String address = req.getParameter("address1") + "," + req.getParameter("address2");
 			
 			ManagerDao dao = new ManagerDaoImpl();
 			dao.managerUpdate(id, name, password, tel, email, address);
-			
+			Manager manager =new Manager(id, name, password, tel, email, address);
+			HttpSession session = req.getSession();
+			session.removeAttribute("memeber");
+			session.setAttribute("member", manager); 
 			
 	    }else if(action.equals("manager_mylogin")) {
 	    	

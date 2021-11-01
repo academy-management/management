@@ -56,7 +56,15 @@ public class StudentController extends HttpServlet{
 			String password = req.getParameter("password"); 
 			HttpSession session= req.getSession();
 			Student Student = (Student)session.getAttribute("member");
-	
+			
+			String address = Student.getAddress();
+			
+			String target1 = ",";
+			int targetNum = address.lastIndexOf(target1);
+			
+			String address1 = address.substring(0,targetNum);
+			String address2 = address.substring(targetNum + 1);
+			
 			String email = Student.getEmail();
 			String target2 = "@";
 			int targetNum2 = email.lastIndexOf(target2);
@@ -67,7 +75,10 @@ public class StudentController extends HttpServlet{
 			if(password.equals(Student.getPassword())) {
 				StudentDao dao = new StudentDaoImpl();
 				Student student = dao.selectByuser(Student.getSno());
+				
 				req.setAttribute("student", student);
+				req.setAttribute("address1", address1);
+				req.setAttribute("address2", address2);
 				req.setAttribute("email1", email1);
 				req.setAttribute("email2", email2);
 				
@@ -86,8 +97,8 @@ public class StudentController extends HttpServlet{
 			String name = req.getParameter("name");
 			String password = req.getParameter("password");
 			String tel = req.getParameter("tel");
-			String email = req.getParameter("email");
-			String address = req.getParameter("address");
+			String email = req.getParameter("email1") + "@" + req.getParameter("email3");
+			String address = req.getParameter("address1") + "," + req.getParameter("address2");
 			
 			Student st = new Student();
 			st.setName(name);
@@ -100,6 +111,10 @@ public class StudentController extends HttpServlet{
 			
 			StudentDao dao = new StudentDaoImpl();
 			dao.studentUpdate(st);
+			
+			HttpSession session = req.getSession();
+			session.removeAttribute("memeber");
+			session.setAttribute("member", st); 
 			
 		}else if(action.equals("student_score")) {
 			HttpSession session = req.getSession();

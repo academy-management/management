@@ -40,7 +40,7 @@ public class Sql {
 			"UPDATE NOTICE SET VIEWS = ? WHERE NNO = ?";
 	
 	public static final String NOTICE_INSERT =
-			"insert into Notice values(seq_notice.nextval, sysdate ,?,?,?,1,1)";
+			"insert into Notice values(seq_notice.nextval, sysdate ,?,?,?,1,'admin')";
 	
 	public static final String NOTICE_DELETE =
 			"delete from notice where nno = ?";

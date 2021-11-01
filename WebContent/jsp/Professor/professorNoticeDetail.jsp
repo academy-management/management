@@ -34,9 +34,8 @@
 						<p>${member.name}님 반갑습니다 <i class="xi-angle-down-min xi-x"></i></p>
 						<div class="user_choice">
 							<ul>
-								<li><a href="studentSearch">학생관리</a></li>
-								<li><a href="studentScoreManage">성적관리</a></li>
-								<li><a href="professorNotice">공지사항</a></li>
+								<li><a href="professorLectureInfo">강의정보</a></li>
+								<li><a href="professorMylogin">회원정보 변경</a></li>
 							</ul>
 						</div>
 					</li>

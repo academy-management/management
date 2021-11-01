@@ -92,7 +92,8 @@ var updateScore = function(index) {
 					<h4>성적정보</h4>
 				</div>
 				<div class="container mt-3">
-					<div>					
+					<div>		
+								
 						<form action="studentScoreManage">
 						<input type="hidden" id="subjectSelected" value="${subjectSelected}">
 						<h3 id="year_seme" style="display: inline;"></h3><h3 style="display: inline;">학기 성적정보입니다.</h3><br>
@@ -105,7 +106,8 @@ var updateScore = function(index) {
 							<input type="submit" value="강의 성적 조회" id="submit">
 							
 						</form>
-					</div>					
+					</div>
+					<c:if test="${!empty studentList}">					
 						<table class="table">
 							<thead>
 								<tr>
@@ -117,38 +119,40 @@ var updateScore = function(index) {
 									<th>성적입력</th>
 								</tr>
 							</thead>
-							<tbody>							
-								<c:forEach var="student" items="${studentList}" varStatus="status">
-									<!-- <form action="studentScoreManage"> -->
-									<%-- <input type="text" id="subjectSelected" value="${subjectSelected}">	 --%>						
-										<tr>
-											<td>${student.regno}</td>
-											<td>${student.sno}</td>
-											<td>${student.name}</td>
-											<td>${student.dname}</td>
-											<td>${student.grade}</td>
-											<td>		
-												<select id="newScore${status.index}" class="form-select form-select-sm" style="width: 100px; display: inline;">
-													<option value="${student.score}">${student.score}</option>												
-													<option value="A+">A+</option>
-													<option value="A">A</option>
-													<option value="A-">A-</option>
-													<option value="B+">B+</option>
-													<option value="B">B</option>
-													<option value="B-">B-</option>
-													<option value="C+">C+</option>
-													<option value="C">C</option>
-													<option value="C-">C-</option>
-													<option value="F">F</option>
-												</select>												
-												<input type="button" id="save" onclick="updateScore(${status.index})" value="저장">
-												<input type="hidden" id="regno${status.index}" value="${student.regno}">
-																							
-											</td>
-										</tr>
-										
-									<!-- </form> -->
-								</c:forEach>
+							<tbody>
+											
+									<c:forEach var="student" items="${studentList}" varStatus="status">					
+											<tr>
+												<td>${status.index+1}</td>
+												<td>${student.sno}</td>
+												<td>${student.name}</td>
+												<td>${student.dname}</td>
+												<td>${student.grade}</td>
+												<td>		
+													<select id="newScore${status.index}" class="form-select form-select-sm" style="width: 100px; display: inline;">
+														<option value="${student.score}">${student.score}</option>												
+														<option value="A+">A+</option>
+														<option value="A">A</option>
+														<option value="A-">A-</option>
+														<option value="B+">B+</option>
+														<option value="B">B</option>
+														<option value="B-">B-</option>
+														<option value="C+">C+</option>
+														<option value="C">C</option>
+														<option value="C-">C-</option>
+														<option value="F">F</option>
+													</select>										
+													<input type="button" id="save" onclick="updateScore(${status.index})" value="저장">
+													<input type="hidden" id="regno${status.index}" value="${student.regno}">
+																								
+												</td>
+											</tr>									
+									</c:forEach>
+								</c:if>
+								<c:if test="${empty studentList}">
+									 <hr />  
+									 <p class="center">수강중인 학생이 없습니다.</p>
+								</c:if>
 							</tbody>
 						</table>	
 				</div>

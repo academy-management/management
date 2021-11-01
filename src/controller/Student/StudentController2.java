@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.student.StudentDao;
+import dao.student.StudentDaoImpl;
 import dao.subject.SubjectDao2;
 import dao.subject.SubjectDaoImpl2;
 import model.Student;
@@ -50,6 +52,12 @@ public class StudentController2 extends HttpServlet{
 			req.setAttribute("subjectList", subjectList);
 			session.setAttribute("subjectList", subjectList);
 			
+			
+			StudentDao stdDao = new StudentDaoImpl();
+			List<Subject> registerList = stdDao.subjectYear2(2021, 2,student.getSno());
+			System.out.println(subjectList);
+			req.setAttribute("registerList", registerList);
+			
 		
 		} else if(action.equals("student_subject_select")) {
 			
@@ -66,6 +74,10 @@ public class StudentController2 extends HttpServlet{
 			System.out.println("======> " + division);
 			
 			List<Subject> subjectList = null;
+			StudentDao stdDao = new StudentDaoImpl();
+			List<Subject> registerList = stdDao.subjectYear2(2021, 2,student.getSno());
+			System.out.println(subjectList);
+			req.setAttribute("registerList", registerList);
 			
 			
 			

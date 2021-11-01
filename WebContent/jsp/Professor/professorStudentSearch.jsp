@@ -74,7 +74,8 @@ $(document).ready(function(){
 					<h4>학생 관리</h4>
 				</div>
 				<div class="container mt-3">
-					<form method="get" action="" style="">						
+					
+					<form method="get" action="" style="">	
 						<div>
 							입학년도 
 							<input type="hidden" id="yearSelected" value="${yearSelected}">							
@@ -83,12 +84,14 @@ $(document).ready(function(){
 								<option value="20">2020</option>
 								<option value="19">2019</option>
 								<option value="18">2018</option>
-							</select> <span>이름</span> 
+							</select> <span>이름</span>								
 							<input type="text" placeholder="검색할 학생이름을 입력하세요" name="nameSearch"> 
 							<input type="submit" formaction="studentSearch" value="학년도 전체조회">
 							<input type="submit" formaction="studentNameOrYearSearch" value="이름/학년도 조회">
+							
 						</div>
 					</form>
+					
 					<table class="table">
 						<thead>
 							<tr>
@@ -113,11 +116,16 @@ $(document).ready(function(){
 							</c:forEach>
 						</tbody>
 					</table>
+					
+					<c:if test="${empty studentList}">
+						<hr />  
+						<p class="center">검색된 학생이 없습니다.</p>
+					</c:if>
 				</div>
+				
 			</section>
 
 		</div>
 	</div>
 
 </body>
-</html>

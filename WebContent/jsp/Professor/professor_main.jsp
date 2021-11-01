@@ -81,7 +81,7 @@
 					 			<c:forEach var="notice" items="${noticeList}" begin = "0" end= "2" varStatus="status">
 					 			<tr>
 					 				<td>${fn:length(noticeList) - status.index}</td>
-					 				<td>${notice.subject}</td>
+					 				<td><a href="professorNotice_detail?nno=${notice.nno}">${notice.subject}</a></td>
 					 				<td>${notice.time}</td>
 					 				<td>${notice.views}</td>
 					 			</tr>

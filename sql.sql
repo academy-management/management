@@ -660,5 +660,13 @@ insert into subject values('a0019', '융합과학특강', 4, '3', 30, 'A관 101�
 insert into subject values('a0020', '융합과학특강', 4, '3', 30, 'A관 101호', '금 5-7', '강의', to_date('2021.09.05', 'YYYY.MM.DD'), to_date('2021.12.05', 'YYYY.MM.DD'), '교양', 1, 'p011');
 
 
+select * from student;
+select * from subject
+select pno ,email from professor
 
-select * from register
+select * from manager
+update manager set email ='asdzcx@naver.com'
+
+
+select * from student
+update student set email='zxcqwec@naver.com' where sno = '20210102'

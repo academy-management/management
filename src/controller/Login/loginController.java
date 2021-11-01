@@ -25,7 +25,7 @@ import model.Professor;
 import model.Student;
 
 
-@WebServlet(urlPatterns = {"/login_input", "/login", "/logout"})
+@WebServlet(urlPatterns = {"/login_input", "/login", "/logout","/studentmain"})
 public class loginController extends HttpServlet{
 	
 	@Override
@@ -161,6 +161,14 @@ public class loginController extends HttpServlet{
 			HttpSession session = req.getSession();
 			session.removeAttribute("member");
 			
+		}else if(action.equals("studentmain")) {
+			
+			
+		NoticeDao ndao = new NoticeDaoImpl();
+		List<Notice> noticeList = ndao.selectAll(1);
+			
+		req.setAttribute("noticeList", noticeList);
+		dispatcherUrl = "/jsp/Professor/professor_main.jsp";
 		}
 		
 		

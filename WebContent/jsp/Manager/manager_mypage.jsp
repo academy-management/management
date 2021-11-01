@@ -75,9 +75,7 @@
 							<div class="my_text_edit">
 								<label>이름</label><input type="text" class="login_text" name="name" value="${manager.name}" />
 							</div>
-							<div class="my_text_edit">
-								<label>비밀번호</label><input type="password" class="login_text" value="${manager.password}"/>
-							</div>
+							
 							<div class="my_text_edit">
 								<label>새 비밀번호</label><input type="password" class="login_text" name="password" />
 							</div>
@@ -87,7 +85,7 @@
 							<div class="my_text_edit">
 								<label>이메일 </label><input type="text" class="login_text2"
 									name="email1" value="${email1}" />@ <select
-									class="login_select" name="email3">
+									class="login_select" name="email2">
 									<option value="${email2}" hidden="hidden">${email2}</option>
 									<option value="naver.com">naver.com</option>
 									<option value="daum.net">daum.net</option>
@@ -105,9 +103,9 @@
 								</div>
 								<div class="my_right">
 									<input type="text" id="sample6_address" class="login_text big"
-										placeholder="주소" name="address" value="${student.address}">
+										placeholder="주소" name="address1" value="${address1}">
 									<input type="text" id="sample6_detailAddress"
-										class="login_text big" placeholder="상세주소"> <input
+										class="login_text big" name="address2" value="${address2}"> <input
 										type="text" id="sample6_extraAddress" class="login_text big"
 										placeholder="참고항목">
 								</div>

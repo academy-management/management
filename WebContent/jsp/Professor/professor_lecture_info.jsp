@@ -98,7 +98,7 @@
 						</select>
 						<select class="search_select" name="semester">
 							<option value="1">1학기</option>
-							<option value="2">2학기</option>
+							<option value="2" selected>2학기</option>
 						</select>
 					</div>
 					</form>

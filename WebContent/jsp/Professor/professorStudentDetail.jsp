@@ -62,7 +62,7 @@
 			<section class="container_right container_center">
 				<div class="main_title">
 					<img src="/Academic-Management/img/title.png" alt="성적정보" />
-					<h4>성적정보</h4>
+					<h4>학생정보</h4>
 				</div>
 				<div class="container mt-3">
 					<table class="table table-striped">

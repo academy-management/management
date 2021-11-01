@@ -133,8 +133,56 @@
 						<input type="submit" class="btn_edit" id="search" value="조회"/>
 					</div>
 				</div>
-				</form>
+				</form>				
+					
 				<div class="container_score">
+					<div class="main_title">
+					<img src="/Academic-Management/img/title.png" alt="성적정보"/>
+					<h4>신청목록</h4>
+				</div>
+					<c:if test="${!empty registerList}">
+						<table class="table table-bordered table-sm">
+						 		<colgroup>
+						          <col style="width:30%">
+						          <col style="width:10%">
+						          <col style="width:15%">
+						          <col style="width:15%">
+						          <col style="width:15%">
+						          <col style="width:15%">
+						        </colgroup>
+						 		<thead>
+						 			<tr>
+						 				<th>과목</th>
+						 				<th>학기</th>
+						 				<th>개강일</th>
+						 				<th>종강일</th>
+						 				<th>담당교수</th>
+						 			</tr>
+						 		</thead>
+						 		<tbody>
+						 			<c:forEach var="registerList" items="${registerList}">
+							 			<tr>
+							 				<td>${registerList.name}</td>
+							 				<td>${registerList.semester}</td>
+							 				<td>${registerList.start}</td>
+							 				<td>${registerList.end}</td>
+							 				<td>${registerList.p_name}</td>
+							 			</tr>
+						 			</c:forEach>
+						 	</table>
+						 	</c:if>
+						 	<c:if test="${empty registerList}">
+										 <hr />  
+										 <p class="center">신청한 강의가 없습니다.</p>
+							</c:if>
+				</div>				
+				<div class="container_score">
+				<div class="main_title">
+					<img src="/Academic-Management/img/title.png" alt="성적정보"/>
+					<h4>수강신청</h4>
+				</div>				
+				<c:if test="${!empty subjectList}">
+				
 					<table class="table table-hover">
 					 		<colgroup>
 					          <col style="width:5%">
@@ -167,6 +215,7 @@
 					 		</thead>
 					 		<tbody>
 					 		
+					 		
 					 		<c:forEach var="subject" items="${subjectList}" varStatus="status">
 					 			<tr>
 					 				<td>${fn:length(subjectList) - status.index}</td>
@@ -189,6 +238,11 @@
 					 		
 					 		</tbody>
 					 	</table>
+					 	</c:if>
+						<c:if test="${empty subjectList}">
+							<hr />  
+							<p class="center">강의가 없습니다.</p>
+						</c:if>
 				</div>
 			</section>
 		</div>

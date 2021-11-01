@@ -13,11 +13,13 @@ import javax.servlet.http.HttpSession;
 
 import dao.Professor.ProfessorDao2;
 import dao.Professor.ProfessorDaoImpl2;
+import dao.notice.NoticeDao;
+import dao.notice.NoticeDaoImpl;
 import dao.student.StudentDao22;
 import dao.student.StudentDaoImpl22;
 import dao.subject.SubjectDao2;
 import dao.subject.SubjectDaoImpl2;
-
+import model.Notice;
 import model.Professor;
 import model.Student;
 import model.Subject;
@@ -114,7 +116,9 @@ public class ProfessorController1 extends HttpServlet{
 			
 			ProfessorDao2 dao = new ProfessorDaoImpl2();
 			dao.update(professor);			
-			
+			NoticeDao ndao = new NoticeDaoImpl();
+            List<Notice> noticeList = ndao.selectAll(1);
+            req.setAttribute("noticeList", noticeList);
 			HttpSession session = req.getSession();
 			session.removeAttribute("memeber");
 			session.setAttribute("member", professor); 

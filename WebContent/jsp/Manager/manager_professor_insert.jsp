@@ -96,8 +96,8 @@
 							<label>연락처</label><input type="text" class="login_text" name="tel" />
 						</div>
 						<div class="my_text_edit">
-							<label>이메일</label><input type="text" class="login_text2" name="email" />@
-							<select class="login_select">
+							<label>이메일</label><input type="text" class="login_text2" name="email1" />@
+							<select class="login_select" name="email2">
 								<option>선택해주세요</option>
 								<option value="naver.com">naver.com</option>
 								<option value="daum.net">daum.net</option>

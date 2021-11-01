@@ -94,10 +94,7 @@ $(function(){
 								<label>이름</label><input type="text" class="login_text"
 									name="name" value="${member.name}" />
 							</div>
-							<div class="my_text_edit">
-								<label>비밀번호</label><input type="password" class="login_text"
-									value="${member.password}" />
-							</div>
+							
 							<div class="my_text_edit">
 								<label>새 비밀번호</label><input type="password" class="login_text" id="pwd"
 									name="password" />

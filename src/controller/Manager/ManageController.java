@@ -128,7 +128,7 @@ public class ManageController extends HttpServlet{
 				String major = req.getParameter("major");
 				String pro_room = req.getParameter("pro_room");
 				String tel = req.getParameter("tel");
-				String email1 = req.getParameter("email");
+				String email1 = req.getParameter("email1");
 				String email2 = req.getParameter("email2");
 				String email = email1+"@"+email2;
 				String address2 = req.getParameter("address2");

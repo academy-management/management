@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,28 +9,23 @@
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="stylesheet" href="/Academic-Management/css/style.css" type="text/css">
-
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"
-	type="text/javascript"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+	
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>	
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/script.js"></script>
 <script type="text/javascript" src="/Academic-Management/js/slick.js"></script>
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+ 
 </head>
 <body>
 	<div class="wrap">
 		<header class="header">
 			<div class="logo">
 				<h1>
-					<a href="#"> <img src="/Academic-Management//img/logo.png" alt="메인" />
+					<a href="#">
+						<img src="/Academic-Management/img/logo.png" alt="메인"/>
 					</a>
 				</h1>
 			</div>
@@ -61,96 +57,69 @@
 					</ul>
 				</nav>
 			</section>
-			<section class="container_right cotainer_col">
-				<div class="main_title">
-					<img src="/Academic-Management/img/title_img.png" alt="성적정보" />
-					<h4>공지사항</h4>
-				</div>
-				<div class="search_box">
-					<div class="search">
-						<div style="margin-left: 20px;">
-							<label for="major"> <input type="radio" id="major"
-								checked /> 전체
-							</label> <label for="subject"> <input type="radio" id="subject" />
-								학과
-							</label>
-						</div>
+			<section class="container_right">
+				<div class="right_l">
+					<div class="main_bnr">
+						<img src="/Academic-Management/img/main1.png" alt="메인 배너"/>
 					</div>
-					<div class="notice_btn">
-						<input type="text" class="login_text dis hei" name="search" /> <input
-							type="submit" class="btn_edit" value="조회" />
-					</div>
+					<div class="main_notice">
+					 	<table class="table table-hover">
+					 		<colgroup>
+					          <col style="width:10%">
+					          <col style="width:70%">
+					          <col style="width:10%">
+					          <col style="width:10%">
+					        </colgroup>
+					 		<thead>
+					 			<tr>
+					 				<th>No</th>
+					 				<th>제목</th>
+					 				<th>작성일</th>
+					 				<th>조회수</th>
+					 			</tr>
+					 		</thead>
+					 		<tbody>
+					 			<c:forEach var="notice" items="${noticeList}" begin = "0" end= "2" varStatus="status">
+					 			<tr>
+					 				<td>${fn:length(noticeList) - status.index}</td>
+					 				<td><a href="notice_detail?nno=${notice.nno}">${notice.subject}</a></td>
+					 				<td>${notice.time}</td>
+					 				<td>${notice.views}</td>
+					 			</tr>
+					 			</c:forEach>	
+					 		</tbody>
+					 	</table>
+					 </div>
 				</div>
-				<div class="container_score">
-					<table class="table table-hover">
-						<colgroup>
-							<col style="width: 10%">
-							<col style="width: 70%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-						</colgroup>
-						<thead>
-							<tr>
-								<th>No</th>
-								<th>제목</th>
-								<th>작성일</th>
-								<th>조회수</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${noticeList}" var="noticeList">
-								<tr>
-									<td>${noticeList.nno}</td>
-									<td>${noticeList.subject}</td>
-									<td>${noticeList.time}</td>
-									<td>${noticeList.views}</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
-				<div class="paging">
-					<!-- <ul>
-						<li><</li>
-						<li class="active">1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
-						<li>></li>
-					</ul> -->
-					<ul class="pagination pagination-sm">
-						<c:if test="${pageGroupReulst.beforePage}">
-							<li class="page-item"><a class="page-link"
-								href="memo_search?reqPage=${pageGroupReulst.groupStarNumber-1}">이전</a>
-							</li>
-						</c:if>
-
-
-						<c:forEach var="index" begin="${pageGroupReulst.groupStarNumber}"
-							end="${pageGroupReulst.groyupEndNumber}">
-							<c:choose>
-								<c:when test="${pageGroupReulst.selectPageNumber==index}">
-									<li class="page-item active"><a class="page-link"
-										href="memo_search?reqPage=${index}">${index}</a></li>
-								</c:when>
-								<c:otherwise>
-									<li class="page-item"><a class="page-link"
-										href="memo_search?reqPage=${index}">${index}</a></li>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>
-
-						<c:if test="${pageGroupReulst.afterPage}">
-							<li class="page-item"><a class="page-link"
-								href="memo_search?reqPage=${pageGroupReulst.groyupEndNumber+1}">다음
-							</a></li>
-						</c:if>
-					</ul>
+				<div class="slide_bnr">
+				  	<div id="slider-div">
+					    <div>
+					    	<img src="/Academic-Management/img/s11.png" alt="성적확인 기간"/>
+					    </div>
+					   <!--  <div>
+					    	<img src="./img/s1.png" alt="성적확인 기간"/>2222
+					    </div> -->
+				  	</div>
 				</div>
 			</section>
+			
 		</div>
 	</div>
-
+	<!-- <script type="text/javascript">
+	$(function(){
+		$('#slider-div').slick({
+			slide: 'div',		
+			infinite : true, 	
+			slidesToShow : 1,		
+			slidesToScroll : 1,		
+			arrows : false, 		
+			dots : true, 		
+			autoplay : true,			
+			autoplaySpeed : 1000, 		
+			pauseOnHover : true,		
+			dotsClass : "slick-dots"	
+		});
+	})
+	</script> -->
 </body>
 </html>

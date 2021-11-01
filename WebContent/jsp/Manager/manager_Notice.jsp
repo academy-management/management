@@ -24,7 +24,7 @@
 		<header class="header">
 			<div class="logo">
 				<h1>
-					<a href="#">
+					<a href="login">
 						<img src="/Academic-Management/img/logo.png" alt="메인"/>
 					</a>
 				</h1>
